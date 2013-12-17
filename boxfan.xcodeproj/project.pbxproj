@@ -133,8 +133,6 @@
 		ECA0CE3F185E4EF8003380C5 /* boxfan */ = {
 			isa = PBXGroup;
 			children = (
-				ECA0CE48185E4EF9003380C5 /* boxfanAppDelegate.h */,
-				ECA0CE49185E4EF9003380C5 /* boxfanAppDelegate.m */,
 				ECA0CE4B185E4EF9003380C5 /* Main.storyboard */,
 				ECA1322F185FAF9B00001793 /* FightDetailViewController.h */,
 				ECA13230185FAF9B00001793 /* FightDetailViewController.m */,
@@ -142,17 +140,10 @@
 				ECA13227185FA36A00001793 /* UserPickViewController.m */,
 				ECA0CE6E185E510B003380C5 /* ScheduleViewController.h */,
 				ECA0CE6F185E510B003380C5 /* ScheduleViewController.m */,
-				ECA0CE71185E5818003380C5 /* Boxer.h */,
-				ECA0CE74185E59BF003380C5 /* Fight.h */,
-				ECA13229185FA64E00001793 /* User.h */,
-				ECA1322C185FA8A500001793 /* Pick.h */,
-				ECA1322D185FA8A500001793 /* Pick.m */,
-				ECA1322A185FA64E00001793 /* User.m */,
-				ECA0CE75185E59BF003380C5 /* Fight.m */,
-				ECA0CE72185E5818003380C5 /* Boxer.m */,
 				ECA0CE4E185E4EF9003380C5 /* boxfanViewController.h */,
 				ECA0CE4F185E4EF9003380C5 /* boxfanViewController.m */,
 				ECA0CE51185E4EF9003380C5 /* Images.xcassets */,
+				ECA13232186018F700001793 /* Model */,
 				ECA0CE40185E4EF9003380C5 /* Supporting Files */,
 			);
 			path = boxfan;
@@ -161,6 +152,8 @@
 		ECA0CE40185E4EF9003380C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ECA0CE49185E4EF9003380C5 /* boxfanAppDelegate.m */,
+				ECA0CE48185E4EF9003380C5 /* boxfanAppDelegate.h */,
 				ECA0CE41185E4EF9003380C5 /* boxfan-Info.plist */,
 				ECA0CE42185E4EF9003380C5 /* InfoPlist.strings */,
 				ECA0CE45185E4EF9003380C5 /* main.m */,
@@ -185,6 +178,21 @@
 				ECA0CE61185E4EF9003380C5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		ECA13232186018F700001793 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ECA0CE71185E5818003380C5 /* Boxer.h */,
+				ECA0CE74185E59BF003380C5 /* Fight.h */,
+				ECA13229185FA64E00001793 /* User.h */,
+				ECA1322C185FA8A500001793 /* Pick.h */,
+				ECA1322D185FA8A500001793 /* Pick.m */,
+				ECA1322A185FA64E00001793 /* User.m */,
+				ECA0CE75185E59BF003380C5 /* Fight.m */,
+				ECA0CE72185E5818003380C5 /* Boxer.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
