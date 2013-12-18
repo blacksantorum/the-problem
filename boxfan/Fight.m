@@ -44,7 +44,7 @@
     Boxer *bSide = [self.boxers objectAtIndex:1];
     
      // we want "<A-side boxer> - <B-side boxer>"
-    title = [NSString stringWithFormat:@"%@ %@ - %@",self.date, [aSide lastName],[bSide lastName]];
+    title = [NSString stringWithFormat:@"%@ - %@",[aSide lastName],[bSide lastName]];
     
     return title;
 }

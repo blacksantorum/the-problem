@@ -55,7 +55,7 @@
     // set title, fight descriptors
     [self setTitle:[self.fight titleForScheduleView]];
     [self.locationLabel setText:self.fight.location];
-    [self.weightAndRoundsLabel setText:[NSString stringWithFormat:@"%@ rounds at %@ lbs",self.fight.rounds,self.fight.weight]];
+    [self.weightAndRoundsLabel setText:[NSString stringWithFormat:@"%@ rounds at %@lbs",self.fight.rounds,self.fight.weight]];
     
 	// set fighter labels
     Boxer *a = [self.fight.boxers objectAtIndex:0];
