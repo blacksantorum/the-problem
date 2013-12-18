@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Schedule View Controller - Boxing Schedule-->
+        <!--Schedule View Controller - Upcoming-->
         <scene sceneID="Itr-p8-mst">
             <objects>
                 <tableViewController id="ebC-K2-dnc" customClass="ScheduleViewController" sceneMemberID="viewController">
@@ -46,7 +46,7 @@
                             <outlet property="delegate" destination="ebC-K2-dnc" id="kU1-O7-Eom"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Boxing Schedule" id="fol-a3-Zr4"/>
+                    <navigationItem key="navigationItem" title="Upcoming" id="fol-a3-Zr4"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw9-kR-liQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

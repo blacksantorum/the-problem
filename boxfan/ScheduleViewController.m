@@ -15,11 +15,14 @@
 
 @property (nonatomic, strong) NSMutableArray *fights; //of Fights
 
--(void)setFightArray;
 
 -(NSArray *)arrayOfDates;
 
--(NSArray *)fightsForDate:(NSString *)date;
+-(NSArray *)fightsForDate:(NSDate *)date;
+
+-(NSString *)sectionHeaderFormattedDate:(NSDate *)date;
+
+-(void)setFightArray;
 
 @end
 
@@ -32,73 +35,88 @@
         [dateArray addObject:f.date];
     }
     NSSet *uniqueEvents = [NSSet setWithArray:dateArray];
-    return [uniqueEvents allObjects];
+    return [[uniqueEvents allObjects] sortedArrayUsingSelector:@selector(compare:)];
 }
 
--(NSArray *)fightsForDate:(NSString *)date
+-(NSArray *)fightsForDate:(NSDate *)date
 {
     NSMutableArray *fights = [[NSMutableArray alloc] init];
     for (Fight *f in self.fights) {
-        if ([f.date isEqualToString:date]) {
+        if ([f.date isEqualToDate:date]) {
             [fights addObject:f];
         }
     }
     return fights;
 }
 
+-(NSString *)sectionHeaderFormattedDate:(NSDate *)date
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    [dateFormatter setLocale:usLocale];
+    
+    NSLog(@"%@", [dateFormatter stringFromDate:date]);
+    
+    NSString *partiallyFormattedDate = [dateFormatter stringFromDate:date];
+    return [partiallyFormattedDate substringWithRange:NSMakeRange(0, [partiallyFormattedDate length] - 6)];
+}
+
 -(void)setFightArray
 {
     Boxer *jPascal = [[Boxer alloc] initWithFirst:@"Jean" Last:@"Pascal" Country:@"Canada"];
     Boxer *lBute = [[Boxer alloc] initWithFirst:@"Lucian" Last:@"Bute" Country:@"Canada"];
-    Fight *a = [[Fight alloc] initWithDictionary:@{@"date" : @"1/18", @"weight": @"175", @"location" : @"Montreal",
+    Fight *a = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"175", @"location" : @"Montreal",
                                                    @"boxers" : @[jPascal,lBute], @"rounds" :@12}];
     [self.fights addObject:a];
     
     Boxer *tOosthuizen = [[Boxer alloc] initWithFirst:@"Thomas" Last:@"Oosthuizen" Country:@"South Africa"];
     Boxer *eAlvarez = [[Boxer alloc] initWithFirst:@"Eleider" Last:@"Alvarez" Country:@"Colombia"];
-    Fight *a1 = [[Fight alloc] initWithDictionary:@{@"date" : @"1/18", @"weight": @"175", @"location" : @"Montreal",
+    Fight *a1 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"175", @"location" : @"Montreal",
                                                    @"boxers" : @[tOosthuizen,eAlvarez], @"rounds" :@12}];
     [self.fights addObject:a1];
     
     Boxer *mPerez = [[Boxer alloc] initWithFirst:@"Mike" Last:@"Perez" Country:@"Cuba"];
     Boxer *cTakam = [[Boxer alloc] initWithFirst:@"Carlos" Last:@"Takam" Country:@"France"];
-    Fight *a2 = [[Fight alloc] initWithDictionary:@{@"date" : @"1/18", @"weight": @"hvy", @"location" : @"Montreal",
+    Fight *a2 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"hvy", @"location" : @"Montreal",
                                                    @"boxers" : @[mPerez,cTakam], @"rounds" :@10}];
     [self.fights addObject:a2];
     
     Boxer *mGarcia = [[Boxer alloc] initWithFirst:@"Mike" Last:@"Garcia" Country:@"USA"];
     Boxer *jBurgos = [[Boxer alloc] initWithFirst:@"Juan Carlos" Last:@"Burgos" Country:@"Mexico"];
-    Fight *b = [[Fight alloc] initWithDictionary:@{@"date" : @"1/25", @"weight": @"130", @"location" : @"New York City",
+    Fight *b = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"130", @"location" : @"New York City",
                                                    @"boxers" : @[mGarcia,jBurgos], @"rounds" :@12}];
     [self.fights addObject:b];
     
     Boxer *bJennings = [[Boxer alloc] initWithFirst:@"Bryant" Last:@"Jennings" Country:@"USA"];
     Boxer *aSzpilka = [[Boxer alloc] initWithFirst:@"Artur" Last:@"Szpilka" Country:@"Poland"];
-    Fight *b1 = [[Fight alloc] initWithDictionary:@{@"date" : @"1/25", @"weight": @"hvy", @"location" : @"New York City",
+    Fight *b1 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"hvy", @"location" : @"New York City",
                                                    @"boxers" : @[bJennings,aSzpilka], @"rounds" :@10}];
     [self.fights addObject:b1];
     
     Boxer *lPeterson = [[Boxer alloc] initWithFirst:@"Lamont" Last:@"Peterson" Country:@"USA"];
     Boxer *dJean = [[Boxer alloc] initWithFirst:@"Dierry" Last:@"Jean" Country:@"France"];
-    Fight *b2 = [[Fight alloc] initWithDictionary:@{@"date" : @"1/25", @"weight": @"140", @"location" : @"Washington, DC",
+    Fight *b2 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"140", @"location" : @"Washington, DC",
                                                     @"boxers" : @[lPeterson,dJean], @"rounds" :@12}];
     [self.fights addObject:b2];
     
     Boxer *jCharlo = [[Boxer alloc] initWithFirst:@"Jermell" Last:@"Charlo" Country:@"USA"];
     Boxer *gRosado = [[Boxer alloc] initWithFirst:@"Gabriel" Last:@"Rosado" Country:@"USA"];
-    Fight *b3 = [[Fight alloc] initWithDictionary:@{@"date" : @"1/25", @"weight": @"160", @"location" : @"Washington, DC",
+    Fight *b3 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"160", @"location" : @"Washington, DC",
                                                     @"boxers" : @[jCharlo,gRosado], @"rounds" :@10}];
     [self.fights addObject:b3];
     
     Boxer *gGolovkin = [[Boxer alloc] initWithFirst:@"Gennady" Last:@"Golovkin" Country:@"Kazahkstan"];
     Boxer *oAdama = [[Boxer alloc] initWithFirst:@"Osumanu" Last:@"Adama" Country:@"Ghana"];
-    Fight *c = [[Fight alloc] initWithDictionary:@{@"date" : @"2/1", @"weight": @"160", @"location" : @"Monte Carlo",
+    Fight *c = [[Fight alloc] initWithDictionary:@{@"date" : @"02/01/2014", @"weight": @"160", @"location" : @"Monte Carlo",
                                                    @"boxers" : @[gGolovkin,oAdama], @"rounds" :@12}];
     [self.fights addObject:c];
     
     Boxer *iMakabu = [[Boxer alloc] initWithFirst:@"Ilunga" Last:@"Makabu" Country:@"Congo"];
     Boxer *pKolodziej = [[Boxer alloc] initWithFirst:@"Pawel" Last:@"Kolodziej" Country:@"Poland"];
-    Fight *c1 = [[Fight alloc] initWithDictionary:@{@"date" : @"2/1", @"weight": @"200", @"location" : @"Monte Carlo",
+    Fight *c1 = [[Fight alloc] initWithDictionary:@{@"date" : @"02/01/2014", @"weight": @"200", @"location" : @"Monte Carlo",
                                                    @"boxers" : @[iMakabu,pKolodziej], @"rounds" :@12}];
     [self.fights addObject:c1];
     
@@ -127,7 +145,7 @@
         FightDetailViewController *controller = (FightDetailViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
-        NSString *date = [[self arrayOfDates] objectAtIndex:indexPath.section];
+        NSDate *date = [[self arrayOfDates] objectAtIndex:indexPath.section];
         NSArray *fightsForDate = [self fightsForDate:date];
         
         controller.fight = fightsForDate[indexPath.row];
@@ -163,14 +181,15 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSString *date = [[self arrayOfDates] objectAtIndex:section];
+    NSDate *date = [[self arrayOfDates] objectAtIndex:section];
     NSArray *fightsForDate = [self fightsForDate:date];
     return fightsForDate.count;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return [[self arrayOfDates] objectAtIndex:section];
+    NSDate *date = [[self arrayOfDates] objectAtIndex:section];
+    return [self sectionHeaderFormattedDate:date];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,11 +197,13 @@
     static NSString *CellIdentifier = @"Fight Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    NSString *date = [[self arrayOfDates] objectAtIndex:indexPath.section];
+    NSDate *date = [[self arrayOfDates] objectAtIndex:indexPath.section];
     NSArray *fightArrayAtDate = [self fightsForDate:date];
+    NSLog(@"%@",fightArrayAtDate);
     // set text to Aside-BSide
     Fight *fight = fightArrayAtDate[indexPath.row];
     cell.textLabel.text = fight.titleForScheduleView;
+    cell.detailTextLabel.text = @"";
     
     return cell;
 }

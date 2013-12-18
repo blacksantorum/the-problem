@@ -23,7 +23,11 @@
     if (self) {
         _dictionary = dictionary;
         
-        _date = [dictionary objectForKey:@"date"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"MM/dd/yyyy"];
+        NSDate *date = [formatter dateFromString:[dictionary objectForKey:@"date"]];
+        
+        _date = date;
         _weight = [dictionary objectForKey:@"weight"];
         _location = [dictionary objectForKey:@"location"];
         
