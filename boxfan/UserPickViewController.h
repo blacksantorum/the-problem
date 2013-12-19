@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserPickViewController : UIViewController
+@interface UserPickViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

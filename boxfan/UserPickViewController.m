@@ -9,11 +9,13 @@
 #import "UserPickViewController.h"
 #import "User.h"
 #import "Pick.h"
+#import "Fight.h"
+#import "Boxer.h"
 
 @interface UserPickViewController ()
 
 @property (nonatomic, strong) User *user;
-@property (nonatomic, strong) NSArray *picks; //of Picks
+@property (nonatomic, strong) NSMutableArray *pickedFights; //of Fights that the user picked
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fightOfTheYearLabel;
@@ -23,6 +25,15 @@
 @end
 
 @implementation UserPickViewController
+
+-(NSMutableArray *)pickedfights
+{
+    if(!_pickedFights) {
+        _pickedFights = [[NSMutableArray alloc] init];
+    }
+    return _pickedFights;
+}
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -36,7 +47,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.picksTable.delegate = self;
+    self.picksTable.dataSource = self;
+    [self.picksTable reloadData];
 	// Do any additional setup after loading the view.
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [self.pickedFights count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Pick Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    Fight *f = self.pickedFights[indexPath.row];
+    cell.textLabel.text = f.titleForScheduleView;
+    return cell;
 }
 
 - (void)didReceiveMemoryWarning
