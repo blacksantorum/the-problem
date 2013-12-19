@@ -9,18 +9,20 @@
 #import <Foundation/Foundation.h>
 #import "User.h"
 #import "Fight.h"
+#import "Boxer.h"
 
 @interface Pick : NSObject
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) Fight *fight;
+@property (nonatomic,strong) Boxer *winner;
+@property (nonatomic,strong) Boxer *loser;
 
-// 1 if a-side, 2 if b-side.. no draws, that's bitch shit
-@property (nonatomic,strong) NSNumber *winner;
-
-// YES or NO
+// 0 = NO, 1 = YES
 @property (nonatomic,strong) NSNumber *byStoppage;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+-(NSString *)feedRepresentation;
 
 @end

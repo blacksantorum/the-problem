@@ -21,4 +21,18 @@
     return self;
 }
 
+-(NSString *)feedRepresentation
+{
+    NSString *byStoppageString = [[NSString alloc] init];
+    if (self.byStoppage == 0) {
+        byStoppageString = @"by decision";
+    } else {
+        byStoppageString = @"by KO";
+    }
+    
+    NSString *feedRep = [NSString stringWithFormat:@"%@ picked %@ over %@ %@",self.user.name,self.winner.boxerFullName,self.loser.boxerFullName,byStoppageString];
+    
+    return feedRep;
+}
+
 @end
