@@ -14,6 +14,11 @@
 
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSArray *picks; //of Picks
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *fightOfTheYearLabel;
+@property (weak, nonatomic) IBOutlet UITableView *picksTable;
+@property (weak, nonatomic) IBOutlet UIImageView *userPicture;
 
 @end
 
