@@ -14,9 +14,7 @@
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *country;
 
--(instancetype)initWithFirst:(NSString *)first
-                        Last:(NSString *)last
-                     Country:(NSString *)country;
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 -(NSString *)boxerFullName;
 

@@ -10,22 +10,26 @@
 
 @implementation Boxer
 
--(instancetype)initWithFirst:(NSString *)first
-                        Last:(NSString *)last
-                     Country:(NSString *)country
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
-        _firstName = first;
-        _lastName = last;
-        _country = country;
+        _firstName = [dictionary objectForKey:@"first_name"];
+        _lastName = [dictionary objectForKey:@"last_name"];
+        _country = [dictionary objectForKey:@"country"];
     }
+    
     return self;
 }
 
 -(NSString *)boxerFullName
 {
     return [NSString stringWithFormat:@"%@ %@",self.firstName,self.lastName];
+}
+
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"%@,%@,%@",self.firstName,self.lastName,self.country];
 }
 
 @end

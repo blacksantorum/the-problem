@@ -30,6 +30,7 @@
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
 		ECA13231185FAF9B00001793 /* FightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13230185FAF9B00001793 /* FightDetailViewController.m */; };
+		ECE8CC3D186632B700D2C936 /* setFightArray in Resources */ = {isa = PBXBuildFile; fileRef = ECE8CC3C186632B600D2C936 /* setFightArray */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		ECA1322D185FA8A500001793 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
 		ECA1322F185FAF9B00001793 /* FightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightDetailViewController.h; sourceTree = "<group>"; };
 		ECA13230185FAF9B00001793 /* FightDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightDetailViewController.m; sourceTree = "<group>"; };
+		ECE8CC3C186632B600D2C936 /* setFightArray */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = setFightArray; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 			children = (
 				ECA0CE4B185E4EF9003380C5 /* Main.storyboard */,
 				EC96F45118639BDE00EF9171 /* GodsViewController.h */,
+				ECE8CC3C186632B600D2C936 /* setFightArray */,
 				EC96F45218639BDE00EF9171 /* GodsViewController.m */,
 				EC96F45418639C4200EF9171 /* FeedViewController.h */,
 				EC96F45518639C4200EF9171 /* FeedViewController.m */,
@@ -284,6 +287,7 @@
 			files = (
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
+				ECE8CC3D186632B700D2C936 /* setFightArray in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

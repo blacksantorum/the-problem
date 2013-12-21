@@ -22,11 +22,48 @@
 
 -(NSString *)sectionHeaderFormattedDate:(NSDate *)date;
 
--(void)setFightArray;
+-(void)refresh;
 
 @end
 
 @implementation ScheduleViewController
+
+-(void)refresh
+{
+    NSString *url = @"http://the-boxing-app.herokuapp.com/fights";
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:url]];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"Connection error: %@", connectionError);
+        } else {
+            NSError *error = nil;
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            //NSLog(@"%@", object);
+            if (error) {
+                NSLog(@"JSON parsing error: %@", error);
+            } else {
+                NSArray *array = (NSArray *)object;
+                for (NSDictionary *fightParams in array) {
+                    NSMutableArray *boxers = [[NSMutableArray alloc] init];
+                    NSDictionary *boxersDict = [fightParams objectForKey:@"boxers"];
+                    for (NSDictionary *boxerParams in boxersDict) {
+                        Boxer *b = [[Boxer alloc ]initWithDictionary:boxerParams];
+                        NSLog(@"%@",b);
+                        [boxers addObject:b];
+                    }
+                    Fight *fight = [[Fight alloc] initWithDictionary:fightParams];
+                    fight.boxers = boxers;
+                    NSLog(@"%@",fight);
+                    [self.fights addObject:fight];
+                //[self.refreshControl endRefreshing];
+                [self.tableView reloadData];
+                }
+            }
+        }
+    }];
+
+}
 
 -(NSArray *)arrayOfDates
 {
@@ -64,63 +101,7 @@
     return [partiallyFormattedDate substringWithRange:NSMakeRange(0, [partiallyFormattedDate length] - 6)];
 }
 
--(void)setFightArray
-{
-    Boxer *jPascal = [[Boxer alloc] initWithFirst:@"Jean" Last:@"Pascal" Country:@"Canada"];
-    Boxer *lBute = [[Boxer alloc] initWithFirst:@"Lucian" Last:@"Bute" Country:@"Canada"];
-    Fight *a = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"175", @"location" : @"Montreal",
-                                                   @"boxers" : @[jPascal,lBute], @"rounds" :@12}];
-    [self.fights addObject:a];
-    
-    Boxer *tOosthuizen = [[Boxer alloc] initWithFirst:@"Thomas" Last:@"Oosthuizen" Country:@"South Africa"];
-    Boxer *eAlvarez = [[Boxer alloc] initWithFirst:@"Eleider" Last:@"Alvarez" Country:@"Colombia"];
-    Fight *a1 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"175", @"location" : @"Montreal",
-                                                   @"boxers" : @[tOosthuizen,eAlvarez], @"rounds" :@12}];
-    [self.fights addObject:a1];
-    
-    Boxer *mPerez = [[Boxer alloc] initWithFirst:@"Mike" Last:@"Perez" Country:@"Cuba"];
-    Boxer *cTakam = [[Boxer alloc] initWithFirst:@"Carlos" Last:@"Takam" Country:@"France"];
-    Fight *a2 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"hvy", @"location" : @"Montreal",
-                                                   @"boxers" : @[mPerez,cTakam], @"rounds" :@10}];
-    [self.fights addObject:a2];
-    
-    Boxer *mGarcia = [[Boxer alloc] initWithFirst:@"Mike" Last:@"Garcia" Country:@"USA"];
-    Boxer *jBurgos = [[Boxer alloc] initWithFirst:@"Juan Carlos" Last:@"Burgos" Country:@"Mexico"];
-    Fight *b = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"130", @"location" : @"New York City",
-                                                   @"boxers" : @[mGarcia,jBurgos], @"rounds" :@12}];
-    [self.fights addObject:b];
-    
-    Boxer *bJennings = [[Boxer alloc] initWithFirst:@"Bryant" Last:@"Jennings" Country:@"USA"];
-    Boxer *aSzpilka = [[Boxer alloc] initWithFirst:@"Artur" Last:@"Szpilka" Country:@"Poland"];
-    Fight *b1 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"hvy", @"location" : @"New York City",
-                                                   @"boxers" : @[bJennings,aSzpilka], @"rounds" :@10}];
-    [self.fights addObject:b1];
-    
-    Boxer *lPeterson = [[Boxer alloc] initWithFirst:@"Lamont" Last:@"Peterson" Country:@"USA"];
-    Boxer *dJean = [[Boxer alloc] initWithFirst:@"Dierry" Last:@"Jean" Country:@"France"];
-    Fight *b2 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"140", @"location" : @"Washington, DC",
-                                                    @"boxers" : @[lPeterson,dJean], @"rounds" :@12}];
-    [self.fights addObject:b2];
-    
-    Boxer *jCharlo = [[Boxer alloc] initWithFirst:@"Jermell" Last:@"Charlo" Country:@"USA"];
-    Boxer *gRosado = [[Boxer alloc] initWithFirst:@"Gabriel" Last:@"Rosado" Country:@"USA"];
-    Fight *b3 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"160", @"location" : @"Washington, DC",
-                                                    @"boxers" : @[jCharlo,gRosado], @"rounds" :@10}];
-    [self.fights addObject:b3];
-    
-    Boxer *gGolovkin = [[Boxer alloc] initWithFirst:@"Gennady" Last:@"Golovkin" Country:@"Kazahkstan"];
-    Boxer *oAdama = [[Boxer alloc] initWithFirst:@"Osumanu" Last:@"Adama" Country:@"Ghana"];
-    Fight *c = [[Fight alloc] initWithDictionary:@{@"date" : @"02/01/2014", @"weight": @"160", @"location" : @"Monte Carlo",
-                                                   @"boxers" : @[gGolovkin,oAdama], @"rounds" :@12}];
-    [self.fights addObject:c];
-    
-    Boxer *iMakabu = [[Boxer alloc] initWithFirst:@"Ilunga" Last:@"Makabu" Country:@"Congo"];
-    Boxer *pKolodziej = [[Boxer alloc] initWithFirst:@"Pawel" Last:@"Kolodziej" Country:@"Poland"];
-    Fight *c1 = [[Fight alloc] initWithDictionary:@{@"date" : @"02/01/2014", @"weight": @"200", @"location" : @"Monte Carlo",
-                                                   @"boxers" : @[iMakabu,pKolodziej], @"rounds" :@12}];
-    [self.fights addObject:c1];
-    
-}
+
 
 -(NSArray *)fights
 {
@@ -155,7 +136,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setFightArray];
+    [self refresh];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

@@ -17,6 +17,11 @@
 
 @implementation Fight
 
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.date,self.weight,self.location,self.rounds,self.winner,self.wasStoppage];
+}
+
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
@@ -24,7 +29,7 @@
         _dictionary = dictionary;
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        [formatter setDateFormat:@"MM/dd/yyyy"];
+        [formatter setDateFormat:@"yyyy-MM-dd"];
         NSDate *date = [formatter dateFromString:[dictionary objectForKey:@"date"]];
         
         _date = date;
@@ -35,7 +40,8 @@
         
         _boxers = boxers;
         _rounds = [dictionary objectForKey:@"rounds"];
-        
+        _winner = [dictionary objectForKey:@"winner_id"];
+        _wasStoppage = [dictionary objectForKey:@"stoppage"];
     }
     return self;
 }

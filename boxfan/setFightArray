@@ -1,0 +1,57 @@
+-(void)setFightArray
+{
+    Boxer *jPascal = [[Boxer alloc] initWithFirst:@"Jean" Last:@"Pascal" Country:@"Canada"];
+    Boxer *lBute = [[Boxer alloc] initWithFirst:@"Lucian" Last:@"Bute" Country:@"Canada"];
+    Fight *a = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"175", @"location" : @"Montreal",
+                                                   @"boxers" : @[jPascal,lBute], @"rounds" :@12}];
+    [self.fights addObject:a];
+    
+    Boxer *tOosthuizen = [[Boxer alloc] initWithFirst:@"Thomas" Last:@"Oosthuizen" Country:@"South Africa"];
+    Boxer *eAlvarez = [[Boxer alloc] initWithFirst:@"Eleider" Last:@"Alvarez" Country:@"Colombia"];
+    Fight *a1 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"175", @"location" : @"Montreal",
+                                                   @"boxers" : @[tOosthuizen,eAlvarez], @"rounds" :@12}];
+    [self.fights addObject:a1];
+    
+    Boxer *mPerez = [[Boxer alloc] initWithFirst:@"Mike" Last:@"Perez" Country:@"Cuba"];
+    Boxer *cTakam = [[Boxer alloc] initWithFirst:@"Carlos" Last:@"Takam" Country:@"France"];
+    Fight *a2 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/18/2014", @"weight": @"hvy", @"location" : @"Montreal",
+                                                   @"boxers" : @[mPerez,cTakam], @"rounds" :@10}];
+    [self.fights addObject:a2];
+    
+    Boxer *mGarcia = [[Boxer alloc] initWithFirst:@"Mike" Last:@"Garcia" Country:@"USA"];
+    Boxer *jBurgos = [[Boxer alloc] initWithFirst:@"Juan Carlos" Last:@"Burgos" Country:@"Mexico"];
+    Fight *b = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"130", @"location" : @"New York City",
+                                                   @"boxers" : @[mGarcia,jBurgos], @"rounds" :@12}];
+    [self.fights addObject:b];
+    
+    Boxer *bJennings = [[Boxer alloc] initWithFirst:@"Bryant" Last:@"Jennings" Country:@"USA"];
+    Boxer *aSzpilka = [[Boxer alloc] initWithFirst:@"Artur" Last:@"Szpilka" Country:@"Poland"];
+    Fight *b1 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"hvy", @"location" : @"New York City",
+                                                   @"boxers" : @[bJennings,aSzpilka], @"rounds" :@10}];
+    [self.fights addObject:b1];
+    
+    Boxer *lPeterson = [[Boxer alloc] initWithFirst:@"Lamont" Last:@"Peterson" Country:@"USA"];
+    Boxer *dJean = [[Boxer alloc] initWithFirst:@"Dierry" Last:@"Jean" Country:@"France"];
+    Fight *b2 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"140", @"location" : @"Washington, DC",
+                                                    @"boxers" : @[lPeterson,dJean], @"rounds" :@12}];
+    [self.fights addObject:b2];
+    
+    Boxer *jCharlo = [[Boxer alloc] initWithFirst:@"Jermell" Last:@"Charlo" Country:@"USA"];
+    Boxer *gRosado = [[Boxer alloc] initWithFirst:@"Gabriel" Last:@"Rosado" Country:@"USA"];
+    Fight *b3 = [[Fight alloc] initWithDictionary:@{@"date" : @"01/25/2014", @"weight": @"160", @"location" : @"Washington, DC",
+                                                    @"boxers" : @[jCharlo,gRosado], @"rounds" :@10}];
+    [self.fights addObject:b3];
+    
+    Boxer *gGolovkin = [[Boxer alloc] initWithFirst:@"Gennady" Last:@"Golovkin" Country:@"Kazahkstan"];
+    Boxer *oAdama = [[Boxer alloc] initWithFirst:@"Osumanu" Last:@"Adama" Country:@"Ghana"];
+    Fight *c = [[Fight alloc] initWithDictionary:@{@"date" : @"02/01/2014", @"weight": @"160", @"location" : @"Monte Carlo",
+                                                   @"boxers" : @[gGolovkin,oAdama], @"rounds" :@12}];
+    [self.fights addObject:c];
+    
+    Boxer *iMakabu = [[Boxer alloc] initWithFirst:@"Ilunga" Last:@"Makabu" Country:@"Congo"];
+    Boxer *pKolodziej = [[Boxer alloc] initWithFirst:@"Pawel" Last:@"Kolodziej" Country:@"Poland"];
+    Fight *c1 = [[Fight alloc] initWithDictionary:@{@"date" : @"02/01/2014", @"weight": @"200", @"location" : @"Monte Carlo",
+                                                   @"boxers" : @[iMakabu,pKolodziej], @"rounds" :@12}];
+    [self.fights addObject:c1];
+    
+}
