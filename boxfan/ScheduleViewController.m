@@ -39,7 +39,6 @@
         } else {
             NSError *error = nil;
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            //NSLog(@"%@", object);
             if (error) {
                 NSLog(@"JSON parsing error: %@", error);
             } else {
@@ -49,12 +48,10 @@
                     NSDictionary *boxersDict = [fightParams objectForKey:@"boxers"];
                     for (NSDictionary *boxerParams in boxersDict) {
                         Boxer *b = [[Boxer alloc ]initWithDictionary:boxerParams];
-                        NSLog(@"%@",b);
                         [boxers addObject:b];
                     }
                     Fight *fight = [[Fight alloc] initWithDictionary:fightParams];
                     fight.boxers = boxers;
-                    NSLog(@"%@",fight);
                     [self.fights addObject:fight];
                 //[self.refreshControl endRefreshing];
                 [self.tableView reloadData];
