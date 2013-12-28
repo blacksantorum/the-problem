@@ -9,6 +9,7 @@
 #import "FightDetailViewController.h"
 #import "Fight.h"
 #import "Boxer.h"
+#import "Pick.h"
 
 @interface FightDetailViewController ()
 
