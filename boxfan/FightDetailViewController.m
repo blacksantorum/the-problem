@@ -10,10 +10,16 @@
 #import "Fight.h"
 #import "Boxer.h"
 #import "Pick.h"
+#import <AFHTTPRequestOperationManager.h>
+
+
 
 @interface FightDetailViewController ()
 
 # pragma mark - Pick Controls/Display
+
+@property (strong,nonatomic) UIWebView *webView;
+@property (strong,nonatomic) NSURL *authURL;
 
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *weightAndRoundsLabel;
@@ -41,6 +47,12 @@
 
 @implementation FightDetailViewController
 
+-(NSURL *)authURL
+{
+    return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/auth/twitter"];
+}
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,10 +62,69 @@
     return self;
 }
 
+-(void)placeWebViewOnView
+{
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(30, 30, 250, 600)];
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.authURL];
+    [self.webView loadRequest:request];
+    
+    [self.view addSubview:self.webView];
+    
+}
+
+-(void)displayCookies
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [cookieJar cookiesForURL:self.authURL]) {
+        NSData *cookieEncodedObject = [NSKeyedArchiver archivedDataWithRootObject:cookie];
+        
+        [userDefaults setObject:cookieEncodedObject forKey:@"MySavedCookies"];
+        NSLog(@"%@",[userDefaults objectForKey:@"MySavedCookies"]);
+    }
+}
+
+-(void)saveCookies
+{
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [cookieJar cookiesForURL:self.authURL]) {
+        NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
+        [cookieProperties setObject:cookie.name forKey:NSHTTPCookieName];
+        [cookieProperties setObject:cookie.value forKey:NSHTTPCookieValue];
+        [cookieProperties setObject:cookie.domain forKey:NSHTTPCookieDomain];
+        [cookieProperties setObject:[NSURL URLWithString:@"the-boxing-app.herokuapp.com/auth/twitter"] forKey:NSHTTPCookieOriginURL];
+        [cookieProperties setObject:cookie.path forKey:NSHTTPCookiePath];
+        [cookieProperties setObject:[[NSDate date] dateByAddingTimeInterval:2629743] forKey:NSHTTPCookieExpires];
+        
+        NSHTTPCookie *cookie = [NSHTTPCookie cookieWithProperties:cookieProperties];
+        [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookie];
+    }
+
+}
+
+-(void)makeHardCodedPick
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"pick":@{@"winner_id": @8, @"loser_id":@9, @"ko":@"true" }};
+    [manager POST:@"http://the-boxing-app.herokuapp.com/fights/6/picks" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+- (IBAction)closeWebView:(id)sender {
+    [self.webView removeFromSuperview];
+    // [self makeHardCodedPick];
+    [self saveCookies];
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // set title, fight descriptors
+    [self displayCookies];
     [self setTitle:[self.fight titleForScheduleView]];
     [self.locationLabel setText:self.fight.location];
     [self.weightAndRoundsLabel setText:[NSString stringWithFormat:@"%@ rounds at %@lbs",self.fight.rounds,self.fight.weight]];
@@ -64,6 +135,8 @@
     
     Boxer *b = [self.fight.boxers objectAtIndex:1];
     [self.fighterBLabel setText:[b boxerFullName]];
+    
+    [self placeWebViewOnView];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +146,13 @@
 }
 
 - (IBAction)pickFighterAByStoppage:(UIButton *)sender {
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = @{@"foo": @"bar"};
+    [manager POST:@"http://example.com/resources.json" parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (IBAction)pickFighterAByDecision:(UIButton *)sender {

@@ -10,9 +10,16 @@
 
 @implementation boxfanAppDelegate
 
+-(NSURL *)authURL
+{
+    return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/auth/twitter"];
+}
+
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
     return YES;
 }
 							

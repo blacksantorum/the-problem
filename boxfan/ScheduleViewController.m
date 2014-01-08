@@ -10,6 +10,7 @@
 #import "Fight.h"
 #import "Boxer.h"
 #import "FightDetailViewController.h"
+#import "ScheduleFormattedDate.h"
 
 @interface ScheduleViewController ()
 
@@ -19,8 +20,6 @@
 -(NSArray *)arrayOfDates;
 
 -(NSArray *)fightsForDate:(NSDate *)date;
-
--(NSString *)sectionHeaderFormattedDate:(NSDate *)date;
 
 -(void)refresh;
 
@@ -82,23 +81,6 @@
     }
     return fights;
 }
-
--(NSString *)sectionHeaderFormattedDate:(NSDate *)date
-{
-    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setTimeStyle:NSDateFormatterNoStyle];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
-    
-    NSLocale *usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    [dateFormatter setLocale:usLocale];
-    
-    NSLog(@"%@", [dateFormatter stringFromDate:date]);
-    
-    NSString *partiallyFormattedDate = [dateFormatter stringFromDate:date];
-    return [partiallyFormattedDate substringWithRange:NSMakeRange(0, [partiallyFormattedDate length] - 6)];
-}
-
-
 
 -(NSArray *)fights
 {
@@ -167,7 +149,7 @@
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSDate *date = [[self arrayOfDates] objectAtIndex:section];
-    return [self sectionHeaderFormattedDate:date];
+    return [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:date];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -177,7 +159,6 @@
     
     NSDate *date = [[self arrayOfDates] objectAtIndex:indexPath.section];
     NSArray *fightArrayAtDate = [self fightsForDate:date];
-    NSLog(@"%@",fightArrayAtDate);
     // set text to Aside-BSide
     Fight *fight = fightArrayAtDate[indexPath.row];
     cell.textLabel.text = fight.titleForScheduleView;

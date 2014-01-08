@@ -17,6 +17,7 @@
         _firstName = [dictionary objectForKey:@"first_name"];
         _lastName = [dictionary objectForKey:@"last_name"];
         _country = [dictionary objectForKey:@"country"];
+        _boxerID = [dictionary objectForKey:@"id"];
     }
     
     return self;

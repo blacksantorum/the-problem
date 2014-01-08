@@ -19,7 +19,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.date,self.weight,self.location,self.rounds,self.winner,self.wasStoppage];
+    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.date,self.weight,self.location,self.rounds,self.winnerID,self.stoppage];
 }
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
@@ -32,6 +32,7 @@
         [formatter setDateFormat:@"yyyy-MM-dd"];
         NSDate *date = [formatter dateFromString:[dictionary objectForKey:@"date"]];
         
+        _fightID = [dictionary objectForKey:@"id"];
         _date = date;
         _weight = [dictionary objectForKey:@"weight"];
         _location = [dictionary objectForKey:@"location"];
@@ -40,8 +41,8 @@
         
         _boxers = boxers;
         _rounds = [dictionary objectForKey:@"rounds"];
-        _winner = [dictionary objectForKey:@"winner_id"];
-        _wasStoppage = [dictionary objectForKey:@"stoppage"];
+        _winnerID = [dictionary objectForKey:@"winner_id"];
+        _stoppage = [dictionary objectForKey:@"stoppage"];
     }
     return self;
 }

@@ -10,9 +10,10 @@
 
 @interface Boxer : NSObject
 
-@property (nonatomic, strong) NSString *firstName;
-@property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSString *country;
+@property (nonatomic,strong) NSString *boxerID;
+@property (nonatomic,strong) NSString *firstName;
+@property (nonatomic,strong) NSString *lastName;
+@property (nonatomic,strong) NSString *country;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
