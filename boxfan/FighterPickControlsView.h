@@ -9,7 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "Boxer.h"
 
+@protocol ChooseFighterDelegate <NSObject>
+
+-(void)fighterChosen:(Boxer *)boxer;
+
+@end
+
 @interface FighterPickControlsView : UIView
+//{
+//    id<ChooseFighterDelegate> delegate;
+// }
 
 @property (strong,nonatomic) Boxer *boxer;
 
@@ -21,5 +30,9 @@
 
 - (IBAction)pickFighter:(id)sender;
 - (void)setFighterLabelText;
+
+#pragma mark - Delegate
+
+@property (nonatomic,assign)id delegate;
 
 @end

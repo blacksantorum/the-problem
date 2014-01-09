@@ -10,6 +10,8 @@
 
 @implementation FighterPickControlsView
 
+@synthesize delegate;
+
 -(void)setBoxer:(Boxer *)boxer
 {
     self.fighterNameLabel.text = boxer.boxerFullName;
@@ -47,5 +49,8 @@
 */
 
 - (IBAction)pickFighter:(id)sender {
+    if ([delegate respondsToSelector:@selector(fighterChosen:)]) {
+        [delegate fighterChosen:self.boxer];
+    }
 }
 @end

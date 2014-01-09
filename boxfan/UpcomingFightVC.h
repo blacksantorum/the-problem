@@ -8,8 +8,9 @@
 
 #import "FightDisplayVC.h"
 #import "Fight.h"
+#import "FighterPickControlsView.h"
 
-@interface UpcomingFightVC : FightDisplayVC
+@interface UpcomingFightVC : FightDisplayVC <ChooseFighterDelegate>
 
 @property (strong,nonatomic) Fight *fight;
 

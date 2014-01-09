@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		C19AC8458FAD439FA2224948 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B423D2962D5A439EABD428EB /* libPods.a */; };
+		EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC54850B187EB38000EA69E5 /* PickFightView.xib */; };
+		EC54850F187EB4C200EA69E5 /* PickFightView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC54850E187EB4C200EA69E5 /* PickFightView.m */; };
 		EC96F45318639BDE00EF9171 /* GodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96F45218639BDE00EF9171 /* GodsViewController.m */; };
 		EC96F45618639C4200EF9171 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96F45518639C4200EF9171 /* FeedViewController.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
@@ -52,6 +54,9 @@
 /* Begin PBXFileReference section */
 		3D7AF779750748D3BD78908F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B423D2962D5A439EABD428EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC54850B187EB38000EA69E5 /* PickFightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickFightView.xib; sourceTree = "<group>"; };
+		EC54850D187EB4C200EA69E5 /* PickFightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickFightView.h; sourceTree = "<group>"; };
+		EC54850E187EB4C200EA69E5 /* PickFightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickFightView.m; sourceTree = "<group>"; };
 		EC96F45118639BDE00EF9171 /* GodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsViewController.h; sourceTree = "<group>"; };
 		EC96F45218639BDE00EF9171 /* GodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsViewController.m; sourceTree = "<group>"; };
 		EC96F45418639C4200EF9171 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
@@ -130,6 +135,9 @@
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC54850B187EB38000EA69E5 /* PickFightView.xib */,
+				EC54850D187EB4C200EA69E5 /* PickFightView.h */,
+				EC54850E187EB4C200EA69E5 /* PickFightView.m */,
 				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
 				ECD11530187E869800530434 /* FighterPickControlsView.m */,
 				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
@@ -362,6 +370,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
+				EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 				ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */,
@@ -418,6 +427,7 @@
 			files = (
 				EC96F45318639BDE00EF9171 /* GodsViewController.m in Sources */,
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
+				EC54850F187EB4C200EA69E5 /* PickFightView.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
