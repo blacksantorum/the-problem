@@ -10,6 +10,7 @@
 #import "ScheduleFormattedDate.h"
 #import "Fight.h"
 #import "Boxer.h"
+#import "UpcomingFightVC.h"
 
 @interface BoxingScheduleVC ()
 
@@ -68,6 +69,21 @@
         [fightArray addObject:f];
     }
     self.fights = fightArray;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"fightDetail"]) {
+        UpcomingFightVC *controller = (UpcomingFightVC *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
+        NSArray *fightsForDate = [self fightsForDate:date];
+        
+        Fight *fight = fightsForDate[indexPath.row];
+        controller.fight = fight;
+        controller.title = fight.titleForScheduleView;
+    }
 }
 
 #pragma mark - Table view data source

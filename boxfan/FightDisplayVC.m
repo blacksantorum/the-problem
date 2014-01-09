@@ -10,6 +10,8 @@
 
 @interface FightDisplayVC ()
 
+- (void)setUpView;
+
 @end
 
 @implementation FightDisplayVC
@@ -26,7 +28,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	[self setUpView];
+}
+
+- (void)setUpView
+{
+    //
 }
 
 - (void)didReceiveMemoryWarning

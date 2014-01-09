@@ -7,12 +7,14 @@
 //
 
 #import "UpcomingFightVC.h"
+#import "FighterPickControlsView.h"
 
 @interface UpcomingFightVC ()
 
 @property (weak, nonatomic) IBOutlet UILabel *locationRoundsWeightLabel;
-@property (weak, nonatomic) IBOutlet UILabel *fighterALabel;
-@property (weak, nonatomic) IBOutlet UILabel *fighterBLabel;
+@property (weak, nonatomic) IBOutlet FighterPickControlsView *fighterAPickControl;
+
+@property (weak, nonatomic) IBOutlet FighterPickControlsView *fighterBPickControl;
 
 @end
 
@@ -27,16 +29,11 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)setUpView
 {
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.fighterAPickControl.boxer = [self.fight.boxers firstObject];
+    self.fighterBPickControl.boxer = [self.fight.boxers lastObject];
+    self.locationRoundsWeightLabel.text = [NSString stringWithFormat:@"%@: %@ rounds at %@",self.fight.location,self.fight.rounds,self.fight.weight];
 }
 
 @end

@@ -36,6 +36,8 @@
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
 		ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11525187E37DF00530434 /* FightDisplayVC.m */; };
 		ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1152B187E389700530434 /* UpcomingFightVC.m */; };
+		ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1152D187E844D00530434 /* FighterPickControlsView.xib */; };
+		ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11530187E869800530434 /* FighterPickControlsView.m */; };
 		ECE8CC99186EB0D300D2C936 /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE8CC98186EB0D300D2C936 /* LogInViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +101,9 @@
 		ECD11525187E37DF00530434 /* FightDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightDisplayVC.m; sourceTree = "<group>"; };
 		ECD1152A187E389700530434 /* UpcomingFightVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFightVC.h; sourceTree = "<group>"; };
 		ECD1152B187E389700530434 /* UpcomingFightVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightVC.m; sourceTree = "<group>"; };
+		ECD1152D187E844D00530434 /* FighterPickControlsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FighterPickControlsView.xib; sourceTree = "<group>"; };
+		ECD1152F187E869800530434 /* FighterPickControlsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FighterPickControlsView.h; sourceTree = "<group>"; };
+		ECD11530187E869800530434 /* FighterPickControlsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FighterPickControlsView.m; sourceTree = "<group>"; };
 		ECE8CC97186EB0D300D2C936 /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		ECE8CC98186EB0D300D2C936 /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,6 +133,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
+				ECD11530187E869800530434 /* FighterPickControlsView.m */,
+				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
+			);
+			name = "Custom Views";
+			sourceTree = "<group>";
+		};
 		ECA0CE2D185E4EF8003380C5 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +180,7 @@
 			children = (
 				ECD1151D187DEAD300530434 /* Utility Classes */,
 				ECA0CE4B185E4EF9003380C5 /* Main.storyboard */,
+				EC54850A187E9A3400EA69E5 /* Custom Views */,
 				ECD1151E187DF76D00530434 /* Refactored View Controllers */,
 				ECE8CC97186EB0D300D2C936 /* LogInViewController.h */,
 				ECE8CC98186EB0D300D2C936 /* LogInViewController.m */,
@@ -323,6 +339,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Chris Tibbs";
 				TargetAttributes = {
+					ECA0CE35185E4EF8003380C5 = {
+						DevelopmentTeam = M697LKN47A;
+					};
 					ECA0CE56185E4EF9003380C5 = {
 						TestTargetID = ECA0CE35185E4EF8003380C5;
 					};
@@ -355,6 +374,7 @@
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
+				ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +437,7 @@
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECE8CC99186EB0D300D2C936 /* LogInViewController.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
+				ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */,
 				ECD11511187D3D1300530434 /* ReleasingWebView.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
@@ -551,10 +572,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -565,10 +589,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

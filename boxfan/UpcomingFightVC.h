@@ -7,7 +7,10 @@
 //
 
 #import "FightDisplayVC.h"
+#import "Fight.h"
 
 @interface UpcomingFightVC : FightDisplayVC
+
+@property (strong,nonatomic) Fight *fight;
 
 @end
