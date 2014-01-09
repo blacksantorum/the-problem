@@ -23,13 +23,11 @@
 		ECA0CE5B185E4EF9003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
 		ECA0CE63185E4EF9003380C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECA0CE61185E4EF9003380C5 /* InfoPlist.strings */; };
 		ECA0CE65185E4EF9003380C5 /* boxfanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE64185E4EF9003380C5 /* boxfanTests.m */; };
-		ECA0CE70185E510B003380C5 /* ScheduleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE6F185E510B003380C5 /* ScheduleViewController.m */; };
 		ECA0CE73185E5818003380C5 /* Boxer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE72185E5818003380C5 /* Boxer.m */; };
 		ECA0CE76185E59BF003380C5 /* Fight.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE75185E59BF003380C5 /* Fight.m */; };
 		ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13227185FA36A00001793 /* UserPickViewController.m */; };
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
-		ECA13231185FAF9B00001793 /* FightDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13230185FAF9B00001793 /* FightDetailViewController.m */; };
 		ECD11511187D3D1300530434 /* ReleasingWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11510187D3D1300530434 /* ReleasingWebView.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
@@ -75,8 +73,6 @@
 		ECA0CE60185E4EF9003380C5 /* boxfanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "boxfanTests-Info.plist"; sourceTree = "<group>"; };
 		ECA0CE62185E4EF9003380C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		ECA0CE64185E4EF9003380C5 /* boxfanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = boxfanTests.m; sourceTree = "<group>"; };
-		ECA0CE6E185E510B003380C5 /* ScheduleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScheduleViewController.h; sourceTree = "<group>"; };
-		ECA0CE6F185E510B003380C5 /* ScheduleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScheduleViewController.m; sourceTree = "<group>"; };
 		ECA0CE71185E5818003380C5 /* Boxer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boxer.h; sourceTree = "<group>"; };
 		ECA0CE72185E5818003380C5 /* Boxer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxer.m; sourceTree = "<group>"; };
 		ECA0CE74185E59BF003380C5 /* Fight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fight.h; sourceTree = "<group>"; };
@@ -87,8 +83,6 @@
 		ECA1322A185FA64E00001793 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		ECA1322C185FA8A500001793 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
 		ECA1322D185FA8A500001793 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
-		ECA1322F185FAF9B00001793 /* FightDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FightDetailViewController.h; sourceTree = "<group>"; };
-		ECA13230185FAF9B00001793 /* FightDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FightDetailViewController.m; sourceTree = "<group>"; };
 		ECD1150F187D3D1300530434 /* ReleasingWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleasingWebView.h; sourceTree = "<group>"; };
 		ECD11510187D3D1300530434 /* ReleasingWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleasingWebView.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
@@ -248,12 +242,8 @@
 				EC96F45218639BDE00EF9171 /* GodsViewController.m */,
 				EC96F45418639C4200EF9171 /* FeedViewController.h */,
 				EC96F45518639C4200EF9171 /* FeedViewController.m */,
-				ECA1322F185FAF9B00001793 /* FightDetailViewController.h */,
-				ECA13230185FAF9B00001793 /* FightDetailViewController.m */,
 				ECA13226185FA36A00001793 /* UserPickViewController.h */,
 				ECA13227185FA36A00001793 /* UserPickViewController.m */,
-				ECA0CE6E185E510B003380C5 /* ScheduleViewController.h */,
-				ECA0CE6F185E510B003380C5 /* ScheduleViewController.m */,
 			);
 			name = "Suspect View Controllers";
 			sourceTree = "<group>";
@@ -428,7 +418,6 @@
 			files = (
 				EC96F45318639BDE00EF9171 /* GodsViewController.m in Sources */,
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
-				ECA13231185FAF9B00001793 /* FightDetailViewController.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
@@ -442,7 +431,6 @@
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
-				ECA0CE70185E510B003380C5 /* ScheduleViewController.m in Sources */,
 				EC96F45618639C4200EF9171 /* FeedViewController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 			);
