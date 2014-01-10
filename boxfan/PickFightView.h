@@ -9,9 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "Boxer.h"
 
+@protocol PickFighterDelegate <NSObject>
+
+-(void)pickFighter:(Boxer *)boxer
+            withKO:(BOOL)KO;
+
+@end
+
 @interface PickFightView : UIView
 
 @property (nonatomic,strong) IBOutlet UIView *view;
 @property (nonatomic,strong) Boxer *boxer;
+
+@property (nonatomic,assign)id delegate;
 
 @end

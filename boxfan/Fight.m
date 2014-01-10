@@ -19,7 +19,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@",self.date,self.weight,self.location,self.rounds,self.winnerID,self.stoppage];
+    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@",self.fightID,self.date,self.weight,self.location,self.rounds,self.winnerID,self.stoppage];
 }
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary

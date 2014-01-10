@@ -30,7 +30,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@,%@,%@",self.firstName,self.lastName,self.country];
+    return [NSString stringWithFormat:@"%@ %@,%@,%@",self.boxerID,self.firstName,self.lastName,self.country];
 }
 
 @end

@@ -16,6 +16,8 @@
 
 @implementation PickFightView
 
+@synthesize delegate;
+
 -(void)setBoxer:(Boxer *)boxer
 {
     self.fighterNameLabel.text = [NSString stringWithFormat:@"Pick %@?",boxer.boxerFullName];
@@ -38,10 +40,15 @@
 }
 
 - (IBAction)pickByKO:(id)sender {
-    
+    if ([delegate respondsToSelector:@selector(pickFighter:withKO:)]) {
+        [delegate pickFighter:self.boxer withKO:YES];
+    }
 }
 
 - (IBAction)pickByDecision:(id)sender {
+    if ([delegate respondsToSelector:@selector(pickFighter:withKO:)]) {
+        [delegate pickFighter:self.boxer withKO:NO];
+    }
 }
 
 /*

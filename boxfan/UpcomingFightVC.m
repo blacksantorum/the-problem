@@ -9,6 +9,7 @@
 #import "UpcomingFightVC.h"
 #import "FighterPickControlsView.h"
 #import "PickFightView.h"
+#import <AFHTTPRequestOperationManager.h>
 
 @interface UpcomingFightVC ()
 
@@ -21,13 +22,22 @@
 
 @implementation UpcomingFightVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(NSString *)stringForBool:(BOOL)boolean
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (boolean) {
+        return @"true";
+    } else {
+        return @"false";
     }
-    return self;
+}
+
+- (NSString *)urlStringForPostingPick
+{
+    NSString *url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    url = [url stringByAppendingString:self.fight.fightID.description];
+    url = [url stringByAppendingString:@"/picks"];
+    
+    return url;
 }
 
 -(void)setUpView
@@ -43,7 +53,21 @@
 {
     PickFightView *pickFightView = [[PickFightView alloc] initWithFrame:CGRectMake(0, 500, 320, 90)];
     pickFightView.boxer = boxer;
+    pickFightView.delegate = self;
     [self.view addSubview:pickFightView];
+}
+
+-(void)pickFighter:(Boxer *)boxer withKO:(BOOL)KO
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSLog(@"BoxerID: %@, Bool: %@",boxer.boxerID,[self stringForBool:KO]);
+    NSDictionary *parameters = @{@"pick":@{@"winner_id": boxer.boxerID, @"ko":[self stringForBool:KO] }};
+    NSLog(@"%@",[self urlStringForPostingPick]);
+    [manager POST:[self urlStringForPostingPick] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 @end

@@ -114,6 +114,7 @@
     NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
     NSArray *fightArrayAtDate = [self fightsForDate:date];
     Fight *fight = fightArrayAtDate[indexPath.row];
+    NSLog(@"%@",fight);
     cell.textLabel.text = fight.titleForScheduleView;
     cell.detailTextLabel.text = @"";
     
