@@ -11,6 +11,7 @@
 #import "Fight.h"
 #import "Boxer.h"
 #import "UpcomingFightVC.h"
+#import "LoginViewController.h"
 
 @interface BoxingScheduleVC ()
 
@@ -18,10 +19,80 @@
 @property (nonatomic,strong) NSArray *fights;
 
 -(NSArray *)fightsForDate:(NSDate *)date;
+-(NSDictionary *)userDictionaryFromTwitter;
 
 @end
 
 @implementation BoxingScheduleVC
+
+#pragma mark - Log In Stuff
+
+-(NSDictionary *)userDictionaryFromTwitter
+{
+    NSString *twitterScreenName = [PFTwitterUtils twitter].screenName;
+    NSString * requestString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/users/show.json?screen_name=%@", twitterScreenName];
+    
+    
+    NSURL *verify = [NSURL URLWithString:requestString];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
+    [[PFTwitterUtils twitter] signRequest:request];
+    NSURLResponse *response = nil;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    return result;
+}
+
+-(void)saveUserInDefaults:(User *)user
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSData *encodedUser = [NSKeyedArchiver archivedDataWithRootObject:user];
+    [defaults setObject:encodedUser forKey:@"User"];
+}
+
+// Sent to the delegate when a PFUser is logged in.
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    [logInController dismissViewControllerAnimated:YES completion:nil];
+    
+    User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
+    [self saveUserInDefaults:boxingAppUser];
+    self.user = boxingAppUser;
+    
+    NSLog(@"%@",self.user);
+    
+}
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
+}
+
+// Sent to the delegate when the log in screen is dismissed.
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    NSLog(@"User dismissed the logInViewController");
+}
+
+-(void)doLogInStuff
+{
+    
+    
+    if (![PFUser currentUser]) {
+        // If not logged in, we will show a PFLogInViewController
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        
+        // Customize the Log In View Controller
+        logInViewController.delegate = self;
+        // logInViewController.facebookPermissions = @[@"friends_about_me"];
+        logInViewController.fields = PFLogInFieldsTwitter | PFLogInFieldsDismissButton; // Show Twitter login, Facebook login, and a Dismiss button.
+        
+        // Present Log In View Controller
+        [self presentViewController:logInViewController animated:YES completion:NULL];
+    }
+}
 
 -(NSArray *)fightDates
 {
@@ -114,7 +185,6 @@
     NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
     NSArray *fightArrayAtDate = [self fightsForDate:date];
     Fight *fight = fightArrayAtDate[indexPath.row];
-    NSLog(@"%@",fight);
     cell.textLabel.text = fight.titleForScheduleView;
     cell.detailTextLabel.text = @"";
     

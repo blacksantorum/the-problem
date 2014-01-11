@@ -7,6 +7,9 @@
 //
 
 #import "BoxingAppDVC.h"
+#import "LoginViewController.h"
+#import "URLS.h"
+#import <Parse/Parse.h>
 
 @interface BoxingAppDVC ()
 
@@ -15,6 +18,13 @@
 @end
 
 @implementation BoxingAppDVC
+
+
+-(NSData *)encodedUserFromDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"User"];
+}
 
 -(void)refresh
 {
@@ -52,10 +62,26 @@
     return self;
 }
 
+- (void)doLogInStuff
+{
+    // override if necessary
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     [self refresh];
+    if ([self encodedUserFromDefaults]) {
+        User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
+        self.user = user;
+        
+    } else {
+        [self doLogInStuff];
+    }
+    
+    NSLog(@"%@",self.user);
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;

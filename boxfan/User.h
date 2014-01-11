@@ -13,8 +13,12 @@
 
 @property (nonatomic, strong) NSString *handle;
 @property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *email;
-@property (nonatomic, strong) Fight *fightOfTheYear;
-@property (nonatomic) NSUInteger *score;
+@property (nonatomic, strong) NSString *profileImageURL;
+
+-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+
+// encoding
+-(void)encodeWithCoder:(NSCoder *)encoder;
+-(instancetype)initWithCoder:(NSCoder *)decorder;
 
 @end

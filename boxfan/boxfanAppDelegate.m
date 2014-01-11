@@ -7,6 +7,7 @@
 //
 
 #import "boxfanAppDelegate.h"
+#import <Parse/Parse.h>
 
 @implementation boxfanAppDelegate
 
@@ -19,7 +20,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"1B14Hx2kPtRNvaupWjUNlmwPrJOsgZQ6qJv5tUDF"
+                  clientKey:@"ygFW72dJh6tk3jbTxcEQoFbbROXRSIxaqldcv9Ik"];
     
+    [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
+                               consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
+    
+    // [PFUser logOut];
+
     return YES;
 }
 							

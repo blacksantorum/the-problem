@@ -7,7 +7,9 @@
 //
 
 #import "BoxingAppDVC.h"
+#import <Parse/Parse.h>
+#import "User.h"
 
-@interface BoxingScheduleVC : BoxingAppDVC
+@interface BoxingScheduleVC : BoxingAppDVC <PFLogInViewControllerDelegate>
 
 @end

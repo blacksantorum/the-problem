@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface BoxingAppDVC : UITableViewController
 
+@property (strong,nonatomic)  User *user;
 @property (strong,atomic) NSURL *urlForRequest;
 @property (strong,atomic) NSArray *JSONarray;
 
