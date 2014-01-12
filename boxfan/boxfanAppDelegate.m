@@ -16,7 +16,8 @@
 {
     [PFUser logOut];
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"User"];
-    [[NSUserDefaults standardUserDefaults]synchronize ];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(NSURL *)authURL
@@ -35,7 +36,9 @@
                                consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
     
     
-    [self logOut];
+    // [self logOut];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSLog(@"%@",[defaults objectForKey:@"Token"]);
 
     return YES;
 }

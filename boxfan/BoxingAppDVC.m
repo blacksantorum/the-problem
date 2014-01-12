@@ -74,6 +74,7 @@
     if ([self encodedUserFromDefaults]) {
         User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
         self.user = user;
+        NSLog(@"%@",self.user);
         
     } else {
         [self doLogInStuff];

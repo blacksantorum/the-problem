@@ -28,6 +28,11 @@
 
 #pragma mark - Log In Stuff
 
+-(NSString *)urlStringTest
+{
+    return @"http://192.168.1.113:3000/api/signin";
+}
+
 -(NSString *)urlStringForRailsSignIn
 {
     return @"http://the-boxing-app.herokuapp.com/api/signin";
@@ -39,7 +44,13 @@
     NSDictionary *parameters = user.userDictionaryForSignIn;
     [manager POST:[self urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *userDictionary = responseObject;
+        NSLog(@"%@", userDictionary);
+        NSLog(@"%@",[userDictionary valueForKeyPath:@"user.id"]);
         user.userID = [userDictionary valueForKeyPath:@"user.id"];
+        NSLog(@"%@",[userDictionary valueForKeyPath:@"user.session_token"]);
+        NSString *token = [userDictionary valueForKeyPath:@"user.session_token"];
+        [self saveUserInDefaults:user withSessionToken:token];
+        self.user = user;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -65,11 +76,14 @@
 }
 
 -(void)saveUserInDefaults:(User *)user
+         withSessionToken:(NSString *)token
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     NSData *encodedUser = [NSKeyedArchiver archivedDataWithRootObject:user];
     [defaults setObject:encodedUser forKey:@"User"];
+    [defaults setObject:token forKey:@"Token"];
+    [defaults synchronize];
 }
 
 // Sent to the delegate when a PFUser is logged in.
@@ -79,11 +93,7 @@
     User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
     
     [self signInWithRails:boxingAppUser];
-    
-    [self saveUserInDefaults:boxingAppUser];
-    self.user = boxingAppUser;
-    
-    NSLog(@"%@",self.user);
+
     
     
 }
@@ -102,7 +112,7 @@
 {
     
     
-    if (![PFUser currentUser]) {
+   if (![PFUser currentUser]) {
         // If not logged in, we will show a PFLogInViewController
         PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
         
@@ -145,6 +155,7 @@
 
 -(NSURL *)urlForRequest
 {
+    // return [NSURL URLWithString:@"http://192.168.1.113:3000/api/fights"];
     return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/api/fights"];
 }
 

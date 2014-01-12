@@ -22,6 +22,16 @@
 
 @implementation UpcomingFightVC
 
+-(NSString *)sessionToken
+{
+    NSString *token = nil;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if ([defaults objectForKey:@"Token"]) {
+        token = [defaults objectForKey:@"Token"];
+    }
+    return token;
+}
+
 -(NSString *)stringForBool:(BOOL)boolean
 {
     if (boolean) {
@@ -33,9 +43,11 @@
 
 - (NSString *)urlStringForPostingPick
 {
+    // NSString *url = @"http://192.168.1.113:3000/api/fights/";
     NSString *url = @"http://the-boxing-app.herokuapp.com/api/fights/";
     url = [url stringByAppendingString:self.fight.fightID.description];
-    url = [url stringByAppendingString:@"/picks"];
+    url = [url stringByAppendingString:@"/picks?"];
+    url = [url stringByAppendingString:[NSString stringWithFormat:@"session_token=%@",[self sessionToken]]];
     
     return url;
 }
