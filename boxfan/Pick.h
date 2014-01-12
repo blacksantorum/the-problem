@@ -17,9 +17,7 @@
 @property (nonatomic, strong) Fight *fight;
 @property (nonatomic,strong) Boxer *winner;
 @property (nonatomic,strong) Boxer *loser;
-
-// 0 = NO, 1 = YES
-@property (nonatomic,strong) NSNumber *byStoppage;
+@property  BOOL byStoppage;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 

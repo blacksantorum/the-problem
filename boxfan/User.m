@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "Auth.h"
 
 @implementation User
 
@@ -17,6 +18,7 @@
         _handle = [dictionary objectForKey:@"screen_name"];
         _name = [dictionary objectForKey:@"name"];
         _profileImageURL = [dictionary objectForKey:@"profile_image_url"];
+        _twitterID = [dictionary objectForKey:@"id"];
     }
     
     return self;
@@ -27,6 +29,8 @@
     [encoder encodeObject:self.handle forKey:@"handle"];
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.profileImageURL forKey:@"profileImageURL"];
+    [encoder encodeObject:self.userID forKey:@"userID"];
+    [encoder encodeObject:self.twitterID forKey:@"twitterID"];
 }
 
 -(instancetype)initWithCoder:(NSCoder *)decoder
@@ -36,14 +40,21 @@
         _handle = [decoder decodeObjectForKey:@"handle"];
         _name = [decoder decodeObjectForKey:@"name"];
         _profileImageURL = [decoder decodeObjectForKey:@"profileImageURL"];
+        _userID = [decoder decodeObjectForKey:@"userID"];
+        _twitterID = [decoder decodeObjectForKey:@"twitterID"];
     }
     
     return self;
 }
 
+-(NSDictionary *)userDictionaryForSignIn
+{
+    return @{@"screen_name" : self.handle, @"name" : self.name, @"profile_image_url" : self.profileImageURL, @"id": self.twitterID, @"password" : [Auth encryptedKeyForUser:self]};
+}
+
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ %@ %@",self.handle,self.name,self.profileImageURL];
+    return [NSString stringWithFormat:@"%@ %@ %@ %@",self.userID,self.handle,self.name,self.profileImageURL];
 }
 
 @end

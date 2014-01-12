@@ -12,6 +12,7 @@
 #import "Boxer.h"
 #import "UpcomingFightVC.h"
 #import "LoginViewController.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface BoxingScheduleVC ()
 
@@ -26,6 +27,23 @@
 @implementation BoxingScheduleVC
 
 #pragma mark - Log In Stuff
+
+-(NSString *)urlStringForRailsSignIn
+{
+    return @"http://the-boxing-app.herokuapp.com/api/signin";
+}
+
+-(void)signInWithRails:(User *)user
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    NSDictionary *parameters = user.userDictionaryForSignIn;
+    [manager POST:[self urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *userDictionary = responseObject;
+        user.userID = [userDictionary valueForKeyPath:@"user.id"];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
 
 -(NSDictionary *)userDictionaryFromTwitter
 {
@@ -59,10 +77,14 @@
     [logInController dismissViewControllerAnimated:YES completion:nil];
     
     User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
+    
+    [self signInWithRails:boxingAppUser];
+    
     [self saveUserInDefaults:boxingAppUser];
     self.user = boxingAppUser;
     
     NSLog(@"%@",self.user);
+    
     
 }
 
@@ -130,16 +152,18 @@
 {
     NSMutableArray *fightArray = [[NSMutableArray alloc] init];
     for (NSDictionary *fightDictionary in self.JSONarray) {
-        Fight *f = [[Fight alloc] initWithDictionary:fightDictionary];
+        Fight *f = [[Fight alloc] initWithDictionary:fightDictionary[@"fight"]];
         NSMutableArray *boxers = [[NSMutableArray alloc] init];
-        for (NSDictionary *boxerDictionary in fightDictionary[@"boxers"]){
-            Boxer *b = [[Boxer alloc] initWithDictionary:boxerDictionary];
+        for (NSDictionary *boxerDictionary in [fightDictionary valueForKeyPath:@"fight.boxers"]){
+            
+            Boxer *b = [[Boxer alloc] initWithDictionary:boxerDictionary[@"boxer"]];
             [boxers addObject:b];
         }
         f.boxers = boxers;
         [fightArray addObject:f];
     }
     self.fights = fightArray;
+    
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

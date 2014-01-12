@@ -79,7 +79,6 @@
         [self doLogInStuff];
     }
     
-    NSLog(@"%@",self.user);
     
     
 

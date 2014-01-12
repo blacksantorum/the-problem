@@ -16,7 +16,12 @@
     if (self) {
         _fight = [dictionary objectForKey:@"fight"];
         _winner = [dictionary objectForKey:@"winner"];
-        _byStoppage = [dictionary objectForKey:@"byStoppage"];
+        NSString *byStoppage = [dictionary objectForKey:@"byStoppage"];
+        if ([byStoppage isEqualToString:@"true"]) {
+            _byStoppage = YES;
+        } else if ([byStoppage isEqualToString:@"false"]) {
+            _byStoppage = NO;
+        }
     }
     return self;
 }
@@ -24,7 +29,7 @@
 -(NSString *)feedRepresentation
 {
     NSString *byStoppageString = [[NSString alloc] init];
-    if (self.byStoppage == 0) {
+    if (self.byStoppage) {
         byStoppageString = @"by decision";
     } else {
         byStoppageString = @"by KO";

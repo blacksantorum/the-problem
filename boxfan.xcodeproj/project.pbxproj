@@ -23,6 +23,7 @@
 		EC53741118810AAA00DF16AB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740818810AAA00DF16AB /* SystemConfiguration.framework */; };
 		EC53741318810C7800DF16AB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741218810C7800DF16AB /* Social.framework */; };
 		EC53741518810E4100DF16AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741418810E4100DF16AB /* FacebookSDK.framework */; };
+		EC537418188227AC00DF16AB /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = EC537417188227AC00DF16AB /* Auth.m */; };
 		EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC54850B187EB38000EA69E5 /* PickFightView.xib */; };
 		EC54850F187EB4C200EA69E5 /* PickFightView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC54850E187EB4C200EA69E5 /* PickFightView.m */; };
 		EC96F45618639C4200EF9171 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96F45518639C4200EF9171 /* FeedViewController.m */; };
@@ -84,6 +85,8 @@
 		EC53740818810AAA00DF16AB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EC53741218810C7800DF16AB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		EC53741418810E4100DF16AB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		EC537416188227AC00DF16AB /* Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
+		EC537417188227AC00DF16AB /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
 		EC54850B187EB38000EA69E5 /* PickFightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickFightView.xib; sourceTree = "<group>"; };
 		EC54850D187EB4C200EA69E5 /* PickFightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickFightView.h; sourceTree = "<group>"; };
 		EC54850E187EB4C200EA69E5 /* PickFightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickFightView.m; sourceTree = "<group>"; };
@@ -319,6 +322,8 @@
 		ECD1151D187DEAD300530434 /* Utility Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EC537416188227AC00DF16AB /* Auth.h */,
+				EC537417188227AC00DF16AB /* Auth.m */,
 				EC5373FB1880C22F00DF16AB /* URLS.h */,
 				EC5373FC1880C22F00DF16AB /* URLS.m */,
 				ECD1151A187DEACD00530434 /* ScheduleFormattedDate.h */,
@@ -483,6 +488,7 @@
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
+				EC537418188227AC00DF16AB /* Auth.m in Sources */,
 				ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,

@@ -8,8 +8,16 @@
 
 #import "boxfanAppDelegate.h"
 #import <Parse/Parse.h>
+#import "Auth.h"
 
 @implementation boxfanAppDelegate
+
+-(void)logOut
+{
+    [PFUser logOut];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"User"];
+    [[NSUserDefaults standardUserDefaults]synchronize ];
+}
 
 -(NSURL *)authURL
 {
@@ -26,7 +34,8 @@
     [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
                                consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
     
-    // [PFUser logOut];
+    
+    [self logOut];
 
     return YES;
 }

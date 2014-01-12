@@ -37,9 +37,9 @@
         _weight = [dictionary objectForKey:@"weight"];
         _location = [dictionary objectForKey:@"location"];
         
-        NSArray *boxers = [dictionary objectForKey:@"boxers"];
+       // NSArray *boxers = [dictionary objectForKey:@"boxers"];
         
-        _boxers = boxers;
+       // _boxers = boxers;
         _rounds = [dictionary objectForKey:@"rounds"];
         _winnerID = [dictionary objectForKey:@"winner_id"];
         _stoppage = [dictionary objectForKey:@"stoppage"];

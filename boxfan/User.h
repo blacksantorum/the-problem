@@ -11,14 +11,18 @@
 
 @interface User : NSObject
 
+@property (nonatomic,strong) NSString *userID;
 @property (nonatomic, strong) NSString *handle;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *profileImageURL;
+@property (nonatomic, strong) NSString *twitterID;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 // encoding
 -(void)encodeWithCoder:(NSCoder *)encoder;
--(instancetype)initWithCoder:(NSCoder *)decorder;
+-(instancetype)initWithCoder:(NSCoder *)decoder;
+
+-(NSDictionary *)userDictionaryForSignIn;
 
 @end
