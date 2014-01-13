@@ -10,9 +10,15 @@
 
 @implementation URLS
 
-+(NSURL *)authURL
++(NSString *)urlStringForPostingPickForFight:(Fight *)fight
 {
-   return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/auth/twitter"];
+    // NSString *url = @"http://192.168.1.113:3000/api/fights/";
+    NSString *url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    url = [url stringByAppendingString:fight.fightID.description];
+    url = [url stringByAppendingString:@"/picks?"];
+    url = [url stringByAppendingString:[NSString stringWithFormat:@"session_token=%@",[Auth sessionToken]]];
+    
+    return url;
 }
 
 @end

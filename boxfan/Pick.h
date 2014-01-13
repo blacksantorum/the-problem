@@ -21,6 +21,8 @@
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
+-(instancetype)initWithIDDictionary:(NSDictionary *)dictionary;
+
 -(NSString *)feedRepresentation;
 
 @end

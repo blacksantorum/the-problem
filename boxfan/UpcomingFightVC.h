@@ -14,5 +14,6 @@
 @interface UpcomingFightVC : FightDisplayVC <ChooseFighterDelegate,PickFighterDelegate>
 
 @property (strong,nonatomic) Fight *fight;
+@property (strong,nonatomic) Pick *currentPick;
 
 @end

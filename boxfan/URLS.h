@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Fight.h"
 
 @interface URLS : NSObject
 
-+(NSURL *)authURL;
-
++(NSString *)urlStringForPostingPickForFight:(Fight *)fight;
 
 @end

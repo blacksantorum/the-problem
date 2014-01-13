@@ -40,4 +40,33 @@
     return feedRep;
 }
 
+-(instancetype)initWithIDDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        _user = self.user;
+        
+        Fight *f = [[Fight alloc] init];
+        f.fightID = [dictionary objectForKey:@"fight_id"];
+        _fight = f;
+        
+        Boxer *w = [[Boxer alloc] init];
+        w.boxerID = [dictionary objectForKey:@"winner_id"];
+        _winner = w;
+        
+        Boxer *l = [[Boxer alloc] init];
+        l.boxerID = [dictionary objectForKey:@"loser_id"];
+        _loser = l;
+        
+        NSString *byStoppage = [dictionary objectForKey:@"ko"];
+        if ([byStoppage isEqualToString:@"1"]) {
+            _byStoppage = YES;
+        } else if ([byStoppage isEqualToString:@"0"]) {
+            _byStoppage = NO;
+        }
+    }
+    
+    return self;
+}
+
 @end

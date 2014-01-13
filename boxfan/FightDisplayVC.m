@@ -16,13 +16,30 @@
 
 @implementation FightDisplayVC
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(void)refresh
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"Connection error: %@", connectionError);
+        } else {
+            NSError *error = nil;
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            if (error) {
+                NSLog(@"JSON parsing error: %@", error);
+            } else {
+                self.JSONdictionary = (NSDictionary *)object;
+                // NSLog(@"%@",self.JSONarray);
+                [self configureDataSource];
+            }
+        }
+    }];
+}
+
+-(void)configureDataSource
+{
+    //
 }
 
 - (void)viewDidLoad

@@ -22,14 +22,15 @@
 
 @implementation UpcomingFightVC
 
--(NSString *)sessionToken
+-(void)setTitleForButton:(UIButton *)button
+                 forPick:(Pick *)pick
 {
-    NSString *token = nil;
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"Token"]) {
-        token = [defaults objectForKey:@"Token"];
+    button.titleLabel.textColor = [UIColor greenColor];
+    if (pick.byStoppage) {
+        button.titleLabel.text = @"by KO";
+    } else {
+        button.titleLabel.text = @"by decision";
     }
-    return token;
 }
 
 -(NSString *)stringForBool:(BOOL)boolean
@@ -41,15 +42,10 @@
     }
 }
 
-- (NSString *)urlStringForPostingPick
+-(void)configureDataSource
 {
-    // NSString *url = @"http://192.168.1.113:3000/api/fights/";
-    NSString *url = @"http://the-boxing-app.herokuapp.com/api/fights/";
-    url = [url stringByAppendingString:self.fight.fightID.description];
-    url = [url stringByAppendingString:@"/picks?"];
-    url = [url stringByAppendingString:[NSString stringWithFormat:@"session_token=%@",[self sessionToken]]];
-    
-    return url;
+    NSDictionary *pickDictionary = self.JSONdictionary;
+    self.currentPick = [[Pick alloc] initWithIDDictionary:pickDictionary];
 }
 
 -(void)setUpView
@@ -59,6 +55,14 @@
     self.locationRoundsWeightLabel.text = [NSString stringWithFormat:@"%@: %@ rounds at %@",self.fight.location,self.fight.rounds,self.fight.weight];
     self.fighterAPickControl.delegate = self;
     self.fighterBPickControl.delegate = self;
+    
+    if (self.currentPick) {
+        if ([self.fighterAPickControl.boxer.boxerID isEqualToString:self.currentPick.winner.boxerID]) {
+            [self setTitleForButton:self.fighterAPickControl.pickFighterButton forPick:self.currentPick];
+        } else if ([self.fighterBPickControl.boxer.boxerID isEqualToString:self.currentPick.winner.boxerID]) {
+            [self setTitleForButton:self.fighterBPickControl.pickFighterButton forPick:self.currentPick];
+        }
+    }
 }
 
 -(void)fighterChosen:(Boxer *)boxer
@@ -74,8 +78,7 @@
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSLog(@"BoxerID: %@, Bool: %@",boxer.boxerID,[self stringForBool:KO]);
     NSDictionary *parameters = @{@"pick":@{@"winner_id": boxer.boxerID, @"ko":[self stringForBool:KO] }};
-    NSLog(@"%@",[self urlStringForPostingPick]);
-    [manager POST:[self urlStringForPostingPick] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:[URLS urlStringForPostingPickForFight:self.fight] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

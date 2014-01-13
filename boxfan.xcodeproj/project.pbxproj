@@ -26,7 +26,6 @@
 		EC537418188227AC00DF16AB /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = EC537417188227AC00DF16AB /* Auth.m */; };
 		EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC54850B187EB38000EA69E5 /* PickFightView.xib */; };
 		EC54850F187EB4C200EA69E5 /* PickFightView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC54850E187EB4C200EA69E5 /* PickFightView.m */; };
-		EC96F45618639C4200EF9171 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96F45518639C4200EF9171 /* FeedViewController.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
 		ECA0CE3E185E4EF8003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
@@ -90,8 +89,6 @@
 		EC54850B187EB38000EA69E5 /* PickFightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickFightView.xib; sourceTree = "<group>"; };
 		EC54850D187EB4C200EA69E5 /* PickFightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickFightView.h; sourceTree = "<group>"; };
 		EC54850E187EB4C200EA69E5 /* PickFightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickFightView.m; sourceTree = "<group>"; };
-		EC96F45418639C4200EF9171 /* FeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
-		EC96F45518639C4200EF9171 /* FeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE39185E4EF8003380C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -300,8 +297,6 @@
 		ECD11515187D48A500530434 /* Suspect View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC96F45418639C4200EF9171 /* FeedViewController.h */,
-				EC96F45518639C4200EF9171 /* FeedViewController.m */,
 				ECA13226185FA36A00001793 /* UserPickViewController.h */,
 				ECA13227185FA36A00001793 /* UserPickViewController.m */,
 			);
@@ -499,7 +494,6 @@
 				EC5373F91880BB6800DF16AB /* LoginViewController.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
-				EC96F45618639C4200EF9171 /* FeedViewController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
