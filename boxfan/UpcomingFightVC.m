@@ -27,9 +27,9 @@
 {
     button.titleLabel.textColor = [UIColor greenColor];
     if (pick.byStoppage) {
-        button.titleLabel.text = @"by KO";
+        button.titleLabel.text = @"KO";
     } else {
-        button.titleLabel.text = @"by decision";
+        button.titleLabel.text = @"decision";
     }
 }
 
@@ -45,7 +45,9 @@
 -(void)configureDataSource
 {
     NSDictionary *pickDictionary = self.JSONdictionary;
-    self.currentPick = [[Pick alloc] initWithIDDictionary:pickDictionary];
+    self.currentPick = [[Pick alloc] initWithDictionary:pickDictionary];
+    NSLog(@"Current pick: %@",self.currentPick);
+    [self setUpView];
 }
 
 -(void)setUpView
@@ -57,9 +59,9 @@
     self.fighterBPickControl.delegate = self;
     
     if (self.currentPick) {
-        if ([self.fighterAPickControl.boxer.boxerID isEqualToString:self.currentPick.winner.boxerID]) {
+        if ([self.fighterAPickControl.boxer.boxerID.description isEqualToString:self.currentPick.winner.boxerID.description]) {
             [self setTitleForButton:self.fighterAPickControl.pickFighterButton forPick:self.currentPick];
-        } else if ([self.fighterBPickControl.boxer.boxerID isEqualToString:self.currentPick.winner.boxerID]) {
+        } else if ([self.fighterBPickControl.boxer.boxerID.description isEqualToString:self.currentPick.winner.boxerID.description]) {
             [self setTitleForButton:self.fighterBPickControl.pickFighterButton forPick:self.currentPick];
         }
     }

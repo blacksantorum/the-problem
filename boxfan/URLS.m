@@ -10,15 +10,62 @@
 
 @implementation URLS
 
++(BOOL)prod
+{
+    return YES;
+}
+
 +(NSString *)urlStringForPostingPickForFight:(Fight *)fight
 {
-    // NSString *url = @"http://192.168.1.113:3000/api/fights/";
-    NSString *url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    } else {
+        url = @"http://192.168.1.113:3000/api/fights/";
+    }
     url = [url stringByAppendingString:fight.fightID.description];
     url = [url stringByAppendingString:@"/picks?"];
     url = [url stringByAppendingString:[NSString stringWithFormat:@"session_token=%@",[Auth sessionToken]]];
     
     return url;
+}
+
++(NSString *)urlStringForRailsSignIn
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/signin";
+    } else {
+        url = @"http://192.168.1.113:3000/api/signin";
+    }
+    return @"http://the-boxing-app.herokuapp.com/api/signin";
+}
+
++(NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname
+{
+    return  [NSString stringWithFormat:@"https://api.twitter.com/1.1/users/show.json?screen_name=%@", screenname];
+}
+
++(NSURL *)urlForUpcomingFights
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/fights";
+    } else {
+        url = @"http://192.168.1.113:3000/api/fights";
+    }
+    return [NSURL URLWithString:url];
+}
+
++(NSString *)urlForUsersCurrentPickForFight:(Fight *)fight
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    } else {
+        url = @"http://192.168.1.113:3000/api/fights/";
+    }
+    return [url stringByAppendingString:[NSString stringWithFormat:@"%@",fight.fightID.description]];
 }
 
 @end

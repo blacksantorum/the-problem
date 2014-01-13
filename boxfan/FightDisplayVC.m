@@ -18,7 +18,8 @@
 
 -(void)refresh
 {
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
+    NSURL *url = [NSURL URLWithString:[URLS urlForUsersCurrentPickForFight:self.fight]];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
@@ -30,7 +31,7 @@
                 NSLog(@"JSON parsing error: %@", error);
             } else {
                 self.JSONdictionary = (NSDictionary *)object;
-                // NSLog(@"%@",self.JSONarray);
+                NSLog(@"%@",self.JSONdictionary);
                 [self configureDataSource];
             }
         }
@@ -46,6 +47,7 @@
 {
     [super viewDidLoad];
 	[self setUpView];
+    [self refresh];
 }
 
 - (void)setUpView

@@ -12,5 +12,12 @@
 @interface URLS : NSObject
 
 +(NSString *)urlStringForPostingPickForFight:(Fight *)fight;
++(NSString *)urlStringForRailsSignIn;
++(NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
++(NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;
+
++(NSURL *)urlForUpcomingFights;
+
++(BOOL)prod;
 
 @end

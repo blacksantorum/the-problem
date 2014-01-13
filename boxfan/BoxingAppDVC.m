@@ -7,7 +7,6 @@
 //
 
 #import "BoxingAppDVC.h"
-#import "LoginViewController.h"
 #import "URLS.h"
 #import <Parse/Parse.h>
 

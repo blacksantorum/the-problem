@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C19AC8458FAD439FA2224948 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B423D2962D5A439EABD428EB /* libPods.a */; };
-		EC5373F91880BB6800DF16AB /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373F71880BB6800DF16AB /* LoginViewController.m */; };
-		EC5373FA1880BB6800DF16AB /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC5373F81880BB6800DF16AB /* LoginViewController.xib */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -44,7 +42,6 @@
 		ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13227185FA36A00001793 /* UserPickViewController.m */; };
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
-		ECD11511187D3D1300530434 /* ReleasingWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11510187D3D1300530434 /* ReleasingWebView.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -67,9 +64,6 @@
 /* Begin PBXFileReference section */
 		3D7AF779750748D3BD78908F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B423D2962D5A439EABD428EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC5373F61880BB6800DF16AB /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		EC5373F71880BB6800DF16AB /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		EC5373F81880BB6800DF16AB /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -116,8 +110,6 @@
 		ECA1322A185FA64E00001793 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		ECA1322C185FA8A500001793 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
 		ECA1322D185FA8A500001793 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
-		ECD1150F187D3D1300530434 /* ReleasingWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReleasingWebView.h; sourceTree = "<group>"; };
-		ECD11510187D3D1300530434 /* ReleasingWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReleasingWebView.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -239,9 +231,6 @@
 				ECA0CE51185E4EF9003380C5 /* Images.xcassets */,
 				ECA13232186018F700001793 /* Model */,
 				ECA0CE40185E4EF9003380C5 /* Supporting Files */,
-				EC5373F61880BB6800DF16AB /* LoginViewController.h */,
-				EC5373F71880BB6800DF16AB /* LoginViewController.m */,
-				EC5373F81880BB6800DF16AB /* LoginViewController.xib */,
 			);
 			path = boxfan;
 			sourceTree = "<group>";
@@ -280,8 +269,6 @@
 		ECA13232186018F700001793 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ECD1150F187D3D1300530434 /* ReleasingWebView.h */,
-				ECD11510187D3D1300530434 /* ReleasingWebView.m */,
 				ECA0CE71185E5818003380C5 /* Boxer.h */,
 				ECA0CE74185E59BF003380C5 /* Fight.h */,
 				ECA13229185FA64E00001793 /* User.h */,
@@ -422,7 +409,6 @@
 			files = (
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
 				EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */,
-				EC5373FA1880BB6800DF16AB /* LoginViewController.xib in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 				ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */,
@@ -488,10 +474,8 @@
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
 				ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */,
-				ECD11511187D3D1300530434 /* ReleasingWebView.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
-				EC5373F91880BB6800DF16AB /* LoginViewController.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,

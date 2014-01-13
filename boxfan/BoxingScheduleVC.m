@@ -11,7 +11,6 @@
 #import "Fight.h"
 #import "Boxer.h"
 #import "UpcomingFightVC.h"
-#import "LoginViewController.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface BoxingScheduleVC ()
@@ -28,21 +27,11 @@
 
 #pragma mark - Log In Stuff
 
--(NSString *)urlStringTest
-{
-    return @"http://192.168.1.113:3000/api/signin";
-}
-
--(NSString *)urlStringForRailsSignIn
-{
-    return @"http://the-boxing-app.herokuapp.com/api/signin";
-}
-
 -(void)signInWithRails:(User *)user
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     NSDictionary *parameters = user.userDictionaryForSignIn;
-    [manager POST:[self urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:[URLS urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *userDictionary = responseObject;
         NSLog(@"%@", userDictionary);
         NSLog(@"%@",[userDictionary valueForKeyPath:@"user.id"]);
@@ -59,10 +48,7 @@
 -(NSDictionary *)userDictionaryFromTwitter
 {
     NSString *twitterScreenName = [PFTwitterUtils twitter].screenName;
-    NSString * requestString = [NSString stringWithFormat:@"https://api.twitter.com/1.1/users/show.json?screen_name=%@", twitterScreenName];
-    
-    
-    NSURL *verify = [NSURL URLWithString:requestString];
+    NSURL *verify = [NSURL URLWithString:[URLS urlStringForUsersTwitterWithScreenname:twitterScreenName]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
     [[PFTwitterUtils twitter] signRequest:request];
     NSURLResponse *response = nil;
@@ -93,9 +79,6 @@
     User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
     
     [self signInWithRails:boxingAppUser];
-
-    
-    
 }
 
 // Sent to the delegate when the log in attempt fails.
@@ -155,8 +138,7 @@
 
 -(NSURL *)urlForRequest
 {
-    // return [NSURL URLWithString:@"http://192.168.1.113:3000/api/fights"];
-    return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/api/fights"];
+    return [URLS urlForUpcomingFights];
 }
 
 -(void)configureDataSource
