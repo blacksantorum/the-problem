@@ -50,9 +50,31 @@
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
-        url = @"http://the-boxing-app.herokuapp.com/api/fights";
+        url = @"http://the-boxing-app.herokuapp.com/api/fights/future";
     } else {
-        url = @"http://192.168.1.113:3000/api/fights";
+        url = @"http://192.168.1.113:3000/api/fights/future";
+    }
+    return [NSURL URLWithString:url];
+}
+
++(NSURL *)urlForRecentFights
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/fights/past";
+    } else {
+        url = @"http://192.168.1.113:3000/api/fights/past";
+    }
+    return [NSURL URLWithString:url];
+}
+
++(NSURL *)urlForFeed
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/picks";
+    } else {
+        url = @"http://192.168.1.113:3000/api/picks";
     }
     return [NSURL URLWithString:url];
 }

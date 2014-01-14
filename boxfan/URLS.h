@@ -16,6 +16,7 @@
 +(NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
 +(NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;
 
++(NSURL *)urlForFeed;
 +(NSURL *)urlForUpcomingFights;
 
 +(BOOL)prod;

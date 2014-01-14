@@ -10,7 +10,7 @@
 
 @implementation Pick
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary
+-(instancetype)initWithFightViewDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
@@ -19,6 +19,8 @@
             Boxer *b = [[Boxer alloc] initWithDictionary:boxerDict[@"boxer"]];
             [boxerArray addObject:b];
         }
+        
+        _user = self.user;
         
         NSString *winnerID = [dictionary valueForKeyPath:@"fight.pick.winner_id"];
         Boxer *b = [boxerArray firstObject];

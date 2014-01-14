@@ -9,8 +9,25 @@
 #import "boxfanAppDelegate.h"
 #import <Parse/Parse.h>
 #import "Auth.h"
+#import <PKRevealController/PKRevealController.h>
+#import "BoxingScheduleVC.h"
+#import "SidebarViewController.h"
+
+@interface boxfanAppDelegate() <PKRevealing>
+
+@property (nonatomic,strong,readwrite) PKRevealController *revealController;
+
+@end
 
 @implementation boxfanAppDelegate
+
+-(void)doParseInitialization
+{
+    [Parse setApplicationId:@"1B14Hx2kPtRNvaupWjUNlmwPrJOsgZQ6qJv5tUDF"
+                  clientKey:@"ygFW72dJh6tk3jbTxcEQoFbbROXRSIxaqldcv9Ik"];
+    [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
+                               consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
+}
 
 -(void)logOut
 {
@@ -20,26 +37,28 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(NSURL *)authURL
-{
-    return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/auth/twitter"];
-}
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    [Parse setApplicationId:@"1B14Hx2kPtRNvaupWjUNlmwPrJOsgZQ6qJv5tUDF"
-                  clientKey:@"ygFW72dJh6tk3jbTxcEQoFbbROXRSIxaqldcv9Ik"];
+    [self doParseInitialization];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
-                               consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
+    // front
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *frontNavController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleNav"];
+    // UINavigationController *frontNavController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
     
+    // left
+    SidebarViewController *sideBarController = [[SidebarViewController alloc] initWithNibName:@"SidebarViewController" bundle:nil];
+    
+    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontNavController leftViewController:sideBarController];
+    
+    self.revealController.delegate = self;
+    self.revealController.animationDuration = 0.25;
+    
+    self.window.rootViewController = self.revealController;
     
     // [self logOut];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSLog(@"%@",[defaults objectForKey:@"Token"]);
-
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							

@@ -19,7 +19,7 @@
 @property (nonatomic,strong) Boxer *loser;
 @property  BOOL byStoppage;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithFightViewDictionary:(NSDictionary *)dictionary;
 
 -(NSString *)feedRepresentation;
 

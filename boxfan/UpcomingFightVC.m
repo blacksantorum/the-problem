@@ -45,7 +45,7 @@
 -(void)configureDataSource
 {
     NSDictionary *pickDictionary = self.JSONdictionary;
-    self.currentPick = [[Pick alloc] initWithDictionary:pickDictionary];
+    self.currentPick = [[Pick alloc] initWithFightViewDictionary:pickDictionary];
     NSLog(@"Current pick: %@",self.currentPick);
     [self setUpView];
 }

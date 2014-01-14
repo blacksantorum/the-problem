@@ -169,6 +169,8 @@
         NSArray *fightsForDate = [self fightsForDate:date];
         
         Fight *fight = fightsForDate[indexPath.row];
+        
+        controller.user = self.user;
         controller.fight = fight;
         controller.title = fight.titleForScheduleView;
     }

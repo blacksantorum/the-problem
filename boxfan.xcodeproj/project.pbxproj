@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C19AC8458FAD439FA2224948 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B423D2962D5A439EABD428EB /* libPods.a */; };
+		EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B3A188515D7009B32B4 /* FeedVC.m */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -49,6 +50,8 @@
 		ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1152B187E389700530434 /* UpcomingFightVC.m */; };
 		ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECD1152D187E844D00530434 /* FighterPickControlsView.xib */; };
 		ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11530187E869800530434 /* FighterPickControlsView.m */; };
+		ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECE55DA11884B86900E02546 /* SidebarViewController.m */; };
+		ECE55DA41884B86900E02546 /* SidebarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECE55DA21884B86900E02546 /* SidebarViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,8 @@
 /* Begin PBXFileReference section */
 		3D7AF779750748D3BD78908F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		B423D2962D5A439EABD428EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC0D5B39188515D7009B32B4 /* FeedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedVC.h; sourceTree = "<group>"; };
+		EC0D5B3A188515D7009B32B4 /* FeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedVC.m; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -123,6 +128,9 @@
 		ECD1152D187E844D00530434 /* FighterPickControlsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FighterPickControlsView.xib; sourceTree = "<group>"; };
 		ECD1152F187E869800530434 /* FighterPickControlsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FighterPickControlsView.h; sourceTree = "<group>"; };
 		ECD11530187E869800530434 /* FighterPickControlsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FighterPickControlsView.m; sourceTree = "<group>"; };
+		ECE55DA01884B86900E02546 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		ECE55DA11884B86900E02546 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		ECE55DA21884B86900E02546 /* SidebarViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidebarViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +186,9 @@
 		ECA0CE2D185E4EF8003380C5 = {
 			isa = PBXGroup;
 			children = (
+				ECE55DA01884B86900E02546 /* SidebarViewController.h */,
+				ECE55DA11884B86900E02546 /* SidebarViewController.m */,
+				ECE55DA21884B86900E02546 /* SidebarViewController.xib */,
 				EC53741418810E4100DF16AB /* FacebookSDK.framework */,
 				EC5373FE18810A3200DF16AB /* Parse.framework */,
 				ECA0CE3F185E4EF8003380C5 /* boxfan */,
@@ -317,6 +328,8 @@
 		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC0D5B39188515D7009B32B4 /* FeedVC.h */,
+				EC0D5B3A188515D7009B32B4 /* FeedVC.m */,
 				ECD1152A187E389700530434 /* UpcomingFightVC.h */,
 				ECD1152B187E389700530434 /* UpcomingFightVC.m */,
 				ECD11516187D497400530434 /* BoxingScheduleVC.h */,
@@ -412,6 +425,7 @@
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 				ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */,
+				ECE55DA41884B86900E02546 /* SidebarViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,10 +484,12 @@
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
+				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
 				ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */,
+				EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,

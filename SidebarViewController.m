@@ -1,56 +1,19 @@
 //
-//  BoxingAppDVC.m
+//  SidebarViewController.m
 //  boxfan
 //
-//  Created by Chris Tibbs on 1/8/14.
+//  Created by Chris Tibbs on 1/13/14.
 //  Copyright (c) 2014 Chris Tibbs. All rights reserved.
 //
 
-#import "BoxingAppDVC.h"
-#import "URLS.h"
-#import <Parse/Parse.h>
+#import "SidebarViewController.h"
+#import <PKRevealController.h>
 
-@interface BoxingAppDVC ()
-
--(void)refresh;
+@interface SidebarViewController ()
 
 @end
 
-@implementation BoxingAppDVC
-
-
--(NSData *)encodedUserFromDefaults
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return [defaults objectForKey:@"User"];
-}
-
--(void)refresh
-{
-    NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
-    
-    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        if (connectionError) {
-            NSLog(@"Connection error: %@", connectionError);
-        } else {
-            NSError *error = nil;
-            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-            if (error) {
-                NSLog(@"JSON parsing error: %@", error);
-            } else {
-                self.JSONarray = (NSArray *)object;
-                 NSLog(@"%@",self.JSONarray);
-                [self configureDataSource];
-                [self.tableView reloadData];
-            }
-        }
-    }];
-}
-
--(void)configureDataSource
-{
-    //override
-}
+@implementation SidebarViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -61,26 +24,9 @@
     return self;
 }
 
-- (void)doLogInStuff
-{
-    // override if necessary
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self refresh];
-    if ([self encodedUserFromDefaults]) {
-        User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
-        self.user = user;
-        NSLog(@"%@",self.user);
-        
-    } else {
-        [self doLogInStuff];
-    }
-    
-    
-    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -89,28 +35,62 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 0;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    NSInteger row = indexPath.row;
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
     
-    // Configure the cell...
+    if (row == 0) {
+        cell.textLabel.text = @"Upcoming Fights";
+    }
+    if (row == 1) {
+        cell.textLabel.text = @"Recent Fights";
+    }
+    if (row == 2) {
+        cell.textLabel.text = @"Feed";
+    }
+    if (row == 3) {
+        cell.textLabel.text = @"Gods";
+    }
+    if (row == 4) {
+        cell.textLabel.text = @"My Profile";
+    }
     
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSInteger row = indexPath.row;
+    
+    if (row == 2) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController *feedNavController = [storyboard instantiateViewControllerWithIdentifier:@"FeedNav"];
+        [[self revealController] setFrontViewController:feedNavController];
+    }
 }
 
 /*
@@ -153,15 +133,21 @@
 */
 
 /*
-#pragma mark - Navigation
+#pragma mark - Table view delegate
 
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+// In a xib-based application, navigation from a table can be handled in -tableView:didSelectRowAtIndexPath:
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
+    // Navigation logic may go here, for example:
+    // Create the next view controller.
+    <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
 
+    // Pass the selected object to the new view controller.
+    
+    // Push the view controller.
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+ 
  */
 
 @end
