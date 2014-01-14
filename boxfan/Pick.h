@@ -20,6 +20,7 @@
 @property  BOOL byStoppage;
 
 -(instancetype)initWithFightViewDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithFeedViewDictionary:(NSDictionary *)dictionary;
 
 -(NSString *)feedRepresentation;
 

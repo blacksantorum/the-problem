@@ -11,10 +11,10 @@
 #import "Pick.h"
 #import "Fight.h"
 #import "Boxer.h"
+#import <Parse/Parse.h>
 
 @interface UserPickViewController ()
 
-@property (nonatomic, strong) User *user;
 @property (nonatomic, strong) NSMutableArray *pickedFights; //of Fights that the user picked
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
@@ -26,22 +26,32 @@
 
 @implementation UserPickViewController
 
--(NSMutableArray *)pickedfights
+-(UIImage *)imageForURL:(NSURL *)imageURL
 {
-    if(!_pickedFights) {
-        _pickedFights = [[NSMutableArray alloc] init];
-    }
-    return _pickedFights;
+    NSData *data = [NSData dataWithContentsOfURL:imageURL];
+    return [UIImage imageWithData:data];
 }
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+-(NSDictionary *)userDictionaryFromTwitter
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    NSURL *verify = [NSURL URLWithString:[URLS urlStringForUsersTwitterWithScreenname:self.user.handle]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
+    [[PFTwitterUtils twitter] signRequest:request];
+    NSURLResponse *response = nil;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    return result;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    User *fleshedOutUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
+    self.user = fleshedOutUser;
+    [self.userPicture setImage:[self imageForURL:[NSURL URLWithString:self.user.profileImageURL]]];
 }
 
 - (void)viewDidLoad
@@ -65,12 +75,6 @@
     Fight *f = self.pickedFights[indexPath.row];
     cell.textLabel.text = f.titleForScheduleView;
     return cell;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

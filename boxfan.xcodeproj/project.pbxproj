@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		C19AC8458FAD439FA2224948 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B423D2962D5A439EABD428EB /* libPods.a */; };
 		EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B3A188515D7009B32B4 /* FeedVC.m */; };
+		EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */; };
+		EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4018854319009B32B4 /* FeedNavController.m */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -69,6 +71,10 @@
 		B423D2962D5A439EABD428EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D5B39188515D7009B32B4 /* FeedVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedVC.h; sourceTree = "<group>"; };
 		EC0D5B3A188515D7009B32B4 /* FeedVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedVC.m; sourceTree = "<group>"; };
+		EC0D5B3C188542D3009B32B4 /* UpcomingFightNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFightNavController.h; sourceTree = "<group>"; };
+		EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightNavController.m; sourceTree = "<group>"; };
+		EC0D5B3F18854319009B32B4 /* FeedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedNavController.h; path = boxfan/FeedNavController.h; sourceTree = "<group>"; };
+		EC0D5B4018854319009B32B4 /* FeedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedNavController.m; path = boxfan/FeedNavController.m; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -170,6 +176,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC0D5B431885433D009B32B4 /* Nav Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				EC0D5B4018854319009B32B4 /* FeedNavController.m */,
+				EC0D5B3F18854319009B32B4 /* FeedNavController.h */,
+				EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */,
+				EC0D5B3C188542D3009B32B4 /* UpcomingFightNavController.h */,
+			);
+			name = "Nav Subclasses";
+			sourceTree = "<group>";
+		};
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +205,7 @@
 			children = (
 				ECE55DA01884B86900E02546 /* SidebarViewController.h */,
 				ECE55DA11884B86900E02546 /* SidebarViewController.m */,
+				EC0D5B431885433D009B32B4 /* Nav Subclasses */,
 				ECE55DA21884B86900E02546 /* SidebarViewController.xib */,
 				EC53741418810E4100DF16AB /* FacebookSDK.framework */,
 				EC5373FE18810A3200DF16AB /* Parse.framework */,
@@ -492,7 +510,9 @@
 				EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
+				EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
+				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 			);

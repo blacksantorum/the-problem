@@ -44,6 +44,36 @@
     return self;
 }
 
+-(instancetype)initWithFeedViewDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        User *user = [[User alloc] initWithDictionary:[dictionary valueForKeyPath:@"pick.user"]];
+        _user = user;
+        
+        NSMutableArray *boxerArray = [[NSMutableArray alloc] init];
+        for (NSDictionary *boxerDict in [dictionary valueForKeyPath:@"pick.fight.boxers"]) {
+            Boxer *b = [[Boxer alloc] initWithDictionary:boxerDict[@"boxer"]];
+            [boxerArray addObject:b];
+        }
+        
+        NSString *winnerID = [dictionary valueForKeyPath:@"pick.fight.winner_id"];
+        Boxer *b = [boxerArray firstObject];
+        
+        if ([b.boxerID.description  isEqualToString:winnerID.description]) {
+            _winner = b;
+            _loser = [boxerArray lastObject];
+        } else {
+            _winner = [boxerArray lastObject];
+            _loser = b;
+        }
+        
+        Fight *fight = [[Fight alloc] initWithDictionary:[dictionary valueForKeyPath:@"pick.fight"]];
+        _fight = fight;
+    }
+    return self;
+}
+
 -(NSString *)feedRepresentation
 {
     NSString *byStoppageString = [[NSString alloc] init];
@@ -53,7 +83,7 @@
         byStoppageString = @"by KO";
     }
     
-    NSString *feedRep = [NSString stringWithFormat:@"%@ picked %@ over %@ %@",self.user.name,self.winner.boxerFullName,self.loser.boxerFullName,byStoppageString];
+    NSString *feedRep = [NSString stringWithFormat:@"%@ picked %@ over %@ %@",self.user.name,self.winner.lastName,self.loser.lastName,byStoppageString];
     
     return feedRep;
 }
