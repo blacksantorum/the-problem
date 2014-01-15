@@ -161,7 +161,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"fightDetail"]) {
+    if ([segue.identifier isEqualToString:@"upcomingFightDetail"]) {
         UpcomingFightVC *controller = (UpcomingFightVC *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
@@ -198,14 +198,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Fight Cell";
+    static NSString *CellIdentifier = @"Upcoming Fight Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
     NSArray *fightArrayAtDate = [self fightsForDate:date];
     Fight *fight = fightArrayAtDate[indexPath.row];
     cell.textLabel.text = fight.titleForScheduleView;
-    cell.detailTextLabel.text = @"";
     
     return cell;
 }

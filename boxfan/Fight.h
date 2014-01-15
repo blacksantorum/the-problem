@@ -22,10 +22,11 @@
 
 @property (nonatomic,strong) NSNumber *winnerID;
 
-@property (nonatomic,strong) NSNumber *stoppage;
+@property BOOL stoppage;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 - (NSString *)titleForScheduleView;
+-(NSString *)titleForRecentFightsView;
 
 @end

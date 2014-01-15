@@ -1,5 +1,5 @@
 //
-//  UpcomingFightNavController.h
+//  LeftButtonNavController.h
 //  boxfan
 //
 //  Created by Chris Tibbs on 1/14/14.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "LeftButtonNavController.h"
 
-@interface UpcomingFightNavController : LeftButtonNavController
+@interface LeftButtonNavController : UINavigationController
 
 @end

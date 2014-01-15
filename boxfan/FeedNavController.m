@@ -14,4 +14,11 @@
 
 @implementation FeedNavController
 
+-(void)viewDidLoad
+{
+    UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Switch"
+                                                                    style:UIBarButtonItemStyleDone target:nil action:nil];
+    self.navigationItem.leftBarButtonItem = leftButton;
+}
+
 @end

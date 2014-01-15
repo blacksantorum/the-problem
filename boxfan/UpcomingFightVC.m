@@ -8,7 +8,6 @@
 
 #import "UpcomingFightVC.h"
 #import "FighterPickControlsView.h"
-#import "PickFightView.h"
 #import <AFHTTPRequestOperationManager.h>
 
 @interface UpcomingFightVC ()
@@ -30,6 +29,17 @@
         button.titleLabel.text = @"KO";
     } else {
         button.titleLabel.text = @"decision";
+    }
+}
+
+-(void)setPickButtons
+{
+    if (self.currentPick) {
+        if ([self.fighterAPickControl.boxer.boxerID.description isEqualToString:self.currentPick.winner.boxerID.description]) {
+            [self setTitleForButton:self.fighterAPickControl.pickFighterButton forPick:self.currentPick];
+        } else if ([self.fighterBPickControl.boxer.boxerID.description isEqualToString:self.currentPick.winner.boxerID.description]) {
+            [self setTitleForButton:self.fighterBPickControl.pickFighterButton forPick:self.currentPick];
+        }
     }
 }
 
@@ -57,22 +67,34 @@
     self.locationRoundsWeightLabel.text = [NSString stringWithFormat:@"%@: %@ rounds at %@",self.fight.location,self.fight.rounds,self.fight.weight];
     self.fighterAPickControl.delegate = self;
     self.fighterBPickControl.delegate = self;
-    
-    if (self.currentPick) {
-        if ([self.fighterAPickControl.boxer.boxerID.description isEqualToString:self.currentPick.winner.boxerID.description]) {
-            [self setTitleForButton:self.fighterAPickControl.pickFighterButton forPick:self.currentPick];
-        } else if ([self.fighterBPickControl.boxer.boxerID.description isEqualToString:self.currentPick.winner.boxerID.description]) {
-            [self setTitleForButton:self.fighterBPickControl.pickFighterButton forPick:self.currentPick];
-        }
-    }
+    [self setPickButtons];
 }
 
 -(void)fighterChosen:(Boxer *)boxer
 {
-    PickFightView *pickFightView = [[PickFightView alloc] initWithFrame:CGRectMake(0, 500, 320, 90)];
-    pickFightView.boxer = boxer;
-    pickFightView.delegate = self;
-    [self.view addSubview:pickFightView];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Pick %@",boxer.boxerFullName] delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"by KO", @"by Decision",nil];
+    
+    [actionSheet showInView:self.view];
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    // Action Sheet title is "Pick <Boxer Full Name>", this removes "Pick "
+    NSString *nameOfBoxerForActionSheet = [actionSheet.title substringFromIndex:5];
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    Boxer *pickedBoxer = [[Boxer alloc] init];
+    for (Boxer *b in self.fight.boxers) {
+        if ([b.boxerFullName isEqualToString:nameOfBoxerForActionSheet]) {
+            pickedBoxer = b;
+        }
+    }
+    
+    if ([buttonTitle isEqualToString:@"by KO"]) {
+        [self pickFighter:pickedBoxer withKO:YES];
+    }
+    if ([buttonTitle isEqualToString:@"by Decision"]) {
+        [self pickFighter:pickedBoxer withKO:NO];
+    }
 }
 
 -(void)pickFighter:(Boxer *)boxer withKO:(BOOL)KO
@@ -82,6 +104,13 @@
     NSDictionary *parameters = @{@"pick":@{@"winner_id": boxer.boxerID, @"ko":[self stringForBool:KO] }};
     [manager POST:[URLS urlStringForPostingPickForFight:self.fight] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        Pick *newCurrentPick = [[Pick alloc] init];
+        newCurrentPick.fight = self.fight;
+        newCurrentPick.user = self.user;
+        newCurrentPick.winner = boxer;
+        newCurrentPick.byStoppage = KO;
+        self.currentPick = newCurrentPick;
+        [self setPickButtons];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

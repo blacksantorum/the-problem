@@ -11,6 +11,8 @@
 #import "UpcomingFightNavController.h"
 #import "FeedNavController.h"
 #import "UserPickViewController.h"
+#import "RecentFightNavController.h"
+#import "GodsNavController.h"
 
 @interface SidebarViewController ()
 
@@ -80,27 +82,46 @@
         }
     }
     
+    if (row == 1) {
+        if (![[[self revealController] frontViewController] isKindOfClass:[RecentFightNavController class]]) {
+            UINavigationController *recentNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"RecentNav"];
+            [[self revealController] setFrontViewController:recentNavController];
+            [[self revealController] showViewController:recentNavController];
+        } else {
+            [[self revealController] showViewController:[[self revealController] frontViewController]];
+        }
+    }
+    
     if (row == 2) {
         if (![[[self revealController] frontViewController] isKindOfClass:[FeedNavController class]]) {
             UINavigationController *feedNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedNav"];
             [[self revealController] setFrontViewController:feedNavController];
             [[self revealController] showViewController:feedNavController];
+        } else {
+            [[self revealController] showViewController:[[self revealController] frontViewController]];
         }
-    }
-    else {
-        [[self revealController] showViewController:[[self revealController] frontViewController]];
     }
     
-    if (row == 4) {
-        if (![[[self revealController] frontViewController] isKindOfClass:[UserPickViewController class]]) {
-            UIViewController *myProfileController = (UserPickViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"myProfile"];
-            // myProfileController.user = self.user;
-            [[self revealController] setFrontViewController:myProfileController];
-            [[self revealController] showViewController:myProfileController];
+    if (row == 3) {
+        if (![[[self revealController] frontViewController] isKindOfClass:[GodsNavController class]]) {
+            UINavigationController *godsNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"GodsNav"];
+            [[self revealController] setFrontViewController:godsNavController];
+            [[self revealController] showViewController:godsNavController];
+        } else {
+            [[self revealController] showViewController:[[self revealController] frontViewController]];
         }
     }
-    else {
-        [[self revealController] showViewController:[[self revealController] frontViewController]];
+
+    if (row == 4) {
+        if (![[[self revealController] frontViewController] isKindOfClass:[UserPickViewController class]]) {
+            UserPickViewController *myProfileController = (UserPickViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"myProfile"];
+            myProfileController.user = self.user;
+                
+            [[self revealController] setFrontViewController:myProfileController];
+            [[self revealController] showViewController:myProfileController];
+        } else {
+            [[self revealController] showViewController:[[self revealController] frontViewController]];
+        }
     }
 }
 

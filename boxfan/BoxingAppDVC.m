@@ -39,7 +39,7 @@
                 NSLog(@"JSON parsing error: %@", error);
             } else {
                 self.JSONarray = (NSArray *)object;
-                 NSLog(@"%@",self.JSONarray);
+                NSLog(@"%@",self.JSONarray);
                 [self configureDataSource];
                 [self.tableView reloadData];
             }
@@ -73,8 +73,6 @@
     if ([self encodedUserFromDefaults]) {
         User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
         self.user = user;
-        NSLog(@"%@",self.user);
-        
     } else {
         [self doLogInStuff];
     }
@@ -87,6 +85,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self refresh];
 }
 
 #pragma mark - Table view data source

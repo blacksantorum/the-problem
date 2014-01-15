@@ -87,7 +87,8 @@
     } else {
         url = @"http://192.168.1.113:3000/api/fights/";
     }
-    return [url stringByAppendingString:[NSString stringWithFormat:@"%@",fight.fightID.description]];
+    NSLog(@"%@",[url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]]);
+    return [url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]];
 }
 
 @end

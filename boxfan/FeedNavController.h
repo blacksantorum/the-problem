@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LeftButtonNavController.h"
 
-@interface FeedNavController : UINavigationController
+@interface FeedNavController : LeftButtonNavController
 
 @end

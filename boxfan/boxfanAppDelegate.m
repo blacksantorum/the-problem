@@ -37,6 +37,12 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+-(NSData *)encodedUserFromDefaults
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults objectForKey:@"User"];
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self doParseInitialization];
@@ -49,6 +55,11 @@
     
     // left
     SidebarViewController *sideBarController = [[SidebarViewController alloc] initWithNibName:@"SidebarViewController" bundle:nil];
+    
+    if ([self encodedUserFromDefaults]) {
+        User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
+        sideBarController.user = user;
+    }
     
     self.revealController = [PKRevealController revealControllerWithFrontViewController:frontNavController leftViewController:sideBarController];
     

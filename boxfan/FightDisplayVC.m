@@ -30,8 +30,8 @@
             if (error) {
                 NSLog(@"JSON parsing error: %@", error);
             } else {
+                NSLog(@"Object: %@",object);
                 self.JSONdictionary = (NSDictionary *)object;
-                NSLog(@"%@",self.JSONdictionary);
                 [self configureDataSource];
             }
         }

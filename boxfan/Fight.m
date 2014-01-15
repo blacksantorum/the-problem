@@ -19,7 +19,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%@",self.fightID,self.date,self.weight,self.location,self.rounds,self.winnerID,self.stoppage];
+    return [NSString stringWithFormat:@"%@,%@,%@,%@,%@,%@,%hhd",self.fightID,self.date,self.weight,self.location,self.rounds,self.winnerID,self.stoppage];
 }
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary
@@ -42,7 +42,15 @@
        // _boxers = boxers;
         _rounds = [dictionary objectForKey:@"rounds"];
         _winnerID = [dictionary objectForKey:@"winner_id"];
-        _stoppage = [dictionary objectForKey:@"stoppage"];
+        
+        NSString *stoppageNumber = [dictionary objectForKey:@"stoppage"];
+        if (![stoppageNumber isKindOfClass:[NSNull class]]) {
+            if (stoppageNumber) {
+                self.stoppage = YES;
+            } else {
+                self.stoppage = NO;
+            }
+        }
     }
     return self;
 }
@@ -56,6 +64,29 @@
     
      // we want "<A-side boxer> - <B-side boxer>"
     title = [NSString stringWithFormat:@"%@ - %@",[aSide lastName],[bSide lastName]];
+    
+    return title;
+}
+
+-(NSString *)titleForRecentFightsView
+{
+    NSString *title = [[NSString alloc] init];
+    
+    Boxer *winner = [[Boxer alloc] init];
+    Boxer *loser = [[Boxer alloc] init];
+    for (Boxer *b in self.boxers) {
+        if ([b.boxerID.description isEqualToString:self.winnerID.description]) {
+            winner = b;
+        } else {
+            loser = b;
+        }
+    }
+    
+    if (self.stoppage) {
+        title = [NSString stringWithFormat:@"%@ KO %@",winner.boxerFullName,loser.boxerFullName];
+    } else {
+        title = [NSString stringWithFormat:@"%@ def. %@",winner.boxerFullName,loser.boxerFullName];
+    }
     
     return title;
 }

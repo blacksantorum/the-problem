@@ -11,6 +11,9 @@
 		EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B3A188515D7009B32B4 /* FeedVC.m */; };
 		EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */; };
 		EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4018854319009B32B4 /* FeedNavController.m */; };
+		EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B451886126D009B32B4 /* LeftButtonNavController.m */; };
+		EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4818869543009B32B4 /* RecentFightNavController.m */; };
+		EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -25,8 +28,6 @@
 		EC53741318810C7800DF16AB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741218810C7800DF16AB /* Social.framework */; };
 		EC53741518810E4100DF16AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741418810E4100DF16AB /* FacebookSDK.framework */; };
 		EC537418188227AC00DF16AB /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = EC537417188227AC00DF16AB /* Auth.m */; };
-		EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC54850B187EB38000EA69E5 /* PickFightView.xib */; };
-		EC54850F187EB4C200EA69E5 /* PickFightView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC54850E187EB4C200EA69E5 /* PickFightView.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
 		ECA0CE3E185E4EF8003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
@@ -45,6 +46,8 @@
 		ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13227185FA36A00001793 /* UserPickViewController.m */; };
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
+		ECC109961886A6C0000B70CF /* GodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109951886A6C0000B70CF /* GodsViewController.m */; };
+		ECC109991886A72B000B70CF /* GodsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109981886A72B000B70CF /* GodsNavController.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -75,6 +78,12 @@
 		EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightNavController.m; sourceTree = "<group>"; };
 		EC0D5B3F18854319009B32B4 /* FeedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedNavController.h; path = boxfan/FeedNavController.h; sourceTree = "<group>"; };
 		EC0D5B4018854319009B32B4 /* FeedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedNavController.m; path = boxfan/FeedNavController.m; sourceTree = "<group>"; };
+		EC0D5B441886126D009B32B4 /* LeftButtonNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftButtonNavController.h; path = boxfan/LeftButtonNavController.h; sourceTree = "<group>"; };
+		EC0D5B451886126D009B32B4 /* LeftButtonNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftButtonNavController.m; path = boxfan/LeftButtonNavController.m; sourceTree = "<group>"; };
+		EC0D5B4718869543009B32B4 /* RecentFightNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFightNavController.h; sourceTree = "<group>"; };
+		EC0D5B4818869543009B32B4 /* RecentFightNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFightNavController.m; sourceTree = "<group>"; };
+		EC0D5B4A18869637009B32B4 /* RecentFightsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFightsVC.h; sourceTree = "<group>"; };
+		EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFightsVC.m; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -91,9 +100,6 @@
 		EC53741418810E4100DF16AB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		EC537416188227AC00DF16AB /* Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
 		EC537417188227AC00DF16AB /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
-		EC54850B187EB38000EA69E5 /* PickFightView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickFightView.xib; sourceTree = "<group>"; };
-		EC54850D187EB4C200EA69E5 /* PickFightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickFightView.h; sourceTree = "<group>"; };
-		EC54850E187EB4C200EA69E5 /* PickFightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickFightView.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE39185E4EF8003380C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -121,6 +127,10 @@
 		ECA1322A185FA64E00001793 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		ECA1322C185FA8A500001793 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
 		ECA1322D185FA8A500001793 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
+		ECC109941886A6C0000B70CF /* GodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsViewController.h; sourceTree = "<group>"; };
+		ECC109951886A6C0000B70CF /* GodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsViewController.m; sourceTree = "<group>"; };
+		ECC109971886A72B000B70CF /* GodsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsNavController.h; sourceTree = "<group>"; };
+		ECC109981886A72B000B70CF /* GodsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsNavController.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -179,20 +189,24 @@
 		EC0D5B431885433D009B32B4 /* Nav Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109971886A72B000B70CF /* GodsNavController.h */,
+				ECC109981886A72B000B70CF /* GodsNavController.m */,
 				EC0D5B4018854319009B32B4 /* FeedNavController.m */,
+				EC0D5B4718869543009B32B4 /* RecentFightNavController.h */,
+				EC0D5B4818869543009B32B4 /* RecentFightNavController.m */,
+				EC0D5B441886126D009B32B4 /* LeftButtonNavController.h */,
+				EC0D5B451886126D009B32B4 /* LeftButtonNavController.m */,
 				EC0D5B3F18854319009B32B4 /* FeedNavController.h */,
 				EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */,
 				EC0D5B3C188542D3009B32B4 /* UpcomingFightNavController.h */,
 			);
 			name = "Nav Subclasses";
+			path = ..;
 			sourceTree = "<group>";
 		};
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
-				EC54850B187EB38000EA69E5 /* PickFightView.xib */,
-				EC54850D187EB4C200EA69E5 /* PickFightView.h */,
-				EC54850E187EB4C200EA69E5 /* PickFightView.m */,
 				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
 				ECD11530187E869800530434 /* FighterPickControlsView.m */,
 				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
@@ -203,12 +217,8 @@
 		ECA0CE2D185E4EF8003380C5 = {
 			isa = PBXGroup;
 			children = (
-				ECE55DA01884B86900E02546 /* SidebarViewController.h */,
-				ECE55DA11884B86900E02546 /* SidebarViewController.m */,
-				EC0D5B431885433D009B32B4 /* Nav Subclasses */,
-				ECE55DA21884B86900E02546 /* SidebarViewController.xib */,
-				EC53741418810E4100DF16AB /* FacebookSDK.framework */,
 				EC5373FE18810A3200DF16AB /* Parse.framework */,
+				EC53741418810E4100DF16AB /* FacebookSDK.framework */,
 				ECA0CE3F185E4EF8003380C5 /* boxfan */,
 				ECA0CE5E185E4EF9003380C5 /* boxfanTests */,
 				ECA0CE38185E4EF8003380C5 /* Frameworks */,
@@ -251,11 +261,12 @@
 		ECA0CE3F185E4EF8003380C5 /* boxfan */ = {
 			isa = PBXGroup;
 			children = (
+				EC0D5B431885433D009B32B4 /* Nav Subclasses */,
+				ECC109931886A66A000B70CF /* Sidebar */,
 				ECD1151D187DEAD300530434 /* Utility Classes */,
 				ECA0CE4B185E4EF9003380C5 /* Main.storyboard */,
 				EC54850A187E9A3400EA69E5 /* Custom Views */,
 				ECD1151E187DF76D00530434 /* Refactored View Controllers */,
-				ECD11515187D48A500530434 /* Suspect View Controllers */,
 				ECD11519187D4AB800530434 /* Abstract */,
 				ECA0CE51185E4EF9003380C5 /* Images.xcassets */,
 				ECA13232186018F700001793 /* Model */,
@@ -310,13 +321,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		ECD11515187D48A500530434 /* Suspect View Controllers */ = {
+		ECC109931886A66A000B70CF /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
-				ECA13226185FA36A00001793 /* UserPickViewController.h */,
-				ECA13227185FA36A00001793 /* UserPickViewController.m */,
+				ECE55DA01884B86900E02546 /* SidebarViewController.h */,
+				ECE55DA11884B86900E02546 /* SidebarViewController.m */,
+				ECE55DA21884B86900E02546 /* SidebarViewController.xib */,
 			);
-			name = "Suspect View Controllers";
+			name = Sidebar;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		ECD11519187D4AB800530434 /* Abstract */ = {
@@ -346,6 +359,12 @@
 		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109941886A6C0000B70CF /* GodsViewController.h */,
+				ECC109951886A6C0000B70CF /* GodsViewController.m */,
+				ECA13226185FA36A00001793 /* UserPickViewController.h */,
+				ECA13227185FA36A00001793 /* UserPickViewController.m */,
+				EC0D5B4A18869637009B32B4 /* RecentFightsVC.h */,
+				EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */,
 				EC0D5B39188515D7009B32B4 /* FeedVC.h */,
 				EC0D5B3A188515D7009B32B4 /* FeedVC.m */,
 				ECD1152A187E389700530434 /* UpcomingFightVC.h */,
@@ -439,7 +458,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
-				EC54850C187EB38000EA69E5 /* PickFightView.xib in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 				ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */,
@@ -496,7 +514,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
-				EC54850F187EB4C200EA69E5 /* PickFightView.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
@@ -510,10 +527,15 @@
 				EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
+				EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */,
 				EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */,
+				EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */,
+				ECC109961886A6C0000B70CF /* GodsViewController.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
+				ECC109991886A72B000B70CF /* GodsNavController.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
+				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
