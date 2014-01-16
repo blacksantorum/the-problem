@@ -62,7 +62,8 @@
             [boxerArray addObject:b];
         }
         
-        NSString *winnerID = [dictionary valueForKeyPath:@"pick.fight.winner_id"];
+        NSString *winnerID = [dictionary valueForKeyPath:@"pick.winner_id"];
+
         Boxer *b = [boxerArray firstObject];
         
         if ([b.boxerID.description  isEqualToString:winnerID.description]) {
