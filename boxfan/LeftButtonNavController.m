@@ -7,6 +7,7 @@
 //
 
 #import "LeftButtonNavController.h"
+#import <PKRevealController/PKRevealController.h>
 
 @interface LeftButtonNavController ()
 
@@ -14,12 +15,9 @@
 
 @implementation LeftButtonNavController
 
-- (void)viewDidLoad
+- (void)showSettingsMenu
 {
-    [super viewDidLoad];
-	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Switch"
-                                                                   style:UIBarButtonItemStyleDone target:nil action:nil];
-    self.navigationItem.leftBarButtonItem = leftButton;
+    [[self revealController] showViewController:[[self revealController] leftViewController]];
 }
 
 @end

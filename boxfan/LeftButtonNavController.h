@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "User.h"
 
 @interface LeftButtonNavController : UINavigationController
+
+@property (nonatomic,strong) User *user;
+
+- (void)showSettingsMenu;
 
 @end

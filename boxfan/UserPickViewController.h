@@ -12,5 +12,6 @@
 @interface UserPickViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic,strong) User *user;
+- (IBAction)userClickedShowSettings:(id)sender;
 
 @end

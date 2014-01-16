@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *twitterID;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithListOfUsersDictionary:(NSDictionary *)dictionary;
 
 // encoding
 -(void)encodeWithCoder:(NSCoder *)encoder;

@@ -19,6 +19,7 @@
 +(NSURL *)urlForFeed;
 +(NSURL *)urlForUpcomingFights;
 +(NSURL *)urlForRecentFights;
++(NSURL *)urlForUsers;
 
 +(BOOL)prod;
 

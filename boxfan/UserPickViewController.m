@@ -12,6 +12,7 @@
 #import "Fight.h"
 #import "Boxer.h"
 #import <Parse/Parse.h>
+#import <PKRevealController/PKRevealController.h>
 
 @interface UserPickViewController ()
 
@@ -77,4 +78,7 @@
     return cell;
 }
 
+- (IBAction)userClickedShowSettings:(id)sender {
+    [[self revealController] showViewController:[[self revealController] leftViewController]];
+}
 @end

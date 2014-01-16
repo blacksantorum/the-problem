@@ -24,6 +24,19 @@
     return self;
 }
 
+-(instancetype)initWithListOfUsersDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        _handle = [dictionary objectForKey:@"screen_name"];
+        _name = [dictionary objectForKey:@"name"];
+        _profileImageURL = [dictionary objectForKey:@"img"];
+        _userID = [dictionary objectForKey:@"id"];
+    }
+    
+    return self;
+}
+
 -(void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:self.handle forKey:@"handle"];

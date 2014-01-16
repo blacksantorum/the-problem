@@ -48,6 +48,9 @@
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
 		ECC109961886A6C0000B70CF /* GodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109951886A6C0000B70CF /* GodsViewController.m */; };
 		ECC109991886A72B000B70CF /* GodsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109981886A72B000B70CF /* GodsNavController.m */; };
+		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
+		ECC109E81887C641000B70CF /* FindUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109E71887C641000B70CF /* FindUserVC.m */; };
+		ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109EA1887F831000B70CF /* MyProfileNavController.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -131,6 +134,12 @@
 		ECC109951886A6C0000B70CF /* GodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsViewController.m; sourceTree = "<group>"; };
 		ECC109971886A72B000B70CF /* GodsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsNavController.h; sourceTree = "<group>"; };
 		ECC109981886A72B000B70CF /* GodsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsNavController.m; sourceTree = "<group>"; };
+		ECC109DE18878994000B70CF /* FindUserNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserNavController.h; sourceTree = "<group>"; };
+		ECC109DF18878994000B70CF /* FindUserNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindUserNavController.m; sourceTree = "<group>"; };
+		ECC109E61887C641000B70CF /* FindUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserVC.h; sourceTree = "<group>"; };
+		ECC109E71887C641000B70CF /* FindUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindUserVC.m; sourceTree = "<group>"; };
+		ECC109E91887F831000B70CF /* MyProfileNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyProfileNavController.h; sourceTree = "<group>"; };
+		ECC109EA1887F831000B70CF /* MyProfileNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileNavController.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -189,6 +198,10 @@
 		EC0D5B431885433D009B32B4 /* Nav Subclasses */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109E91887F831000B70CF /* MyProfileNavController.h */,
+				ECC109EA1887F831000B70CF /* MyProfileNavController.m */,
+				ECC109DE18878994000B70CF /* FindUserNavController.h */,
+				ECC109DF18878994000B70CF /* FindUserNavController.m */,
 				ECC109971886A72B000B70CF /* GodsNavController.h */,
 				ECC109981886A72B000B70CF /* GodsNavController.m */,
 				EC0D5B4018854319009B32B4 /* FeedNavController.m */,
@@ -359,6 +372,8 @@
 		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109E61887C641000B70CF /* FindUserVC.h */,
+				ECC109E71887C641000B70CF /* FindUserVC.m */,
 				ECC109941886A6C0000B70CF /* GodsViewController.h */,
 				ECC109951886A6C0000B70CF /* GodsViewController.m */,
 				ECA13226185FA36A00001793 /* UserPickViewController.h */,
@@ -514,8 +529,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
+				ECC109E018878994000B70CF /* FindUserNavController.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
+				ECC109E81887C641000B70CF /* FindUserVC.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
@@ -537,6 +554,7 @@
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
+				ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,14 @@
 
 @interface BoxingAppDVC : UITableViewController
 
-@property (strong,nonatomic)  User *user;
-@property (strong,atomic) NSURL *urlForRequest;
-@property (strong,atomic) NSArray *JSONarray;
+@property (strong,nonatomic) User *user;
+@property (strong,nonatomic) NSURL *urlForRequest;
+@property (strong,nonatomic) NSArray *JSONarray;
 
 -(void)configureDataSource;
+- (void)showSettingsMenu;
+
+
+- (IBAction)userClickedShowSettings:(id)sender;
 
 @end

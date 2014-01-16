@@ -13,6 +13,8 @@
 #import "UserPickViewController.h"
 #import "RecentFightNavController.h"
 #import "GodsNavController.h"
+#import "FindUserNavController.h"
+#import "MyProfileNavController.h"
 
 @interface SidebarViewController ()
 
@@ -37,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 7;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,19 +52,25 @@
     }
     
     if (row == 0) {
-        cell.textLabel.text = @"Upcoming Fights";
+        cell.textLabel.text = @"";
     }
     if (row == 1) {
-        cell.textLabel.text = @"Recent Fights";
+        cell.textLabel.text = @"Find User";
     }
     if (row == 2) {
-        cell.textLabel.text = @"Feed";
+        cell.textLabel.text = @"Upcoming Fights";
     }
     if (row == 3) {
-        cell.textLabel.text = @"Gods";
+        cell.textLabel.text = @"Recent Fights";
     }
     if (row == 4) {
-        cell.textLabel.text = @"My Profile";
+        cell.textLabel.text = @"Feed";
+    }
+    if (row == 5) {
+        cell.textLabel.text = @"Gods";
+    }
+    if (row == 6) {
+        cell.textLabel.text = self.user.handle;
     }
     
     return cell;
@@ -72,7 +80,17 @@
 {
     NSInteger row = indexPath.row;
     
-    if (row == 0) {
+    if (row == 1) {
+        if (![[[self revealController] frontViewController] isKindOfClass:[FindUserNavController class]]) {
+            UINavigationController *findUserNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"FindUserNav"];
+            [[self revealController] setFrontViewController:findUserNavController];
+            [[self revealController] showViewController:findUserNavController];
+        } else {
+            [[self revealController] showViewController:[[self revealController] frontViewController]];
+        }
+    }
+    
+    if (row == 2) {
         if (![[[self revealController] frontViewController] isKindOfClass:[UpcomingFightNavController class]]) {
             UINavigationController *scheduleNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleNav"];
             [[self revealController] setFrontViewController:scheduleNavController];
@@ -82,7 +100,7 @@
         }
     }
     
-    if (row == 1) {
+    if (row == 3) {
         if (![[[self revealController] frontViewController] isKindOfClass:[RecentFightNavController class]]) {
             UINavigationController *recentNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"RecentNav"];
             [[self revealController] setFrontViewController:recentNavController];
@@ -92,7 +110,7 @@
         }
     }
     
-    if (row == 2) {
+    if (row == 4) {
         if (![[[self revealController] frontViewController] isKindOfClass:[FeedNavController class]]) {
             UINavigationController *feedNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedNav"];
             [[self revealController] setFrontViewController:feedNavController];
@@ -102,7 +120,7 @@
         }
     }
     
-    if (row == 3) {
+    if (row == 5) {
         if (![[[self revealController] frontViewController] isKindOfClass:[GodsNavController class]]) {
             UINavigationController *godsNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"GodsNav"];
             [[self revealController] setFrontViewController:godsNavController];
@@ -112,9 +130,9 @@
         }
     }
 
-    if (row == 4) {
-        if (![[[self revealController] frontViewController] isKindOfClass:[UserPickViewController class]]) {
-            UserPickViewController *myProfileController = (UserPickViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"myProfile"];
+    if (row == 6) {
+        if (![[[self revealController] frontViewController] isKindOfClass:[MyProfileNavController class]]) {
+            MyProfileNavController *myProfileController = (MyProfileNavController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MyProfile"];
             myProfileController.user = self.user;
                 
             [[self revealController] setFrontViewController:myProfileController];
