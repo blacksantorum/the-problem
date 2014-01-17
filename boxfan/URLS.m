@@ -10,6 +10,11 @@
 
 @implementation URLS
 
++(NSString *)appendSessionToken:(NSString *)urlString
+{
+    return [urlString stringByAppendingString:[NSString stringWithFormat:@"?session_token=%@",[Auth sessionToken]]];
+}
+
 +(BOOL)prod
 {
     return YES;
@@ -24,10 +29,9 @@
         url = @"http://192.168.1.113:3000/api/fights/";
     }
     url = [url stringByAppendingString:fight.fightID.description];
-    url = [url stringByAppendingString:@"/picks?"];
-    url = [url stringByAppendingString:[NSString stringWithFormat:@"session_token=%@",[Auth sessionToken]]];
+    url = [url stringByAppendingString:@"/picks"];
     
-    return url;
+    return [URLS appendSessionToken:url];
 }
 
 +(NSString *)urlStringForRailsSignIn
@@ -54,7 +58,7 @@
     } else {
         url = @"http://192.168.1.113:3000/api/fights/future";
     }
-    return [NSURL URLWithString:url];
+    return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
 +(NSURL *)urlForRecentFights
@@ -65,7 +69,7 @@
     } else {
         url = @"http://192.168.1.113:3000/api/fights/past";
     }
-    return [NSURL URLWithString:url];
+    return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
 +(NSURL *)urlForFeed
@@ -76,7 +80,7 @@
     } else {
         url = @"http://192.168.1.113:3000/api/picks";
     }
-    return [NSURL URLWithString:url];
+    return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
 +(NSString *)urlForUsersCurrentPickForFight:(Fight *)fight
@@ -98,7 +102,7 @@
     } else {
         url = @"http://192.168.1.113:3000/api/users";
     }
-    return [NSURL URLWithString:url];
+    return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
 +(NSURL *)urlForPicksOfUser:(User *)user
@@ -110,7 +114,7 @@
     } else {
         url = [@"http://192.168.1.113:3000/api/users/" stringByAppendingString:user.userID.description];
     }
-    return [NSURL URLWithString:url];
+    return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
 @end
