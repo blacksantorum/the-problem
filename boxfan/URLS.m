@@ -39,6 +39,20 @@
     return [URLS appendSessionToken:url];
 }
 
++(NSString *)urlStringForPostingDecisionForFight:(Fight *)fight
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    } else {
+        url = @"http://192.168.1.113:3000/api/fights/";
+    }
+    url = [url stringByAppendingString:fight.fightID.description];
+    url = [url stringByAppendingString:@"/decisions"];
+    
+    return [URLS appendSessionToken:url];
+}
+
 +(NSString *)urlStringForRailsSignIn
 {
     NSString *url = [[NSString alloc] init];

@@ -12,6 +12,7 @@
 #import "Boxer.h"
 #import <Parse/Parse.h>
 #import <PKRevealController/PKRevealController.h>
+#import "MyProfileNavController.h"
 
 @interface UserPickViewController ()
 
@@ -21,6 +22,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *fightOfTheYearLabel;
 @property (weak, nonatomic) IBOutlet UITableView *picksTable;
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
+
+@property (strong,nonatomic) NSArray *picks;
+@property (strong,nonatomic) NSArray *decisions;
 
 @end
 
@@ -66,6 +70,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if ([[self navigationController] isKindOfClass:[MyProfileNavController class]]) {
+        self.displayedUser = self.loggedInUser;
+    }
     self.picksTable.delegate = self;
     self.picksTable.dataSource = self;
     [self.picksTable reloadData];

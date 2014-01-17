@@ -673,12 +673,29 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tfi-F4-Nlh">
+                                <rect key="frame" x="0.0" y="16" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="KXs-b3-TM0">
+                                        <barButtonItem key="leftBarButtonItem" image="hamburger" id="c4b-wt-kSy">
+                                            <connections>
+                                                <action selector="userClickedShowSettings:" destination="P3t-3R-J5m" id="5VV-pZ-gzJ"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="peN-hr-tBM"/>
+                        <barButtonItem title="Item" id="y5w-tg-SSA"/>
+                        <barButtonItem title="Item" id="tHi-Zi-E5O"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" id="GLZ-K4-59D"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="fightOfTheYearLabel" destination="N7H-5P-n4s" id="oI0-c2-p3Z"/>
                         <outlet property="handleAndScoreLabel" destination="TIN-3B-IjK" id="kEr-Ou-dWe"/>
@@ -694,7 +711,7 @@
         <!--My Profile Nav Controller-->
         <scene sceneID="3UH-XF-5wv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IA3-3u-ui1" customClass="MyProfileNavController" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MyProfile" automaticallyAdjustsScrollViewInsets="NO" id="IA3-3u-ui1" customClass="MyProfileNavController" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
