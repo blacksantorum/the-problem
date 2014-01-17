@@ -21,6 +21,7 @@
 
 -(instancetype)initWithFightViewDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithFeedViewDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithScheduleViewDictionary:(NSDictionary *)dictionary;
 
 -(NSString *)feedRepresentation;
 

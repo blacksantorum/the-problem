@@ -15,6 +15,11 @@
     return [urlString stringByAppendingString:[NSString stringWithFormat:@"?session_token=%@",[Auth sessionToken]]];
 }
 
++(NSString *)appendSessionTokenForGods:(NSString *)urlString
+{
+    return [urlString stringByAppendingString:[NSString stringWithFormat:@"&session_token=%@",[Auth sessionToken]]];
+}
+
 +(BOOL)prod
 {
     return YES;
@@ -115,6 +120,18 @@
         url = [@"http://192.168.1.113:3000/api/users/" stringByAppendingString:user.userID.description];
     }
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
+}
+
++(NSURL *)urlForGods
+{
+    NSString *url = [[NSString alloc] init];
+    
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/users?top=10";
+    } else {
+        url = @"http://192.168.1.113:3000/api/users?top=10";
+    }
+    return [NSURL URLWithString:[URLS appendSessionTokenForGods:url]];
 }
 
 @end

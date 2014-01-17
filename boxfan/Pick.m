@@ -94,6 +94,21 @@
     return feedRep;
 }
 
+-(instancetype)initWithScheduleViewDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        Fight *f = [[Fight alloc] init];
+        f.fightID = [dictionary valueForKeyPath:@"pick.fight_id"];
+        _fight = f;
+        
+        Boxer *w = [[Boxer alloc] init];
+        w.boxerID = [dictionary valueForKeyPath:@"pick.winner_id"];
+        _winner = w;
+    }
+    return self;
+}
+
 -(NSString *)description
 {
     return [NSString stringWithFormat:@"%@, %@, %@, %@,",self.user, self.fight, self.winner, self.loser];

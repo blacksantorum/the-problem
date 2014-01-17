@@ -18,6 +18,7 @@
 @property (nonatomic,strong) NSArray *fightDates;
 @property (nonatomic,strong) NSArray *fights;
 @property (nonatomic,strong) NSDictionary *picksJSONdictionary;
+@property (nonatomic,strong) NSArray *usersPicks;
 
 -(NSArray *)fightsForDate:(NSDate *)date;
 
@@ -25,7 +26,16 @@
 
 @implementation BoxingScheduleVC
 
-#pragma mark - Log In Stuff
+-(Pick *)usersPickForFight:(Fight *)fight
+{
+    Pick *pick = nil;
+    for (Pick *p in self.usersPicks) {
+        if ([fight.fightID.description isEqualToString:p.fight.fightID.description]) {
+            pick = p;
+        }
+    }
+    return pick;
+}
 
 -(User *)loggedInUser
 {
@@ -115,7 +125,12 @@
 
 -(void)configurePicksDataSource
 {
-    
+    NSMutableArray *picksArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *pickDictionary in [self.picksJSONdictionary valueForKey:@"user.picks"]) {
+        Pick *p = [[Pick alloc] initWithScheduleViewDictionary:pickDictionary];
+        [picksArray addObject:p];
+    }
+    self.usersPicks = picksArray;
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -153,6 +168,25 @@
 {
     NSDate *date = [self.fightDates objectAtIndex:section];
     return [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:date];
+}
+
+-(NSAttributedString *)attributedTitleForScheduleViewForFight:(Fight *)fight
+{
+    NSAttributedString *title;
+    Pick *pick = [self usersPickForFight:fight];
+    if (!pick) {
+        title = [[NSAttributedString alloc] initWithString:fight.titleForScheduleView];
+    } else {
+        Boxer *a = [fight.boxers objectAtIndex:0];
+        NSMutableAttributedString *aName = [[NSMutableAttributedString alloc] initWithString:a.lastName];
+        Boxer *b = [fight.boxers objectAtIndex:1];
+        NSMutableAttributedString *bName = [[NSMutableAttributedString alloc] initWithString:b.lastName];
+        
+        // make winner string bold, append them together in title
+        
+        
+    }
+    return title;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

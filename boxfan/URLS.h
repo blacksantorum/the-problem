@@ -21,6 +21,7 @@
 +(NSURL *)urlForRecentFights;
 +(NSURL *)urlForUsers;
 +(NSURL *)urlForPicksOfUser:(User *)user;
++(NSURL *)urlForGods;
 
 +(BOOL)prod;
 

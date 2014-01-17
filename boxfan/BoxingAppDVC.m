@@ -54,7 +54,7 @@
                 NSLog(@"JSON parsing error: %@", error);
             } else {
                 self.JSONarray = (NSArray *)object;
-                // NSLog(@"%@",self.JSONarray);
+                NSLog(@"%@",self.JSONarray);
                 [self configureDataSource];
                 [self.tableView reloadData];
             }
