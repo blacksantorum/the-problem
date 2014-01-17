@@ -10,4 +10,6 @@
 
 @interface MyProfileNavController : LeftButtonNavController
 
+@property (nonatomic,strong) User *displayedUser;
+
 @end

@@ -87,7 +87,6 @@
     } else {
         url = @"http://192.168.1.113:3000/api/fights/";
     }
-    NSLog(@"%@",[url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]]);
     return [url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]];
 }
 
@@ -98,6 +97,18 @@
         url = @"http://the-boxing-app.herokuapp.com/api/users";
     } else {
         url = @"http://192.168.1.113:3000/api/users";
+    }
+    return [NSURL URLWithString:url];
+}
+
++(NSURL *)urlForPicksOfUser:(User *)user
+{
+    NSString *url = [[NSString alloc] init];
+    
+    if ([URLS prod]) {
+        url = [@"http://the-boxing-app.herokuapp.com/api/users/" stringByAppendingString:user.userID.description];
+    } else {
+        url = [@"http://192.168.1.113:3000/api/users/" stringByAppendingString:user.userID.description];
     }
     return [NSURL URLWithString:url];
 }

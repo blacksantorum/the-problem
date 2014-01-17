@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "BoxFanRevealController.h"
 
 @interface LeftButtonNavController : UINavigationController
 
-@property (nonatomic,strong) User *user;
+@property (nonatomic,strong) User *loggedInUser;
 
 - (void)showSettingsMenu;
 

@@ -12,10 +12,12 @@
 #import <PKRevealController/PKRevealController.h>
 #import "BoxingScheduleVC.h"
 #import "SidebarViewController.h"
+#import "BoxFanRevealController.h"
+#import "Interstitial.h"
 
 @interface boxfanAppDelegate() <PKRevealing>
 
-@property (nonatomic,strong,readwrite) PKRevealController *revealController;
+@property (nonatomic,strong,readwrite) BoxFanRevealController *revealController;
 
 @end
 
@@ -27,6 +29,28 @@
                   clientKey:@"ygFW72dJh6tk3jbTxcEQoFbbROXRSIxaqldcv9Ik"];
     [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
                                consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
+}
+
+-(void)setUpRevealController
+{
+    // front
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UINavigationController *frontNavController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleNav"];
+    // UINavigationController *frontNavController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
+    
+    // left
+    SidebarViewController *sideBarController = [[SidebarViewController alloc] initWithNibName:@"SidebarViewController" bundle:nil];
+    
+    self.revealController = [BoxFanRevealController revealControllerWithFrontViewController:frontNavController leftViewController:sideBarController];
+    User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
+    self.revealController.loggedInUser = user;
+    
+    self.revealController.delegate = self;
+    self.revealController.animationDuration = 0.25;
+    
+    self.window.rootViewController = self.revealController;
+    
+    [self.window makeKeyAndVisible];
 }
 
 -(void)logOut
@@ -47,29 +71,7 @@
 {
     [self doParseInitialization];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    
-    // front
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *frontNavController = [storyboard instantiateViewControllerWithIdentifier:@"ScheduleNav"];
-    // UINavigationController *frontNavController = [[UINavigationController alloc] initWithRootViewController:scheduleView];
-    
-    // left
-    SidebarViewController *sideBarController = [[SidebarViewController alloc] initWithNibName:@"SidebarViewController" bundle:nil];
-    
-    if ([self encodedUserFromDefaults]) {
-        User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
-        sideBarController.user = user;
-    }
-    
-    self.revealController = [PKRevealController revealControllerWithFrontViewController:frontNavController leftViewController:sideBarController];
-    
-    self.revealController.delegate = self;
-    self.revealController.animationDuration = 0.25;
-    
-    self.window.rootViewController = self.revealController;
-    
-    // [self logOut];
-    [self.window makeKeyAndVisible];
+    [self setUpRevealController];
     return YES;
 }
 							

@@ -16,6 +16,12 @@
 
 @implementation FightDisplayVC
 
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
+}
+
 -(void)refresh
 {
     NSURL *url = [NSURL URLWithString:[URLS urlForUsersCurrentPickForFight:self.fight]];
@@ -53,12 +59,6 @@
 - (void)setUpView
 {
     //
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

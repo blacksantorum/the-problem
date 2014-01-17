@@ -11,6 +11,6 @@
 
 @interface SidebarViewController : UITableViewController
 
-@property (nonatomic,strong) User *user;
+@property (nonatomic,strong) User *loggedInUser;
 
 @end

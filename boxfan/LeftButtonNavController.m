@@ -15,6 +15,12 @@
 
 @implementation LeftButtonNavController
 
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
+}
+
 - (void)showSettingsMenu
 {
     [[self revealController] showViewController:[[self revealController] leftViewController]];

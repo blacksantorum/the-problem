@@ -10,6 +10,6 @@
 #import <Parse/Parse.h>
 #import "User.h"
 
-@interface BoxingScheduleVC : BoxingAppDVC <PFLogInViewControllerDelegate>
+@interface BoxingScheduleVC : BoxingAppDVC
 
 @end

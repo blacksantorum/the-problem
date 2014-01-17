@@ -14,11 +14,15 @@
 
 @interface BoxingAppDVC ()
 
--(void)refresh;
-
 @end
 
 @implementation BoxingAppDVC
+
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
+}
 
 -(IBAction)userClickedShowSettings:(id)sender
 {
@@ -50,7 +54,7 @@
                 NSLog(@"JSON parsing error: %@", error);
             } else {
                 self.JSONarray = (NSArray *)object;
-                NSLog(@"%@",self.JSONarray);
+                // NSLog(@"%@",self.JSONarray);
                 [self configureDataSource];
                 [self.tableView reloadData];
             }
@@ -63,15 +67,6 @@
     //override
 }
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)doLogInStuff
 {
     // override if necessary
@@ -81,16 +76,6 @@
 {
     [super viewDidLoad];
     [self refresh];
-    if ([self encodedUserFromDefaults]) {
-        User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
-        self.user = user;
-    } else {
-        [self doLogInStuff];
-    }
-    
-    
-    
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

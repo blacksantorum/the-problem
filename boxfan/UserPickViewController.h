@@ -8,10 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "BoxFanRevealController.h"
 
 @interface UserPickViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic,strong) User *user;
+@property (nonatomic,strong) User *loggedInUser;
+@property (nonatomic,strong) User *displayedUser;
+
 - (IBAction)userClickedShowSettings:(id)sender;
 
 @end

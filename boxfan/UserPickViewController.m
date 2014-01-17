@@ -7,7 +7,6 @@
 //
 
 #import "UserPickViewController.h"
-#import "User.h"
 #import "Pick.h"
 #import "Fight.h"
 #import "Boxer.h"
@@ -27,6 +26,12 @@
 
 @implementation UserPickViewController
 
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
+}
+
 -(UIImage *)imageForURL:(NSURL *)imageURL
 {
     NSData *data = [NSData dataWithContentsOfURL:imageURL];
@@ -35,7 +40,7 @@
 
 -(NSDictionary *)userDictionaryFromTwitter
 {
-    NSURL *verify = [NSURL URLWithString:[URLS urlStringForUsersTwitterWithScreenname:self.user.handle]];
+    NSURL *verify = [NSURL URLWithString:[URLS urlStringForUsersTwitterWithScreenname:self.displayedUser.handle]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
     [[PFTwitterUtils twitter] signRequest:request];
     NSURLResponse *response = nil;
@@ -51,8 +56,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     User *fleshedOutUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
-    self.user = fleshedOutUser;
-    [self.userPicture setImage:[self imageForURL:[NSURL URLWithString:self.user.profileImageURL]]];
+    self.displayedUser = fleshedOutUser;
+    [self.userPicture setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
 }
 
 - (void)viewDidLoad

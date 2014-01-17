@@ -14,4 +14,9 @@
 
 @implementation MyProfileNavController
 
+-(User *)displayedUser
+{
+    return self.loggedInUser;
+}
+
 @end

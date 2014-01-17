@@ -20,6 +20,7 @@
 +(NSURL *)urlForUpcomingFights;
 +(NSURL *)urlForRecentFights;
 +(NSURL *)urlForUsers;
++(NSURL *)urlForPicksOfUser:(User *)user;
 
 +(BOOL)prod;
 

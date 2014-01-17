@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Fight.h"
 #import "Pick.h"
+#import "BoxFanRevealController.h"
 
 @interface FightDisplayVC : UIViewController
 
 @property (strong,nonatomic) Fight *fight;
-@property (strong,nonatomic)  User *user;
+@property (strong,nonatomic)  User *loggedInUser;
 @property (strong,atomic) NSURL *urlForRequest;
 @property (strong,atomic) NSDictionary *JSONdictionary;
 @property (strong,nonatomic) Pick *pick;

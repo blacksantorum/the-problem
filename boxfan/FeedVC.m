@@ -68,7 +68,7 @@
         
         Pick *pick = self.picks[indexPath.row];
         
-        controller.user = pick.user;
+        controller.displayedUser = pick.user;
         controller.title = pick.user.handle;
     }
 }

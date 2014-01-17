@@ -17,9 +17,9 @@
 
 @property (nonatomic,strong) NSArray *fightDates;
 @property (nonatomic,strong) NSArray *fights;
+@property (nonatomic,strong) NSDictionary *picksJSONdictionary;
 
 -(NSArray *)fightsForDate:(NSDate *)date;
--(NSDictionary *)userDictionaryFromTwitter;
 
 @end
 
@@ -27,87 +27,41 @@
 
 #pragma mark - Log In Stuff
 
--(void)signInWithRails:(User *)user
+-(User *)loggedInUser
 {
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSDictionary *parameters = user.userDictionaryForSignIn;
-    [manager POST:[URLS urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSDictionary *userDictionary = responseObject;
-        NSLog(@"%@", userDictionary);
-        NSLog(@"%@",[userDictionary valueForKeyPath:@"user.id"]);
-        user.userID = [userDictionary valueForKeyPath:@"user.id"];
-        NSLog(@"%@",[userDictionary valueForKeyPath:@"user.session_token"]);
-        NSString *token = [userDictionary valueForKeyPath:@"user.session_token"];
-        [self saveUserInDefaults:user withSessionToken:token];
-        self.user = user;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
 }
 
--(NSDictionary *)userDictionaryFromTwitter
+-(void)refresh
 {
-    NSString *twitterScreenName = [PFTwitterUtils twitter].screenName;
-    NSURL *verify = [NSURL URLWithString:[URLS urlStringForUsersTwitterWithScreenname:twitterScreenName]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
-    [[PFTwitterUtils twitter] signRequest:request];
-    NSURLResponse *response = nil;
-    NSError *error;
-    NSData *data = [NSURLConnection sendSynchronousRequest:request
-                                         returningResponse:&response
-                                                     error:&error];
+    [super refresh];
+    NSLog(@"%@",self.loggedInUser);
     
-    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    return result;
-}
-
--(void)saveUserInDefaults:(User *)user
-         withSessionToken:(NSString *)token
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if (self.loggedInUser) {
     
-    NSData *encodedUser = [NSKeyedArchiver archivedDataWithRootObject:user];
-    [defaults setObject:encodedUser forKey:@"User"];
-    [defaults setObject:token forKey:@"Token"];
-    [defaults synchronize];
-}
-
-// Sent to the delegate when a PFUser is logged in.
-- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
-    [logInController dismissViewControllerAnimated:YES completion:nil];
-    
-    User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
-    
-    [self signInWithRails:boxingAppUser];
-}
-
-// Sent to the delegate when the log in attempt fails.
-- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
-    NSLog(@"Failed to log in...");
-}
-
-// Sent to the delegate when the log in screen is dismissed.
-- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
-    NSLog(@"User dismissed the logInViewController");
-}
-
--(void)doLogInStuff
-{
-    
-    
-   if (![PFUser currentUser]) {
-        // If not logged in, we will show a PFLogInViewController
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        NSURLRequest *pickRequest = [NSURLRequest requestWithURL:[URLS urlForPicksOfUser:self.loggedInUser]];
         
-        // Customize the Log In View Controller
-        logInViewController.delegate = self;
-        // logInViewController.facebookPermissions = @[@"friends_about_me"];
-        logInViewController.fields = PFLogInFieldsTwitter | PFLogInFieldsDismissButton; // Show Twitter login, Facebook login, and a Dismiss button.
-        
-        // Present Log In View Controller
-        [self presentViewController:logInViewController animated:YES completion:NULL];
+        [NSURLConnection sendAsynchronousRequest:pickRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            if (connectionError) {
+                NSLog(@"Connection error: %@", connectionError);
+            } else {
+                NSError *error = nil;
+                id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+                if (error) {
+                    NSLog(@"JSON parsing error: %@", error);
+                } else {
+                    self.picksJSONdictionary = (NSDictionary *)object;
+                    NSLog(@"%@",self.picksJSONdictionary);
+                    [self configurePicksDataSource];
+                    [self.tableView reloadData];
+                }
+            }
+        }];
     }
+    
 }
+
 
 -(NSArray *)fightDates
 {
@@ -159,6 +113,11 @@
     
 }
 
+-(void)configurePicksDataSource
+{
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"upcomingFightDetail"]) {
@@ -170,7 +129,7 @@
         
         Fight *fight = fightsForDate[indexPath.row];
         
-        controller.user = self.user;
+        controller.loggedInUser = self.loggedInUser;
         controller.fight = fight;
         controller.title = fight.titleForScheduleView;
     }

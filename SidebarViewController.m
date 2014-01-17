@@ -7,6 +7,7 @@
 //
 
 #import "SidebarViewController.h"
+#import "BoxFanRevealController.h"
 #import <PKRevealController.h>
 #import "UpcomingFightNavController.h"
 #import "FeedNavController.h"
@@ -27,6 +28,12 @@
 -(UIStoryboard *)storyboard
 {
     return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+}
+
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
 }
 
 #pragma mark - Table view data source
@@ -70,7 +77,7 @@
         cell.textLabel.text = @"Gods";
     }
     if (row == 6) {
-        cell.textLabel.text = self.user.handle;
+        cell.textLabel.text = self.loggedInUser.handle;
     }
     
     return cell;
@@ -133,7 +140,7 @@
     if (row == 6) {
         if (![[[self revealController] frontViewController] isKindOfClass:[MyProfileNavController class]]) {
             MyProfileNavController *myProfileController = (MyProfileNavController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MyProfile"];
-            myProfileController.user = self.user;
+            myProfileController.displayedUser = self.loggedInUser;
                 
             [[self revealController] setFrontViewController:myProfileController];
             [[self revealController] showViewController:myProfileController];

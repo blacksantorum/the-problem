@@ -106,7 +106,7 @@
         NSLog(@"JSON: %@", responseObject);
         Pick *newCurrentPick = [[Pick alloc] init];
         newCurrentPick.fight = self.fight;
-        newCurrentPick.user = self.user;
+        newCurrentPick.user = self.loggedInUser;
         newCurrentPick.winner = boxer;
         newCurrentPick.byStoppage = KO;
         self.currentPick = newCurrentPick;
