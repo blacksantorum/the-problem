@@ -7,6 +7,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FighterPickControlsView">
             <connections>
                 <outlet property="fighterNameLabel" destination="cnA-QU-tEb" id="DcX-JN-ycu"/>
+                <outlet property="percentagePickedLabel" destination="HIJ-4v-49k" id="zVE-ix-YJF"/>
                 <outlet property="pickFighterButton" destination="fFu-Iq-4eM" id="K7E-qY-h4Z"/>
                 <outlet property="view" destination="1" id="lCu-3X-kCk"/>
             </connections>
@@ -33,6 +34,13 @@
                         <action selector="pickFighter:" destination="-1" eventType="touchUpInside" id="MLd-oZ-a4g"/>
                     </connections>
                 </button>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIJ-4v-49k">
+                    <rect key="frame" x="8" y="44" width="67" height="46"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

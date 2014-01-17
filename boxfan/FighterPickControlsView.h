@@ -25,7 +25,7 @@
 #pragma mark - Outlets
 @property (nonatomic,strong) IBOutlet UIView *view;
 @property (weak, nonatomic) IBOutlet UILabel *fighterNameLabel;
-@property (weak, nonatomic) IBOutlet UITextView *listOfUsersWhoPickedFighterTextView;
+@property (weak, nonatomic) IBOutlet UILabel *percentagePickedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *pickFighterButton;
 
 - (IBAction)pickFighter:(id)sender;

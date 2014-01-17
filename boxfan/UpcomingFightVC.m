@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet FighterPickControlsView *fighterAPickControl;
 
 @property (weak, nonatomic) IBOutlet FighterPickControlsView *fighterBPickControl;
+@property (nonatomic,strong) NSArray *pickPercentages;
 
 @end
 
@@ -56,14 +57,31 @@
 {
     NSDictionary *pickDictionary = self.JSONdictionary;
     self.currentPick = [[Pick alloc] initWithFightViewDictionary:pickDictionary];
-    NSLog(@"Current pick: %@",self.currentPick);
+    
+    NSMutableArray *percentagesArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *boxerDict in [self.JSONdictionary valueForKeyPath:@"fight.boxers"]) {
+        NSString *percentagePicked = [boxerDict valueForKeyPath:@"boxer.percent_pick"];
+        if (percentagePicked) {
+            [percentagesArray addObject:percentagePicked];
+        }
+    }
+    self.pickPercentages = percentagesArray;
+    
     [self setUpView];
 }
 
 -(void)setUpView
 {
     self.fighterAPickControl.boxer = [self.fight.boxers firstObject];
+    NSString *aPercentage = [self.pickPercentages firstObject];
+    if (aPercentage) {
+        self.fighterAPickControl.percentagePickedLabel.text = [NSString stringWithFormat:@"%@%%",aPercentage.description];
+    }
     self.fighterBPickControl.boxer = [self.fight.boxers lastObject];
+    NSString *bPercentage = [self.pickPercentages lastObject];
+    if (bPercentage) {
+        self.fighterBPickControl.percentagePickedLabel.text = [NSString stringWithFormat:@"%@%%",bPercentage.description];
+    }
     self.locationRoundsWeightLabel.text = [NSString stringWithFormat:@"%@: %@ rounds at %@",self.fight.location,self.fight.rounds,self.fight.weight];
     self.fighterAPickControl.delegate = self;
     self.fighterBPickControl.delegate = self;
