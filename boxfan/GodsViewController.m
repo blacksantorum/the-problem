@@ -8,6 +8,7 @@
 
 #import "GodsViewController.h"
 #import "User.h"
+#import "UserPickViewController.h"
 
 @interface GodsViewController ()
 
@@ -59,6 +60,19 @@
     cell.textLabel.text = user.titleForGodsView;
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showUserFromGods"]) {
+        UserPickViewController *controller = (UserPickViewController *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        User *user = self.gods[indexPath.row];
+        
+        controller.displayedUser = user;
+        controller.title = user.handle;
+    }
 }
 
 @end

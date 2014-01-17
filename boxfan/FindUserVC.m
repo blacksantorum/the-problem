@@ -9,6 +9,7 @@
 #import "FindUserVC.h"
 #import "User.h"
 #import <PKRevealController/PKRevealController.h>
+#import "UserPickViewController.h"
 
 @interface FindUserVC ()
 
@@ -128,20 +129,29 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         [self configureCell:cell forUser:u];
     }
-    
-    /*
-    if (self.isSearching && [self.filteredUsers count]) {
-        User *u = [self.filteredUsers objectAtIndex:indexPath.row];
-        NSLog(@"%@",u);
-        cell.textLabel.text = u.name;
-        cell.detailTextLabel.text = u.handle;
-    } else {
-        User *u = [self.users objectAtIndex:indexPath.row];
-        cell.textLabel.text = u.name;
-        cell.detailTextLabel.text = u.handle;
-    }
-    */
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        [self performSegueWithIdentifier: @"showFoundUser" sender: self];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showFoundUser"]) {
+        if ([self.searchDisplayController isActive]) {
+            UserPickViewController *controller = (UserPickViewController *)segue.destinationViewController;
+            NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
+            
+            User *user = self.filteredUsers[indexPath.row];
+            
+            controller.displayedUser = user;
+            controller.title = user.handle;
+        }
+    }
+    
 }
 
 - (IBAction)userClickedShowSettings:(id)sender {

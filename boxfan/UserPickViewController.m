@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) NSMutableArray *pickedFights; //of Fights that the user picked
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *handleAndScoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *fightOfTheYearLabel;
 @property (weak, nonatomic) IBOutlet UITableView *picksTable;
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
@@ -58,6 +58,9 @@
     User *fleshedOutUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
     self.displayedUser = fleshedOutUser;
     [self.userPicture setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
+    self.nameLabel.text = self.displayedUser.name;
+    self.handleAndScoreLabel.text = self.displayedUser.titleForGodsView;
+    
 }
 
 - (void)viewDidLoad

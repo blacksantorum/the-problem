@@ -62,7 +62,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([segue.identifier isEqualToString:@"showUser"]) {
+    if ([segue.identifier isEqualToString:@"showUserFromFeed"]) {
         UserPickViewController *controller = (UserPickViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
