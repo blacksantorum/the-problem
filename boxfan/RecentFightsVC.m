@@ -9,6 +9,7 @@
 #import "RecentFightsVC.h"
 #import "Boxer.h"
 #import "ScheduleFormattedDate.h"
+#import "RecentFightsDisplayVC.h"
 
 @interface RecentFightsVC ()
 
@@ -102,6 +103,23 @@
     cell.textLabel.text = fight.titleForRecentFightsView;
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showRecentFight"]) {
+        RecentFightsDisplayVC *controller = (RecentFightsDisplayVC *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
+        NSArray *fightsForDate = [self fightsForDate:date];
+        
+        Fight *fight = fightsForDate[indexPath.row];
+        
+        controller.loggedInUser = self.loggedInUser;
+        controller.fight = fight;
+        controller.title = fight.titleForScheduleView;
+    }
 }
 
 

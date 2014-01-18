@@ -7,25 +7,37 @@
 //
 
 #import "DecisionControl.h"
+#import "Boxer.h"
+
+@interface DecisionControl()
+
+
+
+@end
 
 @implementation DecisionControl
 
-- (id)initWithFrame:(CGRect)frame
+@synthesize delegate;
+
+- (id)initWithCoder:(NSCoder *)aDecoder
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithCoder:aDecoder];
     if (self) {
-        // Initialization code
+        self.winningBoxerDecisionPercentageLabel.text = self.winner.decisionPercentage;
+        self.losingBoxerDecisionPercentageLabel.text = self.loser.decisionPercentage;
+        
+        if (self.decision) {
+            self.decisionButton.titleLabel.text = [NSString stringWithFormat:@"You thought %@ won",self.decision.winner.lastName];
+        }
     }
     return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
+
+- (IBAction)decisionButtonPressed:(id)sender {
+    if ([delegate respondsToSelector:@selector(makeDecision:)]) {
+        [delegate makeDecision:self.fight];
+    }
+}
 @end

@@ -14,8 +14,11 @@
 @property (nonatomic,strong) NSString *firstName;
 @property (nonatomic,strong) NSString *lastName;
 @property (nonatomic,strong) NSString *country;
+@property (nonatomic,strong) NSString *decisionPercentage;
+@property (nonatomic,strong) NSString *pickPercentage;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithRecentFightVewDictionary:(NSDictionary *)dictionary;
 
 -(NSString *)boxerFullName;
 

@@ -56,6 +56,8 @@
 		ECC109F31888AEAF000B70CF /* Interstitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F11888AEAF000B70CF /* Interstitial.xib */; };
 		ECC109F8188A2B2E000B70CF /* DecisionControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F7188A2B2E000B70CF /* DecisionControl.xib */; };
 		ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109FA188A2CA5000B70CF /* DecisionControl.m */; };
+		ECC109FE188A93E7000B70CF /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109FD188A93E7000B70CF /* Decision.m */; };
+		ECC10A01188A95CE000B70CF /* RecentFightsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -153,6 +155,10 @@
 		ECC109F7188A2B2E000B70CF /* DecisionControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionControl.xib; sourceTree = "<group>"; };
 		ECC109F9188A2CA5000B70CF /* DecisionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionControl.h; sourceTree = "<group>"; };
 		ECC109FA188A2CA5000B70CF /* DecisionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionControl.m; sourceTree = "<group>"; };
+		ECC109FC188A93E7000B70CF /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
+		ECC109FD188A93E7000B70CF /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decision.m; sourceTree = "<group>"; };
+		ECC109FF188A95CE000B70CF /* RecentFightsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFightsDisplayVC.h; sourceTree = "<group>"; };
+		ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFightsDisplayVC.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -347,6 +353,8 @@
 				ECA0CE74185E59BF003380C5 /* Fight.h */,
 				ECA13229185FA64E00001793 /* User.h */,
 				ECA1322C185FA8A500001793 /* Pick.h */,
+				ECC109FC188A93E7000B70CF /* Decision.h */,
+				ECC109FD188A93E7000B70CF /* Decision.m */,
 				ECA1322D185FA8A500001793 /* Pick.m */,
 				ECA1322A185FA64E00001793 /* User.m */,
 				ECA0CE75185E59BF003380C5 /* Fight.m */,
@@ -393,6 +401,8 @@
 		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109FF188A95CE000B70CF /* RecentFightsDisplayVC.h */,
+				ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */,
 				ECC109E61887C641000B70CF /* FindUserVC.h */,
 				ECC109E71887C641000B70CF /* FindUserVC.m */,
 				ECC109941886A6C0000B70CF /* GodsViewController.h */,
@@ -558,11 +568,13 @@
 				ECC109E81887C641000B70CF /* FindUserVC.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
+				ECC10A01188A95CE000B70CF /* RecentFightsDisplayVC.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
+				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
 				ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */,
 				EC0D5B3B188515D7009B32B4 /* FeedVC.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,

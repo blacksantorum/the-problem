@@ -113,6 +113,17 @@
     return [url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]];
 }
 
++(NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/fights/";
+    } else {
+        url = @"http://192.168.1.113:3000/api/fights/";
+    }
+    return [url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]];
+}
+
 +(NSURL *)urlForUsers
 {
     NSString *url = [[NSString alloc] init];

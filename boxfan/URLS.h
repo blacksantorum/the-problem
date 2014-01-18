@@ -15,6 +15,7 @@
 +(NSString *)urlStringForRailsSignIn;
 +(NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
 +(NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;
++(NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight;
 
 +(NSURL *)urlForFeed;
 +(NSURL *)urlForUpcomingFights;
