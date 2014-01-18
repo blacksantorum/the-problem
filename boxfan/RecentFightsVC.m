@@ -29,7 +29,10 @@
     }
     NSSet *dateSet = [NSSet setWithArray:dateArray];
     NSArray *dates = [dateSet allObjects];
-    _fightDates = [dates sortedArrayUsingSelector:@selector(compare:)];
+    
+    _fightDates = [dates sortedArrayUsingComparator: ^(NSDate *d1, NSDate *d2) {
+        return [d2 compare:d1];
+    }];
     
     return _fightDates;
 }

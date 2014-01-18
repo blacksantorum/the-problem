@@ -45,7 +45,7 @@
         
         NSString *stoppageNumber = [dictionary objectForKey:@"stoppage"];
         if (![stoppageNumber isKindOfClass:[NSNull class]]) {
-            if (stoppageNumber) {
+            if ([stoppageNumber.description isEqualToString:@"1"]) {
                 self.stoppage = YES;
             } else {
                 self.stoppage = NO;
@@ -83,9 +83,9 @@
     }
     
     if (self.stoppage) {
-        title = [NSString stringWithFormat:@"%@ KO %@",winner.boxerFullName,loser.boxerFullName];
+        title = [NSString stringWithFormat:@"%@ KO %@",winner.lastName,loser.lastName];
     } else {
-        title = [NSString stringWithFormat:@"%@ def. %@",winner.boxerFullName,loser.boxerFullName];
+        title = [NSString stringWithFormat:@"%@ def. %@",winner.lastName,loser.lastName];
     }
     
     return title;

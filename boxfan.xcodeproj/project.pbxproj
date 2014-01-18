@@ -54,6 +54,8 @@
 		ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109ED1888A47A000B70CF /* BoxFanRevealController.m */; };
 		ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109F01888AEAF000B70CF /* Interstitial.m */; };
 		ECC109F31888AEAF000B70CF /* Interstitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F11888AEAF000B70CF /* Interstitial.xib */; };
+		ECC109F8188A2B2E000B70CF /* DecisionControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F7188A2B2E000B70CF /* DecisionControl.xib */; };
+		ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109FA188A2CA5000B70CF /* DecisionControl.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -148,6 +150,9 @@
 		ECC109EF1888AEAF000B70CF /* Interstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interstitial.h; sourceTree = "<group>"; };
 		ECC109F01888AEAF000B70CF /* Interstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interstitial.m; sourceTree = "<group>"; };
 		ECC109F11888AEAF000B70CF /* Interstitial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Interstitial.xib; sourceTree = "<group>"; };
+		ECC109F7188A2B2E000B70CF /* DecisionControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionControl.xib; sourceTree = "<group>"; };
+		ECC109F9188A2CA5000B70CF /* DecisionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionControl.h; sourceTree = "<group>"; };
+		ECC109FA188A2CA5000B70CF /* DecisionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionControl.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -228,6 +233,9 @@
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109F7188A2B2E000B70CF /* DecisionControl.xib */,
+				ECC109F9188A2CA5000B70CF /* DecisionControl.h */,
+				ECC109FA188A2CA5000B70CF /* DecisionControl.m */,
 				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
 				ECD11530187E869800530434 /* FighterPickControlsView.m */,
 				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
@@ -488,6 +496,7 @@
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
 				ECC109F31888AEAF000B70CF /* Interstitial.xib in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
+				ECC109F8188A2B2E000B70CF /* DecisionControl.xib in Resources */,
 				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 				ECD1152E187E844D00530434 /* FighterPickControlsView.xib in Resources */,
 				ECE55DA41884B86900E02546 /* SidebarViewController.xib in Resources */,
@@ -567,6 +576,7 @@
 				ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */,
 				ECC109991886A72B000B70CF /* GodsNavController.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
+				ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */,
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
