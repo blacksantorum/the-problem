@@ -60,7 +60,28 @@
         [boxers addObject:b];
     }
     self.fight.boxers = boxers;
+    
+    NSDictionary *decisionDictionary = [self.JSONdictionary valueForKeyPath:@"fight.decision"];
+    
+    if (decisionDictionary) {
+        Decision *userDecision = [[Decision alloc] initWithRecentFightDisplayDictionary:decisionDictionary];
+        userDecision.user = self.loggedInUser;
+        userDecision.fight = self.fight;
+        
+        for (Boxer *b in self.fight.boxers) {
+            if ([userDecision.winner.boxerID.description isEqualToString:b.boxerID.description]) {
+                userDecision.winner = b;
+            } else {
+                userDecision.loser = b;
+            }
+        }
+        self.decision = userDecision;
+    }
+    
     [self setUpView];
+    
+    NSLog(@"%@",self.decision);
+    
     [self addDecisionView];
 }
 
@@ -89,7 +110,8 @@
         decisionControl.fight = self.fight;
         decisionControl.winner = self.winner;
         decisionControl.loser = self.loser;
-        self.decisionView = decisionControl;
+        decisionControl.decision = self.decision;
+        self.decisionView = decisionControl.view;
     }
 }
 

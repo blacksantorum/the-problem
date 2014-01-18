@@ -10,4 +10,22 @@
 
 @implementation Decision
 
+-(instancetype)initWithRecentFightDisplayDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        _decisionID = [dictionary objectForKey:@"id"];
+        Boxer *b = [[Boxer alloc] init];
+        b.boxerID = [dictionary objectForKey:@"winner_id"];
+        
+        _winner = b;
+    }
+    return self;
+}
+
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"I thought %@ beat %@",self.winner.lastName, self.loser.lastName];
+}
+
 @end
