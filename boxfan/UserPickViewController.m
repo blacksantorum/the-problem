@@ -23,12 +23,35 @@
 @property (weak, nonatomic) IBOutlet UITableView *picksTable;
 @property (weak, nonatomic) IBOutlet UIImageView *userPicture;
 
+@property (strong,nonatomic) NSArray *userActions;
 @property (strong,nonatomic) NSArray *picks;
 @property (strong,nonatomic) NSArray *decisions;
 
 @end
 
 @implementation UserPickViewController
+
+-(void)refresh
+{
+    NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForPicksOfUser:self.displayedUser]];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"Connection error: %@", connectionError);
+        } else {
+            NSError *error = nil;
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            if (error) {
+                NSLog(@"JSON parsing error: %@", error);
+            } else {
+                self.userActions = (NSArray *)object;
+                NSLog(@"%@",self.userActions);
+                // [self configureDataSource];
+                [self.picksTable reloadData];
+            }
+        }
+    }];
+}
 
 -(User *)loggedInUser
 {
@@ -75,6 +98,7 @@
     }
     self.picksTable.delegate = self;
     self.picksTable.dataSource = self;
+    [self refresh];
     [self.picksTable reloadData];
 	// Do any additional setup after loading the view.
 }

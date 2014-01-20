@@ -23,12 +23,9 @@
 {
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.winningBoxerDecisionPercentageLabel.text = self.winner.decisionPercentage;
-        self.losingBoxerDecisionPercentageLabel.text = self.loser.decisionPercentage;
+        [[NSBundle mainBundle] loadNibNamed:@"DecisionControl" owner:self options:nil];
+        [self addSubview:self.view];
         
-        if (self.decision) {
-            self.decisionButton.titleLabel.text = [NSString stringWithFormat:@"You thought %@ won",self.decision.winner.lastName];
-        }
     }
     return self;
 }

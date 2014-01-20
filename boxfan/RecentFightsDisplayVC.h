@@ -10,8 +10,9 @@
 #import "Fight.h"
 #import "Decision.h"
 #import "FightDisplayVC.h"
+#import "DecisionControl.h"
 
-@interface RecentFightsDisplayVC : FightDisplayVC
+@interface RecentFightsDisplayVC : FightDisplayVC <MakeDecisionDelegate,UIActionSheetDelegate>
 
 @property (nonatomic,strong) Decision *decision;
 
