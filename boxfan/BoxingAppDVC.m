@@ -46,6 +46,7 @@
 -(void)refresh
 {
     [self.activityIndicator startAnimating];
+
     NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {

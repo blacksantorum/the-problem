@@ -95,9 +95,9 @@
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
-        url = @"http://the-boxing-app.herokuapp.com/api/picks";
+        url = @"http://the-boxing-app.herokuapp.com/api/feed";
     } else {
-        url = @"http://192.168.1.113:3000/api/picks";
+        url = @"http://192.168.1.113:3000/api/feed";
     }
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
