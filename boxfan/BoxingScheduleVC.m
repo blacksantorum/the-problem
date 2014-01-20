@@ -22,6 +22,7 @@
 
 -(NSArray *)fightsForDate:(NSDate *)date;
 
+
 @end
 
 @implementation BoxingScheduleVC

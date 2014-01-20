@@ -14,6 +14,9 @@
 
 @interface BoxingAppDVC ()
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+
+
 @end
 
 @implementation BoxingAppDVC
@@ -42,6 +45,7 @@
 
 -(void)refresh
 {
+    [self.activityIndicator startAnimating];
     NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -57,6 +61,8 @@
                 NSLog(@"%@",self.JSONarray);
                 [self configureDataSource];
                 [self.tableView reloadData];
+                [self.activityIndicator stopAnimating];
+                self.activityIndicator.hidden = YES;
             }
         }
     }];

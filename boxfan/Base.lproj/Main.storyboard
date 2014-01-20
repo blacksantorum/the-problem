@@ -12,6 +12,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="PLl-vD-fvE">
+                            <rect key="frame" x="0.0" y="130" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Upcoming Fight Cell" textLabel="nr3-Yg-emr" style="IBUITableViewCellStyleDefault" id="qVd-hH-cIf">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -46,6 +50,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="PLl-vD-fvE" id="gMi-93-jAv"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fw9-kR-liQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,6 +66,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="ExQ-7M-M1Q">
+                            <rect key="frame" x="0.0" y="130" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Feed Cell" textLabel="bHc-Ci-rc4" style="IBUITableViewCellStyleDefault" id="xX0-ER-Zq9">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -93,6 +104,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="ExQ-7M-M1Q" id="uRx-AF-jON"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pR3-f3-UDs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,6 +199,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="dbj-LI-r7O">
+                            <rect key="frame" x="0.0" y="130" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Recent Fight Cell" textLabel="70K-SC-aDV" style="IBUITableViewCellStyleDefault" id="1yT-8c-YOt">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -219,6 +237,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="dbj-LI-r7O" id="6S4-Hu-Egi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nJs-mD-l7o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -232,6 +253,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="7of-tB-y4g">
+                            <rect key="frame" x="0.0" y="130" width="320" height="20"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </activityIndicatorView>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Gods Cell" textLabel="A9G-wt-MZV" style="IBUITableViewCellStyleDefault" id="HaY-hk-4j5">
                                 <rect key="frame" x="0.0" y="86" width="320" height="44"/>
@@ -266,6 +291,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="7of-tB-y4g" id="1a8-4R-Uxq"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o7O-s1-g8B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,9 +337,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="b44-Yk-Xg9">
-                                <rect key="frame" x="20" y="234" width="280" height="314"/>
+                                <rect key="frame" x="20" y="270" width="280" height="278"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="oY9-hx-Sj0">
+                                    <rect key="frame" x="0.0" y="66" width="280" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pick Cell" id="WVq-JE-aRF">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
@@ -323,14 +355,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="7My-Vi-qdm">
+                                <rect key="frame" x="20" y="234" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Picks"/>
+                                    <segment title="Decisions"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedPicksOrDecisionsControl:" destination="Pvr-NF-5z1" eventType="valueChanged" id="Np9-rO-fzC"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="b8P-p2-ewT"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="oY9-hx-Sj0" id="Pzz-7g-t5Z"/>
                         <outlet property="fightOfTheYearLabel" destination="ly1-aE-19t" id="WzN-DT-jMS"/>
                         <outlet property="handleAndScoreLabel" destination="zFM-OL-IWN" id="f3a-5w-eAg"/>
                         <outlet property="nameLabel" destination="X9t-5D-exI" id="eTa-Pg-d6O"/>
+                        <outlet property="picksOrDecisionsControl" destination="7My-Vi-qdm" id="jnY-bF-Oi9"/>
                         <outlet property="picksTable" destination="b44-Yk-Xg9" id="hA2-cE-m9y"/>
                         <outlet property="userPicture" destination="jlI-Vx-P0S" id="td8-Pr-5qM"/>
                     </connections>
@@ -586,9 +631,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="9Ic-5u-wou">
-                                <rect key="frame" x="20" y="234" width="280" height="314"/>
+                                <rect key="frame" x="20" y="270" width="280" height="278"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="4TP-tj-7bx">
+                                    <rect key="frame" x="0.0" y="66" width="280" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pick Cell" id="v9z-0f-OOK">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
@@ -600,14 +649,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Tsj-RS-QVm">
+                                <rect key="frame" x="20" y="234" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Picks"/>
+                                    <segment title="Decisions"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedPicksOrDecisionsControl:" destination="vS9-PB-OSL" eventType="valueChanged" id="flN-Me-3wE"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Mi8-zX-mGb"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="4TP-tj-7bx" id="2gR-Uk-JdG"/>
                         <outlet property="fightOfTheYearLabel" destination="VNp-iF-1pA" id="Hjw-CV-89p"/>
                         <outlet property="handleAndScoreLabel" destination="j7a-Uo-NlX" id="6UV-Ir-7pp"/>
                         <outlet property="nameLabel" destination="hoa-Xc-YiQ" id="lZs-bS-JFH"/>
+                        <outlet property="picksOrDecisionsControl" destination="Tsj-RS-QVm" id="edP-hQ-fcY"/>
                         <outlet property="picksTable" destination="9Ic-5u-wou" id="CvK-Vx-4Ew"/>
                         <outlet property="userPicture" destination="e28-ZA-Aax" id="OFl-oo-EcX"/>
                     </connections>
@@ -654,9 +716,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="NFY-sv-KBT">
-                                <rect key="frame" x="20" y="234" width="280" height="314"/>
+                                <rect key="frame" x="20" y="270" width="280" height="278"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="foW-yz-K8D">
+                                    <rect key="frame" x="0.0" y="66" width="280" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pick Cell" id="Ruc-Fm-PUR">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
@@ -668,14 +734,27 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="B3L-1Q-yUc">
+                                <rect key="frame" x="20" y="234" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Picks"/>
+                                    <segment title="Decisions"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedPicksOrDecisionsControl:" destination="kBt-VI-IIs" eventType="valueChanged" id="m3W-JY-4mT"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="dAt-AU-5Kc"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="foW-yz-K8D" id="mtD-aq-5Vd"/>
                         <outlet property="fightOfTheYearLabel" destination="ZRL-Ph-3vZ" id="XZL-zX-qlp"/>
                         <outlet property="handleAndScoreLabel" destination="8lG-fO-fN7" id="b3g-Fl-jhX"/>
                         <outlet property="nameLabel" destination="hKW-gi-o4B" id="JTz-d2-jow"/>
+                        <outlet property="picksOrDecisionsControl" destination="B3L-1Q-yUc" id="QTD-4H-OFh"/>
                         <outlet property="picksTable" destination="NFY-sv-KBT" id="fOr-3C-gaj"/>
                         <outlet property="userPicture" destination="Eza-4G-g8Y" id="EBA-dz-I2S"/>
                     </connections>
@@ -722,11 +801,15 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8eT-cN-XC8">
-                                <rect key="frame" x="20" y="234" width="280" height="314"/>
+                                <rect key="frame" x="20" y="280" width="280" height="268"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <activityIndicatorView key="tableFooterView" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" id="8Mf-HX-ohW">
+                                    <rect key="frame" x="0.0" y="66" width="280" height="20"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </activityIndicatorView>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Pick Cell" id="81Z-XT-2C6">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="User Activity Cell" id="81Z-XT-2C6">
                                         <rect key="frame" x="0.0" y="22" width="280" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="81Z-XT-2C6" id="DIl-EM-dmG">
@@ -749,6 +832,17 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="jhG-Pb-eKR">
+                                <rect key="frame" x="20" y="234" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Picks"/>
+                                    <segment title="Decisions"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedPicksOrDecisionsControl:" destination="P3t-3R-J5m" eventType="valueChanged" id="9yE-MH-5xo"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -760,9 +854,11 @@
                     <navigationItem key="navigationItem" id="GLZ-K4-59D"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="8Mf-HX-ohW" id="oGx-DM-yu6"/>
                         <outlet property="fightOfTheYearLabel" destination="N7H-5P-n4s" id="oI0-c2-p3Z"/>
                         <outlet property="handleAndScoreLabel" destination="TIN-3B-IjK" id="kEr-Ou-dWe"/>
                         <outlet property="nameLabel" destination="iZ1-0R-tAF" id="fav-Tr-d1T"/>
+                        <outlet property="picksOrDecisionsControl" destination="jhG-Pb-eKR" id="1pE-M7-4Io"/>
                         <outlet property="picksTable" destination="8eT-cN-XC8" id="ryW-G5-eCU"/>
                         <outlet property="userPicture" destination="Rds-Ep-g5G" id="IvM-5M-VcS"/>
                     </connections>

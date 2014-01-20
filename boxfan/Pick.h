@@ -13,6 +13,7 @@
 
 @interface Pick : NSObject
 
+@property (nonatomic, strong) NSString *pickID;
 @property (nonatomic, strong) User *user;
 @property (nonatomic, strong) Fight *fight;
 @property (nonatomic,strong) Boxer *winner;
@@ -22,7 +23,9 @@
 -(instancetype)initWithFightViewDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithFeedViewDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithScheduleViewDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithDisplayedUserView:(NSDictionary *)dictionary;
 
 -(NSString *)feedRepresentation;
+-(NSString *)usersDisplayViewRepresentation;
 
 @end

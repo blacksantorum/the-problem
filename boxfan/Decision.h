@@ -18,5 +18,8 @@
 @property (nonatomic,strong) Boxer *loser;
 
 -(instancetype)initWithRecentFightDisplayDictionary:(NSDictionary *)dictionary;
+-(instancetype)initWithDisplayedUserView:(NSDictionary *)dictionary;
+
+-(NSString *)usersDisplayViewRepresentation;
 
 @end

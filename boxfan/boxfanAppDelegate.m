@@ -71,6 +71,7 @@
 {
     [self doParseInitialization];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // [self logOut];
     [self setUpRevealController];
     return YES;
 }

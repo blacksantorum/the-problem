@@ -68,6 +68,7 @@
         
         Pick *pick = self.picks[indexPath.row];
         
+        NSLog(@"%@",pick.user);
         controller.displayedUser = pick.user;
         controller.title = pick.user.handle;
     }

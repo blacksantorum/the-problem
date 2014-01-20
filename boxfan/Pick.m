@@ -53,7 +53,7 @@
 {
     self = [super init];
     if (self) {
-        User *user = [[User alloc] initWithDictionary:[dictionary valueForKeyPath:@"pick.user"]];
+        User *user = [[User alloc] initWithListOfUsersDictionary:[dictionary valueForKeyPath:@"pick.user"]];
         _user = user;
         
         NSMutableArray *boxerArray = [[NSMutableArray alloc] init];
@@ -94,6 +94,18 @@
     return feedRep;
 }
 
+-(NSString *)usersDisplayViewRepresentation
+{
+    NSString *byStoppageString = [[NSString alloc] init];
+    if (!self.byStoppage) {
+        byStoppageString = @"by decision";
+    } else {
+        byStoppageString = @"by KO";
+    }
+    
+    return [NSString stringWithFormat:@"Picked %@ over %@ %@",self.winner.lastName,self.loser.lastName,byStoppageString];
+}
+
 -(instancetype)initWithScheduleViewDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
@@ -105,6 +117,30 @@
         Boxer *w = [[Boxer alloc] init];
         w.boxerID = [dictionary valueForKeyPath:@"pick.winner_id"];
         _winner = w;
+    }
+    return self;
+}
+
+-(instancetype)initWithDisplayedUserView:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        _pickID = [dictionary valueForKeyPath:@"pick.id"];
+        Fight *fight = [[Fight alloc] init];
+        fight.fightID = [dictionary valueForKeyPath:@"pick.fight_id"];
+        _fight = fight;
+        
+        NSString *winnerID = [dictionary valueForKeyPath:@"pick.winner_id"];
+        
+        for (NSDictionary *boxerDict in [dictionary valueForKeyPath:@"pick.fight.boxers"]) {
+            Boxer *b = [[Boxer alloc] initWithDictionary:[boxerDict valueForKey:@"boxer"]];
+            if ([b.boxerID.description isEqualToString:winnerID.description]) {
+                _winner = b;
+            } else {
+                _loser = b;
+            }
+        }
+        
     }
     return self;
 }
