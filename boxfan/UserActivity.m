@@ -48,7 +48,7 @@
     self = [super init];
     if (self) {
         _activityType = DECISION;
-        _byStoppage = nil;
+        _byStoppage = NO;
         _modifiedDate = [dictionary valueForKey:@"updated_at"];
         _user = [[User alloc] initWithListOfUsersDictionary:[dictionary valueForKey:@"user"]];
         Fight *fight = [[Fight alloc] init];

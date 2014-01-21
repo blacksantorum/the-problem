@@ -11,6 +11,7 @@
 #import "Fight.h"
 #import "Boxer.h"
 #import "UpcomingFightVC.h"
+#import "UpcomingFightCell.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface BoxingScheduleVC ()
@@ -26,6 +27,11 @@
 @end
 
 @implementation BoxingScheduleVC
+
+-(NSString *)boxerNameDisplay:(Boxer *)boxer
+{
+    return [NSString stringWithFormat:@"%@. %@",[boxer.firstName substringToIndex:1] ,boxer.lastName];
+}
 
 -(Pick *)usersPickForFight:(Fight *)fight
 {
@@ -134,6 +140,15 @@
     self.usersPicks = picksArray;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    
+    
+    [self performSegueWithIdentifier:@"upcomingFightDetail" sender:nil];
+    
+    
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"upcomingFightDetail"]) {
@@ -171,34 +186,38 @@
     return [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:date];
 }
 
--(NSAttributedString *)attributedTitleForScheduleViewForFight:(Fight *)fight
-{
-    NSAttributedString *title;
-    Pick *pick = [self usersPickForFight:fight];
-    if (!pick) {
-        title = [[NSAttributedString alloc] initWithString:fight.titleForScheduleView];
-    } else {
-        Boxer *a = [fight.boxers objectAtIndex:0];
-        NSMutableAttributedString *aName = [[NSMutableAttributedString alloc] initWithString:a.lastName];
-        Boxer *b = [fight.boxers objectAtIndex:1];
-        NSMutableAttributedString *bName = [[NSMutableAttributedString alloc] initWithString:b.lastName];
-        
-        // make winner string bold, append them together in title
-        
-        
-    }
-    return title;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44.0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Upcoming Fight Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    static NSString *CellIdentifier = @"Boxing Schedule Cell";
+    
+    [self.tableView registerClass:[UpcomingFightCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    UpcomingFightCell *cell = (UpcomingFightCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"UpcomingFightCell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (UpcomingFightCell *)currentObject;
+                break;
+            }
+        }
+    }
     
     NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
     NSArray *fightArrayAtDate = [self fightsForDate:date];
     Fight *fight = fightArrayAtDate[indexPath.row];
-    cell.textLabel.text = fight.titleForScheduleView;
+    
+    Boxer *boxerA = [fight.boxers firstObject];
+    Boxer *boxerB = [fight.boxers lastObject];
+    cell.boxerALabel.text = [self boxerNameDisplay:boxerA];
+    [cell.boxerACountryFlag setImage:[UIImage imageNamed:boxerA.country]];
+    cell.boxerBLabel.text = [self boxerNameDisplay:boxerB];
+    [cell.boxerBCountryFlag setImage:[UIImage imageNamed:boxerB.country]];
     
     return cell;
 }
