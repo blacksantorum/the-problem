@@ -18,7 +18,7 @@
 
 @property (strong,nonatomic) Fight *fight;
 @property (strong,nonatomic)  User *loggedInUser;
-@property (strong,atomic) NSURL *urlForRequest;
+// @property (strong,atomic) NSURL *urlForRequest;
 @property (strong,atomic) NSDictionary *JSONdictionary;
 @property (strong,nonatomic) Pick *pick;
 
@@ -28,6 +28,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *fightInfoTableView;
 
 -(void)configureDataSource;
+-(void)refresh;
 
 // if pick, dictionary= @{@"pick":@{@"winner_id": boxer.boxerID}};
 // if decision, dictionary= @{@"decision":@{@"winner_id": boxer.boxerID}};

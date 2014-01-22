@@ -839,6 +839,18 @@
 			path = XMLParser;
 			sourceTree = "<group>";
 		};
+		EC374AD3188FD42B00C4343A /* Out To Pasture */ = {
+			isa = PBXGroup;
+			children = (
+				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
+				ECD11530187E869800530434 /* FighterPickControlsView.m */,
+				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
+				ECD1152A187E389700530434 /* UpcomingFightVC.h */,
+				ECD1152B187E389700530434 /* UpcomingFightVC.m */,
+			);
+			name = "Out To Pasture";
+			sourceTree = "<group>";
+		};
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -856,9 +868,6 @@
 				ECC109F7188A2B2E000B70CF /* DecisionControl.xib */,
 				ECC109F9188A2CA5000B70CF /* DecisionControl.h */,
 				ECC109FA188A2CA5000B70CF /* DecisionControl.m */,
-				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
-				ECD11530187E869800530434 /* FighterPickControlsView.m */,
-				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -911,6 +920,7 @@
 		ECA0CE3F185E4EF8003380C5 /* boxfan */ = {
 			isa = PBXGroup;
 			children = (
+				EC374AD3188FD42B00C4343A /* Out To Pasture */,
 				EC0D5B431885433D009B32B4 /* Nav Subclasses */,
 				ECC109931886A66A000B70CF /* Sidebar */,
 				ECD1151D187DEAD300530434 /* Utility Classes */,
@@ -1284,8 +1294,6 @@
 				EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */,
 				EC0D5B39188515D7009B32B4 /* FeedVC.h */,
 				EC0D5B3A188515D7009B32B4 /* FeedVC.m */,
-				ECD1152A187E389700530434 /* UpcomingFightVC.h */,
-				ECD1152B187E389700530434 /* UpcomingFightVC.m */,
 				ECD11516187D497400530434 /* BoxingScheduleVC.h */,
 				ECD11517187D497400530434 /* BoxingScheduleVC.m */,
 			);

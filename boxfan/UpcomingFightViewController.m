@@ -174,14 +174,40 @@
         }
         
         [self postUserActivityDictionary:[self postDictionaryForPicking:pickedBoxer byKO:ko] toURLString:postURLString];
+        [self refresh];
+        // [self.fightInfoTableView reloadData];
     }
 }
 
 -(NSDictionary *)postDictionaryForPicking:(Boxer *)boxer byKO:(BOOL)ko
 {
-    return @{@"pick":@{@"winner_id": boxer.boxerID}};
+    /*
+    // set new current pick
+    Pick *currentPick = [[Pick alloc] init];
+    currentPick.user = self.loggedInUser;
+    currentPick.fight = self.fight;
+    for (Boxer *b in self.fight.boxers) {
+        if ([b.boxerID.description isEqualToString:boxer.boxerID.description]) {
+            currentPick.winner = b;
+        } else {
+            currentPick.loser = b;
+        }
+    }
+    currentPick.byStoppage = ko;
+    self.pick = currentPick;
+    */
+    
+    return @{@"pick":@{@"winner_id": boxer.boxerID, @"ko":[self stringForBool:ko]}};
 }
 
+-(NSString *)stringForBool:(BOOL)boolean
+{
+    if (boolean) {
+        return @"true";
+    } else {
+        return @"false";
+    }
+}
 
 -(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
 {
