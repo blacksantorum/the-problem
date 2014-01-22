@@ -24,6 +24,11 @@
 
 @implementation FightDisplayVC
 
+-(AFHTTPRequestOperationManager *)manager
+{
+    return [AFHTTPRequestOperationManager manager];
+}
+
 -(Boxer *)boxerA
 {
     if (!_boxerA) {
@@ -77,7 +82,6 @@
 {
     [super viewDidLoad];
     [self setLabels];
-	[self setUpView];
     [self refresh];
 }
 
@@ -93,7 +97,7 @@
     self.boxerBFirstNameLabel.text = self.boxerB.firstName;
     self.boxerBLastNameLabel.text = self.boxerB.lastName;
     
-    if (self.fight.winnerID) {
+    if (![JSONDataNullCheck isNull:self.fight.winnerID]) {
         if (self.fight.stoppage) {
             self.resultLabel.text = @"KO";
         } else {
@@ -102,6 +106,15 @@
     } else {
         self.resultLabel.text = @"-";
     }
+}
+
+-(void)postUserActivityDictionary:(NSDictionary *)dictionary toURLString:(NSString *)url
+{
+    [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

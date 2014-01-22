@@ -10,8 +10,11 @@
 #import "Fight.h"
 #import "Pick.h"
 #import "BoxFanRevealController.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource>
+
+@property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 
 @property (strong,nonatomic) Fight *fight;
 @property (strong,nonatomic)  User *loggedInUser;
@@ -25,5 +28,10 @@
 @property (weak, nonatomic) IBOutlet UITableView *fightInfoTableView;
 
 -(void)configureDataSource;
+
+// if pick, dictionary= @{@"pick":@{@"winner_id": boxer.boxerID}};
+// if decision, dictionary= @{@"decision":@{@"winner_id": boxer.boxerID}};
+-(void)postUserActivityDictionary:(NSDictionary *)dictionary
+                      toURLString:(NSString *)url;
 
 @end

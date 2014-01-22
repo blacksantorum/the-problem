@@ -9,6 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Boxer.h"
 #import "Pick.h"
+#import "BarChartView.h"
+
+@protocol ChangePickDelegate <NSObject>
+
+-(void)changePick;
+
+@end
 
 @interface PickInfoCell : UITableViewCell
 
@@ -18,7 +25,11 @@
 @property (nonatomic,strong) Boxer *boxerB;
 @property (strong,nonatomic) NSDictionary *boxersToPickPercentages;
 
+@property (weak, nonatomic) IBOutlet BarChartView *communityPicksBarChart;
+
 
 - (IBAction)makePickButtonPressed:(id)sender;
+
+@property (nonatomic,assign)id delegate;
 
 @end

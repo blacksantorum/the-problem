@@ -10,7 +10,7 @@
 #import "ScheduleFormattedDate.h"
 #import "Fight.h"
 #import "Boxer.h"
-#import "UpcomingFightVC.h"
+#import "UpcomingFightViewController.h"
 #import "UpcomingFightCell.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
@@ -144,7 +144,7 @@
     
     
     
-    [self performSegueWithIdentifier:@"upcomingFightDetail" sender:nil];
+    [self performSegueWithIdentifier:@"upcomingFightDetail" sender:[tableView cellForRowAtIndexPath:indexPath]];
     
     
 }
@@ -152,7 +152,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"upcomingFightDetail"]) {
-        UpcomingFightVC *controller = (UpcomingFightVC *)segue.destinationViewController;
+        UpcomingFightViewController *controller = (UpcomingFightViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
         NSDate *date = [self.fightDates objectAtIndex:indexPath.section];

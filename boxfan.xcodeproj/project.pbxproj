@@ -30,6 +30,7 @@
 		EC374ACB188F6CED00C4343A /* XMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AC0188F6CED00C4343A /* XMLParserDelegate.m */; };
 		EC374ACC188F6CED00C4343A /* PlotChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AC2188F6CED00C4343A /* PlotChartView.m */; };
 		EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */; };
+		EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -386,6 +387,8 @@
 		EC374AC2188F6CED00C4343A /* PlotChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotChartView.m; sourceTree = "<group>"; };
 		EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFightViewController.h; sourceTree = "<group>"; };
 		EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightViewController.m; sourceTree = "<group>"; };
+		EC374AD0188F9BDE00C4343A /* JSONDataNullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDataNullCheck.h; sourceTree = "<group>"; };
+		EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDataNullCheck.m; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -1254,6 +1257,8 @@
 		ECD1151D187DEAD300530434 /* Utility Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EC374AD0188F9BDE00C4343A /* JSONDataNullCheck.h */,
+				EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */,
 				EC537416188227AC00DF16AB /* Auth.h */,
 				EC537417188227AC00DF16AB /* Auth.m */,
 				EC5373FB1880C22F00DF16AB /* URLS.h */,
@@ -1717,6 +1722,7 @@
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
+				EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */,
 				EC374AC7188F6CED00C4343A /* UIColor+i7HexColor.m in Sources */,
 				EC374AC8188F6CED00C4343A /* UIViewSizeShortcuts.m in Sources */,
 				EC374AA3188F45FB00C4343A /* FightInfoCell.m in Sources */,

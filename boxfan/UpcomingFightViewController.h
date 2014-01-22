@@ -7,7 +7,9 @@
 //
 
 #import "FightDisplayVC.h"
+#import "PickInfoCell.h"
 
-@interface UpcomingFightViewController : FightDisplayVC
+
+@interface UpcomingFightViewController : FightDisplayVC <ChangePickDelegate,UIActionSheetDelegate>
 
 @end

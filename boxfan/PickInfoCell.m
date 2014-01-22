@@ -11,8 +11,6 @@
 
 @interface PickInfoCell ()
 
-@property (weak, nonatomic) IBOutlet BarChartView *communityPicksBarChart;
-
 @end
 
 @implementation PickInfoCell
@@ -59,5 +57,8 @@
 }
 
 - (IBAction)makePickButtonPressed:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(changePick)]) {
+        [self.delegate changePick];
+    }
 }
 @end

@@ -8,15 +8,17 @@
 
 #import "UpcomingFightViewController.h"
 #import "FightInfoCell.h"
-#import "PickInfoCell.h"
+#import "ScheduleFormattedDate.h"
 
 @interface UpcomingFightViewController ()
 
 @property (strong,nonatomic) NSDictionary *boxersToPickPercentages;
+@property (strong,nonatomic) NSArray *arrayForChart;
 
 @end
 
 @implementation UpcomingFightViewController
+
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -35,6 +37,7 @@
         [boxersToPicksPercentages addEntriesFromDictionary:@{boxerName:pickPercentage.description}];
     }
     self.boxersToPickPercentages = boxersToPicksPercentages;
+    [self.fightInfoTableView reloadData];
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -50,7 +53,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 250.0;
+    if (indexPath.section == 0) {
+        return 66.0;
+    } else {
+        return 250.0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +79,9 @@
             }
         }
         
+        cell.dateLabel.text = [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:self.fight.date];
+        cell.locationLabel.text = self.fight.location;
+        cell.roundsWeightLabel.text = [NSString stringWithFormat:@"%@ rounds at %@",self.fight.rounds,self.fight.weight];
         cell.fight = self.fight;
         return cell;
     } else {
@@ -92,12 +102,89 @@
             }
         }
         
+        if (self.pick) {
+            cell.makePickButton.titleLabel.text = [self pickCellButtonRepresentationForPick:self.pick];
+        }
+        
+        NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.boxerA.boxerFullName,self.boxersToPickPercentages[self.boxerA.boxerFullName]];
+        NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.boxerB.boxerFullName,self.boxersToPickPercentages[self.boxerB.boxerFullName]];
+        
+        NSString *pickPercentageA = self.boxersToPickPercentages[self.boxerA.boxerFullName];
+        if ([pickPercentageA isEqualToString:@"0"]) {
+            pickPercentageA = @"0.1";
+        }
+        NSString *pickPercentageB = self.boxersToPickPercentages[self.boxerB.boxerFullName];
+        if ([pickPercentageB isEqualToString:@"0"]) {
+            pickPercentageB = @"0.1";
+        }
+        
+        NSArray *array = [cell.communityPicksBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA, titleB, nil]
+                                                                         values:[NSArray arrayWithObjects:pickPercentageA, pickPercentageB, nil]
+                                                                         colors:[NSArray arrayWithObjects:@"17A9E3", @"E32F17", nil]
+                                                                    labelColors:[NSArray arrayWithObjects:@"000000", @"000000",nil]];
+        
+        [cell.communityPicksBarChart setDataWithArray:array
+                                             showAxis:DisplayOnlyXAxis
+                                            withColor:[UIColor whiteColor]
+                              shouldPlotVerticalLines:NO];
         cell.pick = self.pick;
         cell.boxerA = self.boxerA;
         cell.boxerB = self.boxerB;
         cell.boxersToPickPercentages = self.boxersToPickPercentages;
+        cell.delegate = self;
         return cell;
         
     }
+}
+
+-(void)changePick
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Make your pick for %@",self.fight.titleForScheduleView]
+                                                             delegate:self cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:[NSString stringWithFormat:@"%@ by dec",self.boxerA.lastName],
+                                                                    [NSString stringWithFormat:@"%@ by KO",self.boxerA.lastName],
+                                                                    [NSString stringWithFormat:@"%@ by dec",self.boxerB.lastName],
+                                  [NSString stringWithFormat:@"%@ by KO",self.boxerB.lastName],nil];
+    
+    [actionSheet showInView:self.view];
+
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if (![buttonTitle isEqualToString:@"Cancel"]) {
+        NSString *postURLString = [URLS urlStringForPostingPickForFight:self.fight];
+        NSArray *stringArray = [buttonTitle componentsSeparatedByString:@" "];
+        
+        Boxer *pickedBoxer;
+        for (Boxer *b in self.fight.boxers) {
+            if ([b.lastName isEqualToString:stringArray[0]]) {
+                pickedBoxer = b;
+            }
+        }
+        
+        BOOL ko;
+        if ([[stringArray lastObject] isEqualToString:@"KO"]) {
+            ko = YES;
+        } else {
+            ko = NO;
+        }
+        
+        [self postUserActivityDictionary:[self postDictionaryForPicking:pickedBoxer byKO:ko] toURLString:postURLString];
+    }
+}
+
+-(NSDictionary *)postDictionaryForPicking:(Boxer *)boxer byKO:(BOOL)ko
+{
+    return @{@"pick":@{@"winner_id": boxer.boxerID}};
+}
+
+
+-(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
+{
+    return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by decision"];
 }
 @end
