@@ -11,13 +11,18 @@
 #import "Pick.h"
 #import "BoxFanRevealController.h"
 
-@interface FightDisplayVC : UIViewController
+@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource>
 
 @property (strong,nonatomic) Fight *fight;
 @property (strong,nonatomic)  User *loggedInUser;
 @property (strong,atomic) NSURL *urlForRequest;
 @property (strong,atomic) NSDictionary *JSONdictionary;
 @property (strong,nonatomic) Pick *pick;
+
+@property (strong,nonatomic) Boxer *boxerA;
+@property (strong,nonatomic) Boxer *boxerB;
+
+@property (weak, nonatomic) IBOutlet UITableView *fightInfoTableView;
 
 -(void)configureDataSource;
 

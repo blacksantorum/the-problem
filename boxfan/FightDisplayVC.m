@@ -12,9 +12,33 @@
 
 - (void)setUpView;
 
+// labels
+@property (weak, nonatomic) IBOutlet UILabel *boxerAFirstNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *boxerALastNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *resultLabel;
+@property (weak, nonatomic) IBOutlet UILabel *boxerBFirstNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *boxerBLastNameLabel;
+
+
 @end
 
 @implementation FightDisplayVC
+
+-(Boxer *)boxerA
+{
+    if (!_boxerA) {
+        _boxerA = [self.fight.boxers firstObject];
+    }
+    return _boxerA;
+}
+
+-(Boxer *)boxerB
+{
+    if (!_boxerB) {
+        _boxerB = [self.fight.boxers lastObject];
+    }
+    return _boxerB;
+}
 
 -(User *)loggedInUser
 {
@@ -52,6 +76,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setLabels];
 	[self setUpView];
     [self refresh];
 }
@@ -59,6 +84,34 @@
 - (void)setUpView
 {
     //
+}
+
+- (void)setLabels
+{
+    self.boxerAFirstNameLabel.text = self.boxerA.firstName;
+    self.boxerALastNameLabel.text = self.boxerA.lastName;
+    self.boxerBFirstNameLabel.text = self.boxerB.firstName;
+    self.boxerBLastNameLabel.text = self.boxerB.lastName;
+    
+    if (self.fight.winnerID) {
+        if (self.fight.stoppage) {
+            self.resultLabel.text = @"KO";
+        } else {
+            self.resultLabel.text = @"def.";
+        }
+    } else {
+        self.resultLabel.text = @"-";
+    }
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
 }
 
 @end

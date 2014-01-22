@@ -14,7 +14,6 @@
 {
     self = [super init];
     if (self) {
-        NSLog (@"%@",[dictionary valueForKeyPath:@"fight.pick"]);
         if (![[dictionary valueForKeyPath:@"fight.pick"] isKindOfClass:[NSNull class]]) {
             NSMutableArray *boxerArray = [[NSMutableArray alloc] init];
             for (NSDictionary *boxerDict in [dictionary valueForKeyPath:@"fight.boxers"]) {
