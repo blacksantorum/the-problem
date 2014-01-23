@@ -31,6 +31,9 @@
 		EC374ACC188F6CED00C4343A /* PlotChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AC2188F6CED00C4343A /* PlotChartView.m */; };
 		EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */; };
 		EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */; };
+		EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */; };
+		EC374AD81890930500C4343A /* DecisionInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC374AD71890930500C4343A /* DecisionInfoCell.xib */; };
+		EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ADA1890947200C4343A /* DecisionInfoCell.m */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -389,6 +392,11 @@
 		EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightViewController.m; sourceTree = "<group>"; };
 		EC374AD0188F9BDE00C4343A /* JSONDataNullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDataNullCheck.h; sourceTree = "<group>"; };
 		EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDataNullCheck.m; sourceTree = "<group>"; };
+		EC374AD41890891D00C4343A /* RecentFightDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFightDisplayViewController.h; sourceTree = "<group>"; };
+		EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFightDisplayViewController.m; sourceTree = "<group>"; };
+		EC374AD71890930500C4343A /* DecisionInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionInfoCell.xib; sourceTree = "<group>"; };
+		EC374AD91890947200C4343A /* DecisionInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionInfoCell.h; sourceTree = "<group>"; };
+		EC374ADA1890947200C4343A /* DecisionInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionInfoCell.m; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -842,6 +850,8 @@
 		EC374AD3188FD42B00C4343A /* Out To Pasture */ = {
 			isa = PBXGroup;
 			children = (
+				ECC109FF188A95CE000B70CF /* RecentFightsDisplayVC.h */,
+				ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */,
 				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
 				ECD11530187E869800530434 /* FighterPickControlsView.m */,
 				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
@@ -854,14 +864,15 @@
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC374AD71890930500C4343A /* DecisionInfoCell.xib */,
+				EC374AD91890947200C4343A /* DecisionInfoCell.h */,
+				EC374ADA1890947200C4343A /* DecisionInfoCell.m */,
 				EC374AA4188F52E400C4343A /* PickInfoCell.xib */,
 				EC374AA6188F532C00C4343A /* PickInfoCell.h */,
 				EC374AA7188F532C00C4343A /* PickInfoCell.m */,
 				EC374A9F188F42BE00C4343A /* FightInfoCell.xib */,
 				EC374AA1188F45FB00C4343A /* FightInfoCell.h */,
 				EC374AA2188F45FB00C4343A /* FightInfoCell.m */,
-				EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */,
-				EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */,
 				ECC10A05188E27C3000B70CF /* UpcomingFightCell.h */,
 				ECC10A0A188E2833000B70CF /* UpcomingFightCell.xib */,
 				ECC10A06188E27C3000B70CF /* UpcomingFightCell.m */,
@@ -1282,8 +1293,10 @@
 		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				ECC109FF188A95CE000B70CF /* RecentFightsDisplayVC.h */,
-				ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */,
+				EC374AD41890891D00C4343A /* RecentFightDisplayViewController.h */,
+				EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */,
+				EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */,
+				EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */,
 				ECC109E61887C641000B70CF /* FindUserVC.h */,
 				ECC109E71887C641000B70CF /* FindUserVC.m */,
 				ECC109941886A6C0000B70CF /* GodsViewController.h */,
@@ -1408,6 +1421,7 @@
 				ECC10B34188E2F14000B70CF /* Cook Islands.png in Resources */,
 				ECC10BDF188E2F14000B70CF /* Tuvalu.png in Resources */,
 				ECC10BC4188E2F14000B70CF /* Somalia.png in Resources */,
+				EC374AD81890930500C4343A /* DecisionInfoCell.xib in Resources */,
 				ECC10B54188E2F14000B70CF /* Grenada.png in Resources */,
 				ECC10B40188E2F14000B70CF /* Egypt.png in Resources */,
 				ECC10B04188E2F14000B70CF /* American Samoa.png in Resources */,
@@ -1702,6 +1716,7 @@
 				ECC10A01188A95CE000B70CF /* RecentFightsDisplayVC.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
+				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,
 				ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */,
 				EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
@@ -1719,6 +1734,7 @@
 				EC374ACC188F6CED00C4343A /* PlotChartView.m in Sources */,
 				EC374AC3188F6CED00C4343A /* BarChartView.m in Sources */,
 				EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */,
+				EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */,
 				EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */,
 				ECC109961886A6C0000B70CF /* GodsViewController.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,

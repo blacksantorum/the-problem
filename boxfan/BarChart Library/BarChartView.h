@@ -73,6 +73,9 @@
 - (void)setDataWithArray:(NSArray *)chartData showAxis:(AxisDisplaySetting)axisDisplay withColor:(UIColor *)axisColor shouldPlotVerticalLines:(BOOL)verticalLines;
 - (NSArray *)createChartDataWithTitles:(NSArray *)titles values:(NSArray *)values colors:(NSArray *)colors labelColors:(NSArray *)labelColors;
 
+// extendy
+- (void)clearChart;
+
 - (void)setupBarViewStyle:(BarDisplayStyle)displayStyle;
 - (void)setupBarViewShape:(BarShape)shape;
 - (void)setupBarViewShadow:(BarShadow)shadow;
