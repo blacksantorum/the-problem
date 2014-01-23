@@ -21,6 +21,28 @@
 
 @implementation RecentFightDisplayViewController
 
+-(Boxer *)boxerA
+{
+    Boxer *winner;
+    for (Boxer *b in self.fight.boxers) {
+        if ([b.boxerID.description isEqualToString:self.fight.winnerID.description]) {
+            winner = b;
+        }
+    }
+    return winner;
+}
+
+-(Boxer *)boxerB
+{
+    Boxer *loser;
+    for (Boxer *b in self.fight.boxers) {
+        if (![b.boxerID.description isEqualToString:self.fight.winnerID.description]) {
+            loser = b;
+        }
+    }
+    return loser;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (self.fight.stoppage) {
@@ -36,6 +58,8 @@
     self.pick = [[Pick alloc] initWithFightViewDictionary:pickDictionary];
     
     NSDictionary *decisionDictionary = [self.JSONdictionary valueForKeyPath:@"fight.decision"];
+    
+    
     self.decision = [[Decision alloc] initWithRecentFightDisplayDictionary:decisionDictionary];
     
     NSMutableDictionary *boxersToPicksPercentages = [[NSMutableDictionary alloc] init];
@@ -107,7 +131,7 @@
         cell.fight = self.fight;
         return cell;
         
-    } else if (indexPath.section == 0) {
+    } else if (indexPath.section == 1) {
         
         static NSString *CellIdentifier = @"Pick Info Cell";
         
@@ -178,6 +202,7 @@
             }
         }
         
+        NSLog (@"%@",self.decision);
         if (self.decision) {
             cell.makeDecisionButton.titleLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
         }
