@@ -48,13 +48,13 @@
 		EC53741318810C7800DF16AB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741218810C7800DF16AB /* Social.framework */; };
 		EC53741518810E4100DF16AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741418810E4100DF16AB /* FacebookSDK.framework */; };
 		EC537418188227AC00DF16AB /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = EC537417188227AC00DF16AB /* Auth.m */; };
+		EC616785189273FA00E9843E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC616784189273FA00E9843E /* Main.storyboard */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
 		ECA0CE3E185E4EF8003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
 		ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ECA0CE42185E4EF9003380C5 /* InfoPlist.strings */; };
 		ECA0CE46185E4EF9003380C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE45185E4EF9003380C5 /* main.m */; };
 		ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE49185E4EF9003380C5 /* boxfanAppDelegate.m */; };
-		ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA0CE4B185E4EF9003380C5 /* Main.storyboard */; };
 		ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECA0CE51185E4EF9003380C5 /* Images.xcassets */; };
 		ECA0CE59185E4EF9003380C5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE58185E4EF9003380C5 /* XCTest.framework */; };
 		ECA0CE5A185E4EF9003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
@@ -413,6 +413,7 @@
 		EC53741418810E4100DF16AB /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		EC537416188227AC00DF16AB /* Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
 		EC537417188227AC00DF16AB /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
+		EC616784189273FA00E9843E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE39185E4EF8003380C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -423,7 +424,6 @@
 		ECA0CE47185E4EF9003380C5 /* boxfan-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "boxfan-Prefix.pch"; sourceTree = "<group>"; };
 		ECA0CE48185E4EF9003380C5 /* boxfanAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = boxfanAppDelegate.h; sourceTree = "<group>"; };
 		ECA0CE49185E4EF9003380C5 /* boxfanAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = boxfanAppDelegate.m; sourceTree = "<group>"; };
-		ECA0CE4C185E4EF9003380C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ECA0CE51185E4EF9003380C5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		ECA0CE57185E4EF9003380C5 /* boxfanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = boxfanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE58185E4EF9003380C5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -931,11 +931,11 @@
 		ECA0CE3F185E4EF8003380C5 /* boxfan */ = {
 			isa = PBXGroup;
 			children = (
+				EC616784189273FA00E9843E /* Main.storyboard */,
 				EC374AD3188FD42B00C4343A /* Out To Pasture */,
 				EC0D5B431885433D009B32B4 /* Nav Subclasses */,
 				ECC109931886A66A000B70CF /* Sidebar */,
 				ECD1151D187DEAD300530434 /* Utility Classes */,
-				ECA0CE4B185E4EF9003380C5 /* Main.storyboard */,
 				EC374A9D188F1DCA00C4343A /* Design.storyboard */,
 				EC54850A187E9A3400EA69E5 /* Custom Views */,
 				ECD1151E187DF76D00530434 /* Refactored View Controllers */,
@@ -1401,6 +1401,7 @@
 				ECC10B38188E2F14000B70CF /* Cuba.png in Resources */,
 				ECC10B32188E2F14000B70CF /* Congo-Brazzaville.png in Resources */,
 				ECC10BEC188E2F14000B70CF /* Virgin Islands British.png in Resources */,
+				EC616785189273FA00E9843E /* Main.storyboard in Resources */,
 				ECC10B8E188E2F14000B70CF /* Montenegro.png in Resources */,
 				ECC10B21188E2F14000B70CF /* Bulgaria.png in Resources */,
 				ECC10B06188E2F14000B70CF /* Angola.png in Resources */,
@@ -1596,7 +1597,6 @@
 				ECC10BE6188E2F14000B70CF /* Uruguay.png in Resources */,
 				ECC10B80188E2F14000B70CF /* Malawi.png in Resources */,
 				ECC10BCA188E2F14000B70CF /* St Kitts & Nevis.png in Resources */,
-				ECA0CE4D185E4EF9003380C5 /* Main.storyboard in Resources */,
 				ECC10B29188E2F14000B70CF /* Cayman Islands.png in Resources */,
 				ECC10B96188E2F14000B70CF /* Nepal.png in Resources */,
 				ECC10B71188E2F14000B70CF /* Kosovo.png in Resources */,
@@ -1779,14 +1779,6 @@
 				ECA0CE43185E4EF9003380C5 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		ECA0CE4B185E4EF9003380C5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				ECA0CE4C185E4EF9003380C5 /* Base */,
-			);
-			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 		ECA0CE61185E4EF9003380C5 /* InfoPlist.strings */ = {
