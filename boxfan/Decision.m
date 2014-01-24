@@ -12,7 +12,6 @@
 
 -(instancetype)initWithRecentFightDisplayDictionary:(NSDictionary *)dictionary
 {
-    self = nil;
     if (![JSONDataNullCheck isNull:dictionary]) {
         self = [super init];
         if (self) {
