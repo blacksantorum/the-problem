@@ -37,12 +37,6 @@
     [[self revealController] showViewController:[[self revealController] leftViewController]];
 }
 
--(NSData *)encodedUserFromDefaults
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    return [defaults objectForKey:@"User"];
-}
-
 -(void)refresh
 {
     [self.activityIndicator startAnimating];
