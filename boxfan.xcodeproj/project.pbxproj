@@ -49,6 +49,12 @@
 		EC53741518810E4100DF16AB /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53741418810E4100DF16AB /* FacebookSDK.framework */; };
 		EC537418188227AC00DF16AB /* Auth.m in Sources */ = {isa = PBXBuildFile; fileRef = EC537417188227AC00DF16AB /* Auth.m */; };
 		EC616785189273FA00E9843E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC616784189273FA00E9843E /* Main.storyboard */; };
+		EC616788189274B700E9843E /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = EC616787189274B700E9843E /* Comment.m */; };
+		EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC61678A189353B200E9843E /* CommentsDisplayVC.m */; };
+		EC81025618946BA60092B7DB /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC81025518946BA60092B7DB /* CommentCell.xib */; };
+		EC81025918946BD70092B7DB /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025818946BD70092B7DB /* CommentCell.m */; };
+		EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */; };
+		EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
 		ECA0CE3E185E4EF8003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
@@ -414,6 +420,17 @@
 		EC537416188227AC00DF16AB /* Auth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auth.h; sourceTree = "<group>"; };
 		EC537417188227AC00DF16AB /* Auth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auth.m; sourceTree = "<group>"; };
 		EC616784189273FA00E9843E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EC616786189274B700E9843E /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		EC616787189274B700E9843E /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		EC616789189353B200E9843E /* CommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsDisplayVC.h; sourceTree = "<group>"; };
+		EC61678A189353B200E9843E /* CommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsDisplayVC.m; sourceTree = "<group>"; };
+		EC81025518946BA60092B7DB /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
+		EC81025718946BD70092B7DB /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		EC81025818946BD70092B7DB /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		EC81025A18948F720092B7DB /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
+		EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
+		EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBACommentsMultipleVC.h; sourceTree = "<group>"; };
+		EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBACommentsMultipleVC.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE39185E4EF8003380C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -864,6 +881,9 @@
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				EC81025518946BA60092B7DB /* CommentCell.xib */,
+				EC81025718946BD70092B7DB /* CommentCell.h */,
+				EC81025818946BD70092B7DB /* CommentCell.m */,
 				EC374AD71890930500C4343A /* DecisionInfoCell.xib */,
 				EC374AD91890947200C4343A /* DecisionInfoCell.h */,
 				EC374ADA1890947200C4343A /* DecisionInfoCell.m */,
@@ -987,6 +1007,8 @@
 		ECA13232186018F700001793 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EC616786189274B700E9843E /* Comment.h */,
+				EC616787189274B700E9843E /* Comment.m */,
 				ECC10A02188D31B5000B70CF /* UserActivity.h */,
 				ECC10A03188D31B5000B70CF /* UserActivity.m */,
 				ECA0CE71185E5818003380C5 /* Boxer.h */,
@@ -1267,6 +1289,8 @@
 		ECD11519187D4AB800530434 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
+				EC616789189353B200E9843E /* CommentsDisplayVC.h */,
+				EC61678A189353B200E9843E /* CommentsDisplayVC.m */,
 				ECD11524187E37DF00530434 /* FightDisplayVC.h */,
 				ECD11525187E37DF00530434 /* FightDisplayVC.m */,
 				ECD11512187D466E00530434 /* BoxingAppDVC.h */,
@@ -1278,6 +1302,8 @@
 		ECD1151D187DEAD300530434 /* Utility Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EC81025A18948F720092B7DB /* TTTTimeIntervalFormatter.h */,
+				EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */,
 				EC374AD0188F9BDE00C4343A /* JSONDataNullCheck.h */,
 				EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */,
 				EC537416188227AC00DF16AB /* Auth.h */,
@@ -1293,6 +1319,8 @@
 		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
+				EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */,
 				EC374AD41890891D00C4343A /* RecentFightDisplayViewController.h */,
 				EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */,
 				EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */,
@@ -1638,6 +1666,7 @@
 				ECC10BE9188E2F14000B70CF /* Vatican City.png in Resources */,
 				ECC10B4B188E2F14000B70CF /* France.png in Resources */,
 				ECE55DA41884B86900E02546 /* SidebarViewController.xib in Resources */,
+				EC81025618946BA60092B7DB /* CommentCell.xib in Resources */,
 				ECC10B62188E2F14000B70CF /* Indonesia.png in Resources */,
 				ECC10BF0188E2F14000B70CF /* Yemen.png in Resources */,
 				ECC10B30188E2F14000B70CF /* Commonwealth.png in Resources */,
@@ -1705,6 +1734,7 @@
 				ECC10A07188E27C3000B70CF /* UpcomingFightCell.m in Sources */,
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
 				ECC109E018878994000B70CF /* FindUserNavController.m in Sources */,
+				EC616788189274B700E9843E /* Comment.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				EC374AC4188F6CED00C4343A /* BarLabel.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
@@ -1719,8 +1749,10 @@
 				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,
 				ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */,
 				EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */,
+				EC81025918946BD70092B7DB /* CommentCell.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
+				EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */,
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
 				ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
@@ -1742,7 +1774,9 @@
 				ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */,
 				ECC109991886A72B000B70CF /* GodsNavController.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
+				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,
 				ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */,
+				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,

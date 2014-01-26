@@ -159,4 +159,15 @@
     return [NSURL URLWithString:[URLS appendSessionTokenForGods:url]];
 }
 
++(NSURL *)baseURL
+{
+    NSString *url;
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/";
+    } else {
+        url = @"http://192.168.1.115:3000/api/";
+    }
+    return [NSURL URLWithString:url];
+}
+
 @end

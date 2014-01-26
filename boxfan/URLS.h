@@ -11,6 +11,8 @@
 
 @interface URLS : NSObject
 
++(NSString *)appendSessionToken:(NSString *)urlString;
+
 +(NSString *)urlStringForPostingPickForFight:(Fight *)fight;
 +(NSString *)urlStringForPostingDecisionForFight:(Fight *)fight;
 +(NSString *)urlStringForRailsSignIn;
@@ -24,6 +26,7 @@
 +(NSURL *)urlForUsers;
 +(NSURL *)urlForPicksOfUser:(User *)user;
 +(NSURL *)urlForGods;
++(NSURL *)baseURL;
 
 +(BOOL)prod;
 
