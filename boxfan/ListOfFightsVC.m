@@ -8,6 +8,7 @@
 
 #import "ListOfFightsVC.h"
 #import "ScheduleFormattedDate.h"
+#import "ListOfFightsCell.h"
 
 @interface ListOfFightsVC ()
 
@@ -89,5 +90,48 @@
     NSDate *date = [self.fightDates objectAtIndex:section];
     return [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:date];
 }
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 44.0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"List Of Fights Cell";
+    
+    [self.tableView registerClass:[ListOfFightsCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    ListOfFightsCell *cell = (ListOfFightsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"ListOfFightsCell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (ListOfFightsCell *)currentObject;
+                break;
+            }
+        }
+    }
+    
+    NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
+    NSArray *fightArrayAtDate = [self fightsForDate:date];
+    Fight *fight = fightArrayAtDate[indexPath.row];
+    
+    cell.boxerALabel.text = [self boxerNameDisplay:fight.boxerA];
+    [cell.boxerACountryFlag setImage:[UIImage imageNamed:fight.boxerA.country]];
+    cell.boxerBLabel.text = [self boxerNameDisplay:fight.boxerB];
+    [cell.boxerBCountryFlag setImage:[UIImage imageNamed:fight.boxerB.country]];
+    
+    if (![JSONDataNullCheck isNull:fight.winnerID]) {
+        if (fight.stoppage) {
+            cell.resultsLabel.text = @"KO";
+        } else {
+            cell.resultsLabel.text = @"def";
+        }
+    }
+    
+    return cell;
+}
+
 
 @end

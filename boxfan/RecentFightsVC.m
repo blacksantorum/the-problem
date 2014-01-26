@@ -9,7 +9,7 @@
 #import "RecentFightsVC.h"
 #import "Boxer.h"
 #import "ScheduleFormattedDate.h"
-#import "RecentFightsDisplayVC.h"
+#import "RecentFightDisplayViewController.h"
 
 @interface RecentFightsVC ()
 
@@ -29,26 +29,14 @@
     return [URLS urlForRecentFights];
 }
 
-#pragma mark - Table view data source
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Recent Fight Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
-    NSArray *fightArrayAtDate = [self fightsForDate:date];
-    Fight *fight = fightArrayAtDate[indexPath.row];
-    cell.textLabel.text = fight.titleForRecentFightsView;
-    
-    return cell;
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showRecentFight" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showRecentFight"]) {
-        RecentFightsDisplayVC *controller = (RecentFightsDisplayVC *)segue.destinationViewController;
+        RecentFightDisplayViewController *controller = (RecentFightDisplayViewController *)segue.destinationViewController;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
         
         NSDate *date = [self.fightDates objectAtIndex:indexPath.section];

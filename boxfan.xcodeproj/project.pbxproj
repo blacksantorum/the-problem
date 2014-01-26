@@ -75,6 +75,8 @@
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
 		ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D7D189507C70005E920 /* ListOfFightsVC.m */; };
+		ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */; };
+		ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */; };
 		ECC109961886A6C0000B70CF /* GodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109951886A6C0000B70CF /* GodsViewController.m */; };
 		ECC109991886A72B000B70CF /* GodsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109981886A72B000B70CF /* GodsNavController.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
@@ -83,10 +85,7 @@
 		ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109ED1888A47A000B70CF /* BoxFanRevealController.m */; };
 		ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109F01888AEAF000B70CF /* Interstitial.m */; };
 		ECC109F31888AEAF000B70CF /* Interstitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F11888AEAF000B70CF /* Interstitial.xib */; };
-		ECC109F8188A2B2E000B70CF /* DecisionControl.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F7188A2B2E000B70CF /* DecisionControl.xib */; };
-		ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109FA188A2CA5000B70CF /* DecisionControl.m */; };
 		ECC109FE188A93E7000B70CF /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109FD188A93E7000B70CF /* Decision.m */; };
-		ECC10A01188A95CE000B70CF /* RecentFightsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */; };
 		ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC10A03188D31B5000B70CF /* UserActivity.m */; };
 		ECC10A07188E27C3000B70CF /* UpcomingFightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC10A06188E27C3000B70CF /* UpcomingFightCell.m */; };
 		ECC10A0B188E2833000B70CF /* UpcomingFightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC10A0A188E2833000B70CF /* UpcomingFightCell.xib */; };
@@ -466,6 +465,9 @@
 		ECA1322D185FA8A500001793 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
 		ECA15D7C189507C70005E920 /* ListOfFightsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsVC.h; sourceTree = "<group>"; };
 		ECA15D7D189507C70005E920 /* ListOfFightsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsVC.m; sourceTree = "<group>"; };
+		ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListOfFightsCell.xib; sourceTree = "<group>"; };
+		ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsCell.h; sourceTree = "<group>"; };
+		ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsCell.m; sourceTree = "<group>"; };
 		ECC109941886A6C0000B70CF /* GodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsViewController.h; sourceTree = "<group>"; };
 		ECC109951886A6C0000B70CF /* GodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsViewController.m; sourceTree = "<group>"; };
 		ECC109971886A72B000B70CF /* GodsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsNavController.h; sourceTree = "<group>"; };
@@ -481,13 +483,8 @@
 		ECC109EF1888AEAF000B70CF /* Interstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interstitial.h; sourceTree = "<group>"; };
 		ECC109F01888AEAF000B70CF /* Interstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interstitial.m; sourceTree = "<group>"; };
 		ECC109F11888AEAF000B70CF /* Interstitial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Interstitial.xib; sourceTree = "<group>"; };
-		ECC109F7188A2B2E000B70CF /* DecisionControl.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionControl.xib; sourceTree = "<group>"; };
-		ECC109F9188A2CA5000B70CF /* DecisionControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionControl.h; sourceTree = "<group>"; };
-		ECC109FA188A2CA5000B70CF /* DecisionControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionControl.m; sourceTree = "<group>"; };
 		ECC109FC188A93E7000B70CF /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
 		ECC109FD188A93E7000B70CF /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decision.m; sourceTree = "<group>"; };
-		ECC109FF188A95CE000B70CF /* RecentFightsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFightsDisplayVC.h; sourceTree = "<group>"; };
-		ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentFightsDisplayVC.m; sourceTree = "<group>"; };
 		ECC10A02188D31B5000B70CF /* UserActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivity.h; sourceTree = "<group>"; };
 		ECC10A03188D31B5000B70CF /* UserActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivity.m; sourceTree = "<group>"; };
 		ECC10A05188E27C3000B70CF /* UpcomingFightCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFightCell.h; sourceTree = "<group>"; };
@@ -876,8 +873,9 @@
 		EC374AD3188FD42B00C4343A /* Out To Pasture */ = {
 			isa = PBXGroup;
 			children = (
-				ECC109FF188A95CE000B70CF /* RecentFightsDisplayVC.h */,
-				ECC10A00188A95CE000B70CF /* RecentFightsDisplayVC.m */,
+				ECC10A05188E27C3000B70CF /* UpcomingFightCell.h */,
+				ECC10A0A188E2833000B70CF /* UpcomingFightCell.xib */,
+				ECC10A06188E27C3000B70CF /* UpcomingFightCell.m */,
 				ECD1152F187E869800530434 /* FighterPickControlsView.h */,
 				ECD11530187E869800530434 /* FighterPickControlsView.m */,
 				ECD1152D187E844D00530434 /* FighterPickControlsView.xib */,
@@ -902,12 +900,9 @@
 				EC374A9F188F42BE00C4343A /* FightInfoCell.xib */,
 				EC374AA1188F45FB00C4343A /* FightInfoCell.h */,
 				EC374AA2188F45FB00C4343A /* FightInfoCell.m */,
-				ECC10A05188E27C3000B70CF /* UpcomingFightCell.h */,
-				ECC10A0A188E2833000B70CF /* UpcomingFightCell.xib */,
-				ECC10A06188E27C3000B70CF /* UpcomingFightCell.m */,
-				ECC109F7188A2B2E000B70CF /* DecisionControl.xib */,
-				ECC109F9188A2CA5000B70CF /* DecisionControl.h */,
-				ECC109FA188A2CA5000B70CF /* DecisionControl.m */,
+				ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */,
+				ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */,
+				ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */,
 			);
 			name = "Custom Views";
 			sourceTree = "<group>";
@@ -1625,6 +1620,7 @@
 				ECC10BD5188E2F14000B70CF /* Tanzania.png in Resources */,
 				ECC10BD8188E2F14000B70CF /* Togo.png in Resources */,
 				ECC10B3B188E2F14000B70CF /* Denmark.png in Resources */,
+				ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */,
 				ECA0CE44185E4EF9003380C5 /* InfoPlist.strings in Resources */,
 				ECC10BEF188E2F14000B70CF /* Western Sahara.png in Resources */,
 				ECC10B1C188E2F14000B70CF /* Bolivia.png in Resources */,
@@ -1633,7 +1629,6 @@
 				ECC10B77188E2F14000B70CF /* Lesotho.png in Resources */,
 				ECC10B56188E2F14000B70CF /* Guam.png in Resources */,
 				ECC10B2E188E2F14000B70CF /* CIS.png in Resources */,
-				ECC109F8188A2B2E000B70CF /* DecisionControl.xib in Resources */,
 				ECC10B1E188E2F14000B70CF /* Botswana.png in Resources */,
 				ECC10B86188E2F14000B70CF /* Martinique.png in Resources */,
 				ECC10B63188E2F14000B70CF /* Iran.png in Resources */,
@@ -1758,7 +1753,6 @@
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				EC374AC9188F6CED00C4343A /* XMLElement.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
-				ECC10A01188A95CE000B70CF /* RecentFightsDisplayVC.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,
@@ -1769,6 +1763,7 @@
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
 				EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */,
+				ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */,
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
 				ECD11531187E869800530434 /* FighterPickControlsView.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
@@ -1791,7 +1786,6 @@
 				ECC109991886A72B000B70CF /* GodsNavController.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,
-				ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */,
 				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
 				EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */,

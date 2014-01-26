@@ -7,7 +7,6 @@
 //
 
 #import "Fight.h"
-#import "Boxer.h"
 
 @interface Fight() {
     NSDictionary *_dictionary;
@@ -53,6 +52,38 @@
         }
     }
     return self;
+}
+
+-(Boxer *)boxerA
+{
+    Boxer *boxerA;
+    
+    if (![JSONDataNullCheck isNull:self.winnerID]) {
+        for (Boxer *b in self.boxers) {
+            if ([b.boxerID.description isEqualToString:self.winnerID.description])
+                boxerA = b;
+        }
+    } else {
+        boxerA = [self.boxers firstObject];
+    }
+    
+    return boxerA;
+}
+
+-(Boxer *)boxerB
+{
+    Boxer *boxerB;
+    
+    if (![JSONDataNullCheck isNull:self.winnerID]) {
+        for (Boxer *b in self.boxers) {
+            if (![b.boxerID.description isEqualToString:self.winnerID.description])
+                boxerB = b;
+        }
+    } else {
+        boxerB = [self.boxers lastObject];
+    }
+    
+    return boxerB;
 }
 
 -(NSString *)titleForScheduleView

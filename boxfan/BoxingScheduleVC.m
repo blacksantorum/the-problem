@@ -49,42 +49,4 @@
     }
 }
 
-#pragma mark - Table view data source
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 44.0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Boxing Schedule Cell";
-    
-    [self.tableView registerClass:[UpcomingFightCell class] forCellReuseIdentifier:CellIdentifier];
-    
-    UpcomingFightCell *cell = (UpcomingFightCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    if (cell == nil) {
-        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"UpcomingFightCell" owner:self options:nil];
-        for (id currentObject in topLevelObjects) {
-            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
-                cell = (UpcomingFightCell *)currentObject;
-                break;
-            }
-        }
-    }
-    
-    NSDate *date = [self.fightDates objectAtIndex:indexPath.section];
-    NSArray *fightArrayAtDate = [self fightsForDate:date];
-    Fight *fight = fightArrayAtDate[indexPath.row];
-    
-    Boxer *boxerA = [fight.boxers firstObject];
-    Boxer *boxerB = [fight.boxers lastObject];
-    cell.boxerALabel.text = [self boxerNameDisplay:boxerA];
-    [cell.boxerACountryFlag setImage:[UIImage imageNamed:boxerA.country]];
-    cell.boxerBLabel.text = [self boxerNameDisplay:boxerB];
-    [cell.boxerBCountryFlag setImage:[UIImage imageNamed:boxerB.country]];
-    
-    return cell;
-}
-
 @end
