@@ -6,10 +6,8 @@
 //  Copyright (c) 2014 Chris Tibbs. All rights reserved.
 //
 
-#import "BoxingAppDVC.h"
-#import <Parse/Parse.h>
-#import "User.h"
+#import "ListOfFightsVC.h"
 
-@interface BoxingScheduleVC : BoxingAppDVC
+@interface BoxingScheduleVC : ListOfFightsVC
 
 @end

@@ -74,6 +74,7 @@
 		ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13227185FA36A00001793 /* UserPickViewController.m */; };
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
+		ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D7D189507C70005E920 /* ListOfFightsVC.m */; };
 		ECC109961886A6C0000B70CF /* GodsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109951886A6C0000B70CF /* GodsViewController.m */; };
 		ECC109991886A72B000B70CF /* GodsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109981886A72B000B70CF /* GodsNavController.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
@@ -463,6 +464,8 @@
 		ECA1322A185FA64E00001793 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		ECA1322C185FA8A500001793 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
 		ECA1322D185FA8A500001793 /* Pick.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pick.m; sourceTree = "<group>"; };
+		ECA15D7C189507C70005E920 /* ListOfFightsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsVC.h; sourceTree = "<group>"; };
+		ECA15D7D189507C70005E920 /* ListOfFightsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsVC.m; sourceTree = "<group>"; };
 		ECC109941886A6C0000B70CF /* GodsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsViewController.h; sourceTree = "<group>"; };
 		ECC109951886A6C0000B70CF /* GodsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsViewController.m; sourceTree = "<group>"; };
 		ECC109971886A72B000B70CF /* GodsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsNavController.h; sourceTree = "<group>"; };
@@ -1301,6 +1304,8 @@
 				ECD11525187E37DF00530434 /* FightDisplayVC.m */,
 				ECD11512187D466E00530434 /* BoxingAppDVC.h */,
 				ECD11513187D466E00530434 /* BoxingAppDVC.m */,
+				ECA15D7C189507C70005E920 /* ListOfFightsVC.h */,
+				ECA15D7D189507C70005E920 /* ListOfFightsVC.m */,
 			);
 			name = Abstract;
 			sourceTree = "<group>";
@@ -1794,6 +1799,7 @@
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 				EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */,
 				EC374AC7188F6CED00C4343A /* UIColor+i7HexColor.m in Sources */,
+				ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */,
 				EC374AC8188F6CED00C4343A /* UIViewSizeShortcuts.m in Sources */,
 				EC374AA3188F45FB00C4343A /* FightInfoCell.m in Sources */,
 				ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */,
