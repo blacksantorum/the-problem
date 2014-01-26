@@ -71,12 +71,6 @@
         cell.textLabel.text = @"Recent Fights";
     }
     if (row == 4) {
-        cell.textLabel.text = @"Feed";
-    }
-    if (row == 5) {
-        cell.textLabel.text = @"Gods";
-    }
-    if (row == 6) {
         cell.textLabel.text = self.loggedInUser.handle;
     }
     
@@ -116,28 +110,8 @@
             [[self revealController] showViewController:[[self revealController] frontViewController]];
         }
     }
-    
-    if (row == 4) {
-        if (![[[self revealController] frontViewController] isKindOfClass:[FeedNavController class]]) {
-            UINavigationController *feedNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedNav"];
-            [[self revealController] setFrontViewController:feedNavController];
-            [[self revealController] showViewController:feedNavController];
-        } else {
-            [[self revealController] showViewController:[[self revealController] frontViewController]];
-        }
-    }
-    
-    if (row == 5) {
-        if (![[[self revealController] frontViewController] isKindOfClass:[GodsNavController class]]) {
-            UINavigationController *godsNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"GodsNav"];
-            [[self revealController] setFrontViewController:godsNavController];
-            [[self revealController] showViewController:godsNavController];
-        } else {
-            [[self revealController] showViewController:[[self revealController] frontViewController]];
-        }
-    }
 
-    if (row == 6) {
+    if (row == 4) {
         if (![[[self revealController] frontViewController] isKindOfClass:[MyProfileNavController class]]) {
             MyProfileNavController *myProfileController = (MyProfileNavController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MyProfile"];
             myProfileController.displayedUser = self.loggedInUser;

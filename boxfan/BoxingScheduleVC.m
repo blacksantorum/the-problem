@@ -8,7 +8,6 @@
 
 #import "BoxingScheduleVC.h"
 #import "UpcomingFightViewController.h"
-#import "UpcomingFightCell.h"
 
 @interface BoxingScheduleVC ()
 
