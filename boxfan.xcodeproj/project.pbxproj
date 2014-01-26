@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C19AC8458FAD439FA2224948 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B423D2962D5A439EABD428EB /* libPods.a */; };
 		EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */; };
-		EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4018854319009B32B4 /* FeedNavController.m */; };
 		EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B451886126D009B32B4 /* LeftButtonNavController.m */; };
 		EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4818869543009B32B4 /* RecentFightNavController.m */; };
 		EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */; };
@@ -75,7 +74,6 @@
 		ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D7D189507C70005E920 /* ListOfFightsVC.m */; };
 		ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */; };
 		ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */; };
-		ECC109991886A72B000B70CF /* GodsNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109981886A72B000B70CF /* GodsNavController.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
 		ECC109E81887C641000B70CF /* FindUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109E71887C641000B70CF /* FindUserVC.m */; };
 		ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109EA1887F831000B70CF /* MyProfileNavController.m */; };
@@ -350,8 +348,6 @@
 		B423D2962D5A439EABD428EB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC0D5B3C188542D3009B32B4 /* UpcomingFightNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFightNavController.h; sourceTree = "<group>"; };
 		EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightNavController.m; sourceTree = "<group>"; };
-		EC0D5B3F18854319009B32B4 /* FeedNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FeedNavController.h; path = boxfan/FeedNavController.h; sourceTree = "<group>"; };
-		EC0D5B4018854319009B32B4 /* FeedNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedNavController.m; path = boxfan/FeedNavController.m; sourceTree = "<group>"; };
 		EC0D5B441886126D009B32B4 /* LeftButtonNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LeftButtonNavController.h; path = boxfan/LeftButtonNavController.h; sourceTree = "<group>"; };
 		EC0D5B451886126D009B32B4 /* LeftButtonNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LeftButtonNavController.m; path = boxfan/LeftButtonNavController.m; sourceTree = "<group>"; };
 		EC0D5B4718869543009B32B4 /* RecentFightNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentFightNavController.h; sourceTree = "<group>"; };
@@ -457,8 +453,6 @@
 		ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListOfFightsCell.xib; sourceTree = "<group>"; };
 		ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsCell.h; sourceTree = "<group>"; };
 		ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsCell.m; sourceTree = "<group>"; };
-		ECC109971886A72B000B70CF /* GodsNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GodsNavController.h; sourceTree = "<group>"; };
-		ECC109981886A72B000B70CF /* GodsNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GodsNavController.m; sourceTree = "<group>"; };
 		ECC109DE18878994000B70CF /* FindUserNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserNavController.h; sourceTree = "<group>"; };
 		ECC109DF18878994000B70CF /* FindUserNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindUserNavController.m; sourceTree = "<group>"; };
 		ECC109E61887C641000B70CF /* FindUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserVC.h; sourceTree = "<group>"; };
@@ -774,14 +768,10 @@
 				ECC109EA1887F831000B70CF /* MyProfileNavController.m */,
 				ECC109DE18878994000B70CF /* FindUserNavController.h */,
 				ECC109DF18878994000B70CF /* FindUserNavController.m */,
-				ECC109971886A72B000B70CF /* GodsNavController.h */,
-				ECC109981886A72B000B70CF /* GodsNavController.m */,
-				EC0D5B4018854319009B32B4 /* FeedNavController.m */,
 				EC0D5B4718869543009B32B4 /* RecentFightNavController.h */,
 				EC0D5B4818869543009B32B4 /* RecentFightNavController.m */,
 				EC0D5B441886126D009B32B4 /* LeftButtonNavController.h */,
 				EC0D5B451886126D009B32B4 /* LeftButtonNavController.m */,
-				EC0D5B3F18854319009B32B4 /* FeedNavController.h */,
 				EC0D5B3D188542D3009B32B4 /* UpcomingFightNavController.m */,
 				EC0D5B3C188542D3009B32B4 /* UpcomingFightNavController.h */,
 			);
@@ -924,7 +914,7 @@
 				ECC109931886A66A000B70CF /* Sidebar */,
 				ECD1151D187DEAD300530434 /* Utility Classes */,
 				EC54850A187E9A3400EA69E5 /* Custom Views */,
-				ECD1151E187DF76D00530434 /* Refactored View Controllers */,
+				ECD1151E187DF76D00530434 /* View Controllers */,
 				ECD11519187D4AB800530434 /* Abstract */,
 				ECA0CE51185E4EF9003380C5 /* Images.xcassets */,
 				ECA13232186018F700001793 /* Model */,
@@ -1284,7 +1274,7 @@
 			name = "Utility Classes";
 			sourceTree = "<group>";
 		};
-		ECD1151E187DF76D00530434 /* Refactored View Controllers */ = {
+		ECD1151E187DF76D00530434 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
@@ -1306,7 +1296,7 @@
 				ECD11516187D497400530434 /* BoxingScheduleVC.h */,
 				ECD11517187D497400530434 /* BoxingScheduleVC.m */,
 			);
-			name = "Refactored View Controllers";
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1727,13 +1717,11 @@
 				EC374AC6188F6CED00C4343A /* CMPopTipView.m in Sources */,
 				EC374ACC188F6CED00C4343A /* PlotChartView.m in Sources */,
 				EC374AC3188F6CED00C4343A /* BarChartView.m in Sources */,
-				EC0D5B4118854319009B32B4 /* FeedNavController.m in Sources */,
 				EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */,
 				EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
 				ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */,
-				ECC109991886A72B000B70CF /* GodsNavController.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,
 				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,
