@@ -28,7 +28,8 @@
     }
     NSSet *dateSet = [NSSet setWithArray:dateArray];
     NSArray *dates = [dateSet allObjects];
-    _fightDates = [dates sortedArrayUsingSelector:@selector(compare:)];
+    
+    _fightDates = [self appropriatelySortedDateArray:dates];
     
     return _fightDates;
 }
@@ -45,6 +46,7 @@
     return fightsForDate;
 }
 
+// store fights into an array of fights at self.fights
 - (void)configureDataSource
 {
     NSMutableArray *fightArray = [[NSMutableArray alloc] init];
@@ -60,7 +62,12 @@
         [fightArray addObject:f];
     }
     self.fights = fightArray;
-    
+}
+
+-(NSArray *)appropriatelySortedDateArray:(NSArray *)dateArray
+{
+    // must override
+    return nil;
 }
 
 #pragma mark - Table view data source
@@ -82,7 +89,5 @@
     NSDate *date = [self.fightDates objectAtIndex:section];
     return [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:date];
 }
-
-    
 
 @end

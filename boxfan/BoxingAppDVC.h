@@ -16,9 +16,11 @@
 @property (strong,nonatomic) NSURL *urlForRequest;
 @property (strong,nonatomic) NSArray *JSONarray;
 
--(void)configureDataSource;
+// if you're not a list of fights controller, override this guy
+- (void)configureDataSource;
+
 - (void)showSettingsMenu;
--(void)refresh;
+- (void)refresh;
 
 - (IBAction)userClickedShowSettings:(id)sender;
 

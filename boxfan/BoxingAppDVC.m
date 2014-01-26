@@ -21,13 +21,17 @@
 
 @implementation BoxingAppDVC
 
--(User *)loggedInUser
+// carry Logged in user from RootViewController
+
+- (User *)loggedInUser
 {
     BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
     return bfrc.loggedInUser;
 }
 
--(IBAction)userClickedShowSettings:(id)sender
+// open side bar
+
+- (IBAction)userClickedShowSettings:(id)sender
 {
     [self showSettingsMenu];
 }
@@ -37,7 +41,9 @@
     [[self revealController] showViewController:[[self revealController] leftViewController]];
 }
 
--(void)refresh
+// make a call to the supplied URL, store the response in an Array of JSON objects
+
+- (void)refresh
 {
     [self.activityIndicator startAnimating];
 
@@ -63,7 +69,7 @@
     }];
 }
 
--(void)configureDataSource
+- (void)configureDataSource
 {
     //override
 }
@@ -77,11 +83,6 @@
 {
     [super viewDidLoad];
     [self refresh];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -89,30 +90,5 @@
     [super viewWillAppear:animated];
     [self refresh];
 }
-
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    // Return the number of rows in the section.
-    return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-
 
 @end

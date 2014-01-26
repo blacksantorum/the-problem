@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 Chris Tibbs. All rights reserved.
 //
 
-#import "BoxingAppDVC.h"
+#import "ListOfFightsVC.h"
 
-@interface RecentFightsVC : BoxingAppDVC
+@interface RecentFightsVC : ListOfFightsVC
 
 @end

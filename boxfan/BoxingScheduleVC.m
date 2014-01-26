@@ -21,6 +21,13 @@
     return [URLS urlForUpcomingFights];
 }
 
+-(NSArray *)appropriatelySortedDateArray:(NSArray *)dateArray
+{
+    return [dateArray sortedArrayUsingComparator: ^(NSDate *d1, NSDate *d2) {
+        return [d1 compare:d2];
+    }];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"upcomingFightDetail" sender:[tableView cellForRowAtIndexPath:indexPath]];
 }
