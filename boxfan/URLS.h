@@ -11,23 +11,24 @@
 
 @interface URLS : NSObject
 
-+(NSString *)appendSessionToken:(NSString *)urlString;
++ (NSString *)appendSessionToken:(NSString *)urlString;
 
-+(NSString *)urlStringForPostingPickForFight:(Fight *)fight;
-+(NSString *)urlStringForPostingDecisionForFight:(Fight *)fight;
-+(NSString *)urlStringForRailsSignIn;
-+(NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
-+(NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;
-+(NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight;
++ (NSString *)urlStringForPostingPickForFight:(Fight *)fight;
++ (NSString *)urlStringForPostingDecisionForFight:(Fight *)fight;
++ (NSString *)urlStringForRailsSignIn;
++ (NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
++ (NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;
++ (NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight;
 
-+(NSURL *)urlForFeed;
-+(NSURL *)urlForUpcomingFights;
-+(NSURL *)urlForRecentFights;
-+(NSURL *)urlForUsers;
-+(NSURL *)urlForPicksOfUser:(User *)user;
-+(NSURL *)urlForGods;
-+(NSURL *)baseURL;
++ (NSURL *)urlForFeed;
++ (NSURL *)urlForUpcomingFights;
++ (NSURL *)urlForRecentFights;
++ (NSURL *)urlForUsers;
++ (NSURL *)urlForPicksOfUser:(User *)user;
++ (NSURL *)urlForGods;
++ (NSURL *)baseURL;
++ (NSURL *)urlForCommentsForFight:(Fight *)fight;
 
-+(BOOL)prod;
++ (BOOL)prod;
 
 @end

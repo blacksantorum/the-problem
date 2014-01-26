@@ -64,12 +64,12 @@
     return @"http://the-boxing-app.herokuapp.com/api/signin";
 }
 
-+(NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname
++ (NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname
 {
     return  [NSString stringWithFormat:@"https://api.twitter.com/1.1/users/show.json?screen_name=%@", screenname];
 }
 
-+(NSURL *)urlForUpcomingFights
++ (NSURL *)urlForUpcomingFights
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
@@ -80,7 +80,7 @@
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
-+(NSURL *)urlForRecentFights
++ (NSURL *)urlForRecentFights
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
@@ -91,7 +91,7 @@
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
-+(NSURL *)urlForFeed
++ (NSURL *)urlForFeed
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
@@ -102,7 +102,7 @@
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
-+(NSString *)urlForUsersCurrentPickForFight:(Fight *)fight
++ (NSString *)urlForUsersCurrentPickForFight:(Fight *)fight
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
@@ -113,7 +113,7 @@
     return [url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]];
 }
 
-+(NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight
++ (NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
@@ -124,7 +124,7 @@
     return [url stringByAppendingString:[NSString stringWithFormat:@"%@?session_token=%@",fight.fightID.description,[Auth sessionToken]]];
 }
 
-+(NSURL *)urlForUsers
++ (NSURL *)urlForUsers
 {
     NSString *url = [[NSString alloc] init];
     if ([URLS prod]) {
@@ -135,7 +135,7 @@
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
-+(NSURL *)urlForPicksOfUser:(User *)user
++ (NSURL *)urlForPicksOfUser:(User *)user
 {
     NSString *url = [[NSString alloc] init];
     
@@ -147,7 +147,7 @@
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
-+(NSURL *)urlForGods
++ (NSURL *)urlForGods
 {
     NSString *url = [[NSString alloc] init];
     
@@ -159,7 +159,7 @@
     return [NSURL URLWithString:[URLS appendSessionTokenForGods:url]];
 }
 
-+(NSURL *)baseURL
++ (NSURL *)baseURL
 {
     NSString *url;
     if ([URLS prod]) {
@@ -168,6 +168,15 @@
         url = @"http://192.168.1.115:3000/api/";
     }
     return [NSURL URLWithString:url];
+}
+
++ (NSURL *)urlForCommentsForFight:(Fight *)fight
+{
+    NSString *url;
+    if ([URLS prod]) {
+        url  = [NSString stringWithFormat:@"http://the-boxing-app.herokuapp.com/api/fights/%@/comments",fight.fightID.description];
+    }
+    return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
 @end

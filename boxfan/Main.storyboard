@@ -840,9 +840,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="RfX-nd-67c">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="Dr0-jm-xnO">
+                        <barButtonItem key="rightBarButtonItem" title="Comments" id="Dr0-jm-xnO">
                             <connections>
-                                <segue destination="dFE-c3-PCX" kind="push" id="AwL-E6-vm8"/>
+                                <segue destination="dFE-c3-PCX" kind="push" identifier="showComments" id="AwL-E6-vm8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -870,13 +870,94 @@
                     <view key="view" contentMode="scaleToFill" id="RYR-xs-9Ff">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nen-s7-ojV">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" id="7xZ-QI-uhm">
+                                        <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add comment" minimumFontSize="17" id="IYw-3b-Mh1">
+                                            <rect key="frame" x="16" y="7" width="213" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                    </barButtonItem>
+                                    <barButtonItem title="Add" width="73" id="MrR-PL-JcZ">
+                                        <connections>
+                                            <action selector="addCommentButtonPressed:" destination="dFE-c3-PCX" id="RHJ-Mc-8Mj"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="2yH-T1-n74"/>
+                    <connections>
+                        <outlet property="addCommentTextField" destination="IYw-3b-Mh1" id="aqN-ZB-Axc"/>
+                        <outlet property="toolBar" destination="Nen-s7-ojV" id="rzW-j1-ov1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2qP-1R-wcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1428" y="69"/>
+        </scene>
+        <!--Most Jabbed Comments DisplayVC-->
+        <scene sceneID="VJn-r6-bO4">
+            <objects>
+                <tableViewController storyboardIdentifier="jabbed" id="biB-db-6jh" customClass="MostJabbedCommentsDisplayVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="bfL-dQ-ReA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment Cell" id="wvW-AC-QSJ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wvW-AC-QSJ" id="uBn-Y1-fOa">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="biB-db-6jh" id="EOO-G6-KcE"/>
+                            <outlet property="delegate" destination="biB-db-6jh" id="0ch-4Z-t3c"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DP2-M5-D8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1816" y="-266"/>
+        </scene>
+        <!--New Comments DisplayVC-->
+        <scene sceneID="2nT-g8-xHZ">
+            <objects>
+                <tableViewController storyboardIdentifier="new" id="wQq-lY-kAi" customClass="NewCommentsDisplayVC" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vT8-pd-3Op">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Comment Cell" id="ayg-rV-giZ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ayg-rV-giZ" id="AB5-eW-0IO">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wQq-lY-kAi" id="S61-e6-Dh6"/>
+                            <outlet property="delegate" destination="wQq-lY-kAi" id="Mnr-ZG-MvD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AwS-5o-ZYd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1816" y="470"/>
         </scene>
         <!--Recent Fight Display View Controller-->
         <scene sceneID="9Gc-jf-pZQ">

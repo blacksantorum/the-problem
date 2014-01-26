@@ -9,6 +9,7 @@
 #import "UpcomingFightViewController.h"
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
+#import "TBACommentsMultipleVC.h"
 
 @interface UpcomingFightViewController ()
 
@@ -211,5 +212,13 @@
 -(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
 {
     return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by decision"];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showComments"]) {
+        TBACommentsMultipleVC *controller = (TBACommentsMultipleVC *)segue.destinationViewController;
+        controller.fight = self.fight;
+    }
 }
 @end

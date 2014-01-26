@@ -55,6 +55,8 @@
 		EC81025918946BD70092B7DB /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025818946BD70092B7DB /* CommentCell.m */; };
 		EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */; };
 		EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */; };
+		EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */; };
+		EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
 		ECA0CE3E185E4EF8003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
@@ -431,6 +433,10 @@
 		EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
 		EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBACommentsMultipleVC.h; sourceTree = "<group>"; };
 		EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBACommentsMultipleVC.m; sourceTree = "<group>"; };
+		EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostJabbedCommentsDisplayVC.h; sourceTree = "<group>"; };
+		EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostJabbedCommentsDisplayVC.m; sourceTree = "<group>"; };
+		EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCommentsDisplayVC.h; sourceTree = "<group>"; };
+		EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentsDisplayVC.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE39185E4EF8003380C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -1321,6 +1327,10 @@
 			children = (
 				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
 				EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */,
+				EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */,
+				EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */,
+				EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */,
+				EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */,
 				EC374AD41890891D00C4343A /* RecentFightDisplayViewController.h */,
 				EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */,
 				EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */,
@@ -1750,6 +1760,7 @@
 				ECD1152C187E389700530434 /* UpcomingFightVC.m in Sources */,
 				EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */,
 				EC81025918946BD70092B7DB /* CommentCell.m in Sources */,
+				EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
 				EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */,
@@ -1778,6 +1789,7 @@
 				ECC109FB188A2CA5000B70CF /* DecisionControl.m in Sources */,
 				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
+				EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */,
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 				EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */,

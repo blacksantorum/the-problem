@@ -10,6 +10,7 @@
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import "Comment.h"
 #import "TTTTimeIntervalFormatter.h"
+#import "BoxFanRevealController.h"
 
 @interface CommentsDisplayVC ()
 
@@ -19,6 +20,12 @@
 
 @implementation CommentsDisplayVC
 
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
+}
+
 - (AFHTTPRequestOperationManager *)manager
 {
     if (!_manager) {
@@ -27,6 +34,11 @@
     return _manager;
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    // [self refresh];
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -36,23 +48,26 @@
 
 - (void)refresh
 {
-    NSString *commentsURL = [NSString stringWithFormat:@"comments/%@",self.fight.fightID.description];
-    commentsURL = [URLS appendSessionToken:commentsURL];
+    NSLog(@"%@", [URLS urlForCommentsForFight:self.fight]);
+    NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForCommentsForFight:self.fight]];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:commentsURL relativeToURL:self.manager.baseURL]];
-                              
-    [self.manager HTTPRequestOperationWithRequest:request success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
-        NSArray *array = (NSArray *)[responseObject objectForKey:@"comments"];
-        
-        NSMutableArray *comments = [[NSMutableArray alloc] init];
-        for (NSDictionary *commentsDictionary in array) {
-            Comment *c = [[Comment alloc]initWithDictionary:commentsDictionary];
-            [comments addObject:c];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"Connection error: %@", connectionError);
+        } else {
+            NSError *error = nil;
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            if (error) {
+                NSLog(@"JSON parsing error: %@", error);
+            } else {
+                NSLog(@"%@",object);
+                NSArray *array = (NSArray *)[object objectForKey:@"comments"];
+                
+                [self.tableView reloadData];
+                // [self.activityIndicator stopAnimating];
+                // self.activityIndicator.hidden = YES;
+            }
         }
-        self.comments = [self sortCommentsArray:comments];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
     }];
 }
 

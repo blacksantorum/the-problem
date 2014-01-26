@@ -7,20 +7,43 @@
 //
 
 #import "TBACommentsMultipleVC.h"
+#import "MostJabbedCommentsDisplayVC.h"
+#import "NewCommentsDisplayVC.h"
+#import "CommentsDisplayVC.h"
 
 @interface TBACommentsMultipleVC ()
+
+@property (weak, nonatomic) IBOutlet UITextField *addCommentTextField;
+
+- (IBAction)addCommentButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolBar;
 
 @end
 
 @implementation TBACommentsMultipleVC
 
--(void)awakeFromNib
+- (UIStoryboard *)storyboard
+{
+    return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+}
+
+- (void)awakeFromNib
 {
     [super awakeFromNib];
     
     NSMutableArray *initialViewController = [NSMutableArray array];
-    [initialViewController addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"FirstView"]];
-    [initialViewController addObject:[self.storyboard instantiateViewControllerWithIdentifier:@"SecondView"]];
+    
+    NSLog(@"Fight, during awakeFromNib %@",self.fight);
+    
+    MostJabbedCommentsDisplayVC *mostController = [self.storyboard instantiateViewControllerWithIdentifier:@"jabbed"];
+    mostController.title = @"Jabbed";
+    mostController.fight = self.fight;
+    NewCommentsDisplayVC *newController = [self.storyboard instantiateViewControllerWithIdentifier:@"new"];
+    newController.title = @"New";
+    newController.fight = self.fight;
+    
+    [initialViewController addObject:mostController];
+    [initialViewController addObject:newController];
     
     self.viewController = initialViewController;
 }
@@ -28,7 +51,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    for (CommentsDisplayVC *c in self.viewController) {
+        c.fight = self.fight;
+    }
+    
+    
 	// Do any additional setup after loading the view.
 }
 
+- (IBAction)addCommentButtonPressed:(id)sender {
+}
 @end
