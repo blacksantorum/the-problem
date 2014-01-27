@@ -20,6 +20,8 @@
 @interface PickInfoCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIButton *makePickButton;
+@property (weak, nonatomic) IBOutlet UILabel *yourPickLabel;
+
 @property (nonatomic,strong) Pick *pick;
 @property (nonatomic,strong) Boxer *boxerA;
 @property (nonatomic,strong) Boxer *boxerB;

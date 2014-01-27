@@ -7,10 +7,11 @@
 //
 
 #import "FightDisplayVC.h"
+#import "FightInfoCell.h"
+#import "ScheduleFormattedDate.h"
+#import "TBACommentsMultipleVC.h"
 
 @interface FightDisplayVC ()
-
-- (void)setUpView;
 
 // labels
 @property (weak, nonatomic) IBOutlet UILabel *boxerAFirstNameLabel;
@@ -19,10 +20,213 @@
 @property (weak, nonatomic) IBOutlet UILabel *boxerBFirstNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *boxerBLastNameLabel;
 
+// pick, dictionary percentages
+@property (strong,nonatomic) NSDictionary *boxersToPickPercentages;
+@property (strong,nonatomic) NSDictionary *boxersToDecisionPercentages;
 
 @end
 
 @implementation FightDisplayVC
+
+#pragma mark - Custom cells
+
+// fight info
+
+- (FightInfoCell *)fightInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Fight Info Cell";
+    
+    [self.fightInfoTableView registerClass:[FightInfoCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    FightInfoCell *cell = (FightInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"Fight Info Cell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (FightInfoCell *)currentObject;
+                break;
+            }
+        }
+    }
+    
+    cell.dateLabel.text = [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:self.fight.date];
+    cell.locationLabel.text = self.fight.location;
+    cell.roundsWeightLabel.text = [NSString stringWithFormat:@"%@ rounds at %@",self.fight.rounds,self.fight.weight];
+    cell.fight = self.fight;
+    return cell;
+}
+
+- (PickInfoCell *)pickInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Pick Info Cell";
+    
+    [self.fightInfoTableView registerClass:[PickInfoCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    PickInfoCell *cell = (PickInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"Pick Info Cell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (PickInfoCell *)currentObject;
+                break;
+            }
+        }
+    }
+    
+    if (![JSONDataNullCheck isNull:self.fight.winnerID]) {
+        if (self.pick) {
+            cell.makePickButton.titleLabel.text = [self pickCellButtonRepresentationForPick:self.pick];
+            cell.makePickButton.enabled = NO;
+        } else {
+            [cell.yourPickLabel removeFromSuperview];
+            [cell.makePickButton removeFromSuperview];
+        }
+    } else {
+        if (self.pick) {
+            cell.makePickButton.titleLabel.text = [self pickCellButtonRepresentationForPick:self.pick];
+        }
+        
+        NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.lastName,self.boxersToPickPercentages[self.fight.boxerA.boxerFullName]];
+        NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerB.lastName,self.boxersToPickPercentages[self.fight.boxerB.boxerFullName]];
+        
+        NSString *pickPercentageA = self.boxersToPickPercentages[self.fight.boxerA.boxerFullName];
+        if ([pickPercentageA isEqualToString:@"0"]) {
+            pickPercentageA = @"0.1";
+        }
+        NSString *pickPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
+        if ([pickPercentageB isEqualToString:@"0"]) {
+            pickPercentageB = @"0.1";
+        }
+        
+        NSArray *array = [cell.communityPicksBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA, titleB, nil]
+                                                                         values:[NSArray arrayWithObjects:pickPercentageA, pickPercentageB, nil]
+                                                                         colors:[NSArray arrayWithObjects:@"17A9E3", @"E32F17", nil]
+                                                                    labelColors:[NSArray arrayWithObjects:@"000000", @"000000",nil]];
+        
+        [cell.communityPicksBarChart setDataWithArray:array
+                                             showAxis:DisplayOnlyXAxis
+                                            withColor:[UIColor whiteColor]
+                              shouldPlotVerticalLines:NO];
+    }
+    cell.delegate = self;
+    return cell;
+}
+
+- (DecisionInfoCell *)decisionInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Decision Info Cell";
+    
+    [self.fightInfoTableView registerClass:[DecisionInfoCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    DecisionInfoCell *cell = (DecisionInfoCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"Decision Info Cell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (DecisionInfoCell *)currentObject;
+                break;
+            }
+        }
+    }
+    
+    if (self.decision) {
+        cell.makeDecisionButton.titleLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
+    }
+    
+    NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.lastName,self.boxersToDecisionPercentages[self.fight.boxerA.boxerFullName]];
+    NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerB.lastName,self.boxersToDecisionPercentages[self.fight.boxerB.boxerFullName]];
+    
+    NSString *decisionPercentageA = self.boxersToDecisionPercentages[self.fight.boxerA.boxerFullName];
+    if ([decisionPercentageA isEqualToString:@"0"]) {
+        decisionPercentageA = @"0.1";
+    }
+    NSString *decisionPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
+    if ([decisionPercentageB isEqualToString:@"0"]) {
+        decisionPercentageB = @"0.1";
+    }
+    
+    NSArray *array = [cell.communityDecisionBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA, titleB, nil]
+                                                                        values:[NSArray arrayWithObjects:decisionPercentageA, decisionPercentageB, nil]
+                                                                        colors:[NSArray arrayWithObjects:@"17A9E3", @"E32F17", nil]
+                                                                   labelColors:[NSArray arrayWithObjects:@"000000", @"000000",nil]];
+    
+    [cell.communityDecisionBarChart setDataWithArray:array
+                                            showAxis:DisplayOnlyXAxis
+                                           withColor:[UIColor whiteColor]
+                             shouldPlotVerticalLines:NO];
+    // cell.delegate = self;
+    return cell;
+}
+
+#pragma mark - Action Sheet stuff
+
+-(void)changePick
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Make your pick for %@",self.fight.titleForScheduleView]
+                                                             delegate:self cancelButtonTitle:@"Cancel"
+                                               destructiveButtonTitle:nil
+                                                    otherButtonTitles:[NSString stringWithFormat:@"%@ by dec",self.fight.boxerA.lastName],
+                                  [NSString stringWithFormat:@"%@ by KO",self.fight.boxerA.lastName],
+                                  [NSString stringWithFormat:@"%@ by dec",self.fight.boxerB.lastName],
+                                  [NSString stringWithFormat:@"%@ by KO",self.fight.boxerB.lastName],nil];
+    
+    [actionSheet showInView:self.view];
+    
+}
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
+    
+    if (![buttonTitle isEqualToString:@"Cancel"]) {
+        NSString *postURLString = [URLS urlStringForPostingPickForFight:self.fight];
+        NSArray *stringArray = [buttonTitle componentsSeparatedByString:@" "];
+        
+        Boxer *pickedBoxer;
+        for (Boxer *b in self.fight.boxers) {
+            if ([b.lastName isEqualToString:stringArray[0]]) {
+                pickedBoxer = b;
+            }
+        }
+        
+        BOOL ko;
+        if ([[stringArray lastObject] isEqualToString:@"KO"]) {
+            ko = YES;
+        } else {
+            ko = NO;
+        }
+        
+        [self postUserActivityDictionary:[self postDictionaryForPicking:pickedBoxer byKO:ko] toURLString:postURLString];
+    }
+}
+
+-(NSDictionary *)postDictionaryForPicking:(Boxer *)boxer byKO:(BOOL)ko
+{
+    return @{@"pick":@{@"winner_id": boxer.boxerID, @"ko":[self stringForBool:ko]}};
+}
+
+-(NSString *)stringForBool:(BOOL)boolean
+{
+    if (boolean) {
+        return @"true";
+    } else {
+        return @"false";
+    }
+}
+
+
+-(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
+{
+    return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by decision"];
+}
+
+-(NSString *)decisionCellButtonRepresentationForDecision:(Decision *)decision
+{
+    return [NSString stringWithFormat:@"%@ won",decision.winner.lastName];
+}
 
 -(AFHTTPRequestOperationManager *)manager
 {
@@ -59,7 +263,33 @@
 
 -(void)configureDataSource
 {
-    //
+    NSDictionary *pickDictionary = self.JSONdictionary;
+    self.pick = [[Pick alloc] initWithFightViewDictionary:pickDictionary];
+    
+    NSDictionary *decisionDictionary = [self.JSONdictionary valueForKeyPath:@"fight.decision"];
+    
+    
+    self.decision = [[Decision alloc] initWithRecentFightDisplayDictionary:decisionDictionary];
+    
+    NSMutableDictionary *boxersToPicksPercentages = [[NSMutableDictionary alloc] init];
+    for (NSDictionary *boxerDict in [self.JSONdictionary valueForKeyPath:@"fight.boxers"]) {
+        NSString *boxerName = [NSString stringWithFormat:@"%@ %@",[boxerDict valueForKeyPath:@"boxer.first_name"],[boxerDict valueForKeyPath:@"boxer.last_name"]];
+        NSString *pickPercentage = [boxerDict valueForKeyPath:@"boxer.percent_pick"];
+        [boxersToPicksPercentages addEntriesFromDictionary:@{boxerName:pickPercentage.description}];
+    }
+    self.boxersToPickPercentages = boxersToPicksPercentages;
+    
+    NSMutableDictionary *boxersToDecisionPercentages = [[NSMutableDictionary alloc] init];
+    for (NSDictionary *boxerDict in [self.JSONdictionary valueForKeyPath:@"fight.boxers"]) {
+        NSString *boxerName = [NSString stringWithFormat:@"%@ %@",[boxerDict valueForKeyPath:@"boxer.first_name"],[boxerDict valueForKeyPath:@"boxer.last_name"]];
+        NSString *decisionPercentage = [boxerDict valueForKeyPath:@"boxer.percent_decision"];
+        [boxersToDecisionPercentages addEntriesFromDictionary:@{boxerName:decisionPercentage.description}];
+    }
+    self.boxersToDecisionPercentages = boxersToDecisionPercentages;
+    
+    
+    [self.fightInfoTableView reloadData];
+
 }
 
 - (void)viewDidLoad
@@ -67,11 +297,6 @@
     [super viewDidLoad];
     [self setLabels];
     [self refresh];
-}
-
-- (void)setUpView
-{
-    //
 }
 
 - (void)setLabels
@@ -96,6 +321,7 @@
 {
     [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        [self refresh];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -106,9 +332,49 @@
     return 1;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (section == 0)
+    {
+        return @"Fight Info";
+    }
+    else if (section == 1)
+    {
+        return @"Predictions";
+    }
+    else
+    {
+        return @"Decisions";
+    }
+}
+
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    if (indexPath.section == 0) {
+        return [self fightInfoCellFor:tableView forIndexPath:indexPath];
+    }
+    else if (indexPath.section == 1) {
+        return [self pickInfoCellFor:tableView forIndexPath:indexPath];
+    }
+    else {
+        return [self decisionInfoCellFor:tableView forIndexPath:indexPath];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showComments"]) {
+        TBACommentsMultipleVC *controller = (TBACommentsMultipleVC *)segue.destinationViewController;
+        controller.fight = self.fight;
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        return 66.0;
+    } else {
+        return 250.0;
+    }
 }
 
 @end

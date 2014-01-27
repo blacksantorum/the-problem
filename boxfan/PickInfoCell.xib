@@ -39,6 +39,7 @@
             <connections>
                 <outlet property="communityPicksBarChart" destination="Jx9-RF-3rQ" id="aDp-Ql-k6F"/>
                 <outlet property="makePickButton" destination="y7g-aB-gXd" id="zFr-rf-lEt"/>
+                <outlet property="yourPickLabel" destination="Mwy-9T-CN8" id="iCa-8V-WEF"/>
             </connections>
         </tableViewCell>
     </objects>

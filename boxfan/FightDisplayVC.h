@@ -12,8 +12,10 @@
 #import "Decision.h"
 #import "BoxFanRevealController.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
+#import "PickInfoCell.h"
+#import "DecisionInfoCell.h"
 
-@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource>
+@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource,ChangePickDelegate,UIActionSheetDelegate>
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 
@@ -26,8 +28,8 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *fightInfoTableView;
 
--(void)configureDataSource;
--(void)refresh;
+- (void)configureDataSource;
+- (void)refresh;
 
 // if pick, dictionary= @{@"pick":@{@"winner_id": boxer.boxerID}};
 // if decision, dictionary= @{@"decision":@{@"winner_id": boxer.boxerID}};
