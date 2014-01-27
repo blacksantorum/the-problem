@@ -106,14 +106,14 @@
             cell.makePickButton.titleLabel.text = [self pickCellButtonRepresentationForPick:self.pick];
         }
         
-        NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.boxerA.boxerFullName,self.boxersToPickPercentages[self.boxerA.boxerFullName]];
-        NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.boxerB.boxerFullName,self.boxersToPickPercentages[self.boxerB.boxerFullName]];
+        NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.boxerFullName,self.boxersToPickPercentages[self.fight.boxerA.boxerFullName]];
+        NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerB.boxerFullName,self.boxersToPickPercentages[self.fight.boxerB.boxerFullName]];
         
-        NSString *pickPercentageA = self.boxersToPickPercentages[self.boxerA.boxerFullName];
+        NSString *pickPercentageA = self.boxersToPickPercentages[self.fight.boxerA.boxerFullName];
         if ([pickPercentageA isEqualToString:@"0"]) {
             pickPercentageA = @"0.1";
         }
-        NSString *pickPercentageB = self.boxersToPickPercentages[self.boxerB.boxerFullName];
+        NSString *pickPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
         if ([pickPercentageB isEqualToString:@"0"]) {
             pickPercentageB = @"0.1";
         }
@@ -128,8 +128,8 @@
                                             withColor:[UIColor whiteColor]
                               shouldPlotVerticalLines:NO];
         cell.pick = self.pick;
-        cell.boxerA = self.boxerA;
-        cell.boxerB = self.boxerB;
+        cell.boxerA = self.fight.boxerA;
+        cell.boxerB = self.fight.boxerB;
         cell.boxersToPickPercentages = self.boxersToPickPercentages;
         cell.delegate = self;
         return cell;
@@ -142,10 +142,10 @@
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Make your pick for %@",self.fight.titleForScheduleView]
                                                              delegate:self cancelButtonTitle:@"Cancel"
                                                destructiveButtonTitle:nil
-                                                    otherButtonTitles:[NSString stringWithFormat:@"%@ by dec",self.boxerA.lastName],
-                                                                    [NSString stringWithFormat:@"%@ by KO",self.boxerA.lastName],
-                                                                    [NSString stringWithFormat:@"%@ by dec",self.boxerB.lastName],
-                                  [NSString stringWithFormat:@"%@ by KO",self.boxerB.lastName],nil];
+                                                    otherButtonTitles:[NSString stringWithFormat:@"%@ by dec",self.fight.boxerA.lastName],
+                                                                    [NSString stringWithFormat:@"%@ by KO",self.fight.boxerA.lastName],
+                                                                    [NSString stringWithFormat:@"%@ by dec",self.fight.boxerB.lastName],
+                                  [NSString stringWithFormat:@"%@ by KO",self.fight.boxerB.lastName],nil];
     
     [actionSheet showInView:self.view];
 

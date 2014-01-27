@@ -29,22 +29,6 @@
     return [AFHTTPRequestOperationManager manager];
 }
 
--(Boxer *)boxerA
-{
-    if (!_boxerA) {
-        _boxerA = [self.fight.boxers firstObject];
-    }
-    return _boxerA;
-}
-
--(Boxer *)boxerB
-{
-    if (!_boxerB) {
-        _boxerB = [self.fight.boxers lastObject];
-    }
-    return _boxerB;
-}
-
 -(User *)loggedInUser
 {
     BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
@@ -92,10 +76,10 @@
 
 - (void)setLabels
 {
-    self.boxerAFirstNameLabel.text = self.boxerA.firstName;
-    self.boxerALastNameLabel.text = self.boxerA.lastName;
-    self.boxerBFirstNameLabel.text = self.boxerB.firstName;
-    self.boxerBLastNameLabel.text = self.boxerB.lastName;
+    self.boxerAFirstNameLabel.text = self.fight.boxerA.firstName;
+    self.boxerALastNameLabel.text = self.fight.boxerA.lastName;
+    self.boxerBFirstNameLabel.text = self.fight.boxerB.firstName;
+    self.boxerBLastNameLabel.text = self.fight.boxerB.lastName;
     
     if (![JSONDataNullCheck isNull:self.fight.winnerID]) {
         if (self.fight.stoppage) {

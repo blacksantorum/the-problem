@@ -14,6 +14,7 @@
 
 @implementation MostJabbedCommentsDisplayVC
 
+/*
 - (NSArray *)sortCommentsArray:(NSArray *)array
 {
     return [array sortedArrayUsingComparator: ^(id a, id b) {
@@ -22,5 +23,6 @@
         return j1 > j2;
     }];
 }
+ */
 
 @end

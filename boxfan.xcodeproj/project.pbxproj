@@ -981,6 +981,28 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		ECA15D841895306D0005E920 /* List Of Fights View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC0D5B4A18869637009B32B4 /* RecentFightsVC.h */,
+				EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */,
+				ECD11516187D497400530434 /* BoxingScheduleVC.h */,
+				ECD11517187D497400530434 /* BoxingScheduleVC.m */,
+			);
+			name = "List Of Fights View Controllers";
+			sourceTree = "<group>";
+		};
+		ECA15D85189530960005E920 /* Fight Display View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC374AD41890891D00C4343A /* RecentFightDisplayViewController.h */,
+				EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */,
+				EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */,
+				EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */,
+			);
+			name = "Fight Display View Controllers";
+			sourceTree = "<group>";
+		};
 		ECC109931886A66A000B70CF /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1283,18 +1305,12 @@
 				EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */,
 				EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */,
 				EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */,
-				EC374AD41890891D00C4343A /* RecentFightDisplayViewController.h */,
-				EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */,
-				EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */,
-				EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */,
 				ECC109E61887C641000B70CF /* FindUserVC.h */,
 				ECC109E71887C641000B70CF /* FindUserVC.m */,
 				ECA13226185FA36A00001793 /* UserPickViewController.h */,
 				ECA13227185FA36A00001793 /* UserPickViewController.m */,
-				EC0D5B4A18869637009B32B4 /* RecentFightsVC.h */,
-				EC0D5B4B18869637009B32B4 /* RecentFightsVC.m */,
-				ECD11516187D497400530434 /* BoxingScheduleVC.h */,
-				ECD11517187D497400530434 /* BoxingScheduleVC.m */,
+				ECA15D85189530960005E920 /* Fight Display View Controllers */,
+				ECA15D841895306D0005E920 /* List Of Fights View Controllers */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
