@@ -47,6 +47,12 @@
     return fightsForDate;
 }
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
+}
+
 // store fights into an array of fights at self.fights
 - (void)configureDataSource
 {

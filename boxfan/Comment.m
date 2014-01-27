@@ -15,7 +15,10 @@
     self = [super init];
     if (self) {
         _commentID = [[dictionary objectForKey:@"id"] integerValue];
-        _date = [dictionary objectForKey:@"created_at"];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        NSDate *date = [formatter dateFromString:[dictionary objectForKey:@"created_at"]];
+        _date = date;
         _content = [dictionary objectForKey:@"body"];
         _author = [[User alloc] initWithListOfUsersDictionary:[dictionary objectForKey:@"user"]];
     }

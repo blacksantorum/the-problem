@@ -37,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // [self refresh];
 }
 
@@ -61,7 +62,15 @@
                 NSLog(@"JSON parsing error: %@", error);
             } else {
                 NSLog(@"%@",object);
-                NSArray *array = (NSArray *)[object objectForKey:@"comments"];
+                NSArray *array = (NSArray *)object;
+                
+                NSMutableArray *comments = [[NSMutableArray alloc] init];
+                for (NSDictionary *dictionary in array) {
+                    Comment *c = [[Comment alloc] initWithDictionary:[dictionary objectForKey:@"comment"]];
+                    [comments addObject:c];
+                }
+                
+                self.comments = comments;
                 
                 [self.tableView reloadData];
                 // [self.activityIndicator stopAnimating];
@@ -138,6 +147,10 @@
 -(void)jabComment:(Comment *)comment
 {
     // send post
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 87.0;
 }
 
 @end

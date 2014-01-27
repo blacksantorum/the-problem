@@ -18,7 +18,8 @@ typedef enum {
 typedef enum {
     BarStyleGlossy = 0,
     BarStyleMatte = 1,
-    BarStyleFlat = 2
+    BarStyleFair = 2,
+    BarStyleFlat = 3
 } BarDisplayStyle;
 
 typedef enum {
@@ -32,6 +33,9 @@ typedef enum {
     BarShadowNone = 2
 } BarShadow;
 
-@protocol BarTypes <NSObject>
-
-@end
+typedef enum {
+    BarAnimationRise = 0,
+    BarAnimationFade  = 1,
+    BarAnimationFloat = 2,
+    BarAnimationNone = 3
+} BarAnimation;

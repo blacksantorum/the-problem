@@ -16,16 +16,6 @@
 		EC374AA3188F45FB00C4343A /* FightInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AA2188F45FB00C4343A /* FightInfoCell.m */; };
 		EC374AA5188F52E400C4343A /* PickInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC374AA4188F52E400C4343A /* PickInfoCell.xib */; };
 		EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AA7188F532C00C4343A /* PickInfoCell.m */; };
-		EC374AC3188F6CED00C4343A /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AAB188F6CED00C4343A /* BarChartView.m */; };
-		EC374AC4188F6CED00C4343A /* BarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AAD188F6CED00C4343A /* BarLabel.m */; };
-		EC374AC5188F6CED00C4343A /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AB0188F6CED00C4343A /* BarView.m */; };
-		EC374AC6188F6CED00C4343A /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AB4188F6CED00C4343A /* CMPopTipView.m */; };
-		EC374AC7188F6CED00C4343A /* UIColor+i7HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AB7188F6CED00C4343A /* UIColor+i7HexColor.m */; };
-		EC374AC8188F6CED00C4343A /* UIViewSizeShortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AB9188F6CED00C4343A /* UIViewSizeShortcuts.m */; };
-		EC374AC9188F6CED00C4343A /* XMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ABC188F6CED00C4343A /* XMLElement.m */; };
-		EC374ACA188F6CED00C4343A /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ABE188F6CED00C4343A /* XMLParser.m */; };
-		EC374ACB188F6CED00C4343A /* XMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AC0188F6CED00C4343A /* XMLParserDelegate.m */; };
-		EC374ACC188F6CED00C4343A /* PlotChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AC2188F6CED00C4343A /* PlotChartView.m */; };
 		EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */; };
 		EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AD1188F9BDE00C4343A /* JSONDataNullCheck.m */; };
 		EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */; };
@@ -74,6 +64,21 @@
 		ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D7D189507C70005E920 /* ListOfFightsVC.m */; };
 		ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */; };
 		ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */; };
+		ECA15DB418962FE70005E920 /* Design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA15DB318962FE70005E920 /* Design.storyboard */; };
+		ECA15DD5189647FB0005E920 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DB7189647FB0005E920 /* BarChartView.m */; };
+		ECA15DD6189647FB0005E920 /* BarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DB9189647FB0005E920 /* BarLabel.m */; };
+		ECA15DD7189647FB0005E920 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DBC189647FB0005E920 /* BarView.m */; };
+		ECA15DD8189647FB0005E920 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC0189647FB0005E920 /* CMPopTipView.m */; };
+		ECA15DD9189647FB0005E920 /* BarChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC3189647FB0005E920 /* BarChartItem.m */; };
+		ECA15DDA189647FB0005E920 /* BarChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC5189647FB0005E920 /* BarChartModel.m */; };
+		ECA15DDB189647FB0005E920 /* ChartColors.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC7189647FB0005E920 /* ChartColors.m */; };
+		ECA15DDC189647FB0005E920 /* UIColor+i7HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC9189647FB0005E920 /* UIColor+i7HexColor.m */; };
+		ECA15DDD189647FB0005E920 /* UIViewSizeShortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DCB189647FB0005E920 /* UIViewSizeShortcuts.m */; };
+		ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DCE189647FB0005E920 /* XMLElement.m */; };
+		ECA15DDF189647FB0005E920 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DD0189647FB0005E920 /* XMLParser.m */; };
+		ECA15DE0189647FB0005E920 /* XMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DD2189647FB0005E920 /* XMLParserDelegate.m */; };
+		ECA15DE1189647FB0005E920 /* PlotChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DD4189647FB0005E920 /* PlotChartView.m */; };
+		ECA15DE418964C8A0005E920 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DE318964C8A0005E920 /* Profile.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
 		ECC109E81887C641000B70CF /* FindUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109E71887C641000B70CF /* FindUserVC.m */; };
 		ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109EA1887F831000B70CF /* MyProfileNavController.m */; };
@@ -360,27 +365,6 @@
 		EC374AA4188F52E400C4343A /* PickInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PickInfoCell.xib; sourceTree = "<group>"; };
 		EC374AA6188F532C00C4343A /* PickInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PickInfoCell.h; sourceTree = "<group>"; };
 		EC374AA7188F532C00C4343A /* PickInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PickInfoCell.m; sourceTree = "<group>"; };
-		EC374AAA188F6CED00C4343A /* BarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartView.h; sourceTree = "<group>"; };
-		EC374AAB188F6CED00C4343A /* BarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartView.m; sourceTree = "<group>"; };
-		EC374AAC188F6CED00C4343A /* BarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarLabel.h; sourceTree = "<group>"; };
-		EC374AAD188F6CED00C4343A /* BarLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarLabel.m; sourceTree = "<group>"; };
-		EC374AAE188F6CED00C4343A /* BarTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarTypes.h; sourceTree = "<group>"; };
-		EC374AAF188F6CED00C4343A /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarView.h; sourceTree = "<group>"; };
-		EC374AB0188F6CED00C4343A /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarView.m; sourceTree = "<group>"; };
-		EC374AB3188F6CED00C4343A /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
-		EC374AB4188F6CED00C4343A /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
-		EC374AB6188F6CED00C4343A /* UIColor+i7HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+i7HexColor.h"; sourceTree = "<group>"; };
-		EC374AB7188F6CED00C4343A /* UIColor+i7HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+i7HexColor.m"; sourceTree = "<group>"; };
-		EC374AB8188F6CED00C4343A /* UIViewSizeShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSizeShortcuts.h; sourceTree = "<group>"; };
-		EC374AB9188F6CED00C4343A /* UIViewSizeShortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSizeShortcuts.m; sourceTree = "<group>"; };
-		EC374ABB188F6CED00C4343A /* XMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLElement.h; sourceTree = "<group>"; };
-		EC374ABC188F6CED00C4343A /* XMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLElement.m; sourceTree = "<group>"; };
-		EC374ABD188F6CED00C4343A /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
-		EC374ABE188F6CED00C4343A /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
-		EC374ABF188F6CED00C4343A /* XMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParserDelegate.h; sourceTree = "<group>"; };
-		EC374AC0188F6CED00C4343A /* XMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParserDelegate.m; sourceTree = "<group>"; };
-		EC374AC1188F6CED00C4343A /* PlotChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotChartView.h; sourceTree = "<group>"; };
-		EC374AC2188F6CED00C4343A /* PlotChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotChartView.m; sourceTree = "<group>"; };
 		EC374ACD188F758F00C4343A /* UpcomingFightViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingFightViewController.h; sourceTree = "<group>"; };
 		EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingFightViewController.m; sourceTree = "<group>"; };
 		EC374AD0188F9BDE00C4343A /* JSONDataNullCheck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDataNullCheck.h; sourceTree = "<group>"; };
@@ -453,6 +437,36 @@
 		ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListOfFightsCell.xib; sourceTree = "<group>"; };
 		ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsCell.h; sourceTree = "<group>"; };
 		ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsCell.m; sourceTree = "<group>"; };
+		ECA15DB318962FE70005E920 /* Design.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Design.storyboard; sourceTree = "<group>"; };
+		ECA15DB6189647FB0005E920 /* BarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartView.h; sourceTree = "<group>"; };
+		ECA15DB7189647FB0005E920 /* BarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartView.m; sourceTree = "<group>"; };
+		ECA15DB8189647FB0005E920 /* BarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarLabel.h; sourceTree = "<group>"; };
+		ECA15DB9189647FB0005E920 /* BarLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarLabel.m; sourceTree = "<group>"; };
+		ECA15DBA189647FB0005E920 /* BarTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarTypes.h; sourceTree = "<group>"; };
+		ECA15DBB189647FB0005E920 /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarView.h; sourceTree = "<group>"; };
+		ECA15DBC189647FB0005E920 /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarView.m; sourceTree = "<group>"; };
+		ECA15DBF189647FB0005E920 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
+		ECA15DC0189647FB0005E920 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
+		ECA15DC2189647FB0005E920 /* BarChartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartItem.h; sourceTree = "<group>"; };
+		ECA15DC3189647FB0005E920 /* BarChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartItem.m; sourceTree = "<group>"; };
+		ECA15DC4189647FB0005E920 /* BarChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartModel.h; sourceTree = "<group>"; };
+		ECA15DC5189647FB0005E920 /* BarChartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartModel.m; sourceTree = "<group>"; };
+		ECA15DC6189647FB0005E920 /* ChartColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartColors.h; sourceTree = "<group>"; };
+		ECA15DC7189647FB0005E920 /* ChartColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartColors.m; sourceTree = "<group>"; };
+		ECA15DC8189647FB0005E920 /* UIColor+i7HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+i7HexColor.h"; sourceTree = "<group>"; };
+		ECA15DC9189647FB0005E920 /* UIColor+i7HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+i7HexColor.m"; sourceTree = "<group>"; };
+		ECA15DCA189647FB0005E920 /* UIViewSizeShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSizeShortcuts.h; sourceTree = "<group>"; };
+		ECA15DCB189647FB0005E920 /* UIViewSizeShortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSizeShortcuts.m; sourceTree = "<group>"; };
+		ECA15DCD189647FB0005E920 /* XMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLElement.h; sourceTree = "<group>"; };
+		ECA15DCE189647FB0005E920 /* XMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLElement.m; sourceTree = "<group>"; };
+		ECA15DCF189647FB0005E920 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
+		ECA15DD0189647FB0005E920 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
+		ECA15DD1189647FB0005E920 /* XMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParserDelegate.h; sourceTree = "<group>"; };
+		ECA15DD2189647FB0005E920 /* XMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParserDelegate.m; sourceTree = "<group>"; };
+		ECA15DD3189647FB0005E920 /* PlotChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotChartView.h; sourceTree = "<group>"; };
+		ECA15DD4189647FB0005E920 /* PlotChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotChartView.m; sourceTree = "<group>"; };
+		ECA15DE218964C8A0005E920 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
+		ECA15DE318964C8A0005E920 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		ECC109DE18878994000B70CF /* FindUserNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserNavController.h; sourceTree = "<group>"; };
 		ECC109DF18878994000B70CF /* FindUserNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindUserNavController.m; sourceTree = "<group>"; };
 		ECC109E61887C641000B70CF /* FindUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserVC.h; sourceTree = "<group>"; };
@@ -779,66 +793,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		EC374AA9188F6CED00C4343A /* BarChart Library */ = {
-			isa = PBXGroup;
-			children = (
-				EC374AAA188F6CED00C4343A /* BarChartView.h */,
-				EC374AAB188F6CED00C4343A /* BarChartView.m */,
-				EC374AAC188F6CED00C4343A /* BarLabel.h */,
-				EC374AAD188F6CED00C4343A /* BarLabel.m */,
-				EC374AAE188F6CED00C4343A /* BarTypes.h */,
-				EC374AAF188F6CED00C4343A /* BarView.h */,
-				EC374AB0188F6CED00C4343A /* BarView.m */,
-				EC374AB1188F6CED00C4343A /* External */,
-				EC374AC1188F6CED00C4343A /* PlotChartView.h */,
-				EC374AC2188F6CED00C4343A /* PlotChartView.m */,
-			);
-			path = "BarChart Library";
-			sourceTree = "<group>";
-		};
-		EC374AB1188F6CED00C4343A /* External */ = {
-			isa = PBXGroup;
-			children = (
-				EC374AB2188F6CED00C4343A /* CMPopTipView */,
-				EC374AB5188F6CED00C4343A /* Helpers */,
-				EC374ABA188F6CED00C4343A /* XMLParser */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		EC374AB2188F6CED00C4343A /* CMPopTipView */ = {
-			isa = PBXGroup;
-			children = (
-				EC374AB3188F6CED00C4343A /* CMPopTipView.h */,
-				EC374AB4188F6CED00C4343A /* CMPopTipView.m */,
-			);
-			path = CMPopTipView;
-			sourceTree = "<group>";
-		};
-		EC374AB5188F6CED00C4343A /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				EC374AB6188F6CED00C4343A /* UIColor+i7HexColor.h */,
-				EC374AB7188F6CED00C4343A /* UIColor+i7HexColor.m */,
-				EC374AB8188F6CED00C4343A /* UIViewSizeShortcuts.h */,
-				EC374AB9188F6CED00C4343A /* UIViewSizeShortcuts.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		EC374ABA188F6CED00C4343A /* XMLParser */ = {
-			isa = PBXGroup;
-			children = (
-				EC374ABB188F6CED00C4343A /* XMLElement.h */,
-				EC374ABC188F6CED00C4343A /* XMLElement.m */,
-				EC374ABD188F6CED00C4343A /* XMLParser.h */,
-				EC374ABE188F6CED00C4343A /* XMLParser.m */,
-				EC374ABF188F6CED00C4343A /* XMLParserDelegate.h */,
-				EC374AC0188F6CED00C4343A /* XMLParserDelegate.m */,
-			);
-			path = XMLParser;
-			sourceTree = "<group>";
-		};
 		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -864,6 +818,7 @@
 		ECA0CE2D185E4EF8003380C5 = {
 			isa = PBXGroup;
 			children = (
+				ECA15DB318962FE70005E920 /* Design.storyboard */,
 				ECC10A0C188E2F12000B70CF /* 32 */,
 				EC5373FE18810A3200DF16AB /* Parse.framework */,
 				EC53741418810E4100DF16AB /* FacebookSDK.framework */,
@@ -926,7 +881,6 @@
 		ECA0CE40185E4EF9003380C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				EC374AA9188F6CED00C4343A /* BarChart Library */,
 				ECA0CE49185E4EF9003380C5 /* boxfanAppDelegate.m */,
 				ECC109EF1888AEAF000B70CF /* Interstitial.h */,
 				ECC109F01888AEAF000B70CF /* Interstitial.m */,
@@ -954,6 +908,7 @@
 		ECA0CE5F185E4EF9003380C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				ECA15DB5189647FA0005E920 /* BarChart Library */,
 				ECA0CE60185E4EF9003380C5 /* boxfanTests-Info.plist */,
 				ECA0CE61185E4EF9003380C5 /* InfoPlist.strings */,
 			);
@@ -963,6 +918,8 @@
 		ECA13232186018F700001793 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ECA15DE218964C8A0005E920 /* Profile.h */,
+				ECA15DE318964C8A0005E920 /* Profile.m */,
 				EC616786189274B700E9843E /* Comment.h */,
 				EC616787189274B700E9843E /* Comment.m */,
 				ECC10A02188D31B5000B70CF /* UserActivity.h */,
@@ -1001,6 +958,72 @@
 				EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */,
 			);
 			name = "Fight Display View Controllers";
+			sourceTree = "<group>";
+		};
+		ECA15DB5189647FA0005E920 /* BarChart Library */ = {
+			isa = PBXGroup;
+			children = (
+				ECA15DB6189647FB0005E920 /* BarChartView.h */,
+				ECA15DB7189647FB0005E920 /* BarChartView.m */,
+				ECA15DB8189647FB0005E920 /* BarLabel.h */,
+				ECA15DB9189647FB0005E920 /* BarLabel.m */,
+				ECA15DBA189647FB0005E920 /* BarTypes.h */,
+				ECA15DBB189647FB0005E920 /* BarView.h */,
+				ECA15DBC189647FB0005E920 /* BarView.m */,
+				ECA15DBD189647FB0005E920 /* External */,
+				ECA15DD3189647FB0005E920 /* PlotChartView.h */,
+				ECA15DD4189647FB0005E920 /* PlotChartView.m */,
+			);
+			path = "BarChart Library";
+			sourceTree = "<group>";
+		};
+		ECA15DBD189647FB0005E920 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				ECA15DBE189647FB0005E920 /* CMPopTipView */,
+				ECA15DC1189647FB0005E920 /* Helpers */,
+				ECA15DCC189647FB0005E920 /* XMLParser */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		ECA15DBE189647FB0005E920 /* CMPopTipView */ = {
+			isa = PBXGroup;
+			children = (
+				ECA15DBF189647FB0005E920 /* CMPopTipView.h */,
+				ECA15DC0189647FB0005E920 /* CMPopTipView.m */,
+			);
+			path = CMPopTipView;
+			sourceTree = "<group>";
+		};
+		ECA15DC1189647FB0005E920 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ECA15DC2189647FB0005E920 /* BarChartItem.h */,
+				ECA15DC3189647FB0005E920 /* BarChartItem.m */,
+				ECA15DC4189647FB0005E920 /* BarChartModel.h */,
+				ECA15DC5189647FB0005E920 /* BarChartModel.m */,
+				ECA15DC6189647FB0005E920 /* ChartColors.h */,
+				ECA15DC7189647FB0005E920 /* ChartColors.m */,
+				ECA15DC8189647FB0005E920 /* UIColor+i7HexColor.h */,
+				ECA15DC9189647FB0005E920 /* UIColor+i7HexColor.m */,
+				ECA15DCA189647FB0005E920 /* UIViewSizeShortcuts.h */,
+				ECA15DCB189647FB0005E920 /* UIViewSizeShortcuts.m */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		ECA15DCC189647FB0005E920 /* XMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				ECA15DCD189647FB0005E920 /* XMLElement.h */,
+				ECA15DCE189647FB0005E920 /* XMLElement.m */,
+				ECA15DCF189647FB0005E920 /* XMLParser.h */,
+				ECA15DD0189647FB0005E920 /* XMLParser.m */,
+				ECA15DD1189647FB0005E920 /* XMLParserDelegate.h */,
+				ECA15DD2189647FB0005E920 /* XMLParserDelegate.m */,
+			);
+			path = XMLParser;
 			sourceTree = "<group>";
 		};
 		ECC109931886A66A000B70CF /* Sidebar */ = {
@@ -1427,6 +1450,7 @@
 				EC374AD81890930500C4343A /* DecisionInfoCell.xib in Resources */,
 				ECC10B54188E2F14000B70CF /* Grenada.png in Resources */,
 				ECC10B40188E2F14000B70CF /* Egypt.png in Resources */,
+				ECA15DB418962FE70005E920 /* Design.storyboard in Resources */,
 				ECC10B04188E2F14000B70CF /* American Samoa.png in Resources */,
 				ECC10B7C188E2F14000B70CF /* Luxembourg.png in Resources */,
 				ECC10BD4188E2F14000B70CF /* Tajikistan.png in Resources */,
@@ -1701,40 +1725,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC374ACA188F6CED00C4343A /* XMLParser.m in Sources */,
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
 				ECC109E018878994000B70CF /* FindUserNavController.m in Sources */,
+				ECA15DD7189647FB0005E920 /* BarView.m in Sources */,
 				EC616788189274B700E9843E /* Comment.m in Sources */,
+				ECA15DDB189647FB0005E920 /* ChartColors.m in Sources */,
+				ECA15DDA189647FB0005E920 /* BarChartModel.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
-				EC374AC4188F6CED00C4343A /* BarLabel.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */,
 				ECC109E81887C641000B70CF /* FindUserVC.m in Sources */,
+				ECA15DD8189647FB0005E920 /* CMPopTipView.m in Sources */,
+				ECA15DDC189647FB0005E920 /* UIColor+i7HexColor.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
-				EC374AC9188F6CED00C4343A /* XMLElement.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
+				ECA15DE0189647FB0005E920 /* XMLParserDelegate.m in Sources */,
+				ECA15DD6189647FB0005E920 /* BarLabel.m in Sources */,
+				ECA15DD9189647FB0005E920 /* BarChartItem.m in Sources */,
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,
+				ECA15DDF189647FB0005E920 /* XMLParser.m in Sources */,
 				EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */,
 				EC81025918946BD70092B7DB /* CommentCell.m in Sources */,
 				EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
 				EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */,
+				ECA15DDD189647FB0005E920 /* UIViewSizeShortcuts.m in Sources */,
 				ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */,
+				ECA15DE1189647FB0005E920 /* PlotChartView.m in Sources */,
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
+				ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
-				EC374AC5188F6CED00C4343A /* BarView.m in Sources */,
 				EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */,
-				EC374ACB188F6CED00C4343A /* XMLParserDelegate.m in Sources */,
-				EC374AC6188F6CED00C4343A /* CMPopTipView.m in Sources */,
-				EC374ACC188F6CED00C4343A /* PlotChartView.m in Sources */,
-				EC374AC3188F6CED00C4343A /* BarChartView.m in Sources */,
 				EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */,
+				ECA15DD5189647FB0005E920 /* BarChartView.m in Sources */,
 				EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */,
+				ECA15DE418964C8A0005E920 /* Profile.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
 				ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */,
@@ -1746,9 +1776,7 @@
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
 				EC374AD2188F9BDE00C4343A /* JSONDataNullCheck.m in Sources */,
-				EC374AC7188F6CED00C4343A /* UIColor+i7HexColor.m in Sources */,
 				ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */,
-				EC374AC8188F6CED00C4343A /* UIViewSizeShortcuts.m in Sources */,
 				EC374AA3188F45FB00C4343A /* FightInfoCell.m in Sources */,
 				ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */,
 			);

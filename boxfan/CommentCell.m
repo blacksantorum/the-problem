@@ -14,7 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"CustomCell" owner:self options:nil];
+        NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil];
         self = [nibArray objectAtIndex:0];
     }
     return self;

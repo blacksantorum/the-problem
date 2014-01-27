@@ -78,7 +78,7 @@
 	CGContextRef c = UIGraphicsGetCurrentContext(); 
 	
 	CGContextSetRGBStrokeColor(c, 0.0, 0.0, 0.0, 1.0);	// black
-	CGContextSetLineWidth(c, 1.0);
+	CGContextSetLineWidth(c, 0.5);
     
 	CGMutablePathRef bubblePath = CGPathCreateMutable();
 	
@@ -201,10 +201,7 @@
 	if (self.message) {
 		[textColor set];
 		CGRect textFrame = [self contentFrame];
-        [self.message drawInRect:textFrame
-                        withFont:textFont
-                   lineBreakMode:UILineBreakModeWordWrap
-                       alignment:UITextAlignmentCenter];
+        [self.message drawInRect:textFrame withFont:textFont lineBreakMode:NSLineBreakByWordWrapping  alignment:NSTextAlignmentCenter];
     }
 }
 
@@ -252,7 +249,7 @@
     if (self.message!=nil) {
         textSize= [self.message sizeWithFont:textFont
                            constrainedToSize:CGSizeMake(rectWidth, 99999.0)
-                               lineBreakMode:UILineBreakModeWordWrap];
+                               lineBreakMode:NSLineBreakByWordWrapping];
     }
     if (self.customView != nil) {
         textSize = self.customView.frame.size;
@@ -410,7 +407,7 @@
 	}
 }
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	if (self.disableTapToDismiss) {
 		[super touchesBegan:touches withEvent:event];
 		return;

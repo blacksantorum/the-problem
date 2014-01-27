@@ -1,8 +1,10 @@
 //
-//  PlotChart.h
+//  BarLabel.h
 //
 //  Created by Mezrin Kirill on 17.02.12.
 //  Copyright (c) Mezrin Kirill 2012-2013.
+//
+//  Major Updates by iRare Media.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -25,28 +27,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PlotChartView : UIView {
-	CGFloat paddingTop;
-	CGFloat paddingBotom;
-	CGFloat stepValueAxisY;
-	NSUInteger stepCountAxisX;
-	CGFloat stepWidthAxisY;
-	CGFloat maxValueAxisY;
-	CGFloat fontSize;
-	CGSize labelSizeAxisY;	
-	CGColorRef colorAxisY;
-	BOOL plotVerticalLines;
-}
-
-@property (nonatomic, assign) CGFloat paddingTop;
-@property (nonatomic, assign) CGFloat paddingBotom;
-@property (nonatomic, assign) CGFloat fontSize;
-@property (nonatomic, assign) BOOL plotVerticalLines;
-@property (nonatomic, assign) CGColorRef colorAxisY;
-@property (nonatomic, assign) CGFloat stepValueAxisY;
-@property (nonatomic, assign) NSUInteger stepCountAxisX;
-@property (nonatomic, assign) CGFloat stepWidthAxisY;
-@property (nonatomic, assign) CGFloat maxValueAxisY;
-@property (nonatomic, assign) CGSize labelSizeAxisY;
+@interface BarLabel : UILabel
 
 @end

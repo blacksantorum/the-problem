@@ -10,6 +10,8 @@
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
 #import "TBACommentsMultipleVC.h"
+#import "BarChartView.h"
+#import "BarChartModel.h"
 
 @interface FightDisplayVC ()
 
@@ -31,6 +33,19 @@
 #pragma mark - Custom cells
 
 // fight info
+
+- (void)clearOutBarChart:(BarChartView *)barChartView
+{
+    BarChartModel *chartModel = [[BarChartModel alloc] initWithBarChart:barChartView];
+    
+    [chartModel addItem:@0.1 title:@"" barColor:[UIColor whiteColor] labelColor:[UIColor whiteColor] showPopupTip:NO onSelection:nil];
+    
+    [chartModel updateChartWithPreConfiguration:^(BarChartView *barChart) {
+        [barChart setupBarViewShape:BarShapeSquared];
+        [barChart setupBarViewStyle:BarStyleFair];
+        [barChart setupBarViewAnimation:BarAnimationFloat];
+    }];
+}
 
 - (FightInfoCell *)fightInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
@@ -100,15 +115,18 @@
             pickPercentageB = @"0.1";
         }
         
-        NSArray *array = [cell.communityPicksBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA, titleB, nil]
-                                                                         values:[NSArray arrayWithObjects:pickPercentageA, pickPercentageB, nil]
-                                                                         colors:[NSArray arrayWithObjects:@"17A9E3", @"E32F17", nil]
-                                                                    labelColors:[NSArray arrayWithObjects:@"000000", @"000000",nil]];
+        NSArray *array = [cell.communityPicksBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA,titleB, nil]
+                                                      values:[NSArray arrayWithObjects:pickPercentageA,pickPercentageB, nil]
+                                                      colors:[NSArray arrayWithObjects:@"FF0000", @"0000FF", nil]
+                                                 labelColors:[NSArray arrayWithObjects:@"000000", @"000000", nil]];
         
-        [cell.communityPicksBarChart setDataWithArray:array
-                                             showAxis:DisplayOnlyXAxis
-                                            withColor:[UIColor whiteColor]
-                              shouldPlotVerticalLines:NO];
+        if (array && [pickPercentageA length] && [pickPercentageB length]) {
+            [cell.communityPicksBarChart setDataWithArray:array
+                                                 showAxis:DisplayBothAxes
+                                                withColor:[UIColor whiteColor]
+                                                 withFont:[UIFont systemFontOfSize:11]
+                                  shouldPlotVerticalLines:NO];
+        }
     }
     cell.delegate = self;
     return cell;
@@ -148,15 +166,22 @@
         decisionPercentageB = @"0.1";
     }
     
-    NSArray *array = [cell.communityDecisionBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA, titleB, nil]
-                                                                        values:[NSArray arrayWithObjects:decisionPercentageA, decisionPercentageB, nil]
-                                                                        colors:[NSArray arrayWithObjects:@"17A9E3", @"E32F17", nil]
-                                                                   labelColors:[NSArray arrayWithObjects:@"000000", @"000000",nil]];
+    UIColor *red = [UIColor redColor];
+    UIColor *blue = [UIColor blueColor];
+    UIColor *black = [UIColor blackColor];
     
-    [cell.communityDecisionBarChart setDataWithArray:array
-                                            showAxis:DisplayOnlyXAxis
-                                           withColor:[UIColor whiteColor]
-                             shouldPlotVerticalLines:NO];
+    NSArray *array = [cell.communityDecisionBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA,titleB, nil]
+                                                                     values:[NSArray arrayWithObjects:decisionPercentageA,decisionPercentageB, nil]
+                                                                     colors:[NSArray arrayWithObjects:red, blue, nil]
+                                                                labelColors:[NSArray arrayWithObjects:black, black, nil]];
+    
+    if (array) {
+        [cell.communityDecisionBarChart setDataWithArray:array
+                                             showAxis:DisplayOnlyXAxis
+                                            withColor:[UIColor darkGrayColor]
+                                             withFont:[UIFont systemFontOfSize:11]
+                              shouldPlotVerticalLines:NO];
+    }
     // cell.delegate = self;
     return cell;
 }
