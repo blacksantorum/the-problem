@@ -15,7 +15,7 @@
 #import "PickInfoCell.h"
 #import "DecisionInfoCell.h"
 
-@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource,ChangePickDelegate,UIActionSheetDelegate>
+@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource,ChangePickDelegate,ChangeDecisionDelegate,UIActionSheetDelegate>
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 

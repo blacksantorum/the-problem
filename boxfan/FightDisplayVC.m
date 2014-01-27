@@ -150,7 +150,7 @@
         }
     }
     
-    if (self.decision) {
+    if (![JSONDataNullCheck isNull:self.decision]) {
         cell.makeDecisionButton.titleLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
     }
     
@@ -182,66 +182,9 @@
                                              withFont:[UIFont systemFontOfSize:11]
                               shouldPlotVerticalLines:NO];
     }
-    // cell.delegate = self;
+    cell.delegate = self;
     return cell;
 }
-
-#pragma mark - Action Sheet stuff
-
--(void)changePick
-{
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:[NSString stringWithFormat:@"Make your pick for %@",self.fight.titleForScheduleView]
-                                                             delegate:self cancelButtonTitle:@"Cancel"
-                                               destructiveButtonTitle:nil
-                                                    otherButtonTitles:[NSString stringWithFormat:@"%@ by dec",self.fight.boxerA.lastName],
-                                  [NSString stringWithFormat:@"%@ by KO",self.fight.boxerA.lastName],
-                                  [NSString stringWithFormat:@"%@ by dec",self.fight.boxerB.lastName],
-                                  [NSString stringWithFormat:@"%@ by KO",self.fight.boxerB.lastName],nil];
-    
-    [actionSheet showInView:self.view];
-    
-}
-
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
-    
-    if (![buttonTitle isEqualToString:@"Cancel"]) {
-        NSString *postURLString = [URLS urlStringForPostingPickForFight:self.fight];
-        NSArray *stringArray = [buttonTitle componentsSeparatedByString:@" "];
-        
-        Boxer *pickedBoxer;
-        for (Boxer *b in self.fight.boxers) {
-            if ([b.lastName isEqualToString:stringArray[0]]) {
-                pickedBoxer = b;
-            }
-        }
-        
-        BOOL ko;
-        if ([[stringArray lastObject] isEqualToString:@"KO"]) {
-            ko = YES;
-        } else {
-            ko = NO;
-        }
-        
-        [self postUserActivityDictionary:[self postDictionaryForPicking:pickedBoxer byKO:ko] toURLString:postURLString];
-    }
-}
-
--(NSDictionary *)postDictionaryForPicking:(Boxer *)boxer byKO:(BOOL)ko
-{
-    return @{@"pick":@{@"winner_id": boxer.boxerID, @"ko":[self stringForBool:ko]}};
-}
-
--(NSString *)stringForBool:(BOOL)boolean
-{
-    if (boolean) {
-        return @"true";
-    } else {
-        return @"false";
-    }
-}
-
 
 -(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
 {

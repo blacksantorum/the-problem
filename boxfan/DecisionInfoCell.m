@@ -28,5 +28,8 @@
 }
 
 - (IBAction)makeDecisionButtonPressed:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(changeDecision)]) {
+        [self.delegate changeDecision];
+    }
 }
 @end
