@@ -17,6 +17,6 @@
 @property (strong,nonatomic) NSString *favoriteBoxer;
 @property (strong,nonatomic) Fight *FOY;
 
--(instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 
 @end

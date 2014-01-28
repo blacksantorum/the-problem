@@ -9,7 +9,7 @@
 #import "FindUserVC.h"
 #import "User.h"
 #import <PKRevealController/PKRevealController.h>
-#import "UserPickViewController.h"
+#import "UserProfileController.h"
 
 @interface FindUserVC ()
 
@@ -142,7 +142,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showFoundUser"]) {
         if ([self.searchDisplayController isActive]) {
-            UserPickViewController *controller = (UserPickViewController *)segue.destinationViewController;
+            UserProfileController *controller = (UserProfileController *)segue.destinationViewController;
             NSIndexPath *indexPath = [self.searchDisplayController.searchResultsTableView indexPathForSelectedRow];
             
             User *user = self.filteredUsers[indexPath.row];

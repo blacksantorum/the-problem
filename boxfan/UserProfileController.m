@@ -27,6 +27,12 @@
 
 @implementation UserProfileController
 
+-(User *)loggedInUser
+{
+    BoxFanRevealController *bfrc= (BoxFanRevealController *)self.revealController;
+    return bfrc.loggedInUser;
+}
+
 - (NSString *)boxerNameDisplay:(Boxer *)boxer
 {
     return [NSString stringWithFormat:@"%@. %@",[boxer.firstName substringToIndex:1] ,boxer.lastName];
@@ -91,15 +97,44 @@
 
 - (void)refresh
 {
-    // pull in data for user, store in profile, set outlets
-    self.mantraLabel.text = self.profile.mantra;
+    NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForPicksOfUser:self.displayedUser]];
+    
+    NSLog(@"%@",request);
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"Connection error: %@", connectionError);
+        } else {
+            NSError *error = nil;
+            id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+            if (error) {
+                NSLog(@"JSON parsing error: %@", error);
+            } else {
+                NSLog(@"%@",object);
+                NSDictionary *userDictionary = (NSDictionary *)object;
+                self.profile = [[Profile alloc] initWithDictionary:[userDictionary objectForKey:@"user"]];
+                self.mantraLabel.text = self.profile.mantra;
+            }
+        }
+    }];
     self.nameLabel.text = self.displayedUser.name;
     
 }
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    NSLog(@"%@ %@", self.displayedUser.handle, self.loggedInUser.handle);
+    if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
+                                                                        style:UIBarButtonItemStyleDone target:self action:@selector(presentEditProfileView)];
+        self.navigationItem.rightBarButtonItem = rightButton;
+    }
+	[self refresh];
+}
+
+- (void)presentEditProfileView
+{
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

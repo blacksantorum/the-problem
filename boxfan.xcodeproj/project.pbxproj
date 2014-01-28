@@ -335,6 +335,7 @@
 		ECCA0A821897181E00403AFD /* FOYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A811897181E00403AFD /* FOYCell.m */; };
 		ECCA0A8818972C6A00403AFD /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECCA0A8718972C6A00403AFD /* ProfileCell.xib */; };
 		ECCA0A8B18972FE500403AFD /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A8A18972FE500403AFD /* ProfileCell.m */; };
+		ECCA0A8F1897857500403AFD /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A8E1897857500403AFD /* UpdateProfileViewController.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -738,6 +739,8 @@
 		ECCA0A8718972C6A00403AFD /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
 		ECCA0A8918972FE500403AFD /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
 		ECCA0A8A18972FE500403AFD /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
+		ECCA0A8D1897857500403AFD /* UpdateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateProfileViewController.h; sourceTree = "<group>"; };
+		ECCA0A8E1897857500403AFD /* UpdateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateProfileViewController.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -1292,6 +1295,8 @@
 		ECCA0A7D18970F4000403AFD /* User Display Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECCA0A8D1897857500403AFD /* UpdateProfileViewController.h */,
+				ECCA0A8E1897857500403AFD /* UpdateProfileViewController.m */,
 				ECCA0A7A18970F3A00403AFD /* UserProfileController.h */,
 				ECCA0A7B18970F3A00403AFD /* UserProfileController.m */,
 			);
@@ -1347,6 +1352,19 @@
 			name = "User Display";
 			sourceTree = "<group>";
 		};
+		ECCA0A8C18977CEA00403AFD /* Comments Display Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
+				EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */,
+				EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */,
+				EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */,
+				EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */,
+				EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */,
+			);
+			name = "Comments Display Controllers";
+			sourceTree = "<group>";
+		};
 		ECD11519187D4AB800530434 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
@@ -1383,12 +1401,7 @@
 			isa = PBXGroup;
 			children = (
 				ECCA0A7D18970F4000403AFD /* User Display Controllers */,
-				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
-				EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */,
-				EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */,
-				EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */,
-				EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */,
-				EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */,
+				ECCA0A8C18977CEA00403AFD /* Comments Display Controllers */,
 				ECC109E61887C641000B70CF /* FindUserVC.h */,
 				ECC109E71887C641000B70CF /* FindUserVC.m */,
 				ECA13226185FA36A00001793 /* UserPickViewController.h */,
@@ -1821,6 +1834,7 @@
 				ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */,
 				ECA15DE1189647FB0005E920 /* PlotChartView.m in Sources */,
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
+				ECCA0A8F1897857500403AFD /* UpdateProfileViewController.m in Sources */,
 				ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
 				ECCA0A821897181E00403AFD /* FOYCell.m in Sources */,

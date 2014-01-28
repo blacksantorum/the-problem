@@ -265,6 +265,13 @@
     [super viewDidLoad];
     [self setLabels];
     [self refresh];
+    self.navigationController.toolbarHidden = YES;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)setLabels

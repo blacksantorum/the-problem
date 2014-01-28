@@ -11,6 +11,7 @@
 #import "Comment.h"
 #import "TTTTimeIntervalFormatter.h"
 #import "BoxFanRevealController.h"
+#import "UserProfileController.h"
 
 @interface CommentsDisplayVC ()
 
@@ -38,13 +39,43 @@
 {
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     // [self refresh];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    self.navigationController.toolbarHidden = NO;
+    
+    UITextField *textField = [[UITextField alloc] init];
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
+    UIBarButtonItem *textFieldItem = [[UIBarButtonItem alloc] initWithCustomView:textField];
+    
+    NSArray *items = [NSArray arrayWithObjects:addButton, flexibleItem, textFieldItem, nil];
+    self.toolbarItems = items;
+    
     [self refresh];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self performSegueWithIdentifier:@"showUser" sender:[tableView cellForRowAtIndexPath:indexPath]];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showUser"]) {
+        UserProfileController *controller = (UserProfileController *)segue.destinationViewController;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        
+        Comment *comment = self.comments[indexPath.row];
+        
+        controller.displayedUser = comment.author;
+        controller.title = comment.author.handle;
+    }
 }
 
 - (void)refresh
