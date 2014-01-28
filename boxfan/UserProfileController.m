@@ -145,10 +145,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSLog(@"%@ %@", self.displayedUser.handle, self.loggedInUser.handle);
     if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
-                                                                        style:UIBarButtonItemStyleDone target:self action:@selector(presentEditProfileView)];
+        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(presentEditProfileView)];
         self.navigationItem.rightBarButtonItem = rightButton;
     }
 	[self refresh];

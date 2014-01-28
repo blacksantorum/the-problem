@@ -336,6 +336,8 @@
 		ECCA0A8818972C6A00403AFD /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECCA0A8718972C6A00403AFD /* ProfileCell.xib */; };
 		ECCA0A8B18972FE500403AFD /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A8A18972FE500403AFD /* ProfileCell.m */; };
 		ECCA0A8F1897857500403AFD /* UpdateProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A8E1897857500403AFD /* UpdateProfileViewController.m */; };
+		ECCA0A921897CB5F00403AFD /* UserActivityCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECCA0A911897CB5F00403AFD /* UserActivityCell.xib */; };
+		ECCA0A951897CFBC00403AFD /* UserActivityCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A941897CFBC00403AFD /* UserActivityCell.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -741,6 +743,9 @@
 		ECCA0A8A18972FE500403AFD /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 		ECCA0A8D1897857500403AFD /* UpdateProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpdateProfileViewController.h; sourceTree = "<group>"; };
 		ECCA0A8E1897857500403AFD /* UpdateProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpdateProfileViewController.m; sourceTree = "<group>"; };
+		ECCA0A911897CB5F00403AFD /* UserActivityCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserActivityCell.xib; sourceTree = "<group>"; };
+		ECCA0A931897CFBC00403AFD /* UserActivityCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivityCell.h; sourceTree = "<group>"; };
+		ECCA0A941897CFBC00403AFD /* UserActivityCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserActivityCell.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -812,6 +817,7 @@
 		EC54850A187E9A3400EA69E5 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				ECCA0A901897CB3600403AFD /* User Activity */,
 				ECCA0A86189718D300403AFD /* User Display */,
 				ECCA0A85189718C200403AFD /* Comments */,
 				ECCA0A831897185C00403AFD /* Fight Display */,
@@ -1365,6 +1371,16 @@
 			name = "Comments Display Controllers";
 			sourceTree = "<group>";
 		};
+		ECCA0A901897CB3600403AFD /* User Activity */ = {
+			isa = PBXGroup;
+			children = (
+				ECCA0A911897CB5F00403AFD /* UserActivityCell.xib */,
+				ECCA0A931897CFBC00403AFD /* UserActivityCell.h */,
+				ECCA0A941897CFBC00403AFD /* UserActivityCell.m */,
+			);
+			name = "User Activity";
+			sourceTree = "<group>";
+		};
 		ECD11519187D4AB800530434 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
@@ -1535,6 +1551,7 @@
 				ECC10B5C188E2F14000B70CF /* Haiti.png in Resources */,
 				ECC10BC1188E2F14000B70CF /* Slovakia.png in Resources */,
 				ECC10B88188E2F14000B70CF /* Mauritius.png in Resources */,
+				ECCA0A921897CB5F00403AFD /* UserActivityCell.xib in Resources */,
 				ECC10BAB188E2F14000B70CF /* Peru.png in Resources */,
 				ECC10B8C188E2F14000B70CF /* Monaco.png in Resources */,
 				ECC10B13188E2F14000B70CF /* Bahrain.png in Resources */,
@@ -1852,6 +1869,7 @@
 				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,
 				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
+				ECCA0A951897CFBC00403AFD /* UserActivityCell.m in Sources */,
 				EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */,
 				EC0D5B461886126D009B32B4 /* LeftButtonNavController.m in Sources */,
 				ECA0CE73185E5818003380C5 /* Boxer.m in Sources */,
