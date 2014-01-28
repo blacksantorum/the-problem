@@ -15,6 +15,7 @@
 
 + (NSString *)urlStringForPostingPickForFight:(Fight *)fight;
 + (NSString *)urlStringForPostingDecisionForFight:(Fight *)fight;
++ (NSString *)urlStringForUpdatingProfileForUser:(User *)user;
 + (NSString *)urlStringForRailsSignIn;
 + (NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
 + (NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;

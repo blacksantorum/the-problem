@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Chris Tibbs. All rights reserved.
 //
 
+#import <AFNetworking/AFNetworking.h>
 #import "UserProfileController.h"
 #import "BoxFanRevealController.h"
 #import "Profile.h"
@@ -23,9 +24,28 @@
 
 @property (strong,nonatomic) Profile *profile;
 
+@property (strong,nonatomic) UIStoryboard *storyboard;
+@property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
+
 @end
 
 @implementation UserProfileController
+
+-(UIImage *)imageForURL:(NSURL *)imageURL
+{
+    NSData *data = [NSData dataWithContentsOfURL:imageURL];
+    return [UIImage imageWithData:data];
+}
+
+- (AFHTTPRequestOperationManager *)manager
+{
+    return [AFHTTPRequestOperationManager manager];
+}
+
+-(UIStoryboard *)storyboard
+{
+    return [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+}
 
 -(User *)loggedInUser
 {
@@ -114,10 +134,12 @@
                 NSDictionary *userDictionary = (NSDictionary *)object;
                 self.profile = [[Profile alloc] initWithDictionary:[userDictionary objectForKey:@"user"]];
                 self.mantraLabel.text = self.profile.mantra;
+                [self.profileTableView reloadData];
             }
         }
     }];
     self.nameLabel.text = self.displayedUser.name;
+    [self.profileImageView setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
     
 }
 - (void)viewDidLoad
@@ -134,6 +156,23 @@
 
 - (void)presentEditProfileView
 {
+    UpdateProfileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"updateProfile"];
+    vc.mantraTextField.text = self.profile.mantra;
+    vc.firstFightTextField.text = self.profile.firstFight;
+    vc.favoriteBoxerTextField.text = self.profile.favoriteBoxer;
+    vc.favoriteFightTextField.text = self.profile.favoriteFight;
+    vc.delegate = self;
+    [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)updateProfile:(NSDictionary *)dictionary
+{
+    [self.manager PUT:[URLS urlStringForUpdatingProfileForUser:self.loggedInUser] parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [self refresh];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
     
 }
 

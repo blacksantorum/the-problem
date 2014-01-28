@@ -6,6 +6,12 @@
 //  Copyright (c) 2014 Chris Tibbs. All rights reserved.
 //
 
+@protocol UpdateProfileDelegate <NSObject>
+
+- (void)updateProfile:(NSDictionary *)dictionary;
+
+@end
+
 #import <UIKit/UIKit.h>
 
 @interface UpdateProfileViewController : UIViewController
@@ -15,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *favoriteBoxerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *favoriteFightTextField;
 
+@property (nonatomic,assign)id delegate;
 
 @end

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UpdateProfileViewController.h"
 
-@interface UserProfileController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+@interface UserProfileController : UIViewController <UITableViewDataSource,UITableViewDelegate,UpdateProfileDelegate>
 
 @property (nonatomic,strong) User *displayedUser;
 @property (nonatomic,strong) User *loggedInUser;

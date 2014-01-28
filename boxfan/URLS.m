@@ -53,6 +53,19 @@
     return [URLS appendSessionToken:url];
 }
 
++ (NSString *)urlStringForUpdatingProfileForUser:(User *)user
+{
+    NSString *url = [[NSString alloc] init];
+    if ([URLS prod]) {
+        url = @"http://the-boxing-app.herokuapp.com/api/users/";
+    } else {
+        url = @"http://192.168.1.113:3000/api/users/";
+    }
+    url = [url stringByAppendingString:user.userID.description];
+    
+    return [URLS appendSessionToken:url];
+}
+
 +(NSString *)urlStringForRailsSignIn
 {
     NSString *url = [[NSString alloc] init];
