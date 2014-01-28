@@ -330,6 +330,11 @@
 		ECC10BF0188E2F14000B70CF /* Yemen.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC10AFD188E2F14000B70CF /* Yemen.png */; };
 		ECC10BF1188E2F14000B70CF /* Zambia.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC10AFE188E2F14000B70CF /* Zambia.png */; };
 		ECC10BF2188E2F14000B70CF /* Zimbabwe.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC10AFF188E2F14000B70CF /* Zimbabwe.png */; };
+		ECCA0A7C18970F3A00403AFD /* UserProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A7B18970F3A00403AFD /* UserProfileController.m */; };
+		ECCA0A7F1897127500403AFD /* FOYCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECCA0A7E1897127500403AFD /* FOYCell.xib */; };
+		ECCA0A821897181E00403AFD /* FOYCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A811897181E00403AFD /* FOYCell.m */; };
+		ECCA0A8818972C6A00403AFD /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECCA0A8718972C6A00403AFD /* ProfileCell.xib */; };
+		ECCA0A8B18972FE500403AFD /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECCA0A8A18972FE500403AFD /* ProfileCell.m */; };
 		ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11513187D466E00530434 /* BoxingAppDVC.m */; };
 		ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD11517187D497400530434 /* BoxingScheduleVC.m */; };
 		ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECD1151B187DEACD00530434 /* ScheduleFormattedDate.m */; };
@@ -725,6 +730,14 @@
 		ECC10AFD188E2F14000B70CF /* Yemen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yemen.png; sourceTree = "<group>"; };
 		ECC10AFE188E2F14000B70CF /* Zambia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zambia.png; sourceTree = "<group>"; };
 		ECC10AFF188E2F14000B70CF /* Zimbabwe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zimbabwe.png; sourceTree = "<group>"; };
+		ECCA0A7A18970F3A00403AFD /* UserProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileController.h; sourceTree = "<group>"; };
+		ECCA0A7B18970F3A00403AFD /* UserProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileController.m; sourceTree = "<group>"; };
+		ECCA0A7E1897127500403AFD /* FOYCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FOYCell.xib; sourceTree = "<group>"; };
+		ECCA0A801897181E00403AFD /* FOYCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FOYCell.h; sourceTree = "<group>"; };
+		ECCA0A811897181E00403AFD /* FOYCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FOYCell.m; sourceTree = "<group>"; };
+		ECCA0A8718972C6A00403AFD /* ProfileCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		ECCA0A8918972FE500403AFD /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileCell.h; sourceTree = "<group>"; };
+		ECCA0A8A18972FE500403AFD /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileCell.m; sourceTree = "<group>"; };
 		ECD11512187D466E00530434 /* BoxingAppDVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingAppDVC.h; sourceTree = "<group>"; };
 		ECD11513187D466E00530434 /* BoxingAppDVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxingAppDVC.m; sourceTree = "<group>"; };
 		ECD11516187D497400530434 /* BoxingScheduleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxingScheduleVC.h; sourceTree = "<group>"; };
@@ -793,26 +806,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		EC54850A187E9A3400EA69E5 /* Custom Views */ = {
+		EC54850A187E9A3400EA69E5 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EC81025518946BA60092B7DB /* CommentCell.xib */,
-				EC81025718946BD70092B7DB /* CommentCell.h */,
-				EC81025818946BD70092B7DB /* CommentCell.m */,
-				EC374AD71890930500C4343A /* DecisionInfoCell.xib */,
-				EC374AD91890947200C4343A /* DecisionInfoCell.h */,
-				EC374ADA1890947200C4343A /* DecisionInfoCell.m */,
-				EC374AA4188F52E400C4343A /* PickInfoCell.xib */,
-				EC374AA6188F532C00C4343A /* PickInfoCell.h */,
-				EC374AA7188F532C00C4343A /* PickInfoCell.m */,
-				EC374A9F188F42BE00C4343A /* FightInfoCell.xib */,
-				EC374AA1188F45FB00C4343A /* FightInfoCell.h */,
-				EC374AA2188F45FB00C4343A /* FightInfoCell.m */,
-				ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */,
-				ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */,
-				ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */,
+				ECCA0A86189718D300403AFD /* User Display */,
+				ECCA0A85189718C200403AFD /* Comments */,
+				ECCA0A831897185C00403AFD /* Fight Display */,
+				ECCA0A841897186D00403AFD /* List Of Fights */,
 			);
-			name = "Custom Views";
+			name = "Custom Cells";
 			sourceTree = "<group>";
 		};
 		ECA0CE2D185E4EF8003380C5 = {
@@ -868,7 +870,7 @@
 				EC0D5B431885433D009B32B4 /* Nav Subclasses */,
 				ECC109931886A66A000B70CF /* Sidebar */,
 				ECD1151D187DEAD300530434 /* Utility Classes */,
-				EC54850A187E9A3400EA69E5 /* Custom Views */,
+				EC54850A187E9A3400EA69E5 /* Custom Cells */,
 				ECD1151E187DF76D00530434 /* View Controllers */,
 				ECD11519187D4AB800530434 /* Abstract */,
 				ECA0CE51185E4EF9003380C5 /* Images.xcassets */,
@@ -1287,6 +1289,64 @@
 			path = 32;
 			sourceTree = "<group>";
 		};
+		ECCA0A7D18970F4000403AFD /* User Display Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ECCA0A7A18970F3A00403AFD /* UserProfileController.h */,
+				ECCA0A7B18970F3A00403AFD /* UserProfileController.m */,
+			);
+			name = "User Display Controllers";
+			sourceTree = "<group>";
+		};
+		ECCA0A831897185C00403AFD /* Fight Display */ = {
+			isa = PBXGroup;
+			children = (
+				EC374AD71890930500C4343A /* DecisionInfoCell.xib */,
+				EC374AD91890947200C4343A /* DecisionInfoCell.h */,
+				EC374ADA1890947200C4343A /* DecisionInfoCell.m */,
+				EC374AA4188F52E400C4343A /* PickInfoCell.xib */,
+				EC374AA6188F532C00C4343A /* PickInfoCell.h */,
+				EC374AA7188F532C00C4343A /* PickInfoCell.m */,
+				EC374A9F188F42BE00C4343A /* FightInfoCell.xib */,
+				EC374AA1188F45FB00C4343A /* FightInfoCell.h */,
+				EC374AA2188F45FB00C4343A /* FightInfoCell.m */,
+			);
+			name = "Fight Display";
+			sourceTree = "<group>";
+		};
+		ECCA0A841897186D00403AFD /* List Of Fights */ = {
+			isa = PBXGroup;
+			children = (
+				ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */,
+				ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */,
+				ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */,
+			);
+			name = "List Of Fights";
+			sourceTree = "<group>";
+		};
+		ECCA0A85189718C200403AFD /* Comments */ = {
+			isa = PBXGroup;
+			children = (
+				EC81025518946BA60092B7DB /* CommentCell.xib */,
+				EC81025718946BD70092B7DB /* CommentCell.h */,
+				EC81025818946BD70092B7DB /* CommentCell.m */,
+			);
+			name = Comments;
+			sourceTree = "<group>";
+		};
+		ECCA0A86189718D300403AFD /* User Display */ = {
+			isa = PBXGroup;
+			children = (
+				ECCA0A8918972FE500403AFD /* ProfileCell.h */,
+				ECCA0A8A18972FE500403AFD /* ProfileCell.m */,
+				ECCA0A8718972C6A00403AFD /* ProfileCell.xib */,
+				ECCA0A801897181E00403AFD /* FOYCell.h */,
+				ECCA0A811897181E00403AFD /* FOYCell.m */,
+				ECCA0A7E1897127500403AFD /* FOYCell.xib */,
+			);
+			name = "User Display";
+			sourceTree = "<group>";
+		};
 		ECD11519187D4AB800530434 /* Abstract */ = {
 			isa = PBXGroup;
 			children = (
@@ -1322,6 +1382,7 @@
 		ECD1151E187DF76D00530434 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				ECCA0A7D18970F4000403AFD /* User Display Controllers */,
 				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
 				EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */,
 				EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */,
@@ -1540,6 +1601,7 @@
 				ECC10B65188E2F14000B70CF /* Ireland.png in Resources */,
 				ECC10B50188E2F14000B70CF /* Ghana.png in Resources */,
 				ECC10B61188E2F14000B70CF /* India.png in Resources */,
+				ECCA0A7F1897127500403AFD /* FOYCell.xib in Resources */,
 				ECC10BA3188E2F14000B70CF /* Oman.png in Resources */,
 				EC374AA0188F42BE00C4343A /* FightInfoCell.xib in Resources */,
 				ECC10BBB188E2F14000B70CF /* Scotland.png in Resources */,
@@ -1628,6 +1690,7 @@
 				ECC10B49188E2F14000B70CF /* Fiji.png in Resources */,
 				ECC10BD9188E2F14000B70CF /* Tonga.png in Resources */,
 				ECC10BB2188E2F14000B70CF /* Reunion.png in Resources */,
+				ECCA0A8818972C6A00403AFD /* ProfileCell.xib in Resources */,
 				ECC10B4D188E2F14000B70CF /* Gambia.png in Resources */,
 				ECC10B9B188E2F14000B70CF /* Nicaragua.png in Resources */,
 				ECC10B2D188E2F14000B70CF /* China.png in Resources */,
@@ -1731,6 +1794,7 @@
 				EC616788189274B700E9843E /* Comment.m in Sources */,
 				ECA15DDB189647FB0005E920 /* ChartColors.m in Sources */,
 				ECA15DDA189647FB0005E920 /* BarChartModel.m in Sources */,
+				ECCA0A7C18970F3A00403AFD /* UserProfileController.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */,
@@ -1746,6 +1810,7 @@
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,
 				ECA15DDF189647FB0005E920 /* XMLParser.m in Sources */,
+				ECCA0A8B18972FE500403AFD /* ProfileCell.m in Sources */,
 				EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */,
 				EC81025918946BD70092B7DB /* CommentCell.m in Sources */,
 				EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */,
@@ -1758,6 +1823,7 @@
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
 				ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
+				ECCA0A821897181E00403AFD /* FOYCell.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
 				EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */,

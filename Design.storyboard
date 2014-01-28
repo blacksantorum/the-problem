@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--User Profile Controller-->
         <scene sceneID="sEV-Ch-F7X">
             <objects>
-                <viewController id="dQg-D4-h3D" sceneMemberID="viewController">
+                <viewController id="dQg-D4-h3D" customClass="UserProfileController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bm5-3w-Fqz"/>
                         <viewControllerLayoutGuide type="bottom" id="FFl-UU-ZHf"/>
@@ -24,18 +24,18 @@
                                 </items>
                             </navigationBar>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4hN-VM-93H">
-                                <rect key="frame" x="136" y="52" width="48" height="48"/>
+                                <rect key="frame" x="136" y="83" width="48" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Chris Tibbs" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9z-zZ-Qj2">
-                                <rect key="frame" x="92" y="108" width="137" height="21"/>
+                                <rect key="frame" x="20" y="139" width="280" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Can I curse? JC Burgos's performance was asinine." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="fnf-Qq-wNu">
-                                <rect key="frame" x="20" y="137" width="280" height="41"/>
+                                <rect key="frame" x="20" y="168" width="280" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="highlightedColor"/>
@@ -44,10 +44,20 @@
                                 <rect key="frame" x="0.0" y="217" width="320" height="351"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dQg-D4-h3D" id="BeG-KO-ZDf"/>
+                                    <outlet property="delegate" destination="dQg-D4-h3D" id="vXi-JQ-8YY"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="mantraLabel" destination="fnf-Qq-wNu" id="dbR-Fe-5WX"/>
+                        <outlet property="nameLabel" destination="G9z-zZ-Qj2" id="s1Y-7Y-Gdr"/>
+                        <outlet property="profileImageView" destination="4hN-VM-93H" id="AY6-FV-wlw"/>
+                        <outlet property="profileTableView" destination="Bn6-9j-7b9" id="YSk-UU-UJi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxj-jE-jPc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
