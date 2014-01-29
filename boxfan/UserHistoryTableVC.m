@@ -14,10 +14,59 @@
 @interface UserHistoryTableVC ()
 
 @property (nonatomic,strong) NSArray *userActivities;
+@property (nonatomic,strong) NSArray *searchResults;
+
+@property (nonatomic,strong) NSDictionary *searchResultsDictionary;
+@property (nonatomic,strong) NSArray *allDescriptionStrings;
 
 @end
 
 @implementation UserHistoryTableVC
+
+#pragma mark - Search Display Implementation
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSPredicate *resultPredicate = [NSPredicate
+                                    predicateWithFormat:@"SELF contains[cd] %@",
+                                    searchText];
+    
+    NSArray *descriptionResults = [self.allDescriptionStrings filteredArrayUsingPredicate:resultPredicate];
+    NSMutableArray *mutableSearchResults = [[NSMutableArray alloc] init];
+    
+    for (NSString *activityDescription in descriptionResults) {
+        [mutableSearchResults addObject:self.searchResultsDictionary[activityDescription]];
+    }
+    self.searchResults = mutableSearchResults;
+}
+
+- (NSString *)descriptionStringForSearchingForActivity:(UserActivity *)activity
+{
+    NSString *middleString;
+    if (activity.activityType == DECISION) {
+        middleString = @"beat";
+    } else {
+        if (activity.byStoppage) {
+            middleString = @"KO";
+        } else {
+            middleString = @"def";
+        }
+    }
+    return [NSString stringWithFormat:@"%@ %@ %@",activity.winner.boxerFullName,middleString,activity.loser.boxerFullName];
+}
+
+-(BOOL)searchDisplayController:(UISearchDisplayController *)controller
+shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString
+                               scope:[[self.searchDisplayController.searchBar scopeButtonTitles]
+                                      objectAtIndex:[self.searchDisplayController.searchBar
+                                                     selectedScopeButtonIndex]]];
+    
+    return YES;
+}
+
+# pragma <#arguments#>
 
 - (NSURL *)urlForRequest
 {
@@ -32,18 +81,27 @@
     
     NSMutableArray *userActivitiesArray = [[NSMutableArray alloc] init];
     
+    // dictionary of form {<winner name> <ms> <loser name> : <activity>" to allow filtered search
+    NSMutableDictionary *searchResultsDictionary = [[NSMutableDictionary alloc] init];
+    
     for (NSDictionary *decisionDictionary in decisionsArrayJSON) {
         UserActivity *u = [[UserActivity alloc] initForUserHistoryWithDecisionDictionary:[decisionDictionary valueForKey:@"decision"]];
         u.user = self.displayedUser;
         [userActivitiesArray addObject:u];
+        [searchResultsDictionary addEntriesFromDictionary:@{[self descriptionStringForSearchingForActivity:u] : u}];
     }
     
     NSArray *picksArrayJSON = [JSONdictionary valueForKeyPath:@"user.picks"];
     
     for (NSDictionary *pickDictionary in picksArrayJSON) {
         UserActivity *u = [[UserActivity alloc] initForUserHistoryWithPickDictionary:[pickDictionary valueForKey:@"pick"]];
+        u.user = self.displayedUser;
         [userActivitiesArray addObject:u];
+        [searchResultsDictionary addEntriesFromDictionary:@{[self descriptionStringForSearchingForActivity:u] : u}];
     }
+    
+    self.searchResultsDictionary = searchResultsDictionary;
+    self.allDescriptionStrings = [searchResultsDictionary allKeys];
     
     self.userActivities = [userActivitiesArray sortedArrayUsingComparator: ^(id a, id b) {
         NSDate *d1 = [(UserActivity *)a modifiedDate];
@@ -56,9 +114,15 @@
     [self.tableView reloadData];
 }
 
+#pragma mark - Table View Datasource, Delegate
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.userActivities count];
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        return [self.searchResults count];
+    } else {
+        return [self.userActivities count];
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -75,6 +139,7 @@
 {
     static NSString *CellIdentifier = @"User Activity Cell";
     
+    [self.searchDisplayController.searchResultsTableView registerClass:[UserActivityCell class] forCellReuseIdentifier:CellIdentifier];
     [self.tableView registerClass:[UserActivityCell class] forCellReuseIdentifier:CellIdentifier];
     
     UserActivityCell *cell = (UserActivityCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
@@ -89,7 +154,13 @@
         }
     }
     
-    UserActivity *activity = self.userActivities[indexPath.row];
+    UserActivity *activity;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView) {
+        activity = self.searchResults[indexPath.row];
+    } else {
+        activity = self.userActivities[indexPath.row];
+    }
     
     cell.activityTypeLabel.text = [self typeStringForActivity:activity];
     cell.activityDescriptionLabel.text = [self descriptionStringForActivity:activity];

@@ -193,6 +193,7 @@
 {
     if ([segue.identifier isEqualToString:@"showHistory"]) {
         UserHistoryTableVC *controller = (UserHistoryTableVC *)segue.destinationViewController;
+        controller.title = self.displayedUser.handle;
         controller.displayedUser = self.displayedUser;
     }
 }
