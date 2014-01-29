@@ -187,7 +187,7 @@
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     
     // formatted time interval from comment date to now
-    cell.commentDateTimeLabel.text = [formatter stringForTimeIntervalFromDate:comment.date toDate:[NSDate date]];
+    cell.commentDateTimeLabel.text = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:comment.date];
     cell.totalJabsLabel.text = [NSString stringWithFormat:@"%d",(int)comment.jabs];
     
     cell.delegate = self;
@@ -210,7 +210,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 87.0;
+    NSString *text = [self getTextForIndexPath:indexPath];
+    UIFont *font = [UIFont systemFontOfSize:14];
+    CGSize size = [self getSizeOfText:text withFont:font];
+    
+    return (size.height + 100);
+}
+
+- (NSString *)getTextForIndexPath:(NSIndexPath *)indexPath
+{
+    Comment *comment = self.comments[indexPath.row];
+    
+    return comment.content;
+}
+
+- (CGSize)getSizeOfText:(NSString *)text withFont:(UIFont *)font
+{
+    return [text sizeWithFont:font constrainedToSize:CGSizeMake(280, 500)];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
