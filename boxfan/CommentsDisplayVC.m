@@ -17,6 +17,7 @@
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 @property (strong,nonatomic) UIActivityIndicatorView *spinner;
+@property (strong,nonatomic) UITextField *commentField;
 
 @end
 
@@ -40,6 +41,21 @@
 {
     [super viewDidLoad];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    self.commentField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 32)];
+    self.commentField.placeholder = @"Enter comment:";
+    
+    
+    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
+    
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addComment:)];
+    
+    UIBarButtonItem *textFieldItem = [[UIBarButtonItem alloc] initWithCustomView:self.commentField];
+    
+    NSArray *items = [NSArray arrayWithObjects:textFieldItem,flexibleItem,addButton, nil];
+    self.toolbarItems = items;
+    
+    self.commentField.borderStyle = UITextBorderStyleRoundedRect;
 
     // [self refresh];
 }
@@ -49,26 +65,20 @@
     [super viewDidAppear:animated];
     self.navigationController.toolbarHidden = NO;
     
-    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 32)];
-    textField.placeholder = @"Enter comment:";
-    
-    
-    UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
-    
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addComment:)];
-    
-    UIBarButtonItem *textFieldItem = [[UIBarButtonItem alloc] initWithCustomView:textField];
-    
-    NSArray *items = [NSArray arrayWithObjects:textFieldItem,flexibleItem,addButton, nil];
-    self.toolbarItems = items;
-    
-    textField.borderStyle = UITextBorderStyleRoundedRect;
-    
     [self refresh];
 }
 
 - (void)addComment:(NSString *)content
 {
+    NSLog(@"Comment: %@",self.commentField.text);
+    NSDictionary *dictionary;
+    NSString *url;
+    [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        [self refresh];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
     
 }
 
@@ -201,6 +211,28 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 87.0;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+}
+
+- (void)keyboardWillShow:(NSNotification *)notification {
+    [self.navigationController.toolbar setFrame:CGRectMake(0, 50, 320, 44)];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notification {
+    //set your toolbar frame here for down side
 }
 
 @end
