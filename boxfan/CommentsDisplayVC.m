@@ -49,17 +49,27 @@
     [super viewDidAppear:animated];
     self.navigationController.toolbarHidden = NO;
     
-    UITextField *textField = [[UITextField alloc] init];
+    UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 32)];
+    textField.placeholder = @"Enter comment:";
+    
     
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:nil];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addComment:)];
+    
     UIBarButtonItem *textFieldItem = [[UIBarButtonItem alloc] initWithCustomView:textField];
     
-    NSArray *items = [NSArray arrayWithObjects:addButton, flexibleItem, textFieldItem, nil];
+    NSArray *items = [NSArray arrayWithObjects:textFieldItem,flexibleItem,addButton, nil];
     self.toolbarItems = items;
     
+    textField.borderStyle = UITextBorderStyleRoundedRect;
+    
     [self refresh];
+}
+
+- (void)addComment:(NSString *)content
+{
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

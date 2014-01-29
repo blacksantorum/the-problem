@@ -338,6 +338,7 @@
 {
     if ([segue.identifier isEqualToString:@"showComments"]) {
         MostJabbedCommentsDisplayVC *controller = (MostJabbedCommentsDisplayVC *)segue.destinationViewController;
+        controller.title = self.fight.titleForScheduleView;
         controller.fight = self.fight;
     }
 }
