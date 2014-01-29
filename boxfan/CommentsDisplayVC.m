@@ -16,6 +16,7 @@
 @interface CommentsDisplayVC ()
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
+@property (strong,nonatomic) UIActivityIndicatorView *spinner;
 
 @end
 
@@ -78,8 +79,17 @@
     }
 }
 
+- (void)addActivityViewIndicator
+{
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:self.spinner];
+    self.spinner.center = self.view.center;
+}
+
 - (void)refresh
 {
+    [self addActivityViewIndicator];
+    [self.spinner startAnimating];
     NSLog(@"%@", [URLS urlForCommentsForFight:self.fight]);
     NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForCommentsForFight:self.fight]];
     
@@ -104,8 +114,7 @@
                 self.comments = comments;
                 
                 [self.tableView reloadData];
-                // [self.activityIndicator stopAnimating];
-                // self.activityIndicator.hidden = YES;
+                [self.spinner stopAnimating];
             }
         }
     }];

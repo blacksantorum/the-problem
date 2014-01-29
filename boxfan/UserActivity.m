@@ -10,16 +10,20 @@
 
 @implementation UserActivity
 
--(instancetype)initForFeedViewWithPickDictionary:(NSDictionary *)dictionary
+-(instancetype)initForUserHistoryWithPickDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
         _activityType = PICK;
-        _modifiedDate = [dictionary valueForKey:@"updated_at"];
-        _user = [[User alloc] initWithListOfUsersDictionary:[dictionary valueForKey:@"user"]];
-        Fight *fight = [[Fight alloc] init];
-        fight.fightID = [dictionary valueForKeyPath:@"fight.id"];
-        _fight = fight;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        
+        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        NSDate *date = [formatter dateFromString:[dictionary valueForKey:@"updated_at"]];
+
+        _modifiedDate = date;
+       
+        _fight = [[Fight alloc] initWithUserHistoryDictionary:[dictionary valueForKey:@"fight"]];
         
         NSString *winnerID = [dictionary valueForKey:@"winner_id"];
         
@@ -32,7 +36,7 @@
         }
         
         for (NSDictionary *boxerDict in [dictionary valueForKeyPath:@"fight.boxers"]) {
-            Boxer *boxer = [[Boxer alloc] initWithDictionary:boxerDict];
+            Boxer *boxer = [[Boxer alloc] initWithDictionary:[boxerDict valueForKey:@"boxer"]];
             if ([boxer.boxerID.description isEqualToString:winnerID.description]) {
                 _winner = boxer;
             } else {
@@ -43,22 +47,26 @@
     return self;
 }
 
--(instancetype)initForFeedViewWithDecisionDictionary:(NSDictionary *)dictionary
+-(instancetype)initForUserHistoryWithDecisionDictionary:(NSDictionary *)dictionary
 {
     self = [super init];
     if (self) {
         _activityType = DECISION;
         _byStoppage = NO;
-        _modifiedDate = [dictionary valueForKey:@"updated_at"];
-        _user = [[User alloc] initWithListOfUsersDictionary:[dictionary valueForKey:@"user"]];
-        Fight *fight = [[Fight alloc] init];
-        fight.fightID = [dictionary valueForKeyPath:@"fight.id"];
-        _fight = fight;
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
+        
+        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        NSDate *date = [formatter dateFromString:[dictionary valueForKey:@"updated_at"]];
+        
+        _modifiedDate = date;
+        
+        _fight = [[Fight alloc] initWithUserHistoryDictionary:[dictionary valueForKey:@"fight"]];
         
         NSString *winnerID = [dictionary valueForKey:@"winner_id"];
         
         for (NSDictionary *boxerDict in [dictionary valueForKeyPath:@"fight.boxers"]) {
-            Boxer *boxer = [[Boxer alloc] initWithDictionary:boxerDict];
+            Boxer *boxer = [[Boxer alloc] initWithDictionary:[boxerDict valueForKey:@"boxer"]];
             if ([boxer.boxerID.description isEqualToString:winnerID.description]) {
                 _winner = boxer;
             } else {

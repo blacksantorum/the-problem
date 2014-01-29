@@ -12,6 +12,7 @@
 #import "Profile.h"
 #import "FOYCell.h"
 #import "ProfileCell.h"
+#import "UserHistoryTableVC.h"
 
 @interface UserProfileController ()
 
@@ -145,10 +146,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
-        UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(presentEditProfileView)];
-        self.navigationItem.rightBarButtonItem = rightButton;
-    }
+    // if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
+     //   UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(presentEditProfileView)];
+     //   self.navigationItem.rightBarButtonItem = rightButton;
+    // }
 	[self refresh];
 }
 
@@ -188,6 +189,14 @@
     }
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showHistory"]) {
+        UserHistoryTableVC *controller = (UserHistoryTableVC *)segue.destinationViewController;
+        controller.displayedUser = self.displayedUser;
+    }
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     if ([self hasFightOfTheYear]) {
@@ -224,6 +233,19 @@
         }
     } else {
         return [self ProfileCellForTableView:tableView forIndexPath:indexPath];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
+        if ([self hasFightOfTheYear]) {
+            if (indexPath.section == 1) {
+                [self presentEditProfileView];
+            }
+        } else {
+            [self presentEditProfileView];
+        }
     }
 }
 

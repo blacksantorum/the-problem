@@ -22,6 +22,7 @@
 @property BOOL stoppage;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithUserHistoryDictionary:(NSDictionary *)dictionary;
 
 - (NSString *)titleForScheduleView;
 - (NSString *)titleForRecentFightsView;

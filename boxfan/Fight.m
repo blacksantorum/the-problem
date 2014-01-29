@@ -54,6 +54,18 @@
     return self;
 }
 
+- (instancetype)initWithUserHistoryDictionary:(NSDictionary *)dictionary
+{
+    self = [[Fight alloc] initWithDictionary:dictionary];
+    NSMutableArray *boxerArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *boxerDict in [dictionary valueForKey:@"boxers"]) {
+        Boxer *b = [[Boxer alloc] initWithDictionary:[boxerDict valueForKey:@"boxer"]];
+        [boxerArray addObject:b];
+    }
+    self.boxers = boxerArray;
+    return self;
+}
+
 -(Boxer *)boxerA
 {
     Boxer *boxerA;

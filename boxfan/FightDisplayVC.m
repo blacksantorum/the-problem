@@ -9,11 +9,13 @@
 #import "FightDisplayVC.h"
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
-#import "TBACommentsMultipleVC.h"
+#import "MostJabbedCommentsDisplayVC.h"
 #import "BarChartView.h"
 #import "BarChartModel.h"
 
 @interface FightDisplayVC ()
+
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *commentTextField;
 
 // labels
 @property (weak, nonatomic) IBOutlet UILabel *boxerAFirstNameLabel;
@@ -34,18 +36,6 @@
 
 // fight info
 
-- (void)clearOutBarChart:(BarChartView *)barChartView
-{
-    BarChartModel *chartModel = [[BarChartModel alloc] initWithBarChart:barChartView];
-    
-    [chartModel addItem:@0.1 title:@"" barColor:[UIColor whiteColor] labelColor:[UIColor whiteColor] showPopupTip:NO onSelection:nil];
-    
-    [chartModel updateChartWithPreConfiguration:^(BarChartView *barChart) {
-        [barChart setupBarViewShape:BarShapeSquared];
-        [barChart setupBarViewStyle:BarStyleFair];
-        [barChart setupBarViewAnimation:BarAnimationFloat];
-    }];
-}
 
 - (FightInfoCell *)fightInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
@@ -265,13 +255,21 @@
     [super viewDidLoad];
     [self setLabels];
     [self refresh];
-    self.navigationController.toolbarHidden = YES;
+    
+    self.navigationController.toolbarHidden = NO;
+    
+    UITextView * textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 100, 32)];
+    textView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithCustomView:textView];
+    [textView sizeToFit];
+    
+    self.navigationController.toolbar.items = [NSArray arrayWithObject:barItem];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.toolbarHidden = YES;
+    self.navigationController.toolbarHidden = NO;
 }
 
 - (void)setLabels
@@ -339,7 +337,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showComments"]) {
-        TBACommentsMultipleVC *controller = (TBACommentsMultipleVC *)segue.destinationViewController;
+        MostJabbedCommentsDisplayVC *controller = (MostJabbedCommentsDisplayVC *)segue.destinationViewController;
         controller.fight = self.fight;
     }
 }

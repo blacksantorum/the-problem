@@ -14,7 +14,7 @@
 
 @interface BoxingAppDVC ()
 
-@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (strong, nonatomic)  UIActivityIndicatorView *spinner;
 
 
 @end
@@ -43,9 +43,17 @@
 
 // make a call to the supplied URL, store the response in an Array of JSON objects
 
+- (void)addActivityViewIndicator
+{
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:self.spinner];
+    self.spinner.center = self.view.center;
+}
+
 - (void)refresh
 {
-    [self.activityIndicator startAnimating];
+    [self addActivityViewIndicator];
+    [self.spinner startAnimating];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
     
@@ -62,8 +70,7 @@
                 // NSLog(@"%@",self.JSONarray);
                 [self configureDataSource];
                 [self.tableView reloadData];
-                [self.activityIndicator stopAnimating];
-                self.activityIndicator.hidden = YES;
+                [self.spinner stopAnimating];
             }
         }
     }];
@@ -88,7 +95,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self refresh];
+    // [self refresh];
 }
 
 @end

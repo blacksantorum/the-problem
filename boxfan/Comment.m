@@ -16,7 +16,7 @@
     if (self) {
         _commentID = [[dictionary objectForKey:@"id"] integerValue];
         NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-        [formatter setDateFormat:@"yyyy-MM-dd HH:mm"];
+        [formatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
         NSDate *date = [formatter dateFromString:[dictionary objectForKey:@"created_at"]];
         _date = date;
         _content = [dictionary objectForKey:@"body"];

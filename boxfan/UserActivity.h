@@ -27,7 +27,7 @@ typedef enum ActivityType : NSInteger {
 @property (nonatomic,strong) Boxer *loser;
 @property  BOOL byStoppage;
 
--(instancetype)initForFeedViewWithPickDictionary:(NSDictionary *)dictionary;
--(instancetype)initForFeedViewWithDecisionDictionary:(NSDictionary *)dictionary;
+-(instancetype)initForUserHistoryWithPickDictionary:(NSDictionary *)dictionary;
+-(instancetype)initForUserHistoryWithDecisionDictionary:(NSDictionary *)dictionary;
 
 @end
