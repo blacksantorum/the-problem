@@ -269,11 +269,20 @@
     
     CGRect toolBarFrame = self.navigationController.toolbar.frame;
     
-    [self.navigationController.toolbar setFrame:CGRectMake(0, keyboardFrame.origin.y - toolBarFrame.size.height , toolBarFrame.size.width, toolBarFrame.size.height)];
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         [self.navigationController.toolbar setFrame:CGRectMake(0, keyboardFrame.origin.y - toolBarFrame.size.height , toolBarFrame.size.width, toolBarFrame.size.height)];
+                     }
+                     completion:nil];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
-    [self.navigationController.toolbar setFrame:self.originalToolbarFrame];
+    [UIView animateWithDuration:0.25
+                     animations:^{
+                         [self.navigationController.toolbar setFrame:self.originalToolbarFrame];
+                     }
+                     completion:nil];
+    
 }
 
 @end

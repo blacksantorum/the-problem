@@ -144,7 +144,7 @@
         }
     }
     
-    if (![JSONDataNullCheck isNull:self.decision]) {
+    if (self.decision) {
         cell.makeDecisionButton.titleLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
     }
     
@@ -231,8 +231,9 @@
     
     NSDictionary *decisionDictionary = [self.JSONdictionary valueForKeyPath:@"fight.decision"];
     
-    
-    self.decision = [[Decision alloc] initWithRecentFightDisplayDictionary:decisionDictionary];
+    if (![JSONDataNullCheck isNull:decisionDictionary]) {
+        self.decision = [[Decision alloc] initWithRecentFightDisplayDictionary:decisionDictionary];
+    }
     
     NSMutableDictionary *boxersToPicksPercentages = [[NSMutableDictionary alloc] init];
     for (NSDictionary *boxerDict in [self.JSONdictionary valueForKeyPath:@"fight.boxers"]) {
