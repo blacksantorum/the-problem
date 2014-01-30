@@ -26,12 +26,14 @@
 @property (strong,nonatomic) Comment *comment;
 
 @property (weak, nonatomic) IBOutlet UIButton *jabButton;
-@property (weak, nonatomic) IBOutlet UILabel *twitterHandleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *twitterHandleButton;
+
 @property (weak, nonatomic) IBOutlet UILabel *commentContentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *commentDateTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalJabsLabel;
 
 - (IBAction)jabButtonClicked:(id)sender;
+- (IBAction)twitterHandleButtonClicked:(id)sender;
 
 @property (nonatomic,assign)id delegate;
 

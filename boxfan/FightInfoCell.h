@@ -9,11 +9,22 @@
 #import <UIKit/UIKit.h>
 #import "Fight.h"
 
+@protocol ChangeFOYDelegate <NSObject>
+
+-(void)changeFOY;
+
+@end
+
 @interface FightInfoCell : UITableViewCell
 
 @property (strong, nonatomic) Fight *fight;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roundsWeightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+@property (weak, nonatomic) IBOutlet UIButton *FOYButton;
+
+- (IBAction)FOYButtonPressed:(id)sender;
+
+@property (nonatomic,assign)id delegate;
 
 @end

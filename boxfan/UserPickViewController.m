@@ -111,16 +111,6 @@
     return result;
 }
 
--(void)viewWillAppear:(BOOL)animated
-{
-    User *fleshedOutUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
-    self.displayedUser = fleshedOutUser;
-    [self.userPicture setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
-    self.nameLabel.text = self.displayedUser.name;
-    self.handleAndScoreLabel.text = self.displayedUser.titleForGodsView;
-    
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];

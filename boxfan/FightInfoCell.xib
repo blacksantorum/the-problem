@@ -35,12 +35,23 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Las Vegas, NV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-9K-es4">
                         <rect key="frame" x="10" y="35" width="301" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1vk-jP-mIP">
+                        <rect key="frame" x="237" y="31" width="74" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Your FOY?">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="FOYButtonPressed:" destination="IQ7-4h-wbx" eventType="touchUpInside" id="Aag-WY-pte"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
+                <outlet property="FOYButton" destination="1vk-jP-mIP" id="EgJ-0k-FCG"/>
                 <outlet property="dateLabel" destination="DWo-Lg-nM2" id="LNc-Kl-lfK"/>
                 <outlet property="locationLabel" destination="AlE-9K-es4" id="psn-XV-NeC"/>
                 <outlet property="roundsWeightLabel" destination="17k-yV-IXr" id="WyH-2Z-yAr"/>

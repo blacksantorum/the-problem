@@ -8,8 +8,9 @@
 
 #import "FightDisplayVC.h"
 #import "Decision.h"
+#import "FightInfoCell.h"
 
-@interface RecentFightDisplayViewController : FightDisplayVC
+@interface RecentFightDisplayViewController : FightDisplayVC <ChangeFOYDelegate>
 
 @property (nonatomic,strong) Decision *decision;
 

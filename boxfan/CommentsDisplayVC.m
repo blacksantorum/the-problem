@@ -84,10 +84,6 @@
     
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self performSegueWithIdentifier:@"showUser" sender:[tableView cellForRowAtIndexPath:indexPath]];
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"showUser"]) {
@@ -190,7 +186,8 @@
     cell.comment = comment;
     
     [cell.jabButton setImage:[self jabButtonImageForComment:comment] forState:UIControlStateNormal];
-    cell.twitterHandleLabel.text = comment.author.handle;
+     cell.twitterHandleButton.tintColor = [UIColor blackColor];
+    cell.twitterHandleButton.titleLabel.text = comment.author.handle;
     cell.commentContentLabel.text = comment.content;
     
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
@@ -227,6 +224,13 @@
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
+}
+
+-(void)showUser:(User *)user
+{
+    UserProfileController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"userProfile"];
+    controller.displayedUser = user;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -21,6 +21,16 @@
 
 @implementation RecentFightDisplayViewController
 
+- (void)changeFOY
+{
+    [self.manager POST:[URLS urlStringForUpdatingFOYtoFight:self.fight] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+    self.loggedInUser.foy = self.fight;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (self.fight.stoppage) {

@@ -33,4 +33,9 @@
     // Configure the view for the selected state
 }
 
+- (IBAction)FOYButtonPressed:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(changeFOY)]) {
+        [self.delegate changeFOY];
+    }
+}
 @end

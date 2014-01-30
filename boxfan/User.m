@@ -19,6 +19,10 @@
         _name = [dictionary objectForKey:@"name"];
         _profileImageURL = [dictionary objectForKey:@"profile_image_url"];
         _twitterID = [dictionary objectForKey:@"id"];
+        NSDictionary *foyDict = [dictionary objectForKey:@"foy"];
+        if (![JSONDataNullCheck isNull:foyDict]) {
+            _foy = [[Fight alloc] initWithDictionary:foyDict];
+        }
     }
     
     return self;

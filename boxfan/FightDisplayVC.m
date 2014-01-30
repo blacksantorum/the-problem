@@ -12,6 +12,8 @@
 #import "MostJabbedCommentsDisplayVC.h"
 #import "BarChartView.h"
 #import "BarChartModel.h"
+#import "RecentFightDisplayViewController.h"
+#import "UpcomingFightViewController.h"
 
 @interface FightDisplayVC ()
 
@@ -328,7 +330,20 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return [self fightInfoCellFor:tableView forIndexPath:indexPath];
+        FightInfoCell *cell = [self fightInfoCellFor:tableView forIndexPath:indexPath];
+        cell.delegate = self;
+        
+        if ([self isKindOfClass:[UpcomingFightViewController class]]) {
+            [cell.FOYButton removeFromSuperview];
+        }
+        if ([self isKindOfClass:[RecentFightDisplayViewController class]]) {
+            if ([self.fight.fightID.description isEqualToString:self.loggedInUser.foy.fightID.description]) {
+                cell.FOYButton.titleLabel.text = @"This is your FOY";
+                cell.FOYButton.enabled = NO;
+            }
+        }
+        
+        return cell;
     }
     else if (indexPath.section == 1) {
         return [self pickInfoCellFor:tableView forIndexPath:indexPath];

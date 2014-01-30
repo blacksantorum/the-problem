@@ -25,6 +25,7 @@
 + (NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;
 + (NSString *)urlForUsersCurrentPickForFight:(Fight *)Fight;
 + (NSString *)urlForUsersCurrentDecisionForFight:(Fight *)fight;
++ (NSString *)urlStringForUpdatingFOYtoFight:(Fight *)fight;
 
 + (NSURL *)urlForFeed;
 + (NSURL *)urlForUpcomingFights;

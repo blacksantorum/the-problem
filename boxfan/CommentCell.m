@@ -43,4 +43,10 @@
     self.comment.isJabbedByLoggedInUser = !self.comment.isJabbedByLoggedInUser;
 }
 
+- (IBAction)twitterHandleButtonClicked:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(showUser:)]) {
+        [self.delegate showUser:self.comment.author];
+    }
+}
+
 @end

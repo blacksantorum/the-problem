@@ -464,7 +464,7 @@
         <!--User Profile Controller-->
         <scene sceneID="jST-m4-q59">
             <objects>
-                <viewController id="lN2-m5-3K4" customClass="UserProfileController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userProfile" id="lN2-m5-3K4" customClass="UserProfileController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lbb-pi-WxG"/>
                         <viewControllerLayoutGuide type="bottom" id="EXe-DI-q62"/>

@@ -118,6 +118,17 @@
     return  [NSString stringWithFormat:@"https://api.twitter.com/1.1/users/show.json?screen_name=%@", screenname];
 }
 
++ (NSString *)urlStringForUpdatingFOYtoFight:(Fight *)fight
+{
+    NSString *url;
+    if ([URLS prod]) {
+        url = [NSString stringWithFormat:@"http://the-boxing-app.herokuapp.com/api/fights/%@/foy",fight.fightID.description];
+    } else {
+        url = [NSString stringWithFormat:@"http://192.168.1.113:3000/api/fights/%@/foy",fight.fightID.description];
+    }
+    return [URLS appendSessionToken:url];
+}
+
 + (NSURL *)urlForUpcomingFights
 {
     NSString *url = [[NSString alloc] init];

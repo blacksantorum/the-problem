@@ -12,10 +12,11 @@
 @interface User : NSObject
 
 @property (nonatomic,strong) NSString *userID;
-@property (nonatomic, strong) NSString *handle;
-@property (nonatomic, strong) NSString *name;
-@property (nonatomic, strong) NSString *profileImageURL;
-@property (nonatomic, strong) NSString *twitterID;
+@property (nonatomic,strong) NSString *handle;
+@property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *profileImageURL;
+@property (nonatomic,strong) NSString *twitterID;
+@property (nonatomic,strong) Fight *foy;
 
 -(instancetype)initWithDictionary:(NSDictionary *)dictionary;
 -(instancetype)initWithListOfUsersDictionary:(NSDictionary *)dictionary;
@@ -25,6 +26,5 @@
 -(instancetype)initWithCoder:(NSCoder *)decoder;
 
 -(NSDictionary *)userDictionaryForSignIn;
--(NSString *)titleForGodsView;
 
 @end

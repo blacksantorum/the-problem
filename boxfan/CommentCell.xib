@@ -24,12 +24,6 @@
                             <action selector="jabButtonClicked:" destination="wc9-sq-dkx" eventType="touchUpInside" id="aei-s3-aKH"/>
                         </connections>
                     </button>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="blacksantorum" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nA2-Rr-L6m">
-                        <rect key="frame" x="72" y="9" width="114" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="I thought Maidana looked pretty sharp until the very end of the fight." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="228" translatesAutoresizingMaskIntoConstraints="NO" id="nOj-4E-bOo">
                         <rect key="frame" x="72" y="27" width="228" height="59"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -49,6 +43,18 @@
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="45e-We-u0d">
+                        <rect key="frame" x="72" y="7" width="228" height="32"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                        <state key="normal">
+                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <connections>
+                            <action selector="twitterHandleButtonClicked:" destination="wc9-sq-dkx" eventType="touchUpInside" id="fN1-ey-QhD"/>
+                        </connections>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -56,7 +62,7 @@
                 <outlet property="commentDateTimeLabel" destination="u3M-cw-cfN" id="oQO-29-A2d"/>
                 <outlet property="jabButton" destination="GOv-JG-98g" id="18N-Es-pDc"/>
                 <outlet property="totalJabsLabel" destination="0lW-ot-buY" id="VBq-FY-k0I"/>
-                <outlet property="twitterHandleLabel" destination="nA2-Rr-L6m" id="9xC-LT-B2L"/>
+                <outlet property="twitterHandleButton" destination="45e-We-u0d" id="fB7-5Z-wyr"/>
             </connections>
         </tableViewCell>
     </objects>
