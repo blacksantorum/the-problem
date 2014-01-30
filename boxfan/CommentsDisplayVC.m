@@ -19,6 +19,8 @@
 @property (strong,nonatomic) UIActivityIndicatorView *spinner;
 @property (strong,nonatomic) UITextField *commentField;
 
+@property CGRect originalToolbarFrame;
+
 @end
 
 @implementation CommentsDisplayVC
@@ -56,7 +58,7 @@
     self.toolbarItems = items;
     
     self.commentField.borderStyle = UITextBorderStyleRoundedRect;
-
+    self.originalToolbarFrame = self.navigationController.toolbar.frame;
     // [self refresh];
 }
 
@@ -64,7 +66,6 @@
 {
     [super viewDidAppear:animated];
     self.navigationController.toolbarHidden = NO;
-    
     [self refresh];
 }
 
@@ -253,26 +254,26 @@
     return [text sizeWithFont:font constrainedToSize:CGSizeMake(280, 500)];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+- (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
-
-- (void)viewWillDisappear:(BOOL)animated {
+- (void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
-    [self.navigationController.toolbar setFrame:CGRectMake(0, 50, 320, 44)];
+    CGRect keyboardFrame = [[[notification userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGRect toolBarFrame = self.navigationController.toolbar.frame;
+    
+    [self.navigationController.toolbar setFrame:CGRectMake(0, keyboardFrame.origin.y - toolBarFrame.size.height , toolBarFrame.size.width, toolBarFrame.size.height)];
 }
 
 - (void)keyboardWillHide:(NSNotification *)notification {
-    //set your toolbar frame here for down side
+    [self.navigationController.toolbar setFrame:self.originalToolbarFrame];
 }
 
 @end
