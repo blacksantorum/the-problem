@@ -22,9 +22,25 @@
 
 
 - (IBAction)jabButtonClicked:(id)sender {
+    NSInteger newJabs = [self.totalJabsLabel.text integerValue];
+    
+    if (self.comment.isJabbedByLoggedInUser) {
+        newJabs--;
+    } else {
+        newJabs++;
+    }
+    self.totalJabsLabel.text = [NSString stringWithFormat:@"%ld",(long)newJabs];
+    
+    if (self.comment.isJabbedByLoggedInUser) {
+        [self.jabButton setImage:[UIImage imageNamed:@"notjabbed"] forState:UIControlStateNormal];
+    } else {
+        [self.jabButton setImage:[UIImage imageNamed:@"jabbed"] forState:UIControlStateNormal];
+    }
+    
     if ([self.delegate respondsToSelector:@selector(jabComment:)]) {
         [self.delegate jabComment:self.comment];
     }
+    self.comment.isJabbedByLoggedInUser = !self.comment.isJabbedByLoggedInUser;
 }
 
 @end

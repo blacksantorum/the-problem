@@ -14,6 +14,7 @@
 #import "RecentFightNavController.h"
 #import "FindUserNavController.h"
 #import "MyProfileNavController.h"
+#import "Interstitial.h"
 
 @interface SidebarViewController ()
 
@@ -69,7 +70,7 @@
         cell.textLabel.text = @"Recent Fights";
     }
     if (row == 4) {
-        cell.textLabel.text = self.loggedInUser.handle;
+        cell.textLabel.text = @"Log out";
     }
     
     return cell;
@@ -110,16 +111,22 @@
     }
 
     if (row == 4) {
-        if (![[[self revealController] frontViewController] isKindOfClass:[MyProfileNavController class]]) {
-            MyProfileNavController *myProfileController = (MyProfileNavController *)[self.storyboard instantiateViewControllerWithIdentifier:@"MyProfile"];
-            myProfileController.displayedUser = self.loggedInUser;
-                
-            [[self revealController] setFrontViewController:myProfileController];
-            [[self revealController] showViewController:myProfileController];
-        } else {
-            [[self revealController] showViewController:[[self revealController] frontViewController]];
-        }
+        [PFUser logOut];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"User"];
+        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Token"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        BoxFanRevealController *brfc = (BoxFanRevealController *)[self revealController];
+        brfc.loggedInUser = nil;
+        
+        Interstitial *inter = [[Interstitial alloc] initWithNibName:@"Interstitial" bundle:nil];
+        inter.delegate = self;
+        [self presentViewController:inter animated:YES completion:nil];
     }
+}
+
+-(void)passUser:(User *)user
+{
+    self.loggedInUser = user;
 }
 
 @end

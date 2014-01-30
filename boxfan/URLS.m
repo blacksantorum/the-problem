@@ -53,6 +53,28 @@
     return [URLS appendSessionToken:url];
 }
 
++ (NSString *)urlStringForJabbingComment:(Comment *)comment
+{
+    NSString *url;
+    if ([URLS prod]) {
+        url = [NSString stringWithFormat:@"http://the-boxing-app.herokuapp.com/api/comments/%@/like",[NSString stringWithFormat:@"%ld",(long)comment.commentID]];
+    } else {
+        url = [NSString stringWithFormat:@"http://192.168.1.113:3000/api/comments/%@/like",[NSString stringWithFormat:@"%ld",(long)comment.commentID]];
+    }
+    return [URLS appendSessionToken:url];
+}
+
++ (NSString *)urlStringForUnjabbingComment:(Comment *)comment
+{
+    NSString *url;
+    if ([URLS prod]) {
+        url = [NSString stringWithFormat:@"http://the-boxing-app.herokuapp.com/api/comments/%@/unlike",[NSString stringWithFormat:@"%ld",(long)comment.commentID]];
+    } else {
+        url = [NSString stringWithFormat:@"http://192.168.1.113:3000/api/comments/%@/unlike",[NSString stringWithFormat:@"%ld",(long)comment.commentID]];
+    }
+    return [URLS appendSessionToken:url];
+}
+
 + (NSString *)urlStringForPostingCommentForFight:(Fight *)fight
 {
     NSString *url = [[NSString alloc] init];

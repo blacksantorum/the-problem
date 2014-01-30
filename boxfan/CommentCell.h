@@ -11,7 +11,13 @@
 
 @protocol JabCommentDelegate <NSObject>
 
--(void)jabComment:(Comment *)comment;
+- (void)jabComment:(Comment *)comment;
+
+@end
+
+@protocol ShowUserDelegate <NSObject>
+
+- (void)showUser:(User *)user;
 
 @end
 

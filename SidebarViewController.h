@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
+#import "Interstitial.h"
 
-@interface SidebarViewController : UITableViewController
+@interface SidebarViewController : UITableViewController<InterstitialPassUser>
 
 @property (nonatomic,strong) User *loggedInUser;
 

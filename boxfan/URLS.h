@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "Fight.h"
+#import "Comment.h"
+
 
 @interface URLS : NSObject
 
@@ -16,6 +18,8 @@
 + (NSString *)urlStringForPostingPickForFight:(Fight *)fight;
 + (NSString *)urlStringForPostingDecisionForFight:(Fight *)fight;
 + (NSString *)urlStringForPostingCommentForFight:(Fight *)fight;
++ (NSString *)urlStringForJabbingComment:(Comment *)comment;
++ (NSString *)urlStringForUnjabbingComment:(Comment *)comment;
 + (NSString *)urlStringForUpdatingProfileForUser:(User *)user;
 + (NSString *)urlStringForRailsSignIn;
 + (NSString *)urlStringForUsersTwitterWithScreenname:(NSString *)screenname;

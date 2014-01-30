@@ -151,6 +151,11 @@
 
 #pragma mark - Table view data source
 
+- (NSIndexPath *)tableView:(UITableView *)tv willSelectRowAtIndexPath:(NSIndexPath *)path
+{
+    return nil;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -182,6 +187,8 @@
     
     Comment *comment = self.comments[indexPath.row];
     
+    cell.comment = comment;
+    
     [cell.jabButton setImage:[self jabButtonImageForComment:comment] forState:UIControlStateNormal];
     cell.twitterHandleLabel.text = comment.author.handle;
     cell.commentContentLabel.text = comment.content;
@@ -193,7 +200,8 @@
     cell.totalJabsLabel.text = [NSString stringWithFormat:@"%d",(int)comment.jabs];
     
     cell.delegate = self;
-        
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -208,7 +216,17 @@
 
 -(void)jabComment:(Comment *)comment
 {
-    // send post
+    NSString *url;
+    if (comment.isJabbedByLoggedInUser) {
+        url = [URLS urlStringForUnjabbingComment:comment];
+    } else {
+        url = [URLS urlStringForJabbingComment:comment];
+    }
+    [self.manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

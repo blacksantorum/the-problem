@@ -20,14 +20,18 @@
     return [defaults objectForKey:@"User"];
 }
 
+
 -(void)viewDidAppear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    
     if (![self encodedUserFromDefaults]) {
         Interstitial *interstitial = [[Interstitial alloc] initWithNibName:@"Interstitial" bundle:nil];
         interstitial.delegate = self;
         [self presentViewController:interstitial animated:YES completion:nil];
     }
+    
+    [super viewDidAppear:animated];
+    
 }
 
 -(void)passUser:(User *)user

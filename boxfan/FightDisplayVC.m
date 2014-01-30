@@ -59,6 +59,7 @@
     cell.locationLabel.text = self.fight.location;
     cell.roundsWeightLabel.text = [NSString stringWithFormat:@"%@ rounds at %@",self.fight.rounds,self.fight.weight];
     cell.fight = self.fight;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -119,6 +120,7 @@
         }
     }
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -173,6 +175,7 @@
                               shouldPlotVerticalLines:NO];
     }
     cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -255,6 +258,7 @@
     [super viewDidLoad];
     [self setLabels];
     [self refresh];
+    NSLog(@"%@",self.loggedInUser);
     
     self.navigationController.toolbarHidden = NO;
     

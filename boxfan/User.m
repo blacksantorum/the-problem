@@ -32,7 +32,6 @@
         _name = [dictionary objectForKey:@"name"];
         _profileImageURL = [dictionary objectForKey:@"img"];
         _userID = [dictionary objectForKey:@"id"];
-        _points = (int)[dictionary objectForKey:@"points"];
     }
     
     return self;
@@ -69,11 +68,6 @@
 -(NSString *)description
 {
     return [NSString stringWithFormat:@"%@ %@ %@ %@",self.userID,self.handle,self.name,self.profileImageURL];
-}
-
--(NSString *)titleForGodsView
-{
-    return [NSString stringWithFormat:@"%@ (%d)",self.handle,self.points];
 }
 
 @end

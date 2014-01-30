@@ -14,7 +14,7 @@
 @property (nonatomic,strong) NSDate *date;
 @property (nonatomic,strong) NSString *content;
 @property (nonatomic,strong) User *author;
-@property BOOL *isJabbedByLoggedInUser;
+@property BOOL isJabbedByLoggedInUser;
 @property NSInteger jabs;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
