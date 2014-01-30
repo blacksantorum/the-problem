@@ -48,7 +48,7 @@
     
     UIBarButtonItem *flexibleItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addComment:)];
+    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addComment)];
     
     UIBarButtonItem *textFieldItem = [[UIBarButtonItem alloc] initWithCustomView:self.commentField];
     
@@ -68,14 +68,16 @@
     [self refresh];
 }
 
-- (void)addComment:(NSString *)content
+- (void)addComment
 {
     NSLog(@"Comment: %@",self.commentField.text);
-    NSDictionary *dictionary;
-    NSString *url;
-    [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    NSDictionary *dictionary = @{@"comment":@{@"body" : self.commentField.text}};
+
+    [self.manager POST:[URLS urlStringForPostingCommentForFight:self.fight] parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [self refresh];
+        self.commentField.text = @"";
+        [self.commentField resignFirstResponder];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

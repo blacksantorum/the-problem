@@ -21,6 +21,7 @@
         _date = date;
         _content = [dictionary objectForKey:@"body"];
         _author = [[User alloc] initWithListOfUsersDictionary:[dictionary objectForKey:@"user"]];
+        _jabs = [[dictionary objectForKey:@"votes"] integerValue];
     }
     return self;
 }
