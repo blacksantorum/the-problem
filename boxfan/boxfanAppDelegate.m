@@ -11,7 +11,6 @@
 #import "Auth.h"
 #import <PKRevealController/PKRevealController.h>
 #import "BoxingScheduleVC.h"
-#import "SidebarViewController.h"
 #import "BoxFanRevealController.h"
 #import "Interstitial.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
@@ -19,7 +18,6 @@
 @interface boxfanAppDelegate() <PKRevealing>
 
 @property (nonatomic,strong,readwrite) BoxFanRevealController *revealController;
-@property (nonatomic,strong) User *user;
 
 @end
 
@@ -97,6 +95,7 @@
     
     // left
     SidebarViewController *sideBarController = [[SidebarViewController alloc] initWithNibName:@"SidebarViewController" bundle:nil];
+    sideBarController.delegate = self;
     
     self.revealController = [BoxFanRevealController revealControllerWithFrontViewController:frontNavController leftViewController:sideBarController];
     User *user = (User *)[NSKeyedUnarchiver unarchiveObjectWithData:[self encodedUserFromDefaults]];
@@ -110,18 +109,20 @@
     [self.window makeKeyAndVisible];
 }
 
--(void)logOut
-{
-    [PFUser logOut];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"User"];
-    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Token"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-}
-
 -(NSData *)encodedUserFromDefaults
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     return [defaults objectForKey:@"User"];
+}
+
+- (void)showLogInView
+{
+    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    logInViewController.delegate = self;
+    logInViewController.fields = PFLogInFieldsTwitter;
+    
+    self.window.rootViewController = logInViewController;
+    [self.window makeKeyAndVisible];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -130,18 +131,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     if (![self encodedUserFromDefaults]) {
-        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
-        logInViewController.delegate = self;
-        logInViewController.fields = PFLogInFieldsTwitter;
-        
-        self.window.rootViewController = logInViewController;
-        [self.window makeKeyAndVisible];
+        [self showLogInView];
     } else {
         [self setUpRevealController];
     }
     return YES;
 }
 
+- (void)logOut
+{
+    [self showLogInView];
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

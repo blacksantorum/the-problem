@@ -10,8 +10,16 @@
 #import "User.h"
 #import "Interstitial.h"
 
+@protocol LogOutDelegate <NSObject>
+
+- (void)logOut;
+
+@end
+
 @interface SidebarViewController : UITableViewController<InterstitialPassUser>
 
 @property (nonatomic,strong) User *loggedInUser;
+
+@property (nonatomic,assign)id delegate;
 
 @end

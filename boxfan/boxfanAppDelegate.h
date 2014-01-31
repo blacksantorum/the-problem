@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import <Parse/Parse.h>
+#import "SidebarViewController.h"
 
-@interface boxfanAppDelegate : UIResponder <UIApplicationDelegate,PFLogInViewControllerDelegate>
+@interface boxfanAppDelegate : UIResponder <UIApplicationDelegate,PFLogInViewControllerDelegate,LogOutDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

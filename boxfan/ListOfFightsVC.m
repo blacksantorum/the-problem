@@ -56,7 +56,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.toolbarHidden = YES;
 }
 
 // store fights into an array of fights at self.fights

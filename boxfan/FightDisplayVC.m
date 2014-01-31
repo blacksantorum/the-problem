@@ -82,6 +82,21 @@
     return cell;
 }
 
+-(void)jabComment:(Comment *)comment
+{
+    NSString *url;
+    if (comment.isJabbedByLoggedInUser) {
+        url = [URLS urlStringForUnjabbingComment:comment];
+    } else {
+        url = [URLS urlStringForJabbingComment:comment];
+    }
+    [self.manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
 - (UIImage *)jabButtonImageForComment:(Comment *)comment
 {
     if (comment.isJabbedByLoggedInUser) {
@@ -236,7 +251,7 @@
 
 -(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
 {
-    return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by decision"];
+    return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by dec"];
 }
 
 -(NSString *)decisionCellButtonRepresentationForDecision:(Decision *)decision
@@ -332,7 +347,7 @@
     [self refresh];
     NSLog(@"%@",self.loggedInUser);
     
-    self.navigationController.toolbarHidden = NO;
+    self.navigationController.toolbarHidden = YES;
     
     UITextView * textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 100, 32)];
     textView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -340,12 +355,6 @@
     [textView sizeToFit];
     
     self.navigationController.toolbar.items = [NSArray arrayWithObject:barItem];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.navigationController.toolbarHidden = NO;
 }
 
 - (void)setLabels
@@ -447,5 +456,12 @@
         return 250.0;
     }
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath == [NSIndexPath indexPathForRow:0 inSection:0]) {
+        [self performSegueWithIdentifier:@"showComments" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    }
+}
+
 
 @end

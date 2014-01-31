@@ -90,6 +90,8 @@
 {
     [super viewDidLoad];
     [self refresh];
+    self.navigationController.toolbarHidden = YES;
+    
     
 }
 

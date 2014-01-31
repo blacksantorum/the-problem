@@ -265,6 +265,7 @@
 - (void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.navigationController.toolbarHidden = YES;
 }
 
 - (void)keyboardWillShow:(NSNotification *)notification {
