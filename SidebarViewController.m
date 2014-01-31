@@ -118,6 +118,10 @@
         BoxFanRevealController *brfc = (BoxFanRevealController *)[self revealController];
         brfc.loggedInUser = nil;
         
+        UINavigationController *scheduleNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleNav"];
+        [[self revealController] setFrontViewController:scheduleNavController];
+        [[self revealController] showViewController:scheduleNavController];
+        
         Interstitial *inter = [[Interstitial alloc] initWithNibName:@"Interstitial" bundle:nil];
         inter.delegate = self;
         [self presentViewController:inter animated:YES completion:nil];

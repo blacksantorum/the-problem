@@ -17,11 +17,10 @@
 
 @implementation Interstitial
 
-@synthesize delegate;
-
 -(void)signInWithRails:(User *)user
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
     NSDictionary *parameters = user.userDictionaryForSignIn;
     [manager POST:[URLS urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *userDictionary = responseObject;
@@ -33,8 +32,9 @@
         NSString *token = [userDictionary valueForKeyPath:@"user.session_token"];
         [self saveUserInDefaults:user withSessionToken:token];
         self.loggedIn = YES;
-        if([delegate respondsToSelector:@selector(passUser:)]) {
-            [delegate passUser:user];
+        if([self.delegate respondsToSelector:@selector(passUser:)]) {
+            [self.delegate passUser:user];
+            NSLog(@"calllllleeedd");
             [self dismissViewControllerAnimated:YES completion:nil];
         }
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -88,11 +88,20 @@
     NSLog(@"User dismissed the logInViewController");
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    if (!self.loggedIn) {
+        [self doLogInStuff];
+    }
+}
+
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     if (!self.loggedIn) {
-        [self doLogInStuff];
+        [self performSelector:@selector(doLogInStuff) withObject:nil afterDelay:2];
+        // [self doLogInStuff];
     }
 }
 

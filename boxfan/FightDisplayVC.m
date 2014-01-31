@@ -7,6 +7,7 @@
 //
 
 #import "FightDisplayVC.h"
+#import "CommentCell.h"
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
 #import "MostJabbedCommentsDisplayVC.h"
@@ -14,6 +15,8 @@
 #import "BarChartModel.h"
 #import "RecentFightDisplayViewController.h"
 #import "UpcomingFightViewController.h"
+#import "TTTTimeIntervalFormatter.h"
+
 
 @interface FightDisplayVC ()
 
@@ -30,6 +33,8 @@
 @property (strong,nonatomic) NSDictionary *boxersToPickPercentages;
 @property (strong,nonatomic) NSDictionary *boxersToDecisionPercentages;
 
+@property (strong,nonatomic) NSArray *comments;
+
 @end
 
 @implementation FightDisplayVC
@@ -38,6 +43,53 @@
 
 // fight info
 
+- (CommentCell *)topCommentCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Comment Cell";
+    
+    [tableView registerClass:[CommentCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    CommentCell *cell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (CommentCell *)currentObject;
+                break;
+            }
+        }
+    }
+    
+    Comment *comment = [self.comments firstObject];
+    
+    cell.comment = comment;
+    
+    [cell.jabButton setImage:[self jabButtonImageForComment:comment] forState:UIControlStateNormal];
+    cell.twitterHandleButton.tintColor = [UIColor blackColor];
+    [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateNormal];
+    [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateHighlighted];
+    
+    TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
+    
+    // formatted time interval from comment date to now
+    cell.commentDateTimeLabel.text = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:comment.date];
+    cell.totalJabsLabel.text = [NSString stringWithFormat:@"%d",(int)comment.jabs];
+    
+    cell.delegate = self;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    return cell;
+}
+
+- (UIImage *)jabButtonImageForComment:(Comment *)comment
+{
+    if (comment.isJabbedByLoggedInUser) {
+        return [UIImage imageNamed:@"jabbed"];
+    } else {
+        return [UIImage imageNamed:@"notjabbed"];
+    }
+}
 
 - (FightInfoCell *)fightInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
@@ -145,7 +197,8 @@
     }
     
     if (self.decision) {
-        cell.makeDecisionButton.titleLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
+        [cell.makeDecisionButton setTitle:[self decisionCellButtonRepresentationForDecision:self.decision] forState:UIControlStateNormal];
+        [cell.makeDecisionButton setTitle:[self decisionCellButtonRepresentationForDecision:self.decision] forState:UIControlStateHighlighted];
     }
     
     NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.lastName,self.boxersToDecisionPercentages[self.fight.boxerA.boxerFullName]];
@@ -251,7 +304,23 @@
     }
     self.boxersToDecisionPercentages = boxersToDecisionPercentages;
     
+    NSMutableArray *commentsArray = [[NSMutableArray alloc] init];
     
+    for (NSDictionary *commentDict in [self.JSONdictionary valueForKeyPath:@"fight.comments"]) {
+        Comment *c = [[Comment alloc] initWithDictionary:[commentDict objectForKey:@"comment"]];
+        [commentsArray addObject:c];
+    }
+    
+    self.comments = commentsArray;
+    
+    /*
+    self.comments = [commentsArray sortedArrayUsingComparator: ^(id a, id b) {
+        NSInteger j1 = [(Comment *)a jabs];
+        NSInteger j2 = [(Comment *)b jabs];
+        return j1 > j2;
+    }];
+    */
+     
     [self.fightInfoTableView reloadData];
 
 }
@@ -316,9 +385,13 @@
 {
     if (section == 0)
     {
-        return @"Fight Info";
+        return @"";
     }
     else if (section == 1)
+    {
+        return @"Fight Info";
+    }
+    else if (section == 2)
     {
         return @"Predictions";
     }
@@ -331,6 +404,9 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
+        return [self topCommentCellFor:tableView forIndexPath:indexPath];
+    }
+    else if (indexPath.section == 1) {
         FightInfoCell *cell = [self fightInfoCellFor:tableView forIndexPath:indexPath];
         cell.delegate = self;
         
@@ -343,10 +419,9 @@
                 cell.FOYButton.enabled = NO;
             }
         }
-        
         return cell;
     }
-    else if (indexPath.section == 1) {
+    else if (indexPath.section == 2) {
         return [self pickInfoCellFor:tableView forIndexPath:indexPath];
     }
     else {
@@ -365,6 +440,8 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
+        return 113.0;
+    } else if (indexPath.section == 1) {
         return 66.0;
     } else {
         return 250.0;

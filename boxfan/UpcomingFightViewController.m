@@ -24,7 +24,7 @@
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 #pragma mark - Action Sheet stuff
@@ -85,7 +85,7 @@
 
 -(void)postUserActivityDictionary:(NSDictionary *)dictionary toURLString:(NSString *)url
 {
-    PickInfoCell *cell = (PickInfoCell *)[self.fightInfoTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    PickInfoCell *cell = (PickInfoCell *)[self.fightInfoTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     cell.makePickButton.titleLabel.text = @"Updating...";
     cell.makePickButton.enabled = NO;
     [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {

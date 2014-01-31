@@ -32,6 +32,8 @@
         encryptedString = [encryptedString stringByAppendingString:[superSecretHash valueForKey:character]];
     }
     
+    NSLog(@"%@",encryptedString);
+    
     return encryptedString;
 }
 

@@ -28,7 +28,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *jabButton;
 @property (weak, nonatomic) IBOutlet UIButton *twitterHandleButton;
 
-@property (weak, nonatomic) IBOutlet UILabel *commentContentLabel;
+@property (weak, nonatomic) IBOutlet UITextView *commentContentTextView;
+
 @property (weak, nonatomic) IBOutlet UILabel *commentDateTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalJabsLabel;
 

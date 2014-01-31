@@ -24,19 +24,19 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     
+    [super viewDidAppear:animated];
     if (![self encodedUserFromDefaults]) {
         Interstitial *interstitial = [[Interstitial alloc] initWithNibName:@"Interstitial" bundle:nil];
-        interstitial.delegate = self;
         [self presentViewController:interstitial animated:YES completion:nil];
+        interstitial.delegate = self;
     }
-    
-    [super viewDidAppear:animated];
     
 }
 
 -(void)passUser:(User *)user
 {
     self.loggedInUser = user;
+    NSLog(@"User passed to BFRC: %@",self.loggedInUser);
 }
 
 

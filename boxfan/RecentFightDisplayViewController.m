@@ -34,9 +34,9 @@
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if (self.fight.stoppage) {
-        return 2;
-    } else {
         return 3;
+    } else {
+        return 4;
     }
 }
 
@@ -78,7 +78,7 @@
 
 -(void)postUserActivityDictionary:(NSDictionary *)dictionary toURLString:(NSString *)url
 {
-    DecisionInfoCell *cell = (DecisionInfoCell *)[self.fightInfoTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
+    DecisionInfoCell *cell = (DecisionInfoCell *)[self.fightInfoTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:3]];
     cell.makeDecisionButton.titleLabel.text = @"Updating...";
     cell.makeDecisionButton.enabled = NO;
     [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {

@@ -188,8 +188,9 @@
     
     [cell.jabButton setImage:[self jabButtonImageForComment:comment] forState:UIControlStateNormal];
      cell.twitterHandleButton.tintColor = [UIColor blackColor];
-    cell.twitterHandleButton.titleLabel.text = comment.author.handle;
-    cell.commentContentLabel.text = comment.content;
+    [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateNormal];
+    [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateHighlighted];
+    cell.commentContentTextView.text = comment.content;
     
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     
@@ -239,7 +240,7 @@
     UIFont *font = [UIFont systemFontOfSize:14];
     CGSize size = [self getSizeOfText:text withFont:font];
     
-    return (size.height + 100);
+    return (size.height + 80);
 }
 
 - (NSString *)getTextForIndexPath:(NSIndexPath *)indexPath
@@ -251,7 +252,9 @@
 
 - (CGSize)getSizeOfText:(NSString *)text withFont:(UIFont *)font
 {
-    return [text sizeWithFont:font constrainedToSize:CGSizeMake(280, 500)];
+    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
+    CGRect rect = [text boundingRectWithSize:CGSizeMake(238, 50) options:NSStringDrawingUsesFontLeading attributes:attributes context:nil];
+    return rect.size;
 }
 
 - (void) viewWillAppear:(BOOL)animated{
