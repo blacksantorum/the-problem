@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface boxfanAppDelegate : UIResponder <UIApplicationDelegate>
+@interface boxfanAppDelegate : UIResponder <UIApplicationDelegate,PFLogInViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

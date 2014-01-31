@@ -14,10 +14,12 @@
 #import "SidebarViewController.h"
 #import "BoxFanRevealController.h"
 #import "Interstitial.h"
+#import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface boxfanAppDelegate() <PKRevealing>
 
 @property (nonatomic,strong,readwrite) BoxFanRevealController *revealController;
+@property (nonatomic,strong) User *user;
 
 @end
 
@@ -29,6 +31,61 @@
                   clientKey:@"ygFW72dJh6tk3jbTxcEQoFbbROXRSIxaqldcv9Ik"];
     [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
                                consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
+}
+
+-(void)signInWithRails:(User *)user
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    NSDictionary *parameters = user.userDictionaryForSignIn;
+    [manager POST:[URLS urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSDictionary *userDictionary = responseObject;
+        user.userID = [userDictionary valueForKeyPath:@"user.id"];
+        NSString *token = [userDictionary valueForKeyPath:@"user.session_token"];
+        [self saveUserInDefaults:user withSessionToken:token];
+        [self setUpRevealController];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+}
+
+-(NSDictionary *)userDictionaryFromTwitter
+{
+    NSString *twitterScreenName = [PFTwitterUtils twitter].screenName;
+    NSURL *verify = [NSURL URLWithString:[URLS urlStringForUsersTwitterWithScreenname:twitterScreenName]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:verify];
+    [[PFTwitterUtils twitter] signRequest:request];
+    NSURLResponse *response = nil;
+    NSError *error;
+    NSData *data = [NSURLConnection sendSynchronousRequest:request
+                                         returningResponse:&response
+                                                     error:&error];
+    
+    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    return result;
+}
+
+-(void)saveUserInDefaults:(User *)user
+         withSessionToken:(NSString *)token
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    NSData *encodedUser = [NSKeyedArchiver archivedDataWithRootObject:user];
+    [defaults setObject:encodedUser forKey:@"User"];
+    [defaults setObject:token forKey:@"Token"];
+    [defaults synchronize];
+}
+
+// Sent to the delegate when a PFUser is logged in.
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
+    
+    [self signInWithRails:boxingAppUser];
+}
+
+// Sent to the delegate when the log in attempt fails.
+- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+    NSLog(@"Failed to log in...");
 }
 
 -(void)setUpRevealController
@@ -71,10 +128,20 @@
 {
     [self doParseInitialization];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // [self logOut];
-    [self setUpRevealController];
+
+    if (![self encodedUserFromDefaults]) {
+        PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+        logInViewController.delegate = self;
+        logInViewController.fields = PFLogInFieldsTwitter;
+        
+        self.window.rootViewController = logInViewController;
+        [self.window makeKeyAndVisible];
+    } else {
+        [self setUpRevealController];
+    }
     return YES;
 }
+
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {

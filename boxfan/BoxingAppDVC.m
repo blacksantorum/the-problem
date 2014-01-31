@@ -89,19 +89,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if (self.loggedInUser) {
-        [self refresh];
-    }
+    [self refresh];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if (self.loggedInUser) {
-        [self refresh];
-    }
-    NSLog(@"%@",self.loggedInUser);
 }
 
 @end
