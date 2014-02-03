@@ -297,7 +297,7 @@
                         <barButtonItem id="c2h-Qr-vab"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="RfX-nd-67c">
-                        <barButtonItem key="rightBarButtonItem" title="Comments" id="Dr0-jm-xnO">
+                        <barButtonItem key="rightBarButtonItem" image="comments" id="Dr0-jm-xnO">
                             <connections>
                                 <segue destination="biB-db-6jh" kind="push" identifier="showComments" id="qzA-aM-Sji"/>
                             </connections>
@@ -442,7 +442,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="m3D-DG-sY1">
-                        <barButtonItem key="rightBarButtonItem" title="Comments" id="ksB-8i-cxi">
+                        <barButtonItem key="rightBarButtonItem" image="comments" id="ksB-8i-cxi">
                             <connections>
                                 <segue destination="biB-db-6jh" kind="push" identifier="showComments" id="TrW-5U-ZxQ"/>
                             </connections>
@@ -503,7 +503,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="crO-bj-i0m">
-                        <barButtonItem key="rightBarButtonItem" title="History" id="XgO-Uy-6tE">
+                        <barButtonItem key="rightBarButtonItem" image="history" id="XgO-Uy-6tE">
                             <connections>
                                 <segue destination="3ij-F1-unI" kind="push" identifier="showHistory" id="ZhA-Vh-E1K"/>
                             </connections>
@@ -688,7 +688,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="comments" width="22" height="22"/>
         <image name="hamburger" width="33" height="30"/>
+        <image name="history" width="22" height="14"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -696,7 +698,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="TrW-5U-ZxQ"/>
         <segue reference="hZw-sQ-NiI"/>
-        <segue reference="qzA-aM-Sji"/>
     </inferredMetricsTieBreakers>
 </document>

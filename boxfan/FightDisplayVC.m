@@ -495,8 +495,11 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath == [NSIndexPath indexPathForRow:0 inSection:0]) {
-        [self performSegueWithIdentifier:@"showComments" sender:[tableView cellForRowAtIndexPath:indexPath]];
+    if (indexPath.section == 0) {
+        MostJabbedCommentsDisplayVC *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"jabbed"];
+        controller.title = self.fight.titleForScheduleView;
+        controller.fight = self.fight;
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 
