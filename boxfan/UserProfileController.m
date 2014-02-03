@@ -13,6 +13,7 @@
 #import "FOYCell.h"
 #import "ProfileCell.h"
 #import "UserHistoryTableVC.h"
+#import "boxfanAppDelegate.h"
 
 @interface UserProfileController ()
 
@@ -122,6 +123,7 @@
     
     NSLog(@"%@",request);
     
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             NSLog(@"Connection error: %@", connectionError);
@@ -136,6 +138,7 @@
                 self.profile = [[Profile alloc] initWithDictionary:[userDictionary objectForKey:@"user"]];
                 self.mantraLabel.text = self.profile.mantra;
                 [self.profileTableView reloadData];
+                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
             }
         }
     }];
@@ -166,9 +169,11 @@
 
 - (void)updateProfile:(NSDictionary *)dictionary
 {
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager PUT:[URLS urlStringForUpdatingProfileForUser:self.loggedInUser] parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [self refresh];
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

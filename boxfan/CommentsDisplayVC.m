@@ -12,6 +12,7 @@
 #import "TTTTimeIntervalFormatter.h"
 #import "BoxFanRevealController.h"
 #import "UserProfileController.h"
+#import "boxfanAppDelegate.h"
 
 @interface CommentsDisplayVC ()
 
@@ -73,10 +74,11 @@
 {
     NSLog(@"Comment: %@",self.commentField.text);
     NSDictionary *dictionary = @{@"comment":@{@"body" : self.commentField.text}};
-
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:[URLS urlStringForPostingCommentForFight:self.fight] parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [self refresh];
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
         self.commentField.text = @"";
         [self.commentField resignFirstResponder];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -107,6 +109,7 @@
 
 - (void)refresh
 {
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self addActivityViewIndicator];
     [self.spinner startAnimating];
     NSLog(@"%@", [URLS urlForCommentsForFight:self.fight]);
@@ -134,6 +137,7 @@
                 
                 [self.tableView reloadData];
                 [self.spinner stopAnimating];
+                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
             }
         }
     }];
@@ -221,8 +225,10 @@
     } else {
         url = [URLS urlStringForJabbingComment:comment];
     }
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

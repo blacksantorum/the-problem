@@ -8,6 +8,7 @@
 
 #import "boxfanAppDelegate.h"
 #import <Parse/Parse.h>
+#import "TBALoginViewController.h"
 #import "Auth.h"
 #import <PKRevealController/PKRevealController.h>
 #import "BoxingScheduleVC.h"
@@ -22,6 +23,22 @@
 @end
 
 @implementation boxfanAppDelegate
+
+- (void)setNetworkActivityIndicatorVisible:(BOOL)setVisible {
+    static NSInteger NumberOfCallsToSetVisible = 0;
+    if (setVisible)
+        NumberOfCallsToSetVisible++;
+    else
+        NumberOfCallsToSetVisible--;
+    
+    // The assertion helps to find programmer errors in activity indicator management.
+    // Since a negative NumberOfCallsToSetVisible is not a fatal error,
+    // it should probably be removed from production code.
+    NSAssert(NumberOfCallsToSetVisible >= 0, @"Network Activity Indicator was asked to hide more often than shown");
+    
+    // Display the indicator as long as our static counter is > 0.
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:(NumberOfCallsToSetVisible > 0)];
+}
 
 -(void)doParseInitialization
 {
@@ -75,14 +92,14 @@
 }
 
 // Sent to the delegate when a PFUser is logged in.
-- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+- (void)logInViewController:(TBALoginViewController *)logInController didLogInUser:(PFUser *)user {
     User *boxingAppUser = [[User alloc] initWithDictionary:[self userDictionaryFromTwitter]];
     
     [self signInWithRails:boxingAppUser];
 }
 
 // Sent to the delegate when the log in attempt fails.
-- (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
+- (void)logInViewController:(TBALoginViewController *)logInController didFailToLogInWithError:(NSError *)error {
     NSLog(@"Failed to log in...");
 }
 
@@ -117,7 +134,7 @@
 
 - (void)showLogInView
 {
-    PFLogInViewController *logInViewController = [[PFLogInViewController alloc] init];
+    TBALoginViewController *logInViewController = [[TBALoginViewController alloc] init];
     logInViewController.delegate = self;
     logInViewController.fields = PFLogInFieldsTwitter;
     
@@ -140,6 +157,25 @@
 
 - (void)logOut
 {
+    [PFUser logOut];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"User"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Token"];
+    
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [storage cookiesForURL:[URLS urlForTwitterAuth]]) {
+        [storage deleteCookie:cookie];
+    }
+    
+    for (cookie in [storage cookiesForURL:[URLS urlForTBATwitterAuth]]) {
+        [storage deleteCookie:cookie];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    self.revealController.loggedInUser = nil;
+    
+    
+    
     [self showLogInView];
 }
 							

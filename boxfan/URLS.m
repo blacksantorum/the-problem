@@ -242,4 +242,14 @@
     return [NSURL URLWithString:[URLS appendSessionToken:url]];
 }
 
++ (NSURL *)urlForTwitterAuth;
+{
+    return [NSURL URLWithString:@"http://the-boxing-app.herokuapp.com/auth/twitter"];
+}
+
++ (NSURL *)urlForTBATwitterAuth;
+{
+    return [NSURL URLWithString:@"http://www.theboxingapp.com/auth/twitter"];
+}
+
 @end

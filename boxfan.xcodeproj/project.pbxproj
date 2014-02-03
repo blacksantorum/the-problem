@@ -44,6 +44,7 @@
 		EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */; };
 		EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */; };
 		EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */; };
+		ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA04782189C614C0078582A /* TBALoginViewController.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
 		ECA0CE3E185E4EF8003380C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3D185E4EF8003380C5 /* UIKit.framework */; };
@@ -415,6 +416,8 @@
 		EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostJabbedCommentsDisplayVC.m; sourceTree = "<group>"; };
 		EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCommentsDisplayVC.h; sourceTree = "<group>"; };
 		EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentsDisplayVC.m; sourceTree = "<group>"; };
+		ECA04781189C614C0078582A /* TBALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBALoginViewController.h; sourceTree = "<group>"; };
+		ECA04782189C614C0078582A /* TBALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBALoginViewController.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECA0CE39185E4EF8003380C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -903,6 +906,8 @@
 				ECC109ED1888A47A000B70CF /* BoxFanRevealController.m */,
 				ECA0CE48185E4EF9003380C5 /* boxfanAppDelegate.h */,
 				ECA0CE41185E4EF9003380C5 /* boxfan-Info.plist */,
+				ECA04781189C614C0078582A /* TBALoginViewController.h */,
+				ECA04782189C614C0078582A /* TBALoginViewController.m */,
 				ECA0CE42185E4EF9003380C5 /* InfoPlist.strings */,
 				ECA0CE45185E4EF9003380C5 /* main.m */,
 				ECA0CE47185E4EF9003380C5 /* boxfan-Prefix.pch */,
@@ -1831,6 +1836,7 @@
 				ECA15DDA189647FB0005E920 /* BarChartModel.m in Sources */,
 				ECCA0A7C18970F3A00403AFD /* UserProfileController.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
+				ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */,
 				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */,
 				ECC109E81887C641000B70CF /* FindUserVC.m in Sources */,

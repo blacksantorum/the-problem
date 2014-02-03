@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 #import <PKRevealController/PKRevealController.h>
 #import "BoxingScheduleVC.h"
+#import "boxfanAppDelegate.h"
 
 @interface BoxingAppDVC ()
 
@@ -52,6 +53,7 @@
 
 - (void)refresh
 {
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self addActivityViewIndicator];
     [self.spinner startAnimating];
 
@@ -71,6 +73,7 @@
                 [self configureDataSource];
                 [self.tableView reloadData];
                 [self.spinner stopAnimating];
+                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
             }
         }
     }];

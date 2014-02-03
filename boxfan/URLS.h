@@ -35,6 +35,8 @@
 + (NSURL *)urlForGods;
 + (NSURL *)baseURL;
 + (NSURL *)urlForCommentsForFight:(Fight *)fight;
++ (NSURL *)urlForTwitterAuth;
++ (NSURL *)urlForTBATwitterAuth;
 
 + (BOOL)prod;
 

@@ -16,6 +16,7 @@
 #import "RecentFightDisplayViewController.h"
 #import "UpcomingFightViewController.h"
 #import "TTTTimeIntervalFormatter.h"
+#import "boxfanAppDelegate.h"
 
 
 @interface FightDisplayVC ()
@@ -90,8 +91,10 @@
     } else {
         url = [URLS urlStringForJabbingComment:comment];
     }
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];
@@ -272,6 +275,7 @@
 
 -(void)refresh
 {
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     NSURL *url = [NSURL URLWithString:[URLS urlForUsersCurrentPickForFight:self.fight]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
@@ -287,6 +291,7 @@
                 NSLog(@"Object: %@",object);
                 self.JSONdictionary = (NSDictionary *)object;
                 [self configureDataSource];
+                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
             }
         }
     }];
@@ -377,9 +382,11 @@
 
 -(void)postUserActivityDictionary:(NSDictionary *)dictionary toURLString:(NSString *)url
 {
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [self refresh];
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
     }];

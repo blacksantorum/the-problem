@@ -111,13 +111,6 @@
     }
 
     if (row == 4) {
-        [PFUser logOut];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"User"];
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"Token"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        BoxFanRevealController *brfc = (BoxFanRevealController *)[self revealController];
-        brfc.loggedInUser = nil;
-        
         if ([self.delegate respondsToSelector:@selector(logOut)]) {
             [self.delegate logOut];
         }
