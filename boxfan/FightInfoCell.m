@@ -34,8 +34,8 @@
 }
 
 - (IBAction)FOYButtonPressed:(id)sender {
-    if ([self.delegate respondsToSelector:@selector(changeFOY)]) {
-        [self.delegate changeFOY];
+    if ([self.delegate respondsToSelector:@selector(showFOYChangeAlertView)]) {
+        [self.delegate showFOYChangeAlertView];
     }
 }
 @end

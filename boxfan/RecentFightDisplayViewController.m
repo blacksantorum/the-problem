@@ -29,6 +29,7 @@
         NSLog(@"Error: %@", error);
     }];
     self.loggedInUser.foy = self.fight;
+    [self refresh];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -37,6 +38,19 @@
         return 3;
     } else {
         return 4;
+    }
+}
+
+- (void)showFOYChangeAlertView
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Fight of the Year" message:[NSString stringWithFormat:@"Change your Fight of the Year to %@?",self.fight.titleForScheduleView] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    [alertView show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        [self changeFOY];
     }
 }
 

@@ -21,6 +21,8 @@
 		EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374AD51890891D00C4343A /* RecentFightDisplayViewController.m */; };
 		EC374AD81890930500C4343A /* DecisionInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC374AD71890930500C4343A /* DecisionInfoCell.xib */; };
 		EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC374ADA1890947200C4343A /* DecisionInfoCell.m */; };
+		EC4C01FF189FAAA100310CF8 /* NoCommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC4C01FE189FAAA100310CF8 /* NoCommentsCell.xib */; };
+		EC4C0202189FABF800310CF8 /* NoCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC4C0201189FABF800310CF8 /* NoCommentsCell.m */; };
 		EC5373FD1880C22F00DF16AB /* URLS.m in Sources */ = {isa = PBXBuildFile; fileRef = EC5373FC1880C22F00DF16AB /* URLS.m */; };
 		EC5373FF18810A3200DF16AB /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC5373FE18810A3200DF16AB /* Parse.framework */; };
 		EC53740918810AAA00DF16AB /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC53740018810AAA00DF16AB /* AudioToolbox.framework */; };
@@ -384,6 +386,9 @@
 		EC374AD71890930500C4343A /* DecisionInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DecisionInfoCell.xib; sourceTree = "<group>"; };
 		EC374AD91890947200C4343A /* DecisionInfoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DecisionInfoCell.h; sourceTree = "<group>"; };
 		EC374ADA1890947200C4343A /* DecisionInfoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DecisionInfoCell.m; sourceTree = "<group>"; };
+		EC4C01FE189FAAA100310CF8 /* NoCommentsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoCommentsCell.xib; sourceTree = "<group>"; };
+		EC4C0200189FABF800310CF8 /* NoCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoCommentsCell.h; sourceTree = "<group>"; };
+		EC4C0201189FABF800310CF8 /* NoCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoCommentsCell.m; sourceTree = "<group>"; };
 		EC5373FB1880C22F00DF16AB /* URLS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLS.h; sourceTree = "<group>"; };
 		EC5373FC1880C22F00DF16AB /* URLS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLS.m; sourceTree = "<group>"; };
 		EC5373FE18810A3200DF16AB /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -1348,6 +1353,9 @@
 		ECCA0A85189718C200403AFD /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				EC4C01FE189FAAA100310CF8 /* NoCommentsCell.xib */,
+				EC4C0200189FABF800310CF8 /* NoCommentsCell.h */,
+				EC4C0201189FABF800310CF8 /* NoCommentsCell.m */,
 				EC81025518946BA60092B7DB /* CommentCell.xib */,
 				EC81025718946BD70092B7DB /* CommentCell.h */,
 				EC81025818946BD70092B7DB /* CommentCell.m */,
@@ -1614,6 +1622,7 @@
 				ECC10B5E188E2F14000B70CF /* Hong Kong.png in Resources */,
 				ECC10B3E188E2F14000B70CF /* Dominican Republic.png in Resources */,
 				ECC10B64188E2F14000B70CF /* Iraq.png in Resources */,
+				EC4C01FF189FAAA100310CF8 /* NoCommentsCell.xib in Resources */,
 				ECC10B98188E2F14000B70CF /* Netherlands.png in Resources */,
 				ECC10BB3188E2F14000B70CF /* Romania.png in Resources */,
 				ECC10BF1188E2F14000B70CF /* Zambia.png in Resources */,
@@ -1864,6 +1873,7 @@
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
 				ECCA0A981898DEB500403AFD /* UserHistoryTableVC.m in Sources */,
 				ECCA0A8F1897857500403AFD /* UpdateProfileViewController.m in Sources */,
+				EC4C0202189FABF800310CF8 /* NoCommentsCell.m in Sources */,
 				ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
 				ECCA0A821897181E00403AFD /* FOYCell.m in Sources */,

@@ -18,6 +18,7 @@
 @property NSInteger jabs;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
+- (NSComparisonResult)compare:(Comment *)otherComment;
 
 
 @end

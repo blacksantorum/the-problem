@@ -32,4 +32,9 @@
     return self;
 }
 
+- (NSComparisonResult)compare:(Comment *)otherComment
+{
+    return self.jabs < otherComment.jabs;
+}
+
 @end

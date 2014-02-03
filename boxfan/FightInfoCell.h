@@ -11,7 +11,7 @@
 
 @protocol ChangeFOYDelegate <NSObject>
 
--(void)changeFOY;
+- (void)showFOYChangeAlertView;
 
 @end
 

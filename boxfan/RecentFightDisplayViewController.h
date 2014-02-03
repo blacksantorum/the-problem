@@ -10,7 +10,7 @@
 #import "Decision.h"
 #import "FightInfoCell.h"
 
-@interface RecentFightDisplayViewController : FightDisplayVC <ChangeFOYDelegate>
+@interface RecentFightDisplayViewController : FightDisplayVC <ChangeFOYDelegate,UIAlertViewDelegate>
 
 @property (nonatomic,strong) Decision *decision;
 

@@ -17,6 +17,7 @@
 #import "UpcomingFightViewController.h"
 #import "TTTTimeIntervalFormatter.h"
 #import "boxfanAppDelegate.h"
+#import "NoCommentsCell.h"
 
 
 @interface FightDisplayVC ()
@@ -44,6 +45,28 @@
 
 // fight info
 
+- (NoCommentsCell *)noCommentsCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"No Comments Cell";
+    
+    [tableView registerClass:[NoCommentsCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    NoCommentsCell *cell = (NoCommentsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (NoCommentsCell *)currentObject;
+                break;
+            }
+        }
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
+    
+}
+
 - (CommentCell *)topCommentCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Comment Cell";
@@ -62,7 +85,11 @@
         }
     }
     
-    Comment *comment = [self.comments firstObject];
+    NSLog(@"%@",self.comments);
+    
+    Comment *comment = self.comments[0];
+    
+    NSLog(@"Content: %@ with %d jabs",comment.content,comment.jabs);
     
     cell.comment = comment;
     
@@ -70,6 +97,7 @@
     cell.twitterHandleButton.tintColor = [UIColor blackColor];
     [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateNormal];
     [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateHighlighted];
+    cell.commentContentTextView.text = comment.content;
     
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     
@@ -155,15 +183,16 @@
     
     if (![JSONDataNullCheck isNull:self.fight.winnerID]) {
         if (self.pick) {
-            cell.makePickButton.titleLabel.text = [self pickCellButtonRepresentationForPick:self.pick];
-            cell.makePickButton.enabled = NO;
+            cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
+            [cell.makePickButton removeFromSuperview];
         } else {
             [cell.yourPickLabel removeFromSuperview];
             [cell.makePickButton removeFromSuperview];
+            [cell.currentPickDescriptionLabel removeFromSuperview];
         }
     } else {
         if (self.pick) {
-            cell.makePickButton.titleLabel.text = [self pickCellButtonRepresentationForPick:self.pick];
+            cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
         }
         
         NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.lastName,self.boxersToPickPercentages[self.fight.boxerA.boxerFullName]];
@@ -252,7 +281,7 @@
     return cell;
 }
 
--(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
+-(NSString *)currentPickDescriptionLabelRepresentationForPick:(Pick *)pick
 {
     return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by dec"];
 }
@@ -331,15 +360,7 @@
         [commentsArray addObject:c];
     }
     
-    self.comments = commentsArray;
-    
-    /*
-    self.comments = [commentsArray sortedArrayUsingComparator: ^(id a, id b) {
-        NSInteger j1 = [(Comment *)a jabs];
-        NSInteger j2 = [(Comment *)b jabs];
-        return j1 > j2;
-    }];
-    */
+    self.comments = [commentsArray sortedArrayUsingSelector:@selector(compare:)];
      
     [self.fightInfoTableView reloadData];
 
@@ -420,7 +441,11 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
-        return [self topCommentCellFor:tableView forIndexPath:indexPath];
+        if ([self.comments count] > 0) {
+            return [self topCommentCellFor:tableView forIndexPath:indexPath];
+        } else {
+            return [self noCommentsCellFor:tableView forIndexPath:indexPath];
+        }
     }
     else if (indexPath.section == 1) {
         FightInfoCell *cell = [self fightInfoCellFor:tableView forIndexPath:indexPath];
@@ -431,7 +456,8 @@
         }
         if ([self isKindOfClass:[RecentFightDisplayViewController class]]) {
             if ([self.fight.fightID.description isEqualToString:self.loggedInUser.foy.fightID.description]) {
-                cell.FOYButton.titleLabel.text = @"This is your FOY";
+                [cell.FOYButton setTitle:@"This is your FOY" forState:UIControlStateNormal];
+                [cell.FOYButton setTitle:@"This is your FOY" forState:UIControlStateDisabled];
                 cell.FOYButton.enabled = NO;
             }
         }
@@ -456,7 +482,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        return 113.0;
+        if ([self.comments count] > 0) {
+            return 113.0;
+        } else {
+            return 56.0;
+        }
     } else if (indexPath.section == 1) {
         return 66.0;
     } else {

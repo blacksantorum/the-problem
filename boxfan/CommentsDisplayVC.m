@@ -196,6 +196,8 @@
      cell.twitterHandleButton.tintColor = [UIColor blackColor];
     [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateNormal];
     [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateHighlighted];
+    
+    [cell.commentContentTextView setText:nil];
     cell.commentContentTextView.text = comment.content;
     
     cell.commentContentTextView.scrollEnabled = NO;

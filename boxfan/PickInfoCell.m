@@ -15,7 +15,7 @@
 
 @implementation PickInfoCell
 
--(NSString *)pickCellButtonRepresentationForPick:(Pick *)pick
+-(NSString *)pickDescriptionLabelRepresentationForPick:(Pick *)pick
 {
     return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by decision"];
 }
