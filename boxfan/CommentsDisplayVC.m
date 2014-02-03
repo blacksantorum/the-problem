@@ -14,7 +14,9 @@
 #import "UserProfileController.h"
 #import "boxfanAppDelegate.h"
 
-@interface CommentsDisplayVC ()
+@interface CommentsDisplayVC () {
+    NSMutableDictionary *textViews;
+}
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 @property (strong,nonatomic) UIActivityIndicatorView *spinner;
@@ -196,16 +198,33 @@
     [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateHighlighted];
     cell.commentContentTextView.text = comment.content;
     
+    cell.commentContentTextView.scrollEnabled = NO;
+    
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     
     // formatted time interval from comment date to now
     cell.commentDateTimeLabel.text = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:comment.date];
     cell.totalJabsLabel.text = [NSString stringWithFormat:@"%d",(int)comment.jabs];
     
+    [textViews setObject:cell.commentContentTextView forKey:indexPath];
+    cell.commentContentTextView.delegate = self;
+    
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    /*
+    NSLog(@"textViewDidChange getting called.");
+    CGFloat fixedWidth = textView.frame.size.width;
+    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = textView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    textView.frame = newFrame;
+     */
 }
 
 - (UIImage *)jabButtonImageForComment:(Comment *)comment
@@ -241,12 +260,30 @@
     [self.navigationController pushViewController:controller animated:YES];
 }
 
+- (CGFloat)textViewHeightForRowAtIndexPath: (NSIndexPath*)indexPath {
+    UITextView *calculationView = [textViews objectForKey: indexPath];
+    // CGFloat textViewWidth = calculationView.frame.size.width;
+    // if (!calculationView.attributedText) {
+        // This will be needed on load, when the text view is not inited yet
+        
+        calculationView = [[UITextView alloc] init];
+        
+        Comment *comment = self.comments[indexPath.row];
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0]}];
+        calculationView.attributedText = string;
+        CGFloat textViewWidth = 238.0;
+    // }
+    CGSize size = [calculationView sizeThatFits:CGSizeMake(textViewWidth, FLT_MAX)];
+    return size.height;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *text = [self getTextForIndexPath:indexPath];
-    UIFont *font = [UIFont systemFontOfSize:14];
-    CGSize size = [self getSizeOfText:text withFont:font];
-    
-    return (size.height + 80);
+    CGFloat calculatedHeight = [self textViewHeightForRowAtIndexPath:indexPath] + 50;
+    if (calculatedHeight < 90) {
+        return 90;
+    } else {
+        return calculatedHeight;
+    }
 }
 
 - (NSString *)getTextForIndexPath:(NSIndexPath *)indexPath

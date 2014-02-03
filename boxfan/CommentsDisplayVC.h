@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CommentCell.h"
 
-@interface CommentsDisplayVC : UITableViewController <JabCommentDelegate,ShowUserDelegate>
+@interface CommentsDisplayVC : UITableViewController <JabCommentDelegate,ShowUserDelegate,UITextViewDelegate>
 
 @property (nonatomic,strong) Fight *fight;
 @property (nonatomic,strong) User *loggedInUser;
