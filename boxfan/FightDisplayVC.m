@@ -390,13 +390,16 @@
     self.boxerBFirstNameLabel.text = self.fight.boxerB.firstName;
     self.boxerBLastNameLabel.text = self.fight.boxerB.lastName;
     
-    if (![self.fight.winnerID.description isEqualToString:@"-100"]) {
+    if (![self.fight.winnerID.description isEqualToString:@"-100"] && ![self.fight.winnerID.description isEqualToString:@"0"]) {
         if (self.fight.stoppage) {
             self.resultLabel.text = @"KO";
         } else {
             self.resultLabel.text = @"def.";
         }
-    } else {
+    } else if ([self.fight.winnerID.description isEqualToString:@"0"]) {
+        self.resultLabel.text = @"drew";
+    }
+    else {
         self.resultLabel.text = @"-";
     }
 }

@@ -136,12 +136,14 @@
     cell.boxerBLabel.text = [self boxerNameDisplay:fight.boxerB];
     [cell.boxerBCountryFlag setImage:[UIImage imageNamed:fight.boxerB.country]];
     
-    if (![fight.winnerID.description isEqualToString:@"-100"]) {
+    if (![fight.winnerID.description isEqualToString:@"-100"] && ![fight.winnerID.description isEqualToString:@"0"]) {
         if (fight.stoppage) {
             cell.resultsLabel.text = @"KO";
         } else {
             cell.resultsLabel.text = @"def";
         }
+    } else if ([fight.winnerID.description isEqualToString:@"0"]) {
+        cell.resultsLabel.text = @"drew";
     }
     
     return cell;
