@@ -69,6 +69,7 @@
             
             Boxer *b = [[Boxer alloc] initWithDictionary:boxerDictionary[@"boxer"]];
             [boxers addObject:b];
+            NSLog(@"Boxer from json %@",b);
         }
         f.boxers = boxers;
         [fightArray addObject:f];
@@ -128,12 +129,14 @@
     NSArray *fightArrayAtDate = [self fightsForDate:date];
     Fight *fight = fightArrayAtDate[indexPath.row];
     
+    NSLog(@"Fight: %@ with boxers %@ and %@",fight,fight.boxerA,fight.boxerB);
+    
     cell.boxerALabel.text = [self boxerNameDisplay:fight.boxerA];
     [cell.boxerACountryFlag setImage:[UIImage imageNamed:fight.boxerA.country]];
     cell.boxerBLabel.text = [self boxerNameDisplay:fight.boxerB];
     [cell.boxerBCountryFlag setImage:[UIImage imageNamed:fight.boxerB.country]];
     
-    if (![JSONDataNullCheck isNull:fight.winnerID]) {
+    if (![fight.winnerID.description isEqualToString:@"-100"]) {
         if (fight.stoppage) {
             cell.resultsLabel.text = @"KO";
         } else {

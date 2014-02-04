@@ -390,7 +390,7 @@
     self.boxerBFirstNameLabel.text = self.fight.boxerB.firstName;
     self.boxerBLastNameLabel.text = self.fight.boxerB.lastName;
     
-    if (![JSONDataNullCheck isNull:self.fight.winnerID]) {
+    if (![self.fight.winnerID.description isEqualToString:@"-100"]) {
         if (self.fight.stoppage) {
             self.resultLabel.text = @"KO";
         } else {

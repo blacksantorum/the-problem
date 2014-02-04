@@ -70,7 +70,7 @@
 {
     Boxer *boxerA;
     
-    if (![JSONDataNullCheck isNull:self.winnerID]) {
+    if (![self.winnerID.description isEqualToString:@"-100"]) {
         for (Boxer *b in self.boxers) {
             if ([b.boxerID.description isEqualToString:self.winnerID.description])
                 boxerA = b;
@@ -86,7 +86,7 @@
 {
     Boxer *boxerB;
     
-    if (![JSONDataNullCheck isNull:self.winnerID]) {
+    if (![self.winnerID.description isEqualToString:@"-100"]) {
         for (Boxer *b in self.boxers) {
             if (![b.boxerID.description isEqualToString:self.winnerID.description])
                 boxerB = b;
