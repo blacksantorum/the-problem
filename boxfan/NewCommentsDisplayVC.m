@@ -23,9 +23,5 @@
     }];
 }
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    self.navigationController.toolbarHidden = NO;
-}
 
 @end

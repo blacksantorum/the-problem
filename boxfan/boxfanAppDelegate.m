@@ -52,6 +52,7 @@
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     
+    [self setNetworkActivityIndicatorVisible:YES];
     NSDictionary *parameters = user.userDictionaryForSignIn;
     [manager POST:[URLS urlStringForRailsSignIn] parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSDictionary *userDictionary = responseObject;
@@ -59,8 +60,10 @@
         NSString *token = [userDictionary valueForKeyPath:@"user.session_token"];
         [self saveUserInDefaults:user withSessionToken:token];
         [self setUpRevealController];
+        [self setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [self setNetworkActivityIndicatorVisible:NO];
     }];
 }
 

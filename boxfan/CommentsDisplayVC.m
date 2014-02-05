@@ -63,6 +63,7 @@
     self.commentField.borderStyle = UITextBorderStyleRoundedRect;
     self.originalToolbarFrame = self.navigationController.toolbar.frame;
     // [self refresh];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -85,6 +86,7 @@
         [self.commentField resignFirstResponder];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
     
 }
@@ -138,10 +140,10 @@
                 self.comments = comments;
                 
                 [self.tableView reloadData];
-                [self.spinner stopAnimating];
-                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
             }
         }
+        [self.spinner stopAnimating];
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
@@ -252,6 +254,7 @@
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
@@ -332,6 +335,11 @@
                      }
                      completion:nil];
     
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"connectionRestored" object:nil];
 }
 
 @end

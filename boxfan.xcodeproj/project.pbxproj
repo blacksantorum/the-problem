@@ -45,6 +45,7 @@
 		EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */; };
 		EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */; };
 		EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */; };
+		EC96EC9318A1C49800AD894D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96EC9218A1C49800AD894D /* Reachability.m */; };
 		ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA04782189C614C0078582A /* TBALoginViewController.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
@@ -404,6 +405,8 @@
 		EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostJabbedCommentsDisplayVC.m; sourceTree = "<group>"; };
 		EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCommentsDisplayVC.h; sourceTree = "<group>"; };
 		EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentsDisplayVC.m; sourceTree = "<group>"; };
+		EC96EC9118A1C49800AD894D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		EC96EC9218A1C49800AD894D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		ECA04781189C614C0078582A /* TBALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBALoginViewController.h; sourceTree = "<group>"; };
 		ECA04782189C614C0078582A /* TBALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBALoginViewController.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1302,6 +1305,8 @@
 		ECD1151D187DEAD300530434 /* Utility Classes */ = {
 			isa = PBXGroup;
 			children = (
+				EC96EC9118A1C49800AD894D /* Reachability.h */,
+				EC96EC9218A1C49800AD894D /* Reachability.m */,
 				EC81025A18948F720092B7DB /* TTTTimeIntervalFormatter.h */,
 				EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */,
 				EC374AD0188F9BDE00C4343A /* JSONDataNullCheck.h */,
@@ -1730,6 +1735,7 @@
 				ECC109E81887C641000B70CF /* FindUserVC.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
+				EC96EC9318A1C49800AD894D /* Reachability.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,

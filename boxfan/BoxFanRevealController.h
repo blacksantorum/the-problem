@@ -8,10 +8,11 @@
 
 #import "PKRevealController.h"
 #import "User.h"
-#import "Interstitial.h"
 
-@interface BoxFanRevealController : PKRevealController <InterstitialPassUser>
+@interface BoxFanRevealController : PKRevealController
 
 @property (strong,nonatomic) User *loggedInUser;
+
+
 
 @end

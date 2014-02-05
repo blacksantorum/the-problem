@@ -17,7 +17,6 @@
 
 @property (strong, nonatomic)  UIActivityIndicatorView *spinner;
 
-
 @end
 
 @implementation BoxingAppDVC
@@ -72,10 +71,10 @@
                 NSLog(@"%@",self.JSONarray);
                 [self configureDataSource];
                 [self.tableView reloadData];
-                [self.spinner stopAnimating];
-                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
             }
         }
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+        [self.spinner stopAnimating];
     }];
 }
 
@@ -93,14 +92,11 @@
 {
     [super viewDidLoad];
     [self refresh];
-    self.navigationController.toolbarHidden = YES;
-    
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)dealloc
 {
-    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"connectionRestored" object:nil];
 }
-
 @end

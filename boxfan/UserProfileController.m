@@ -143,9 +143,10 @@
                 self.profile = [[Profile alloc] initWithDictionary:[userDictionary objectForKey:@"user"]];
                 self.mantraLabel.text = self.profile.mantra;
                 [self.profileTableView reloadData];
-                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+                
             }
         }
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
     self.nameLabel.text = self.displayedUser.name;
     [self.profileImageView setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
@@ -159,6 +160,7 @@
      //   self.navigationItem.rightBarButtonItem = rightButton;
     // }
 	[self refresh];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
 
 - (void)presentEditProfileView
@@ -181,6 +183,7 @@
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
     
 }
@@ -258,6 +261,11 @@
             [self presentEditProfileView];
         }
     }
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"connectionRestored" object:nil];
 }
 
 @end

@@ -277,9 +277,10 @@
                 NSLog(@"Object: %@",object);
                 self.JSONdictionary = (NSDictionary *)object;
                 [self configureDataSource];
-                [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+                
             }
         }
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
@@ -337,9 +338,7 @@
     [super viewDidLoad];
     [self setLabels];
     [self refresh];
-    NSLog(@"%@",self.loggedInUser);
-    
-    self.navigationController.toolbarHidden = YES;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
 
 - (void)setLabels
@@ -372,6 +371,7 @@
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 
@@ -465,5 +465,9 @@
     }
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"connectionRestored" object:nil];
+}
 
 @end

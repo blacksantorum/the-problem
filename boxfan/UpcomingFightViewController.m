@@ -9,6 +9,7 @@
 #import "UpcomingFightViewController.h"
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
+#import "boxfanAppDelegate.h"
 
 @interface UpcomingFightViewController ()
 
@@ -87,12 +88,15 @@
     PickInfoCell *cell = (PickInfoCell *)[self.fightInfoTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:2]];
     cell.makePickButton.titleLabel.text = @"Updating...";
     cell.makePickButton.enabled = NO;
+    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);
         [self refresh];
         cell.makePickButton.enabled = YES;
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
+        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }
 

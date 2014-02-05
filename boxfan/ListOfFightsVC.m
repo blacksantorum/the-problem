@@ -10,6 +10,7 @@
 #import "ScheduleFormattedDate.h"
 #import "ListOfFightsCell.h"
 
+
 @interface ListOfFightsVC ()
 
 @end
@@ -50,12 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLineEtched;
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
 // store fights into an array of fights at self.fights
