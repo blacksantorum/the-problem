@@ -16,7 +16,7 @@
 #import "DecisionInfoCell.h"
 #import "CommentCell.h"
 
-@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource,ChangePickDelegate,ChangeDecisionDelegate,UIActionSheetDelegate,JabCommentDelegate>
+@interface FightDisplayVC : UIViewController <UITableViewDataSource,UITableViewDataSource,ChangePickDelegate,ChangeDecisionDelegate,UIActionSheetDelegate>
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 

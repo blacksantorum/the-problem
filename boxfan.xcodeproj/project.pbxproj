@@ -46,6 +46,8 @@
 		EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */; };
 		EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */; };
 		EC96EC9318A1C49800AD894D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96EC9218A1C49800AD894D /* Reachability.m */; };
+		EC96EC9518A202B300AD894D /* TopCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC96EC9418A202B300AD894D /* TopCommentCell.xib */; };
+		EC96EC9818A203B300AD894D /* TopCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96EC9718A203B300AD894D /* TopCommentCell.m */; };
 		ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA04782189C614C0078582A /* TBALoginViewController.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
@@ -407,6 +409,9 @@
 		EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewCommentsDisplayVC.m; sourceTree = "<group>"; };
 		EC96EC9118A1C49800AD894D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		EC96EC9218A1C49800AD894D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		EC96EC9418A202B300AD894D /* TopCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCommentCell.xib; sourceTree = "<group>"; };
+		EC96EC9618A203B300AD894D /* TopCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCommentCell.h; sourceTree = "<group>"; };
+		EC96EC9718A203B300AD894D /* TopCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCommentCell.m; sourceTree = "<group>"; };
 		ECA04781189C614C0078582A /* TBALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBALoginViewController.h; sourceTree = "<group>"; };
 		ECA04782189C614C0078582A /* TBALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBALoginViewController.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1243,6 +1248,9 @@
 		ECCA0A85189718C200403AFD /* Comments */ = {
 			isa = PBXGroup;
 			children = (
+				EC96EC9418A202B300AD894D /* TopCommentCell.xib */,
+				EC96EC9618A203B300AD894D /* TopCommentCell.h */,
+				EC96EC9718A203B300AD894D /* TopCommentCell.m */,
 				EC4C01FE189FAAA100310CF8 /* NoCommentsCell.xib */,
 				EC4C0200189FABF800310CF8 /* NoCommentsCell.h */,
 				EC4C0201189FABF800310CF8 /* NoCommentsCell.m */,
@@ -1649,6 +1657,7 @@
 				ECC10B57188E2F14000B70CF /* Guatemala.png in Resources */,
 				ECC10BCB188E2F14000B70CF /* St Vincent & the Grenadines.png in Resources */,
 				ECC10BC8188E2F14000B70CF /* Spain.png in Resources */,
+				EC96EC9518A202B300AD894D /* TopCommentCell.xib in Resources */,
 				ECC10B83188E2F14000B70CF /* Mali.png in Resources */,
 				ECC10B51188E2F14000B70CF /* Gibraltar.png in Resources */,
 				ECC10B9A188E2F14000B70CF /* New Zealand.png in Resources */,
@@ -1760,6 +1769,7 @@
 				ECA15DE418964C8A0005E920 /* Profile.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
+				EC96EC9818A203B300AD894D /* TopCommentCell.m in Sources */,
 				ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "FightDisplayVC.h"
-#import "CommentCell.h"
+#import "TopCommentCell.h"
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
 #import "MostJabbedCommentsDisplayVC.h"
@@ -65,34 +65,31 @@
     
 }
 
-- (CommentCell *)topCommentCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+- (TopCommentCell *)topCommentCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Comment Cell";
+    static NSString *CellIdentifier = @"Top Comment Cell";
     
-    [tableView registerClass:[CommentCell class] forCellReuseIdentifier:CellIdentifier];
+    [tableView registerClass:[TopCommentCell class] forCellReuseIdentifier:CellIdentifier];
     
-    CommentCell *cell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    TopCommentCell *cell = (TopCommentCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     if (cell == nil) {
-        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"CommentCell" owner:self options:nil];
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TopCommentCell" owner:self options:nil];
         for (id currentObject in topLevelObjects) {
             if ([currentObject isKindOfClass:[UITableViewCell class]]) {
-                cell = (CommentCell *)currentObject;
+                cell = (TopCommentCell *)currentObject;
                 break;
             }
         }
     }
     
-    NSLog(@"%@",self.comments);
-    
     Comment *comment = self.comments[0];
     
     cell.comment = comment;
     
-    [cell.jabButton setImage:[self jabButtonImageForComment:comment] forState:UIControlStateNormal];
-    cell.twitterHandleButton.tintColor = [UIColor blackColor];
-    [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateNormal];
-    [cell.twitterHandleButton setTitle:comment.author.handle forState:UIControlStateHighlighted];
+    [cell.userProfileImage setImage:[self imageForURL:[NSURL URLWithString:comment.author.profileImageURL]]];
+    cell.twitterHandleLabel.text = comment.author.handle;
+    cell.commentContentTextView.text = nil;
     cell.commentContentTextView.text = comment.content;
     
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
@@ -101,36 +98,15 @@
     cell.commentDateTimeLabel.text = [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:comment.date];
     cell.totalJabsLabel.text = [NSString stringWithFormat:@"%d",(int)comment.jabs];
     
-    cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
 
--(void)jabComment:(Comment *)comment
+-(UIImage *)imageForURL:(NSURL *)imageURL
 {
-    NSString *url;
-    if (comment.isJabbedByLoggedInUser) {
-        url = [URLS urlStringForUnjabbingComment:comment];
-    } else {
-        url = [URLS urlStringForJabbingComment:comment];
-    }
-    [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
-    [self.manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-        [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
-}
-
-- (UIImage *)jabButtonImageForComment:(Comment *)comment
-{
-    if (comment.isJabbedByLoggedInUser) {
-        return [UIImage imageNamed:@"jabbed"];
-    } else {
-        return [UIImage imageNamed:@"notjabbed"];
-    }
+    NSData *data = [NSData dataWithContentsOfURL:imageURL];
+    return [UIImage imageWithData:data];
 }
 
 - (FightInfoCell *)fightInfoCellFor:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
