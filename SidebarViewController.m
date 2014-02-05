@@ -13,7 +13,6 @@
 #import "RecentFightNavController.h"
 #import "FindUserNavController.h"
 #import "MyProfileNavController.h"
-#import "Interstitial.h"
 
 @interface SidebarViewController ()
 
@@ -44,7 +43,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 6;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -69,6 +68,9 @@
         cell.textLabel.text = @"Recent Fights";
     }
     if (row == 4) {
+        cell.textLabel.text = self.loggedInUser.handle;
+    }
+    if (row == 5) {
         cell.textLabel.text = @"Log out";
     }
     
@@ -108,8 +110,18 @@
             [[self revealController] showViewController:[[self revealController] frontViewController]];
         }
     }
-
+    
     if (row == 4) {
+        if (![[[self revealController] frontViewController] isKindOfClass:[MyProfileNavController class]]) {
+            UINavigationController *myProfileNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"MyProfileNav"];
+            [[self revealController] setFrontViewController:myProfileNavController];
+            [[self revealController] showViewController:myProfileNavController];
+        } else {
+            [[self revealController] showViewController:[[self revealController] frontViewController]];
+        }
+    }
+
+    if (row == 5) {
         if ([self.delegate respondsToSelector:@selector(logOut)]) {
             [self.delegate logOut];
         }

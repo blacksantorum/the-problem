@@ -13,7 +13,6 @@
 #import <PKRevealController/PKRevealController.h>
 #import "BoxingScheduleVC.h"
 #import "BoxFanRevealController.h"
-#import "Interstitial.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
 @interface boxfanAppDelegate() <PKRevealing>

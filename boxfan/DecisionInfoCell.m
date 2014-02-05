@@ -17,6 +17,16 @@
     if (self) {
         NSArray *nibArray = [[NSBundle mainBundle] loadNibNamed:@"DecisionInfoCell" owner:self options:nil];
         self = [nibArray objectAtIndex:0];
+        
+        CGRect gaugeFrame				= CGRectMake(10.0,
+                                                     -100.0,
+                                                     300.0,
+                                                     300.0);
+        self.gauge = [[MSSimpleGauge alloc] initWithFrame:gaugeFrame];
+        [self.gauge setValue:self.boxerBPercentage animated:YES];
+        self.gauge.fillGradient = [MSGradientArcLayer defaultGradient];
+        self.gauge.fillArcFillColor = [UIColor redColor];
+        [self.contentView addSubview:self.gauge];
     }
     return self;
 }
@@ -44,8 +54,9 @@
                                                  300.0);
     self.gauge = [[MSSimpleGauge alloc] initWithFrame:gaugeFrame];
     [self.gauge setValue:self.boxerBPercentage animated:YES];
-    self.gauge.fillGradient = [MSGradientArcLayer defaultGradient];
-    self.gauge.fillArcFillColor = [UIColor redColor];
+    // self.gauge.fillGradient = [MSGradientArcLayer defaultGradient];
+    self.gauge.fillArcFillColor = [[UIColor blueColor] colorWithAlphaComponent:0.15];
     [self.contentView addSubview:self.gauge];
+    
 }
 @end

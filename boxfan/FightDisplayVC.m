@@ -87,7 +87,13 @@
     
     cell.comment = comment;
     
-    [cell.userProfileImage setImage:[self imageForURL:[NSURL URLWithString:comment.author.profileImageURL]]];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        UIImage *profileImage = [self imageForURL:[NSURL URLWithString:comment.author.profileImageURL]];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [cell.userProfileImage setImage:profileImage];
+        });
+    });
+    
     cell.twitterHandleLabel.text = comment.author.handle;
     cell.commentContentTextView.text = nil;
     cell.commentContentTextView.text = comment.content;
@@ -204,9 +210,11 @@
     if (self.decision) {
         NSLog(@"%@",self.decision);
         cell.currrentDecisionLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
+    } else {
+        cell.currrentDecisionLabel.text = @"";
     }
     
-    NSString *decisionPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
+    NSString *decisionPercentageB = self.boxersToDecisionPercentages[self.fight.boxerB.boxerFullName];
     
     if ([decisionPercentageB length]) {
         cell.boxerBPercentage = [decisionPercentageB floatValue];

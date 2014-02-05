@@ -68,14 +68,11 @@
 		ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D7D189507C70005E920 /* ListOfFightsVC.m */; };
 		ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */; };
 		ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */; };
-		ECA15DB418962FE70005E920 /* Design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA15DB318962FE70005E920 /* Design.storyboard */; };
 		ECA15DE418964C8A0005E920 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DE318964C8A0005E920 /* Profile.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
 		ECC109E81887C641000B70CF /* FindUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109E71887C641000B70CF /* FindUserVC.m */; };
 		ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109EA1887F831000B70CF /* MyProfileNavController.m */; };
 		ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109ED1888A47A000B70CF /* BoxFanRevealController.m */; };
-		ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109F01888AEAF000B70CF /* Interstitial.m */; };
-		ECC109F31888AEAF000B70CF /* Interstitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECC109F11888AEAF000B70CF /* Interstitial.xib */; };
 		ECC109FE188A93E7000B70CF /* Decision.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109FD188A93E7000B70CF /* Decision.m */; };
 		ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC10A03188D31B5000B70CF /* UserActivity.m */; };
 		ECC10B00188E2F14000B70CF /* Afghanistan.png in Resources */ = {isa = PBXBuildFile; fileRef = ECC10A0D188E2F12000B70CF /* Afghanistan.png */; };
@@ -443,7 +440,6 @@
 		ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListOfFightsCell.xib; sourceTree = "<group>"; };
 		ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsCell.h; sourceTree = "<group>"; };
 		ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsCell.m; sourceTree = "<group>"; };
-		ECA15DB318962FE70005E920 /* Design.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Design.storyboard; sourceTree = "<group>"; };
 		ECA15DE218964C8A0005E920 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		ECA15DE318964C8A0005E920 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		ECC109DE18878994000B70CF /* FindUserNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserNavController.h; sourceTree = "<group>"; };
@@ -454,9 +450,6 @@
 		ECC109EA1887F831000B70CF /* MyProfileNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyProfileNavController.m; sourceTree = "<group>"; };
 		ECC109EC1888A47A000B70CF /* BoxFanRevealController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxFanRevealController.h; sourceTree = "<group>"; };
 		ECC109ED1888A47A000B70CF /* BoxFanRevealController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxFanRevealController.m; sourceTree = "<group>"; };
-		ECC109EF1888AEAF000B70CF /* Interstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interstitial.h; sourceTree = "<group>"; };
-		ECC109F01888AEAF000B70CF /* Interstitial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interstitial.m; sourceTree = "<group>"; };
-		ECC109F11888AEAF000B70CF /* Interstitial.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Interstitial.xib; sourceTree = "<group>"; };
 		ECC109FC188A93E7000B70CF /* Decision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decision.h; sourceTree = "<group>"; };
 		ECC109FD188A93E7000B70CF /* Decision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Decision.m; sourceTree = "<group>"; };
 		ECC10A02188D31B5000B70CF /* UserActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserActivity.h; sourceTree = "<group>"; };
@@ -802,7 +795,6 @@
 		ECA0CE2D185E4EF8003380C5 = {
 			isa = PBXGroup;
 			children = (
-				ECA15DB318962FE70005E920 /* Design.storyboard */,
 				ECC10A0C188E2F12000B70CF /* 32 */,
 				EC5373FE18810A3200DF16AB /* Parse.framework */,
 				EC53741418810E4100DF16AB /* FacebookSDK.framework */,
@@ -866,9 +858,6 @@
 			isa = PBXGroup;
 			children = (
 				ECA0CE49185E4EF9003380C5 /* boxfanAppDelegate.m */,
-				ECC109EF1888AEAF000B70CF /* Interstitial.h */,
-				ECC109F01888AEAF000B70CF /* Interstitial.m */,
-				ECC109F11888AEAF000B70CF /* Interstitial.xib */,
 				ECC109EC1888A47A000B70CF /* BoxFanRevealController.h */,
 				ECC109ED1888A47A000B70CF /* BoxFanRevealController.m */,
 				ECA0CE48185E4EF9003380C5 /* boxfanAppDelegate.h */,
@@ -1454,7 +1443,6 @@
 				EC374AD81890930500C4343A /* DecisionInfoCell.xib in Resources */,
 				ECC10B54188E2F14000B70CF /* Grenada.png in Resources */,
 				ECC10B40188E2F14000B70CF /* Egypt.png in Resources */,
-				ECA15DB418962FE70005E920 /* Design.storyboard in Resources */,
 				ECC10B04188E2F14000B70CF /* American Samoa.png in Resources */,
 				ECC10B7C188E2F14000B70CF /* Luxembourg.png in Resources */,
 				ECC10BD4188E2F14000B70CF /* Tajikistan.png in Resources */,
@@ -1500,7 +1488,6 @@
 				ECC10BB6188E2F14000B70CF /* Saint Lucia.png in Resources */,
 				ECA0CE52185E4EF9003380C5 /* Images.xcassets in Resources */,
 				ECC10B58188E2F14000B70CF /* Guernsey.png in Resources */,
-				ECC109F31888AEAF000B70CF /* Interstitial.xib in Resources */,
 				ECC10B7B188E2F14000B70CF /* LIthuania.png in Resources */,
 				EC374AA5188F52E400C4343A /* PickInfoCell.xib in Resources */,
 				ECC10B7D188E2F14000B70CF /* Macao.png in Resources */,
@@ -1770,7 +1757,6 @@
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
 				EC96EC9818A203B300AD894D /* TopCommentCell.m in Sources */,
-				ECC109F21888AEAF000B70CF /* Interstitial.m in Sources */,
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,
 				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,

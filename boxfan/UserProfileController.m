@@ -14,6 +14,7 @@
 #import "ProfileCell.h"
 #import "UserHistoryTableVC.h"
 #import "boxfanAppDelegate.h"
+#import "MyProfileNavController.h"
 
 @interface UserProfileController ()
 
@@ -29,9 +30,30 @@
 @property (strong,nonatomic) UIStoryboard *storyboard;
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 
+- (IBAction)userClickedShowSettings:(id)sender;
+
 @end
 
 @implementation UserProfileController
+
+- (IBAction)userClickedShowSettings:(id)sender
+{
+    [self showSettingsMenu];
+}
+
+- (void)showSettingsMenu
+{
+    [[self revealController] showViewController:[[self revealController] leftViewController]];
+}
+
+- (User *)displayedUser
+{
+    if ([self.navigationController isKindOfClass:[MyProfileNavController class]]) {
+        _displayedUser = self.loggedInUser;
+        self.title = self.loggedInUser.handle;
+    }
+    return _displayedUser;
+}
 
 -(UIImage *)imageForURL:(NSURL *)imageURL
 {

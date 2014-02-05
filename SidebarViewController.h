@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "User.h"
-#import "Interstitial.h"
 
 @protocol LogOutDelegate <NSObject>
 
@@ -16,7 +15,7 @@
 
 @end
 
-@interface SidebarViewController : UITableViewController<InterstitialPassUser>
+@interface SidebarViewController : UITableViewController
 
 @property (nonatomic,strong) User *loggedInUser;
 
