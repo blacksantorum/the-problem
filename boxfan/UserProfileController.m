@@ -114,7 +114,12 @@
 
 - (BOOL)hasFightOfTheYear
 {
-    return (self.profile.FOY);
+    NSLog(@"%@",self.profile.FOY);
+    if (self.profile.FOY) {
+        return YES;
+    } else {
+        return NO;
+    }
 }
 
 - (void)refresh

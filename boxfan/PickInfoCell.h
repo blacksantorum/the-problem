@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Boxer.h"
 #import "Pick.h"
-#import "BarChartView.h"
+#import <MSSimpleGauge/MSSimpleGauge.h>
 
 @protocol ChangePickDelegate <NSObject>
 
@@ -17,19 +17,19 @@
 
 @end
 
-@interface PickInfoCell : UITableViewCell
+@interface PickInfoCell : UITableViewCell  {
+}
+
+@property (strong,nonatomic) MSSimpleGauge *gauge;
 
 @property (weak, nonatomic) IBOutlet UIButton *makePickButton;
 @property (weak, nonatomic) IBOutlet UILabel *yourPickLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPickDescriptionLabel;
 
+@property CGFloat boxerBPercentage;
+
 @property (nonatomic,strong) Pick *pick;
-@property (nonatomic,strong) Boxer *boxerA;
-@property (nonatomic,strong) Boxer *boxerB;
-@property (strong,nonatomic) NSDictionary *boxersToPickPercentages;
-
-@property (weak, nonatomic) IBOutlet BarChartView *communityPicksBarChart;
-
+@property (nonatomic,strong) Fight *fight;
 
 - (IBAction)makePickButtonPressed:(id)sender;
 

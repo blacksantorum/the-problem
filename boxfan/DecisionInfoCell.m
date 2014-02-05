@@ -7,6 +7,7 @@
 //
 
 #import "DecisionInfoCell.h"
+#import <MSGradientArcLayer.h>
 
 @implementation DecisionInfoCell
 
@@ -31,5 +32,20 @@
     if ([self.delegate respondsToSelector:@selector(changeDecision)]) {
         [self.delegate changeDecision];
     }
+}
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGRect gaugeFrame				= CGRectMake(10.0,
+                                                 -100.0,
+                                                 300.0,
+                                                 300.0);
+    self.gauge = [[MSSimpleGauge alloc] initWithFrame:gaugeFrame];
+    [self.gauge setValue:self.boxerBPercentage animated:YES];
+    self.gauge.fillGradient = [MSGradientArcLayer defaultGradient];
+    self.gauge.fillArcFillColor = [UIColor redColor];
+    [self.contentView addSubview:self.gauge];
 }
 @end

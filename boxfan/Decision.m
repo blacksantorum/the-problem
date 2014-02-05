@@ -12,26 +12,14 @@
 
 -(instancetype)initWithRecentFightDisplayDictionary:(NSDictionary *)dictionary
 {
-    if (![JSONDataNullCheck isNull:dictionary]) {
-        self = [super init];
-        if (self) {
-            _decisionID = [dictionary objectForKey:@"id"];
-            NSMutableArray *boxerArray = [[NSMutableArray alloc] init];
-            for (NSDictionary *boxerDict in [dictionary valueForKeyPath:@"fight.boxers"]) {
-                Boxer *b = [[Boxer alloc] initWithRecentFightVewDictionary:boxerDict];
-                [boxerArray addObject:b];
-            }
-            NSString *winnerID = [dictionary objectForKey:@"winner_id"];
-            for (Boxer *b in boxerArray) {
-                if ([b.boxerID.description isEqualToString:winnerID.description]) {
-                    _winner = b;
-                } else {
-                    _loser = b;
-                }
-            }
-        }
+    self = [super init];
+    if (self) {
+        _decisionID = [dictionary objectForKey:@"id"];
+        NSString *winnerID = [dictionary objectForKey:@"winner_id"];
+        _winner = [[Boxer alloc] init];
+        _winner.boxerID = winnerID.description;
     }
-    NSLog(@"Decision: %@",self);
+    
     return self;
 }
 

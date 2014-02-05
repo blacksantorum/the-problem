@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BarChartView.h"
+#import <MSSimpleGauge/MSSimpleGauge.h>
 
 @protocol ChangeDecisionDelegate <NSObject>
 
@@ -17,9 +17,12 @@
 
 @interface DecisionInfoCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIButton *makeDecisionButton;
+@property (strong,nonatomic) MSSimpleGauge *gauge;
 
-@property (weak, nonatomic) IBOutlet BarChartView *communityDecisionBarChart;
+@property (weak, nonatomic) IBOutlet UIButton *makeDecisionButton;
+@property (weak, nonatomic) IBOutlet UILabel *currrentDecisionLabel;
+
+@property CGFloat boxerBPercentage;
 
 - (IBAction)makeDecisionButtonPressed:(id)sender;
 

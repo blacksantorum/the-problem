@@ -10,7 +10,6 @@
 #import "BoxFanRevealController.h"
 #import <PKRevealController.h>
 #import "UpcomingFightNavController.h"
-#import "UserPickViewController.h"
 #import "RecentFightNavController.h"
 #import "FindUserNavController.h"
 #import "MyProfileNavController.h"

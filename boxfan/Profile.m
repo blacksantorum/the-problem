@@ -35,8 +35,8 @@
         }
         
         NSDictionary *FOYdictionary = [dictionary objectForKey:@"foy"];
-        if (![JSONDataNullCheck isNull:FOYdictionary]) {
-            _FOY = [[Fight alloc] initWithDictionary:FOYdictionary];
+        if (FOYdictionary) {
+            _FOY = [[Fight alloc] initWithFOYDictionary:FOYdictionary];
         }
     }
     return self;

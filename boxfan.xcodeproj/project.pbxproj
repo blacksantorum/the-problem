@@ -43,7 +43,6 @@
 		EC81025618946BA60092B7DB /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC81025518946BA60092B7DB /* CommentCell.xib */; };
 		EC81025918946BD70092B7DB /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025818946BD70092B7DB /* CommentCell.m */; };
 		EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */; };
-		EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */; };
 		EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */; };
 		EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = EC81026418949BDE0092B7DB /* NewCommentsDisplayVC.m */; };
 		ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA04782189C614C0078582A /* TBALoginViewController.m */; };
@@ -61,26 +60,12 @@
 		ECA0CE65185E4EF9003380C5 /* boxfanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE64185E4EF9003380C5 /* boxfanTests.m */; };
 		ECA0CE73185E5818003380C5 /* Boxer.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE72185E5818003380C5 /* Boxer.m */; };
 		ECA0CE76185E59BF003380C5 /* Fight.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA0CE75185E59BF003380C5 /* Fight.m */; };
-		ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA13227185FA36A00001793 /* UserPickViewController.m */; };
 		ECA1322B185FA64E00001793 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322A185FA64E00001793 /* User.m */; };
 		ECA1322E185FA8A500001793 /* Pick.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA1322D185FA8A500001793 /* Pick.m */; };
 		ECA15D7E189507C70005E920 /* ListOfFightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D7D189507C70005E920 /* ListOfFightsVC.m */; };
 		ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */; };
 		ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */; };
 		ECA15DB418962FE70005E920 /* Design.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECA15DB318962FE70005E920 /* Design.storyboard */; };
-		ECA15DD5189647FB0005E920 /* BarChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DB7189647FB0005E920 /* BarChartView.m */; };
-		ECA15DD6189647FB0005E920 /* BarLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DB9189647FB0005E920 /* BarLabel.m */; };
-		ECA15DD7189647FB0005E920 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DBC189647FB0005E920 /* BarView.m */; };
-		ECA15DD8189647FB0005E920 /* CMPopTipView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC0189647FB0005E920 /* CMPopTipView.m */; };
-		ECA15DD9189647FB0005E920 /* BarChartItem.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC3189647FB0005E920 /* BarChartItem.m */; };
-		ECA15DDA189647FB0005E920 /* BarChartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC5189647FB0005E920 /* BarChartModel.m */; };
-		ECA15DDB189647FB0005E920 /* ChartColors.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC7189647FB0005E920 /* ChartColors.m */; };
-		ECA15DDC189647FB0005E920 /* UIColor+i7HexColor.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DC9189647FB0005E920 /* UIColor+i7HexColor.m */; };
-		ECA15DDD189647FB0005E920 /* UIViewSizeShortcuts.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DCB189647FB0005E920 /* UIViewSizeShortcuts.m */; };
-		ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DCE189647FB0005E920 /* XMLElement.m */; };
-		ECA15DDF189647FB0005E920 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DD0189647FB0005E920 /* XMLParser.m */; };
-		ECA15DE0189647FB0005E920 /* XMLParserDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DD2189647FB0005E920 /* XMLParserDelegate.m */; };
-		ECA15DE1189647FB0005E920 /* PlotChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DD4189647FB0005E920 /* PlotChartView.m */; };
 		ECA15DE418964C8A0005E920 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DE318964C8A0005E920 /* Profile.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
 		ECC109E81887C641000B70CF /* FindUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109E71887C641000B70CF /* FindUserVC.m */; };
@@ -415,8 +400,6 @@
 		EC81025818946BD70092B7DB /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		EC81025A18948F720092B7DB /* TTTTimeIntervalFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTTimeIntervalFormatter.h; sourceTree = "<group>"; };
 		EC81025B18948F720092B7DB /* TTTTimeIntervalFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTTimeIntervalFormatter.m; sourceTree = "<group>"; };
-		EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBACommentsMultipleVC.h; sourceTree = "<group>"; };
-		EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBACommentsMultipleVC.m; sourceTree = "<group>"; };
 		EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MostJabbedCommentsDisplayVC.h; sourceTree = "<group>"; };
 		EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MostJabbedCommentsDisplayVC.m; sourceTree = "<group>"; };
 		EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewCommentsDisplayVC.h; sourceTree = "<group>"; };
@@ -443,8 +426,6 @@
 		ECA0CE72185E5818003380C5 /* Boxer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boxer.m; sourceTree = "<group>"; };
 		ECA0CE74185E59BF003380C5 /* Fight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fight.h; sourceTree = "<group>"; };
 		ECA0CE75185E59BF003380C5 /* Fight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Fight.m; sourceTree = "<group>"; };
-		ECA13226185FA36A00001793 /* UserPickViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserPickViewController.h; sourceTree = "<group>"; };
-		ECA13227185FA36A00001793 /* UserPickViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserPickViewController.m; sourceTree = "<group>"; };
 		ECA13229185FA64E00001793 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		ECA1322A185FA64E00001793 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		ECA1322C185FA8A500001793 /* Pick.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pick.h; sourceTree = "<group>"; };
@@ -455,33 +436,6 @@
 		ECA15D8118951BAF0005E920 /* ListOfFightsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListOfFightsCell.h; sourceTree = "<group>"; };
 		ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsCell.m; sourceTree = "<group>"; };
 		ECA15DB318962FE70005E920 /* Design.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Design.storyboard; sourceTree = "<group>"; };
-		ECA15DB6189647FB0005E920 /* BarChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartView.h; sourceTree = "<group>"; };
-		ECA15DB7189647FB0005E920 /* BarChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartView.m; sourceTree = "<group>"; };
-		ECA15DB8189647FB0005E920 /* BarLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarLabel.h; sourceTree = "<group>"; };
-		ECA15DB9189647FB0005E920 /* BarLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarLabel.m; sourceTree = "<group>"; };
-		ECA15DBA189647FB0005E920 /* BarTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarTypes.h; sourceTree = "<group>"; };
-		ECA15DBB189647FB0005E920 /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarView.h; sourceTree = "<group>"; };
-		ECA15DBC189647FB0005E920 /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarView.m; sourceTree = "<group>"; };
-		ECA15DBF189647FB0005E920 /* CMPopTipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMPopTipView.h; sourceTree = "<group>"; };
-		ECA15DC0189647FB0005E920 /* CMPopTipView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMPopTipView.m; sourceTree = "<group>"; };
-		ECA15DC2189647FB0005E920 /* BarChartItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartItem.h; sourceTree = "<group>"; };
-		ECA15DC3189647FB0005E920 /* BarChartItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartItem.m; sourceTree = "<group>"; };
-		ECA15DC4189647FB0005E920 /* BarChartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarChartModel.h; sourceTree = "<group>"; };
-		ECA15DC5189647FB0005E920 /* BarChartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarChartModel.m; sourceTree = "<group>"; };
-		ECA15DC6189647FB0005E920 /* ChartColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChartColors.h; sourceTree = "<group>"; };
-		ECA15DC7189647FB0005E920 /* ChartColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChartColors.m; sourceTree = "<group>"; };
-		ECA15DC8189647FB0005E920 /* UIColor+i7HexColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+i7HexColor.h"; sourceTree = "<group>"; };
-		ECA15DC9189647FB0005E920 /* UIColor+i7HexColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+i7HexColor.m"; sourceTree = "<group>"; };
-		ECA15DCA189647FB0005E920 /* UIViewSizeShortcuts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewSizeShortcuts.h; sourceTree = "<group>"; };
-		ECA15DCB189647FB0005E920 /* UIViewSizeShortcuts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewSizeShortcuts.m; sourceTree = "<group>"; };
-		ECA15DCD189647FB0005E920 /* XMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLElement.h; sourceTree = "<group>"; };
-		ECA15DCE189647FB0005E920 /* XMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLElement.m; sourceTree = "<group>"; };
-		ECA15DCF189647FB0005E920 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
-		ECA15DD0189647FB0005E920 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
-		ECA15DD1189647FB0005E920 /* XMLParserDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLParserDelegate.h; sourceTree = "<group>"; };
-		ECA15DD2189647FB0005E920 /* XMLParserDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMLParserDelegate.m; sourceTree = "<group>"; };
-		ECA15DD3189647FB0005E920 /* PlotChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotChartView.h; sourceTree = "<group>"; };
-		ECA15DD4189647FB0005E920 /* PlotChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotChartView.m; sourceTree = "<group>"; };
 		ECA15DE218964C8A0005E920 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		ECA15DE318964C8A0005E920 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
 		ECC109DE18878994000B70CF /* FindUserNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserNavController.h; sourceTree = "<group>"; };
@@ -932,7 +886,6 @@
 		ECA0CE5F185E4EF9003380C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				ECA15DB5189647FA0005E920 /* BarChart Library */,
 				ECA0CE60185E4EF9003380C5 /* boxfanTests-Info.plist */,
 				ECA0CE61185E4EF9003380C5 /* InfoPlist.strings */,
 			);
@@ -982,72 +935,6 @@
 				EC374ACE188F758F00C4343A /* UpcomingFightViewController.m */,
 			);
 			name = "Fight Display View Controllers";
-			sourceTree = "<group>";
-		};
-		ECA15DB5189647FA0005E920 /* BarChart Library */ = {
-			isa = PBXGroup;
-			children = (
-				ECA15DB6189647FB0005E920 /* BarChartView.h */,
-				ECA15DB7189647FB0005E920 /* BarChartView.m */,
-				ECA15DB8189647FB0005E920 /* BarLabel.h */,
-				ECA15DB9189647FB0005E920 /* BarLabel.m */,
-				ECA15DBA189647FB0005E920 /* BarTypes.h */,
-				ECA15DBB189647FB0005E920 /* BarView.h */,
-				ECA15DBC189647FB0005E920 /* BarView.m */,
-				ECA15DBD189647FB0005E920 /* External */,
-				ECA15DD3189647FB0005E920 /* PlotChartView.h */,
-				ECA15DD4189647FB0005E920 /* PlotChartView.m */,
-			);
-			path = "BarChart Library";
-			sourceTree = "<group>";
-		};
-		ECA15DBD189647FB0005E920 /* External */ = {
-			isa = PBXGroup;
-			children = (
-				ECA15DBE189647FB0005E920 /* CMPopTipView */,
-				ECA15DC1189647FB0005E920 /* Helpers */,
-				ECA15DCC189647FB0005E920 /* XMLParser */,
-			);
-			path = External;
-			sourceTree = "<group>";
-		};
-		ECA15DBE189647FB0005E920 /* CMPopTipView */ = {
-			isa = PBXGroup;
-			children = (
-				ECA15DBF189647FB0005E920 /* CMPopTipView.h */,
-				ECA15DC0189647FB0005E920 /* CMPopTipView.m */,
-			);
-			path = CMPopTipView;
-			sourceTree = "<group>";
-		};
-		ECA15DC1189647FB0005E920 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				ECA15DC2189647FB0005E920 /* BarChartItem.h */,
-				ECA15DC3189647FB0005E920 /* BarChartItem.m */,
-				ECA15DC4189647FB0005E920 /* BarChartModel.h */,
-				ECA15DC5189647FB0005E920 /* BarChartModel.m */,
-				ECA15DC6189647FB0005E920 /* ChartColors.h */,
-				ECA15DC7189647FB0005E920 /* ChartColors.m */,
-				ECA15DC8189647FB0005E920 /* UIColor+i7HexColor.h */,
-				ECA15DC9189647FB0005E920 /* UIColor+i7HexColor.m */,
-				ECA15DCA189647FB0005E920 /* UIViewSizeShortcuts.h */,
-				ECA15DCB189647FB0005E920 /* UIViewSizeShortcuts.m */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		ECA15DCC189647FB0005E920 /* XMLParser */ = {
-			isa = PBXGroup;
-			children = (
-				ECA15DCD189647FB0005E920 /* XMLElement.h */,
-				ECA15DCE189647FB0005E920 /* XMLElement.m */,
-				ECA15DCF189647FB0005E920 /* XMLParser.h */,
-				ECA15DD0189647FB0005E920 /* XMLParser.m */,
-				ECA15DD1189647FB0005E920 /* XMLParserDelegate.h */,
-				ECA15DD2189647FB0005E920 /* XMLParserDelegate.m */,
-			);
-			path = XMLParser;
 			sourceTree = "<group>";
 		};
 		ECC109931886A66A000B70CF /* Sidebar */ = {
@@ -1379,8 +1266,6 @@
 		ECCA0A8C18977CEA00403AFD /* Comments Display Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EC81025D189492860092B7DB /* TBACommentsMultipleVC.h */,
-				EC81025E189492860092B7DB /* TBACommentsMultipleVC.m */,
 				EC81026018949BC60092B7DB /* MostJabbedCommentsDisplayVC.h */,
 				EC81026118949BC60092B7DB /* MostJabbedCommentsDisplayVC.m */,
 				EC81026318949BDE0092B7DB /* NewCommentsDisplayVC.h */,
@@ -1438,8 +1323,6 @@
 				ECCA0A8C18977CEA00403AFD /* Comments Display Controllers */,
 				ECC109E61887C641000B70CF /* FindUserVC.h */,
 				ECC109E71887C641000B70CF /* FindUserVC.m */,
-				ECA13226185FA36A00001793 /* UserPickViewController.h */,
-				ECA13227185FA36A00001793 /* UserPickViewController.m */,
 				ECA15D85189530960005E920 /* Fight Display View Controllers */,
 				ECA15D841895306D0005E920 /* List Of Fights View Controllers */,
 			);
@@ -1839,49 +1722,34 @@
 			files = (
 				ECD11514187D466E00530434 /* BoxingAppDVC.m in Sources */,
 				ECC109E018878994000B70CF /* FindUserNavController.m in Sources */,
-				ECA15DD7189647FB0005E920 /* BarView.m in Sources */,
 				EC616788189274B700E9843E /* Comment.m in Sources */,
-				ECA15DDB189647FB0005E920 /* ChartColors.m in Sources */,
-				ECA15DDA189647FB0005E920 /* BarChartModel.m in Sources */,
 				ECCA0A7C18970F3A00403AFD /* UserProfileController.m in Sources */,
 				ECA1322B185FA64E00001793 /* User.m in Sources */,
 				ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */,
-				ECA13228185FA36A00001793 /* UserPickViewController.m in Sources */,
 				EC374ACF188F758F00C4343A /* UpcomingFightViewController.m in Sources */,
 				ECC109E81887C641000B70CF /* FindUserVC.m in Sources */,
-				ECA15DD8189647FB0005E920 /* CMPopTipView.m in Sources */,
-				ECA15DDC189647FB0005E920 /* UIColor+i7HexColor.m in Sources */,
 				ECA0CE76185E59BF003380C5 /* Fight.m in Sources */,
 				ECA0CE4A185E4EF9003380C5 /* boxfanAppDelegate.m in Sources */,
 				EC537418188227AC00DF16AB /* Auth.m in Sources */,
-				ECA15DE0189647FB0005E920 /* XMLParserDelegate.m in Sources */,
-				ECA15DD6189647FB0005E920 /* BarLabel.m in Sources */,
-				ECA15DD9189647FB0005E920 /* BarChartItem.m in Sources */,
 				ECE55DA31884B86900E02546 /* SidebarViewController.m in Sources */,
 				EC374ADB1890947200C4343A /* DecisionInfoCell.m in Sources */,
-				ECA15DDF189647FB0005E920 /* XMLParser.m in Sources */,
 				ECCA0A8B18972FE500403AFD /* ProfileCell.m in Sources */,
 				EC374AA8188F532C00C4343A /* PickInfoCell.m in Sources */,
 				EC81025918946BD70092B7DB /* CommentCell.m in Sources */,
 				EC81026518949BDE0092B7DB /* NewCommentsDisplayVC.m in Sources */,
 				ECD11526187E37DF00530434 /* FightDisplayVC.m in Sources */,
 				ECA0CE46185E4EF9003380C5 /* main.m in Sources */,
-				EC81025F189492860092B7DB /* TBACommentsMultipleVC.m in Sources */,
-				ECA15DDD189647FB0005E920 /* UIViewSizeShortcuts.m in Sources */,
 				ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */,
-				ECA15DE1189647FB0005E920 /* PlotChartView.m in Sources */,
 				ECC109FE188A93E7000B70CF /* Decision.m in Sources */,
 				ECCA0A981898DEB500403AFD /* UserHistoryTableVC.m in Sources */,
 				ECCA0A8F1897857500403AFD /* UpdateProfileViewController.m in Sources */,
 				EC4C0202189FABF800310CF8 /* NoCommentsCell.m in Sources */,
-				ECA15DDE189647FB0005E920 /* XMLElement.m in Sources */,
 				ECC10A04188D31B5000B70CF /* UserActivity.m in Sources */,
 				ECCA0A821897181E00403AFD /* FOYCell.m in Sources */,
 				ECD11518187D497400530434 /* BoxingScheduleVC.m in Sources */,
 				ECD1151C187DEACD00530434 /* ScheduleFormattedDate.m in Sources */,
 				EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */,
 				EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */,
-				ECA15DD5189647FB0005E920 /* BarChartView.m in Sources */,
 				EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */,
 				ECA15DE418964C8A0005E920 /* Profile.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
@@ -2018,8 +1886,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Tibbs (KCUUN2YM64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Tibbs (KCUUN2YM64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/christibbs/Documents/the\\ problem/boxfan",
@@ -2028,7 +1896,7 @@
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8C4F48C3-3475-4587-8723-7A4E88210160";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -2039,8 +1907,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Tibbs (M697LKN47A)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Tibbs (M697LKN47A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/christibbs/Documents/the\\ problem/boxfan",
@@ -2049,7 +1917,7 @@
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "8C4F48C3-3475-4587-8723-7A4E88210160";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

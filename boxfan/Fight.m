@@ -66,6 +66,26 @@
     return self;
 }
 
+- (instancetype)initWithFOYDictionary:(NSDictionary *)dictionary
+{
+    self = [super init];
+    if (self) {
+        _fightID = [dictionary objectForKey:@"id"];
+        NSString *stoppage = [dictionary objectForKey:@"stoppage"];
+        _stoppage = [stoppage.description isEqualToString:@"1"] ? YES : NO;
+        
+        NSMutableArray *boxerArray = [[NSMutableArray alloc] init];
+        for (NSDictionary *boxerDict in [dictionary valueForKey:@"boxers"]) {
+            Boxer *b = [[Boxer alloc] initWithDictionary:boxerDict];
+            [boxerArray addObject:b];
+        }
+        _boxers = boxerArray;
+        _winnerID = [dictionary objectForKey:@"winner_id"];
+    }
+    
+    return self;
+}
+
 -(Boxer *)boxerA
 {
     Boxer *boxerA;

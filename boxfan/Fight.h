@@ -23,6 +23,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary;
 - (instancetype)initWithUserHistoryDictionary:(NSDictionary *)dictionary;
+- (instancetype)initWithFOYDictionary:(NSDictionary *)dictionary;
 
 - (NSString *)titleForScheduleView;
 - (NSString *)titleForRecentFightsView;

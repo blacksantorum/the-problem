@@ -11,8 +11,6 @@
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
 #import "MostJabbedCommentsDisplayVC.h"
-#import "BarChartView.h"
-#import "BarChartModel.h"
 #import "RecentFightDisplayViewController.h"
 #import "UpcomingFightViewController.h"
 #import "TTTTimeIntervalFormatter.h"
@@ -88,8 +86,6 @@
     NSLog(@"%@",self.comments);
     
     Comment *comment = self.comments[0];
-    
-    NSLog(@"Content: %@ with %d jabs",comment.content,comment.jabs);
     
     cell.comment = comment;
     
@@ -181,47 +177,30 @@
         }
     }
     
-    if (![JSONDataNullCheck isNull:self.fight.winnerID]) {
-        if (self.pick) {
-            cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
-            [cell.makePickButton removeFromSuperview];
-        } else {
+    if (self.pick) {
+        NSLog(@"%@ sets pick label text to: %@",[self currentPickDescriptionLabelRepresentationForPick:self.pick],cell.currentPickDescriptionLabel.text);
+        cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
+    
+    }
+    
+    if (![self.fight.winnerID.description isEqualToString:@"-100"]) {
+        [cell.makePickButton removeFromSuperview];
+        if (!self.pick) {
             [cell.yourPickLabel removeFromSuperview];
-            [cell.makePickButton removeFromSuperview];
             [cell.currentPickDescriptionLabel removeFromSuperview];
         }
-    } else {
-        if (self.pick) {
-            cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
-        }
-        
-        NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.lastName,self.boxersToPickPercentages[self.fight.boxerA.boxerFullName]];
-        NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerB.lastName,self.boxersToPickPercentages[self.fight.boxerB.boxerFullName]];
-        
-        NSString *pickPercentageA = self.boxersToPickPercentages[self.fight.boxerA.boxerFullName];
-        if ([pickPercentageA isEqualToString:@"0"]) {
-            pickPercentageA = @"0.1";
-        }
-        NSString *pickPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
-        if ([pickPercentageB isEqualToString:@"0"]) {
-            pickPercentageB = @"0.1";
-        }
-        
-        NSArray *array = [cell.communityPicksBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA,titleB, nil]
-                                                      values:[NSArray arrayWithObjects:pickPercentageA,pickPercentageB, nil]
-                                                      colors:[NSArray arrayWithObjects:@"FF0000", @"0000FF", nil]
-                                                 labelColors:[NSArray arrayWithObjects:@"000000", @"000000", nil]];
-        
-        if (array && [pickPercentageA length] && [pickPercentageB length]) {
-            [cell.communityPicksBarChart setDataWithArray:array
-                                                 showAxis:DisplayBothAxes
-                                                withColor:[UIColor whiteColor]
-                                                 withFont:[UIFont systemFontOfSize:11]
-                                  shouldPlotVerticalLines:NO];
-        }
     }
+    
+    NSString *pickPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
+        
+    if ([pickPercentageB length]) {
+        cell.boxerBPercentage = [pickPercentageB floatValue];
+    }
+    
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    NSLog(@"Pick label text is: %@",cell.currentPickDescriptionLabel.text);
     return cell;
 }
 
@@ -244,38 +223,16 @@
     }
     
     if (self.decision) {
-        [cell.makeDecisionButton setTitle:[self decisionCellButtonRepresentationForDecision:self.decision] forState:UIControlStateNormal];
-        [cell.makeDecisionButton setTitle:[self decisionCellButtonRepresentationForDecision:self.decision] forState:UIControlStateHighlighted];
+        NSLog(@"%@",self.decision);
+        cell.currrentDecisionLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
     }
     
-    NSString *titleA = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerA.lastName,self.boxersToDecisionPercentages[self.fight.boxerA.boxerFullName]];
-    NSString *titleB = [NSString stringWithFormat:@"%@ %@%%",self.fight.boxerB.lastName,self.boxersToDecisionPercentages[self.fight.boxerB.boxerFullName]];
-    
-    NSString *decisionPercentageA = self.boxersToDecisionPercentages[self.fight.boxerA.boxerFullName];
-    if ([decisionPercentageA isEqualToString:@"0"]) {
-        decisionPercentageA = @"0.1";
-    }
     NSString *decisionPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
-    if ([decisionPercentageB isEqualToString:@"0"]) {
-        decisionPercentageB = @"0.1";
+    
+    if ([decisionPercentageB length]) {
+        cell.boxerBPercentage = [decisionPercentageB floatValue];
     }
     
-    UIColor *red = [UIColor redColor];
-    UIColor *blue = [UIColor blueColor];
-    UIColor *black = [UIColor blackColor];
-    
-    NSArray *array = [cell.communityDecisionBarChart createChartDataWithTitles:[NSArray arrayWithObjects:titleA,titleB, nil]
-                                                                     values:[NSArray arrayWithObjects:decisionPercentageA,decisionPercentageB, nil]
-                                                                     colors:[NSArray arrayWithObjects:red, blue, nil]
-                                                                labelColors:[NSArray arrayWithObjects:black, black, nil]];
-    
-    if (array) {
-        [cell.communityDecisionBarChart setDataWithArray:array
-                                             showAxis:DisplayOnlyXAxis
-                                            withColor:[UIColor darkGrayColor]
-                                             withFont:[UIFont systemFontOfSize:11]
-                              shouldPlotVerticalLines:NO];
-    }
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -335,6 +292,15 @@
     
     if (![JSONDataNullCheck isNull:decisionDictionary]) {
         self.decision = [[Decision alloc] initWithRecentFightDisplayDictionary:decisionDictionary];
+        self.decision.fight = self.fight;
+        self.decision.user = self.loggedInUser;
+        for (Boxer *b in self.fight.boxers) {
+            if ([b.boxerID.description isEqualToString:self.decision.winner.boxerID.description]) {
+                self.decision.winner = b;
+            } else {
+                self.decision.loser = b;
+            }
+        }
     }
     
     NSMutableDictionary *boxersToPicksPercentages = [[NSMutableDictionary alloc] init];
@@ -374,13 +340,6 @@
     NSLog(@"%@",self.loggedInUser);
     
     self.navigationController.toolbarHidden = YES;
-    
-    UITextView * textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 100, 32)];
-    textView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithCustomView:textView];
-    [textView sizeToFit];
-    
-    self.navigationController.toolbar.items = [NSArray arrayWithObject:barItem];
 }
 
 - (void)setLabels
@@ -493,7 +452,7 @@
     } else if (indexPath.section == 1) {
         return 66.0;
     } else {
-        return 250.0;
+        return 302.0;
     }
 }
 

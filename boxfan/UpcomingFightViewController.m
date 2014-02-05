@@ -9,7 +9,6 @@
 #import "UpcomingFightViewController.h"
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
-#import "TBACommentsMultipleVC.h"
 
 @interface UpcomingFightViewController ()
 

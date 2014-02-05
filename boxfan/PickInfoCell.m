@@ -7,18 +7,14 @@
 //
 
 #import "PickInfoCell.h"
-#import "BarChartView.h"
+#import <MSGradientArcLayer.h>
 
-@interface PickInfoCell ()
-
+@interface PickInfoCell () {
+    
+}
 @end
 
 @implementation PickInfoCell
-
--(NSString *)pickDescriptionLabelRepresentationForPick:(Pick *)pick
-{
-    return [NSString stringWithFormat:@"%@ %@",pick.winner.lastName,pick.byStoppage ? @"by KO" : @"by decision"];
-}
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -29,6 +25,7 @@
             self = [nibArray objectAtIndex:0];
         }
     }
+
     return self;
 }
 
@@ -44,4 +41,20 @@
         [self.delegate changePick];
     }
 }
+
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    CGRect gaugeFrame				= CGRectMake(10.0,
+                                                 -100.0,
+                                                 300.0,
+                                                 300.0);
+    self.gauge = [[MSSimpleGauge alloc] initWithFrame:gaugeFrame];
+    [self.gauge setValue:self.boxerBPercentage animated:YES];
+    self.gauge.fillGradient = [MSGradientArcLayer defaultGradient];
+    self.gauge.fillArcFillColor = [UIColor blueColor];
+    [self.contentView addSubview:self.gauge];
+}
+
 @end
