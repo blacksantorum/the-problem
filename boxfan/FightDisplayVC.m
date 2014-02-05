@@ -153,17 +153,20 @@
         }
     }
     
-    if (self.pick) {
-        NSLog(@"%@ sets pick label text to: %@",[self currentPickDescriptionLabelRepresentationForPick:self.pick],cell.currentPickDescriptionLabel.text);
-        cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
+    NSLog(@"%@",self.pick);
     
+    if (self.pick) {
+        cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
+    } else {
+        cell.currentPickDescriptionLabel.text = @"";
     }
     
     if (![self.fight.winnerID.description isEqualToString:@"-100"]) {
         [cell.makePickButton removeFromSuperview];
         if (!self.pick) {
-            [cell.yourPickLabel removeFromSuperview];
-            [cell.currentPickDescriptionLabel removeFromSuperview];
+            cell.yourPickLabel.text = @"";
+        } else {
+            cell.yourPickLabel.text = @"Your pick:";
         }
     }
     
