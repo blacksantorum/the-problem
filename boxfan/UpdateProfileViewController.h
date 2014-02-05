@@ -21,6 +21,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *favoriteBoxerTextField;
 @property (weak, nonatomic) IBOutlet UITextField *favoriteFightTextField;
 
+@property (strong,nonatomic) NSString *mantra;
+@property (strong,nonatomic) NSString *firstFight;
+@property (strong,nonatomic) NSString *favoriteBoxer;
+@property (strong,nonatomic) NSString *favoriteFight;
+
+
 @property (nonatomic,assign)id delegate;
 
 @end

@@ -429,10 +429,32 @@
     }
 }
 
+- (CGFloat)textViewHeightForRowAtIndexPath: (NSIndexPath*)indexPath {
+    // CGFloat textViewWidth = calculationView.frame.size.width;
+    // if (!calculationView.attributedText) {
+    // This will be needed on load, when the text view is not inited yet
+    
+    UITextView *calculationView = [[UITextView alloc] init];
+    
+    Comment *comment = self.comments[indexPath.row];
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}];
+    calculationView.attributedText = string;
+    CGFloat textViewWidth = 238.0;
+    // }
+    CGSize size = [calculationView sizeThatFits:CGSizeMake(textViewWidth, FLT_MAX)];
+    return size.height;
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         if ([self.comments count] > 0) {
-            return 113.0;
+            CGFloat calculatedHeight = [self textViewHeightForRowAtIndexPath:indexPath] + 50;
+            if (calculatedHeight < 90) {
+                return 90;
+            } else {
+                return calculatedHeight;
+            }
         } else {
             return 56.0;
         }

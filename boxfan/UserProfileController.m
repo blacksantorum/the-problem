@@ -131,6 +131,8 @@
     cell.favoriteFighterLabel.text = self.profile.favoriteBoxer;
     cell.favoriteFightLabel.text = self.profile.favoriteFight;
     
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -188,10 +190,10 @@
 - (void)presentEditProfileView
 {
     UpdateProfileViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"updateProfile"];
-    vc.mantraTextField.text = self.profile.mantra;
-    vc.firstFightTextField.text = self.profile.firstFight;
-    vc.favoriteBoxerTextField.text = self.profile.favoriteBoxer;
-    vc.favoriteFightTextField.text = self.profile.favoriteFight;
+    vc.mantra = self.profile.mantra;
+    vc.firstFight = self.profile.firstFight;
+    vc.favoriteBoxer = self.profile.favoriteBoxer;
+    vc.favoriteFight = self.profile.favoriteFight;
     vc.delegate = self;
     [self presentViewController:vc animated:YES completion:nil];
 }

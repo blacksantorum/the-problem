@@ -27,6 +27,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.mantraTextField.text = self.mantra;
+    self.firstFightTextField.text = self.firstFight;
+    self.favoriteBoxerTextField.text = self.favoriteBoxer;
+    self.favoriteFightTextField.text = self.favoriteFight;
+}
+
 
 
 - (IBAction)tappedView:(id)sender {

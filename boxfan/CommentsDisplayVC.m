@@ -204,6 +204,9 @@
     
     cell.commentContentTextView.scrollEnabled = NO;
     
+    
+    
+    
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     
     // formatted time interval from comment date to now
@@ -274,7 +277,7 @@
         calculationView = [[UITextView alloc] init];
         
         Comment *comment = self.comments[indexPath.row];
-    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0]}];
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}];
         calculationView.attributedText = string;
         CGFloat textViewWidth = 238.0;
     // }
@@ -298,18 +301,12 @@
     return comment.content;
 }
 
-- (CGSize)getSizeOfText:(NSString *)text withFont:(UIFont *)font
-{
-    NSDictionary *attributes = [NSDictionary dictionaryWithObject:font forKey:NSFontAttributeName];
-    CGRect rect = [text boundingRectWithSize:CGSizeMake(238, 50) options:NSStringDrawingUsesFontLeading attributes:attributes context:nil];
-    return rect.size;
-}
-
 - (void) viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
 }
+
 - (void) viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
