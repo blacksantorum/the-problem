@@ -50,7 +50,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="favoriteFightLabel" destination="c7o-7k-z6L" id="uq2-QR-rNG"/>

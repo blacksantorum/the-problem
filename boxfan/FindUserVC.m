@@ -150,6 +150,13 @@
     controller.displayedUser = u;
     controller.title = u.handle;
     
+    UIBarButtonItem *newBackButton =
+    [[UIBarButtonItem alloc] initWithTitle:@"Find"
+                                     style:UIBarButtonItemStyleBordered
+                                    target:nil
+                                    action:nil];
+    [[self navigationItem] setBackBarButtonItem:newBackButton];
+    
     [self.navigationController pushViewController:controller animated:YES];
     
     // [self performSegueWithIdentifier: @"showFoundUser" sender: self];
