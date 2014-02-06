@@ -15,8 +15,11 @@
 #import "UserHistoryTableVC.h"
 #import "boxfanAppDelegate.h"
 #import "MyProfileNavController.h"
+#import "RecordCell.h"
 
-@interface UserProfileController ()
+@interface UserProfileController () {
+    NSDictionary *professionalRecord;
+}
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -80,6 +83,32 @@
 - (NSString *)boxerNameDisplay:(Boxer *)boxer
 {
     return [NSString stringWithFormat:@"%@. %@",[boxer.firstName substringToIndex:1] ,boxer.lastName];
+}
+
+- (RecordCell *)RecordCellForTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Record Cell";
+    
+    [self.profileTableView registerClass:[RecordCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    RecordCell *cell = (RecordCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"RecordCell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (RecordCell *)currentObject;
+                break;
+            }
+        }
+    }
+    
+    if ([professionalRecord objectForKey:@"correct"]) {
+        cell.correctPicksLabel.text = [NSString stringWithFormat:@"%@ correct picks",[[professionalRecord objectForKey:@"correct"] stringValue]];
+        cell.incorrectPicksLabel.text = [NSString stringWithFormat:@"%@ incorrect picks",[[professionalRecord objectForKey:@"incorrect"] stringValue]];
+    }
+    
+    return cell;
 }
 
 - (FOYCell *)FOYCellForTableView:(UITableView *)tableView forIndexPath:(NSIndexPath *)indexPath
@@ -165,6 +194,12 @@
                 NSLog(@"%@",object);
                 NSDictionary *userDictionary = (NSDictionary *)object;
                 self.profile = [[Profile alloc] initWithDictionary:[userDictionary objectForKey:@"user"]];
+                
+                NSInteger numberOfPicks = [[userDictionary valueForKeyPath:@"user.fights_picked"] integerValue];
+                NSInteger correctPicks = [[userDictionary valueForKeyPath:@"user.correct_picks"] integerValue];
+                
+                professionalRecord = @{@"correct" : [NSNumber numberWithInteger:correctPicks], @"incorrect": [NSNumber numberWithInteger:numberOfPicks - correctPicks]};
+                
                 self.mantraLabel.text = self.profile.mantra;
                 [self.profileTableView reloadData];
                 
@@ -220,9 +255,9 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     if ([self hasFightOfTheYear]) {
-        return 2;
+        return 3;
     } else {
-        return 1;
+        return 2;
     }
 }
 
@@ -237,41 +272,62 @@
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if ([self hasFightOfTheYear]) {
-        if (section == 0) {
-            return @"Fight of the Year";
-        } else {
-            return @"Profile";
-        }
+    NSString *sectionTitle;
+    
+    if (section == 0) {
+        sectionTitle = @"Professional Record";
     } else {
-        return @"Profile";
+        if ([self hasFightOfTheYear]) {
+            if (section == 1) {
+                sectionTitle = @"Fight of the Year";
+            } else {
+                sectionTitle = @"Profile";
+            }
+        } else {
+            sectionTitle = @"Profile";
+        }
     }
+    return sectionTitle;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self hasFightOfTheYear]) {
-        if (indexPath.section == 0) {
-            return 82.0;
-        } else {
-            return 225.0;
-        }
+    CGFloat sectionHeight;
+    
+    if (indexPath.section == 0) {
+        sectionHeight = 93.0;
     } else {
-        return 225.0;
+        if ([self hasFightOfTheYear]) {
+            if (indexPath.section == 1) {
+                sectionHeight = 90.0;
+            } else {
+                sectionHeight = 225.0;
+            }
+        } else {
+            sectionHeight = 225.0;
+        }
     }
+    return sectionHeight;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([self hasFightOfTheYear]) {
-        if (indexPath.section == 0) {
-            return [self FOYCellForTableView:tableView forIndexPath:indexPath];
-        } else {
-            return [self ProfileCellForTableView:tableView forIndexPath:indexPath];
-        }
+    UITableViewCell *cell;
+    
+    if (indexPath.section == 0) {
+        cell = [self RecordCellForTableView:tableView forIndexPath:indexPath];
     } else {
-        return [self ProfileCellForTableView:tableView forIndexPath:indexPath];
+        if ([self hasFightOfTheYear]) {
+            if (indexPath.section == 1) {
+                cell = [self FOYCellForTableView:tableView forIndexPath:indexPath];
+            } else {
+                cell = [self ProfileCellForTableView:tableView forIndexPath:indexPath];
+            }
+        } else {
+            cell = [self ProfileCellForTableView:tableView forIndexPath:indexPath];
+        }
     }
+    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

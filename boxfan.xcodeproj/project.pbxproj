@@ -71,6 +71,8 @@
 		ECA15D8018951B770005E920 /* ListOfFightsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA15D7F18951B770005E920 /* ListOfFightsCell.xib */; };
 		ECA15D8318951BAF0005E920 /* ListOfFightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */; };
 		ECA15DE418964C8A0005E920 /* Profile.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA15DE318964C8A0005E920 /* Profile.m */; };
+		ECA2930618A36F74000DCDCE /* RecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ECA2930518A36F74000DCDCE /* RecordCell.xib */; };
+		ECA2930918A370A8000DCDCE /* RecordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA2930818A370A8000DCDCE /* RecordCell.m */; };
 		ECC109E018878994000B70CF /* FindUserNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109DF18878994000B70CF /* FindUserNavController.m */; };
 		ECC109E81887C641000B70CF /* FindUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109E71887C641000B70CF /* FindUserVC.m */; };
 		ECC109EB1887F831000B70CF /* MyProfileNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECC109EA1887F831000B70CF /* MyProfileNavController.m */; };
@@ -447,6 +449,9 @@
 		ECA15D8218951BAF0005E920 /* ListOfFightsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListOfFightsCell.m; sourceTree = "<group>"; };
 		ECA15DE218964C8A0005E920 /* Profile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Profile.h; sourceTree = "<group>"; };
 		ECA15DE318964C8A0005E920 /* Profile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Profile.m; sourceTree = "<group>"; };
+		ECA2930518A36F74000DCDCE /* RecordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecordCell.xib; sourceTree = "<group>"; };
+		ECA2930718A370A8000DCDCE /* RecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecordCell.h; sourceTree = "<group>"; };
+		ECA2930818A370A8000DCDCE /* RecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecordCell.m; sourceTree = "<group>"; };
 		ECC109DE18878994000B70CF /* FindUserNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserNavController.h; sourceTree = "<group>"; };
 		ECC109DF18878994000B70CF /* FindUserNavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindUserNavController.m; sourceTree = "<group>"; };
 		ECC109E61887C641000B70CF /* FindUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindUserVC.h; sourceTree = "<group>"; };
@@ -1266,6 +1271,9 @@
 				ECCA0A8718972C6A00403AFD /* ProfileCell.xib */,
 				ECCA0A801897181E00403AFD /* FOYCell.h */,
 				ECCA0A811897181E00403AFD /* FOYCell.m */,
+				ECA2930518A36F74000DCDCE /* RecordCell.xib */,
+				ECA2930718A370A8000DCDCE /* RecordCell.h */,
+				ECA2930818A370A8000DCDCE /* RecordCell.m */,
 				ECCA0A7E1897127500403AFD /* FOYCell.xib */,
 			);
 			name = "User Display";
@@ -1434,6 +1442,7 @@
 				ECC10B16188E2F14000B70CF /* Belarus.png in Resources */,
 				ECC10B73188E2F14000B70CF /* Kyrgyzstan.png in Resources */,
 				ECC10B0B188E2F14000B70CF /* Argentina.png in Resources */,
+				ECA2930618A36F74000DCDCE /* RecordCell.xib in Resources */,
 				ECC10B6C188E2F14000B70CF /* Jersey.png in Resources */,
 				ECC10BDA188E2F14000B70CF /* Trinidad & Tobago.png in Resources */,
 				ECC10BB9188E2F14000B70CF /* Sao Tome & Principe.png in Resources */,
@@ -1762,6 +1771,7 @@
 				EC0D5B4918869543009B32B4 /* RecentFightNavController.m in Sources */,
 				EC374AD61890891D00C4343A /* RecentFightDisplayViewController.m in Sources */,
 				EC0D5B4C18869637009B32B4 /* RecentFightsVC.m in Sources */,
+				ECA2930918A370A8000DCDCE /* RecordCell.m in Sources */,
 				ECA15DE418964C8A0005E920 /* Profile.m in Sources */,
 				ECA1322E185FA8A500001793 /* Pick.m in Sources */,
 				EC0D5B3E188542D3009B32B4 /* UpcomingFightNavController.m in Sources */,
