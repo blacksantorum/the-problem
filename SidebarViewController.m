@@ -13,6 +13,7 @@
 #import "RecentFightNavController.h"
 #import "FindUserNavController.h"
 #import "MyProfileNavController.h"
+#import "SidebarCell.h"
 
 @interface SidebarViewController ()
 
@@ -48,30 +49,48 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     NSInteger row = indexPath.row;
+    
+    static NSString *CellIdentifier = @"Sidebar Cell";
+    
+    [self.tableView registerClass:[SidebarCell class] forCellReuseIdentifier:CellIdentifier];
+    
+    SidebarCell *cell = (SidebarCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        NSArray* topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"SidebarCell" owner:self options:nil];
+        for (id currentObject in topLevelObjects) {
+            if ([currentObject isKindOfClass:[UITableViewCell class]]) {
+                cell = (SidebarCell *)currentObject;
+                break;
+            }
+        }
     }
+
     
     if (row == 0) {
-        cell.textLabel.text = @"";
-    }
-    if (row == 1) {
-        cell.textLabel.text = @"Find User";
-    }
-    if (row == 2) {
-        cell.textLabel.text = @"Upcoming Fights";
-    }
-    if (row == 3) {
-        cell.textLabel.text = @"Recent Fights";
+        cell.actionTitle.text = @"";
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     if (row == 4) {
-        cell.textLabel.text = self.loggedInUser.handle;
+        cell.actionTitle.text = @"Users";
+        [cell.actionIcon setImage:[UIImage imageNamed:@"users"]];
+    }
+    if (row == 1) {
+        cell.actionTitle.text = @"Upcoming Fights";
+        [cell.actionIcon setImage:[UIImage imageNamed:@"upcoming"]];
+    }
+    if (row == 2) {
+        cell.actionTitle.text = @"Recent Fights";
+        [cell.actionIcon setImage:[UIImage imageNamed:@"recent"]];
+    }
+    if (row == 3) {
+        cell.actionTitle.text = self.loggedInUser.handle;
+        [cell.actionIcon setImage:[UIImage imageNamed:@"myprofile"]];
     }
     if (row == 5) {
-        cell.textLabel.text = @"Log out";
+        cell.actionTitle.text = @"Log out";
+        [cell.actionIcon setImage:[UIImage imageNamed:@"logout"]];
     }
     
     return cell;
@@ -81,7 +100,7 @@
 {
     NSInteger row = indexPath.row;
     
-    if (row == 1) {
+    if (row == 4) {
         if (![[[self revealController] frontViewController] isKindOfClass:[FindUserNavController class]]) {
             UINavigationController *findUserNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"FindUserNav"];
             [[self revealController] setFrontViewController:findUserNavController];
@@ -91,7 +110,7 @@
         }
     }
     
-    if (row == 2) {
+    if (row == 1) {
         if (![[[self revealController] frontViewController] isKindOfClass:[UpcomingFightNavController class]]) {
             UINavigationController *scheduleNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"ScheduleNav"];
             [[self revealController] setFrontViewController:scheduleNavController];
@@ -101,7 +120,7 @@
         }
     }
     
-    if (row == 3) {
+    if (row == 2) {
         if (![[[self revealController] frontViewController] isKindOfClass:[RecentFightNavController class]]) {
             UINavigationController *recentNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"RecentNav"];
             [[self revealController] setFrontViewController:recentNavController];
@@ -111,7 +130,7 @@
         }
     }
     
-    if (row == 4) {
+    if (row == 3) {
         if (![[[self revealController] frontViewController] isKindOfClass:[MyProfileNavController class]]) {
             UINavigationController *myProfileNavController = [self.storyboard instantiateViewControllerWithIdentifier:@"MyProfileNav"];
             [[self revealController] setFrontViewController:myProfileNavController];
@@ -126,6 +145,13 @@
             [self.delegate logOut];
         }
     }
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.tableView.rowHeight = 46.0;
+    [self.tableView setBackgroundColor:[UIColor darkGrayColor]];
 }
 
 -(void)passUser:(User *)user

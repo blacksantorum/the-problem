@@ -112,7 +112,7 @@
     if (tableView == self.searchDisplayController.searchResultsTableView) {
         return [self.filteredUsers count];
     } else {
-        return 0;
+        return [self.users count];
     }
 }
 
@@ -125,20 +125,37 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    User *u = [self.filteredUsers objectAtIndex:indexPath.row];
+    User *u;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        [self configureCell:cell forUser:u];
+        u = [self.filteredUsers objectAtIndex:indexPath.row];
+    } else {
+        u = [self.users objectAtIndex:indexPath.row];
     }
+   
+    [self configureCell:cell forUser:u];
+
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    UserProfileController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"userProfile"];
+    User *u;
     if (tableView == self.searchDisplayController.searchResultsTableView) {
-        [self performSegueWithIdentifier: @"showFoundUser" sender: self];
+        u = self.filteredUsers[indexPath.row];
+    } else {
+        u = self.users[indexPath.row];
     }
+    
+    controller.displayedUser = u;
+    controller.title = u.handle;
+    
+    [self.navigationController pushViewController:controller animated:YES];
+    
+    // [self performSegueWithIdentifier: @"showFoundUser" sender: self];
 }
 
+/*
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showFoundUser"]) {
         if ([self.searchDisplayController isActive]) {
@@ -149,10 +166,19 @@
             
             controller.displayedUser = user;
             controller.title = user.handle;
+        } else {
+            UserProfileController *controller = (UserProfileController *)segue.destinationViewController;
+            NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+            
+            User *user = self.users[indexPath.row];
+            
+            controller.displayedUser = user;
+            controller.title = user.handle;
         }
     }
     
 }
+ */
 
 - (IBAction)userClickedShowSettings:(id)sender {
     [[self revealController] showViewController:[[self revealController] leftViewController]];

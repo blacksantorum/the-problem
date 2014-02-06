@@ -15,6 +15,8 @@
 #import "BoxFanRevealController.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 
+#define NavigationBarColor [UIColor colorWithRed:.170 green:.001 blue:.02 alpha:.8]
+
 @interface boxfanAppDelegate() <PKRevealing>
 
 @property (nonatomic,strong,readwrite) BoxFanRevealController *revealController;
@@ -45,6 +47,8 @@
                   clientKey:@"ygFW72dJh6tk3jbTxcEQoFbbROXRSIxaqldcv9Ik"];
     [PFTwitterUtils initializeWithConsumerKey:@"TK2igjpRfDN283wGr77Q"
                                consumerSecret:@"0ju7zB7dl67YsReYmPosJKWVsUbTaLZFiM01CP8Fghs"];
+    
+    [UIColor colorWithRed:.139 green:0 blue:0 alpha:1];
 }
 
 -(void)signInWithRails:(User *)user
@@ -148,7 +152,15 @@
 {
     [self doParseInitialization];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-
+    [[UINavigationBar appearance] setBarTintColor:NavigationBarColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
+                                                           [UIFont fontWithName:@"HelveticaNeue" size:18.0], NSFontAttributeName, nil]];
+    
+    
     if (![self encodedUserFromDefaults]) {
         [self showLogInView];
     } else {

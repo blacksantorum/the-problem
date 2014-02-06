@@ -48,6 +48,8 @@
 		EC96EC9318A1C49800AD894D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96EC9218A1C49800AD894D /* Reachability.m */; };
 		EC96EC9518A202B300AD894D /* TopCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC96EC9418A202B300AD894D /* TopCommentCell.xib */; };
 		EC96EC9818A203B300AD894D /* TopCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96EC9718A203B300AD894D /* TopCommentCell.m */; };
+		EC96EC9A18A307BC00AD894D /* SidebarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC96EC9918A307BC00AD894D /* SidebarCell.xib */; };
+		EC96EC9D18A30A2700AD894D /* SidebarCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EC96EC9C18A30A2700AD894D /* SidebarCell.m */; };
 		ECA04783189C614C0078582A /* TBALoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ECA04782189C614C0078582A /* TBALoginViewController.m */; };
 		ECA0CE3A185E4EF8003380C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE39185E4EF8003380C5 /* Foundation.framework */; };
 		ECA0CE3C185E4EF8003380C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECA0CE3B185E4EF8003380C5 /* CoreGraphics.framework */; };
@@ -409,6 +411,9 @@
 		EC96EC9418A202B300AD894D /* TopCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCommentCell.xib; sourceTree = "<group>"; };
 		EC96EC9618A203B300AD894D /* TopCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCommentCell.h; sourceTree = "<group>"; };
 		EC96EC9718A203B300AD894D /* TopCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCommentCell.m; sourceTree = "<group>"; };
+		EC96EC9918A307BC00AD894D /* SidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidebarCell.xib; sourceTree = "<group>"; };
+		EC96EC9B18A30A2700AD894D /* SidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarCell.h; sourceTree = "<group>"; };
+		EC96EC9C18A30A2700AD894D /* SidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarCell.m; sourceTree = "<group>"; };
 		ECA04781189C614C0078582A /* TBALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBALoginViewController.h; sourceTree = "<group>"; };
 		ECA04782189C614C0078582A /* TBALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBALoginViewController.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -783,6 +788,9 @@
 		EC54850A187E9A3400EA69E5 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
+				EC96EC9918A307BC00AD894D /* SidebarCell.xib */,
+				EC96EC9B18A30A2700AD894D /* SidebarCell.h */,
+				EC96EC9C18A30A2700AD894D /* SidebarCell.m */,
 				ECCA0A901897CB3600403AFD /* User Activity */,
 				ECCA0A86189718D300403AFD /* User Display */,
 				ECCA0A85189718C200403AFD /* Comments */,
@@ -1605,6 +1613,7 @@
 				ECC10BEF188E2F14000B70CF /* Western Sahara.png in Resources */,
 				ECC10B1C188E2F14000B70CF /* Bolivia.png in Resources */,
 				ECC10B72188E2F14000B70CF /* Kuwait.png in Resources */,
+				EC96EC9A18A307BC00AD894D /* SidebarCell.xib in Resources */,
 				ECC10B0F188E2F14000B70CF /* Australia.png in Resources */,
 				ECC10B77188E2F14000B70CF /* Lesotho.png in Resources */,
 				ECC10B56188E2F14000B70CF /* Guam.png in Resources */,
@@ -1760,6 +1769,7 @@
 				EC5373FD1880C22F00DF16AB /* URLS.m in Sources */,
 				EC81025C18948F720092B7DB /* TTTTimeIntervalFormatter.m in Sources */,
 				EC61678B189353B300E9843E /* CommentsDisplayVC.m in Sources */,
+				EC96EC9D18A30A2700AD894D /* SidebarCell.m in Sources */,
 				ECC109EE1888A47A000B70CF /* BoxFanRevealController.m in Sources */,
 				ECCA0A951897CFBC00403AFD /* UserActivityCell.m in Sources */,
 				EC81026218949BC60092B7DB /* MostJabbedCommentsDisplayVC.m in Sources */,
