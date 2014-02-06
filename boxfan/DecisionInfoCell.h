@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *makeDecisionButton;
 @property (weak, nonatomic) IBOutlet UILabel *currrentDecisionLabel;
 
+
 @property CGFloat boxerBPercentage;
 
 - (IBAction)makeDecisionButtonPressed:(id)sender;

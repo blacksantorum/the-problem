@@ -162,7 +162,7 @@
     NSLog(@"%@",self.pick);
     
     if (self.pick) {
-        cell.currentPickDescriptionLabel.text = [self currentPickDescriptionLabelRepresentationForPick:self.pick];
+        cell.currentPickDescriptionLabel.attributedText = [[NSAttributedString alloc] initWithString:[self currentPickDescriptionLabelRepresentationForPick:self.pick]];
     } else {
         cell.currentPickDescriptionLabel.text = @"";
     }
@@ -173,6 +173,14 @@
             cell.yourPickLabel.text = @"";
         } else {
             cell.yourPickLabel.text = @"Your pick:";
+            
+            if (![self.pick.winner.boxerID.description isEqualToString:self.fight.winnerID.description]) {
+                NSMutableAttributedString *wrongPick = [[NSMutableAttributedString alloc] initWithString:[self currentPickDescriptionLabelRepresentationForPick:self.pick]attributes:@{NSStrikethroughStyleAttributeName:
+                                                                                                                                                            [NSNumber numberWithInteger:NSUnderlineStyleSingle]}];
+            
+                
+                [cell.currentPickDescriptionLabel setAttributedText:wrongPick];
+            }
         }
     }
     
@@ -185,7 +193,6 @@
     cell.delegate = self;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
-    NSLog(@"Pick label text is: %@",cell.currentPickDescriptionLabel.text);
     return cell;
 }
 
@@ -371,7 +378,7 @@
 {
     if (section == 0)
     {
-        return @"";
+        return @"Top Comment";
     }
     else if (section == 1)
     {

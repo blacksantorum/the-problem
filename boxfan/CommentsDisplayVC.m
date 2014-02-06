@@ -222,18 +222,6 @@
     return cell;
 }
 
-- (void)textViewDidChange:(UITextView *)textView
-{
-    /*
-    NSLog(@"textViewDidChange getting called.");
-    CGFloat fixedWidth = textView.frame.size.width;
-    CGSize newSize = [textView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
-    CGRect newFrame = textView.frame;
-    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
-    textView.frame = newFrame;
-     */
-}
-
 - (UIImage *)jabButtonImageForComment:(Comment *)comment
 {
     if (comment.isJabbedByLoggedInUser) {

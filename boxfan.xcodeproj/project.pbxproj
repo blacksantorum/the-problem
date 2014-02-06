@@ -413,9 +413,9 @@
 		EC96EC9418A202B300AD894D /* TopCommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCommentCell.xib; sourceTree = "<group>"; };
 		EC96EC9618A203B300AD894D /* TopCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TopCommentCell.h; sourceTree = "<group>"; };
 		EC96EC9718A203B300AD894D /* TopCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TopCommentCell.m; sourceTree = "<group>"; };
-		EC96EC9918A307BC00AD894D /* SidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SidebarCell.xib; sourceTree = "<group>"; };
-		EC96EC9B18A30A2700AD894D /* SidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarCell.h; sourceTree = "<group>"; };
-		EC96EC9C18A30A2700AD894D /* SidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarCell.m; sourceTree = "<group>"; };
+		EC96EC9918A307BC00AD894D /* SidebarCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SidebarCell.xib; path = boxfan/SidebarCell.xib; sourceTree = "<group>"; };
+		EC96EC9B18A30A2700AD894D /* SidebarCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SidebarCell.h; path = boxfan/SidebarCell.h; sourceTree = "<group>"; };
+		EC96EC9C18A30A2700AD894D /* SidebarCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SidebarCell.m; path = boxfan/SidebarCell.m; sourceTree = "<group>"; };
 		ECA04781189C614C0078582A /* TBALoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBALoginViewController.h; sourceTree = "<group>"; };
 		ECA04782189C614C0078582A /* TBALoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBALoginViewController.m; sourceTree = "<group>"; };
 		ECA0CE36185E4EF8003380C5 /* boxfan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = boxfan.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -793,9 +793,6 @@
 		EC54850A187E9A3400EA69E5 /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EC96EC9918A307BC00AD894D /* SidebarCell.xib */,
-				EC96EC9B18A30A2700AD894D /* SidebarCell.h */,
-				EC96EC9C18A30A2700AD894D /* SidebarCell.m */,
 				ECCA0A901897CB3600403AFD /* User Activity */,
 				ECCA0A86189718D300403AFD /* User Display */,
 				ECCA0A85189718C200403AFD /* Comments */,
@@ -950,6 +947,9 @@
 		ECC109931886A66A000B70CF /* Sidebar */ = {
 			isa = PBXGroup;
 			children = (
+				EC96EC9918A307BC00AD894D /* SidebarCell.xib */,
+				EC96EC9B18A30A2700AD894D /* SidebarCell.h */,
+				EC96EC9C18A30A2700AD894D /* SidebarCell.m */,
 				ECE55DA01884B86900E02546 /* SidebarViewController.h */,
 				ECE55DA11884B86900E02546 /* SidebarViewController.m */,
 				ECE55DA21884B86900E02546 /* SidebarViewController.xib */,

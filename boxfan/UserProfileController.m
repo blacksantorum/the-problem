@@ -23,7 +23,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mantraLabel;
+
+@property (weak, nonatomic) IBOutlet UITextView *mantraTextView;
 
 
 @property (weak, nonatomic) IBOutlet UITableView *profileTableView;
@@ -160,8 +161,6 @@
     cell.favoriteFighterLabel.text = self.profile.favoriteBoxer;
     cell.favoriteFightLabel.text = self.profile.favoriteFight;
     
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
     return cell;
 }
 
@@ -200,7 +199,8 @@
                 
                 professionalRecord = @{@"correct" : [NSNumber numberWithInteger:correctPicks], @"incorrect": [NSNumber numberWithInteger:numberOfPicks - correctPicks]};
                 
-                self.mantraLabel.text = self.profile.mantra;
+                self.mantraTextView.text = nil;
+                self.mantraTextView.text = self.profile.mantra;
                 [self.profileTableView reloadData];
                 
             }
@@ -327,6 +327,9 @@
             cell = [self ProfileCellForTableView:tableView forIndexPath:indexPath];
         }
     }
+
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
     return cell;
 }
 
@@ -334,10 +337,10 @@
 {
     if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
         if ([self hasFightOfTheYear]) {
-            if (indexPath.section == 1) {
+            if (indexPath.section == 2) {
                 [self presentEditProfileView];
             }
-        } else {
+        } else if (indexPath.section == 1) {
             [self presentEditProfileView];
         }
     }
