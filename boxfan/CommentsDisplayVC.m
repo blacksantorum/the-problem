@@ -45,6 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     self.commentField = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 250, 32)];
@@ -62,6 +63,7 @@
     
     self.commentField.borderStyle = UITextBorderStyleRoundedRect;
     self.originalToolbarFrame = self.navigationController.toolbar.frame;
+    [self addActivityViewIndicator];
     // [self refresh];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
@@ -114,7 +116,6 @@
 - (void)refresh
 {
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
-    [self addActivityViewIndicator];
     [self.spinner startAnimating];
     NSLog(@"%@", [URLS urlForCommentsForFight:self.fight]);
     NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForCommentsForFight:self.fight]];

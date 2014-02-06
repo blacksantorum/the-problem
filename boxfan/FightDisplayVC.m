@@ -18,7 +18,9 @@
 #import "NoCommentsCell.h"
 
 
-@interface FightDisplayVC ()
+@interface FightDisplayVC () {
+    UIActivityIndicatorView *spinner;
+}
 
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *commentTextField;
 
@@ -253,8 +255,16 @@
     return bfrc.loggedInUser;
 }
 
+- (void)addActivityViewIndicator
+{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:spinner];
+    spinner.center = self.view.center;
+}
+
 -(void)refresh
 {
+    [spinner startAnimating];
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     NSURL *url = [NSURL URLWithString:[URLS urlForUsersCurrentPickForFight:self.fight]];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -275,6 +285,7 @@
             }
         }
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+        [spinner stopAnimating];
     }];
 }
 
@@ -331,6 +342,7 @@
 {
     [super viewDidLoad];
     [self setLabels];
+    [self addActivityViewIndicator];
     [self refresh];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
@@ -431,6 +443,14 @@
 {
     if ([segue.identifier isEqualToString:@"showComments"]) {
         MostJabbedCommentsDisplayVC *controller = (MostJabbedCommentsDisplayVC *)segue.destinationViewController;
+        
+        UIBarButtonItem *newBackButton =
+        [[UIBarButtonItem alloc] initWithTitle:@"Fight"
+                                         style:UIBarButtonItemStyleBordered
+                                        target:nil
+                                        action:nil];
+        [[self navigationItem] setBackBarButtonItem:newBackButton];
+        
         controller.title = self.fight.titleForScheduleView;
         controller.fight = self.fight;
     }

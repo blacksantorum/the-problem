@@ -30,6 +30,7 @@
                         <size key="shadowOffset" width="1" height="1"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="correctPicksLabel" destination="Rt9-42-0Ev" id="Cl3-vy-6gk"/>

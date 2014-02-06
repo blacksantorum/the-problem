@@ -53,7 +53,6 @@
 - (void)refresh
 {
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
-    [self addActivityViewIndicator];
     [self.spinner startAnimating];
 
     NSURLRequest *request = [NSURLRequest requestWithURL:self.urlForRequest];
@@ -91,6 +90,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self addActivityViewIndicator];
     [self refresh];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }

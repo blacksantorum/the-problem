@@ -19,6 +19,7 @@
 
 @interface UserProfileController () {
     NSDictionary *professionalRecord;
+    UIActivityIndicatorView *spinner;
 }
 
 @property (weak, nonatomic) IBOutlet UIImageView *profileImageView;
@@ -39,6 +40,13 @@
 @end
 
 @implementation UserProfileController
+
+- (void)addActivityViewIndicator
+{
+    spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:spinner];
+    spinner.center = self.view.center;
+}
 
 - (IBAction)userClickedShowSettings:(id)sender
 {
@@ -176,10 +184,9 @@
 
 - (void)refresh
 {
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForPicksOfUser:self.displayedUser]];
-    
-    NSLog(@"%@",request);
-    
+    [spinner startAnimating];
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
@@ -206,6 +213,7 @@
             }
         }
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+        [spinner stopAnimating];
     }];
     self.nameLabel.text = self.displayedUser.name;
     [self.profileImageView setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
@@ -214,10 +222,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // if ([self.displayedUser.handle caseInsensitiveCompare:self.loggedInUser.handle] == NSOrderedSame) {
-     //   UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCompose target:self action:@selector(presentEditProfileView)];
-     //   self.navigationItem.rightBarButtonItem = rightButton;
-    // }
+    [self addActivityViewIndicator];
 	[self refresh];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
@@ -265,6 +270,14 @@
 {
     if ([segue.identifier isEqualToString:@"showHistory"]) {
         UserHistoryTableVC *controller = (UserHistoryTableVC *)segue.destinationViewController;
+        
+        UIBarButtonItem *newBackButton =
+        [[UIBarButtonItem alloc] initWithTitle:@"Profile"
+                                         style:UIBarButtonItemStyleBordered
+                                        target:nil
+                                        action:nil];
+        [[self navigationItem] setBackBarButtonItem:newBackButton];
+        
         controller.title = self.displayedUser.handle;
         controller.displayedUser = self.displayedUser;
     }
