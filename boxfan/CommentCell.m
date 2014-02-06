@@ -49,4 +49,17 @@
     }
 }
 
+- (void)layoutSubviews
+{
+    CGFloat fixedWidth = self.commentContentTextView.frame.size.width;
+    CGSize newSize = [self.commentContentTextView sizeThatFits:CGSizeMake(fixedWidth, MAXFLOAT)];
+    CGRect newFrame = self.commentContentTextView.frame;
+    newFrame.size = CGSizeMake(fmaxf(newSize.width, fixedWidth), newSize.height);
+    self.commentContentTextView.frame = newFrame;
+    
+    CGRect newFrameForTime = self.commentDateTimeLabel.frame;
+    CGFloat newY = newFrame.origin.y + newFrame.size.height;
+    self.commentDateTimeLabel.frame = CGRectMake(newFrameForTime.origin.x, newY, newFrameForTime.size.width, newFrameForTime.size.height);
+}
+
 @end

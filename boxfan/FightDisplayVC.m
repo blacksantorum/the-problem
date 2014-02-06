@@ -347,6 +347,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self.fightInfoTableView reloadData];
+}
+
 - (void)setLabels
 {
     self.boxerAFirstNameLabel.text = self.fight.boxerA.firstName;

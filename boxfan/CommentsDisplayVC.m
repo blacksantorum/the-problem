@@ -266,7 +266,7 @@
         calculationView = [[UITextView alloc] init];
         
         Comment *comment = self.comments[indexPath.row];
-    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15.0]}];
+    NSAttributedString *string = [[NSAttributedString alloc] initWithString:comment.content attributes:@{NSFontAttributeName: [UIFont systemFontOfSize:14.0]}];
         calculationView.attributedText = string;
         CGFloat textViewWidth = 238.0;
     // }

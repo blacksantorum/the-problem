@@ -206,8 +206,8 @@
                 
                 professionalRecord = @{@"correct" : [NSNumber numberWithInteger:correctPicks], @"incorrect": [NSNumber numberWithInteger:numberOfPicks - correctPicks]};
                 
-                self.mantraTextView.text = nil;
-                self.mantraTextView.text = self.profile.mantra;
+                [self.mantraTextView setText:nil];
+                [self.mantraTextView setText:self.profile.mantra];
                 [self.profileTableView reloadData];
                 
             }
