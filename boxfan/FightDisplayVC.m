@@ -137,7 +137,8 @@
     
     cell.dateLabel.text = [ScheduleFormattedDate sectionHeaderFormattedStringFromDate:self.fight.date];
     cell.locationLabel.text = self.fight.location;
-    cell.roundsWeightLabel.text = [NSString stringWithFormat:@"%@ rounds at %@",self.fight.rounds,self.fight.weight];
+
+    cell.roundsWeightLabel.text = [NSString stringWithFormat:@"%@ rounds at %@",self.fight.rounds,[self.fight.weight.description isEqualToString:@"0"] ? @"200+":self.fight.weight];
     cell.fight = self.fight;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -160,8 +161,6 @@
             }
         }
     }
-    
-    NSLog(@"%@",self.pick);
     
     if (self.pick) {
         cell.currentPickDescriptionLabel.attributedText = [[NSAttributedString alloc] initWithString:[self currentPickDescriptionLabelRepresentationForPick:self.pick]];
@@ -186,9 +185,11 @@
         }
     }
     
+    NSString *pickPercentageA = self.boxersToPickPercentages[self.fight.boxerA.boxerFullName];
     NSString *pickPercentageB = self.boxersToPickPercentages[self.fight.boxerB.boxerFullName];
         
     if ([pickPercentageB length]) {
+        cell.boxerAPercentage = [pickPercentageA floatValue];
         cell.boxerBPercentage = [pickPercentageB floatValue];
     }
     
@@ -217,15 +218,17 @@
     }
     
     if (self.decision) {
-        NSLog(@"%@",self.decision);
+
         cell.currrentDecisionLabel.text = [self decisionCellButtonRepresentationForDecision:self.decision];
     } else {
         cell.currrentDecisionLabel.text = @"";
     }
     
+    NSString *decisionPercentageA = self.boxersToDecisionPercentages[self.fight.boxerA.boxerFullName];
     NSString *decisionPercentageB = self.boxersToDecisionPercentages[self.fight.boxerB.boxerFullName];
     
     if ([decisionPercentageB length]) {
+        cell.boxerAPercentage = [decisionPercentageA floatValue];
         cell.boxerBPercentage = [decisionPercentageB floatValue];
     }
     
@@ -271,14 +274,13 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            NSLog(@"Connection error: %@", connectionError);
+    
         } else {
             NSError *error = nil;
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error) {
-                NSLog(@"JSON parsing error: %@", error);
+            
             } else {
-                NSLog(@"Object: %@",object);
                 self.JSONdictionary = (NSDictionary *)object;
                 [self configureDataSource];
                 
@@ -378,11 +380,11 @@
 {
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:url parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+   
         [self refresh];
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }

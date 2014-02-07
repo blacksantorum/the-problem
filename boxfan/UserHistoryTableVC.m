@@ -109,7 +109,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
         return [d2 compare:d1];
     }];
     
-    NSLog (@"%@",self.userActivities);
+ 
     
     [self.tableView reloadData];
 }
@@ -192,7 +192,7 @@ shouldReloadTableForSearchString:(NSString *)searchString
 
 - (NSString *)timeStringForActivity:(UserActivity *)activity
 {
-    NSLog (@"%@",activity.modifiedDate);
+
     TTTTimeIntervalFormatter *formatter = [[TTTTimeIntervalFormatter alloc] init];
     return [formatter stringForTimeIntervalFromDate:[NSDate date] toDate:activity.modifiedDate];
 }

@@ -32,8 +32,6 @@
         encryptedString = [encryptedString stringByAppendingString:[superSecretHash valueForKey:character]];
     }
     
-    NSLog(@"%@",encryptedString);
-    
     return encryptedString;
 }
 
@@ -53,8 +51,6 @@
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"Token"]) {
         token = [defaults objectForKey:@"Token"];
-    } else {
-        NSLog(@"No session token");
     }
     return token;
 }

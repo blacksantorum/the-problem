@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "ECA0CE35185E4EF8003380C5"
-               BuildableName = "boxfan.app"
+               BuildableName = "Boxing App.app"
                BlueprintName = "boxfan"
                ReferencedContainer = "container:boxfan.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECA0CE35185E4EF8003380C5"
-            BuildableName = "boxfan.app"
+            BuildableName = "Boxing App.app"
             BlueprintName = "boxfan"
             ReferencedContainer = "container:boxfan.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECA0CE35185E4EF8003380C5"
-            BuildableName = "boxfan.app"
+            BuildableName = "Boxing App.app"
             BlueprintName = "boxfan"
             ReferencedContainer = "container:boxfan.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "ECA0CE35185E4EF8003380C5"
-            BuildableName = "boxfan.app"
+            BuildableName = "Boxing App.app"
             BlueprintName = "boxfan"
             ReferencedContainer = "container:boxfan.xcodeproj">
          </BuildableReference>

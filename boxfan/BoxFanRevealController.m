@@ -82,12 +82,6 @@
     }
 }
 
--(void)passUser:(User *)user
-{
-    self.loggedInUser = user;
-    NSLog(@"User passed to BFRC: %@",self.loggedInUser);
-}
-
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self name:kReachabilityChangedNotification object:nil];

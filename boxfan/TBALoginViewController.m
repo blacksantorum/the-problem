@@ -18,17 +18,11 @@
 {
     [super viewDidLoad];
 	
-    [self.logInView setBackgroundColor:[UIColor blackColor]];
+    [self.logInView setBackgroundColor:[UIColor darkGrayColor]];
     [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
+    [self.logInView.twitterButton setTitle:@"Sign in with Twitter" forState:UIControlStateNormal];
+    [self.logInView.twitterButton setTitle:@" Sign in with Twitter" forState:UIControlStateHighlighted];
     
-    /*
-    [self.logInView.twitterButton setImage:nil forState:UIControlStateNormal];
-    [self.logInView.twitterButton setImage:nil forState:UIControlStateHighlighted];
-    [self.logInView.twitterButton setBackgroundImage:[UIImage imageNamed:@"twitter.png"] forState:UIControlStateNormal];
-    [self.logInView.twitterButton setBackgroundImage:[UIImage imageNamed:@"twitter_down.png"] forState:UIControlStateHighlighted];
-    [self.logInView.twitterButton setTitle:@"" forState:UIControlStateNormal];
-    [self.logInView.twitterButton setTitle:@"" forState:UIControlStateHighlighted];
-     */
 }
 
 - (void)viewDidLayoutSubviews {

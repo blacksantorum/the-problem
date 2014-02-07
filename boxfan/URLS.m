@@ -110,7 +110,7 @@
     } else {
         url = @"http://192.168.1.140:3000/api/signin";
     }
-    NSLog(@"%@",url);
+ 
     return url;
 }
 

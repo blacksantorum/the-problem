@@ -48,7 +48,6 @@
             [self.filteredUsers addObject:[self.usersDictionary objectForKey:title]];
         }
     }
-    NSLog(@"%@ and Is Searching: %s",self.filteredUsers,self.isSearching ? "true" : "false");
     [self.searchDisplayController.searchResultsTableView reloadData];
 }
 

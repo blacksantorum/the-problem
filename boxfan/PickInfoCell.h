@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *yourPickLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPickDescriptionLabel;
 
+@property CGFloat boxerAPercentage;
 @property CGFloat boxerBPercentage;
 
 @property (nonatomic,strong) Pick *pick;

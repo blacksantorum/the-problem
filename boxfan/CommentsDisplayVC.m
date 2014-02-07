@@ -16,17 +16,26 @@
 
 @interface CommentsDisplayVC () {
     NSMutableDictionary *textViews;
+    BOOL frameSet;
 }
 
 @property (strong,nonatomic) AFHTTPRequestOperationManager *manager;
 @property (strong,nonatomic) UIActivityIndicatorView *spinner;
 @property (strong,nonatomic) UITextField *commentField;
 
-@property CGRect originalToolbarFrame;
+@property (nonatomic) CGRect originalToolbarFrame;
 
 @end
 
 @implementation CommentsDisplayVC
+
+- (void)setOriginalToolbarFrame:(CGRect)originalToolbarFrame
+{
+    if (!frameSet) {
+        frameSet = YES;
+    }
+    _originalToolbarFrame = originalToolbarFrame;
+}
 
 -(User *)loggedInUser
 {
@@ -62,7 +71,7 @@
     self.toolbarItems = items;
     
     self.commentField.borderStyle = UITextBorderStyleRoundedRect;
-    self.originalToolbarFrame = self.navigationController.toolbar.frame;
+    
     [self addActivityViewIndicator];
     // [self refresh];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refresh) name:@"connectionRestored" object:nil];
@@ -72,22 +81,24 @@
 {
     [super viewDidAppear:animated];
     self.navigationController.toolbarHidden = NO;
+    if (!frameSet) {
+        self.originalToolbarFrame = self.navigationController.toolbar.frame;
+    }
     [self refresh];
 }
 
 - (void)addComment
 {
-    NSLog(@"Comment: %@",self.commentField.text);
     NSDictionary *dictionary = @{@"comment":@{@"body" : self.commentField.text}};
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:[URLS urlStringForPostingCommentForFight:self.fight] parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+
         [self refresh];
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
         self.commentField.text = @"";
-        [self.commentField resignFirstResponder];
+        [self.commentField endEditing:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
     
@@ -117,19 +128,19 @@
 {
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.spinner startAnimating];
-    NSLog(@"%@", [URLS urlForCommentsForFight:self.fight]);
+ 
     NSURLRequest *request = [NSURLRequest requestWithURL:[URLS urlForCommentsForFight:self.fight]];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            NSLog(@"Connection error: %@", connectionError);
+        
         } else {
             NSError *error = nil;
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error) {
-                NSLog(@"JSON parsing error: %@", error);
+            
             } else {
-                NSLog(@"%@",object);
+            
                 NSArray *array = (NSArray *)object;
                 
                 NSMutableArray *comments = [[NSMutableArray alloc] init];
@@ -242,10 +253,10 @@
     }
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager POST:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+    
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+   
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }

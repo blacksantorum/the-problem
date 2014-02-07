@@ -174,7 +174,7 @@
 
 - (BOOL)hasFightOfTheYear
 {
-    NSLog(@"%@",self.profile.FOY);
+ 
     if (self.profile.FOY) {
         return YES;
     } else {
@@ -190,14 +190,14 @@
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
-            NSLog(@"Connection error: %@", connectionError);
+          
         } else {
             NSError *error = nil;
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error) {
-                NSLog(@"JSON parsing error: %@", error);
+             
             } else {
-                NSLog(@"%@",object);
+              
                 NSDictionary *userDictionary = (NSDictionary *)object;
                 self.profile = [[Profile alloc] initWithDictionary:[userDictionary objectForKey:@"user"]];
                 
@@ -216,7 +216,12 @@
         [spinner stopAnimating];
     }];
     self.nameLabel.text = self.displayedUser.name;
-    [self.profileImageView setImage:[self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]]];
+    dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        UIImage *profileImage = [self imageForURL:[NSURL URLWithString:self.displayedUser.profileImageURL]];
+        dispatch_async(dispatch_get_main_queue(), ^(void){
+            [self.profileImageView setImage:profileImage];
+        });
+    });
     
 }
 - (void)viewDidLoad
@@ -242,11 +247,11 @@
 {
     [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:YES];
     [self.manager PUT:[URLS urlStringForUpdatingProfileForUser:self.loggedInUser] parameters:dictionary success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
+   
         [self refresh];
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+     
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
     

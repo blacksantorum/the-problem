@@ -43,7 +43,11 @@
                                                  300.0,
                                                  300.0);
     self.gauge = [[MSSimpleGauge alloc] initWithFrame:gaugeFrame];
-    [self.gauge setValue:self.boxerBPercentage animated:YES];
+    if (self.boxerAPercentage == 0.0 && self.boxerBPercentage == 0.0) {
+        [self.gauge setValue:50.0];
+    } else {
+        [self.gauge setValue:self.boxerBPercentage animated:YES];
+    }
     // self.gauge.fillGradient = [MSGradientArcLayer defaultGradient];
     self.gauge.fillArcFillColor = [[UIColor blueColor] colorWithAlphaComponent:0.15];
     [self.contentView addSubview:self.gauge];

@@ -65,7 +65,6 @@
         [self setUpRevealController];
         [self setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
         [self setNetworkActivityIndicatorVisible:NO];
     }];
 }
@@ -106,7 +105,6 @@
 
 // Sent to the delegate when the log in attempt fails.
 - (void)logInViewController:(TBALoginViewController *)logInController didFailToLogInWithError:(NSError *)error {
-    NSLog(@"Failed to log in...");
 }
 
 -(void)setUpRevealController

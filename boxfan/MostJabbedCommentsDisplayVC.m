@@ -14,15 +14,13 @@
 
 @implementation MostJabbedCommentsDisplayVC
 
-/*
 - (NSArray *)sortCommentsArray:(NSArray *)array
 {
     return [array sortedArrayUsingComparator: ^(id a, id b) {
-        NSInteger j1 = [(Comment *)a jabs];
-        NSInteger j2 = [(Comment *)b jabs];
-        return j1 > j2;
+        NSDate *d1 = [(Comment *)a date];
+        NSDate *d2 = [(Comment *)b date];
+        return [d2 compare:d1];
     }];
 }
- */
 
 @end
