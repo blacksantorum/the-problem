@@ -18,9 +18,9 @@
 {
     [super viewDidLoad];
 	
-    [self.logInView setBackgroundColor:[UIColor darkGrayColor]];
+    [self.logInView setBackgroundColor:[UIColor grayColor]];
     [self.logInView setLogo:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo.png"]]];
-    [self.logInView.twitterButton setTitle:@"Sign in with Twitter" forState:UIControlStateNormal];
+    [self.logInView.twitterButton setTitle:@" Sign in with Twitter" forState:UIControlStateNormal];
     [self.logInView.twitterButton setTitle:@" Sign in with Twitter" forState:UIControlStateHighlighted];
     
 }
@@ -29,7 +29,7 @@
     [super viewDidLayoutSubviews];
     
     // Set frame for elements
-    [self.logInView.logo setFrame:CGRectMake(66.5f, 70.0f, 187.0f, 58.5f)];
+    [self.logInView.logo setFrame:CGRectMake(66.5f, 175.0f, 187.0f, 58.5f)];
     // [self.logInView.twitterButton setFrame:CGRectMake(35.0f+130.0f, 287.0f, 120.0f, 40.0f)];
 }
 
