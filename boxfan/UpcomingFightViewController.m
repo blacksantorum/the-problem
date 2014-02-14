@@ -49,21 +49,10 @@
     
     if (![buttonTitle isEqualToString:@"Cancel"]) {
         NSString *postURLString = [URLS urlStringForPostingPickForFight:self.fight];
-        NSArray *stringArray = [buttonTitle componentsSeparatedByString:@" "];
         
-        Boxer *pickedBoxer;
-        for (Boxer *b in self.fight.boxers) {
-            if ([b.lastName isEqualToString:stringArray[0]]) {
-                pickedBoxer = b;
-            }
-        }
+        Boxer *pickedBoxer = buttonIndex == 0 || buttonIndex == 1 ? self.fight.boxerA : self.fight.boxerB;
         
-        BOOL ko;
-        if ([[stringArray lastObject] isEqualToString:@"KO"]) {
-            ko = YES;
-        } else {
-            ko = NO;
-        }
+        BOOL ko = (buttonIndex == 1 || buttonIndex == 3);
         
         [self postUserActivityDictionary:[self postDictionaryForPicking:pickedBoxer byKO:ko] toURLString:postURLString];
     }
@@ -96,6 +85,15 @@
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
     
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                        message:@"Your update could not be completed. Please check your data connection."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        cell.makePickButton.titleLabel.text = @"Update pick";
+        cell.makePickButton.enabled = YES;
+
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }

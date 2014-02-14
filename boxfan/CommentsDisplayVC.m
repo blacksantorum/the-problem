@@ -98,7 +98,12 @@
         self.commentField.text = @"";
         [self.commentField endEditing:YES];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-    
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                        message:@"Your update could not be completed. Please check your data connection."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
     
@@ -138,7 +143,12 @@
             NSError *error = nil;
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error) {
-            
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                                message:@"Please check your data connection"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
             } else {
             
                 NSArray *array = (NSArray *)object;
@@ -256,7 +266,12 @@
     
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-   
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                        message:@"Please check your data connection and try that jab again."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }

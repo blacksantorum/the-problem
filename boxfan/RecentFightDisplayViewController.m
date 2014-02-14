@@ -29,6 +29,12 @@
 
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                        message:@"Your update could not be completed. Please check your data connection."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
 
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
@@ -78,14 +84,10 @@
     if (![buttonTitle isEqualToString:@"Cancel"]) {
         NSString *postURLString = [URLS urlStringForPostingDecisionForFight:self.fight];
         
-        Boxer *decidedBoxer;
-        for (Boxer *b in self.fight.boxers) {
-            if ([b.boxerFullName isEqualToString:buttonTitle]) {
-                decidedBoxer = b;
-            }
-        }
+        Boxer *decidedBoxer = buttonIndex == 0 ? self.fight.boxerA : self.fight.boxerB;
         
         [self postUserActivityDictionary:[self postDictionaryForDeciding:decidedBoxer] toURLString:postURLString];
+        NSLog(@"Thought %@ won",decidedBoxer);
     }
 }
 
@@ -106,7 +108,15 @@
         cell.makeDecisionButton.enabled = YES;
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-  
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                        message:@"Your update could not be completed. Please check your data connection."
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        cell.makeDecisionButton.titleLabel.text = @"Update decision";
+        cell.makeDecisionButton.enabled = YES;
+
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
     }];
 }

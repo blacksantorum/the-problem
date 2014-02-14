@@ -59,6 +59,12 @@
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                            message:@"Please check your data connection"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
 
         } else {
             NSError *error = nil;

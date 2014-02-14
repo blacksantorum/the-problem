@@ -195,7 +195,12 @@
             NSError *error = nil;
             id object = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
             if (error) {
-             
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
+                                                                message:@"Please check your data connection"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
             } else {
               
                 NSDictionary *userDictionary = (NSDictionary *)object;

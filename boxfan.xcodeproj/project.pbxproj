@@ -1912,8 +1912,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Christopher Tibbs (KCUUN2YM64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Christopher Tibbs (KCUUN2YM64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Christopher Tibbs (KCUUN2YM64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Tibbs (M697LKN47A)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/christibbs/Documents/the\\ problem/boxfan",
@@ -1922,7 +1923,7 @@
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "Boxing App";
-				PROVISIONING_PROFILE = "8C4F48C3-3475-4587-8723-7A4E88210160";
+				PROVISIONING_PROFILE = "CB3B060F-D507-4CBA-AB34-A8D093023771";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1933,8 +1934,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Christopher Tibbs (M697LKN47A)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Tibbs (M697LKN47A)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/christibbs/Documents/the\\ problem/boxfan",
@@ -1943,7 +1944,7 @@
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "Boxing App";
-				PROVISIONING_PROFILE = "8C4F48C3-3475-4587-8723-7A4E88210160";
+				PROVISIONING_PROFILE = "CB3B060F-D507-4CBA-AB34-A8D093023771";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
