@@ -10,6 +10,7 @@
 #import "FightInfoCell.h"
 #import "ScheduleFormattedDate.h"
 #import "boxfanAppDelegate.h"
+#import <Social/Social.h>
 
 @interface UpcomingFightViewController ()
 
@@ -43,7 +44,7 @@
     
 }
 
--(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     
@@ -54,8 +55,46 @@
         
         BOOL ko = (buttonIndex == 1 || buttonIndex == 3);
         
+        Pick *pick = [[Pick alloc] init];
+        pick.fight = self.fight;
+        pick.winner = pickedBoxer;
+        
+        if ([pickedBoxer.boxerID.description isEqualToString:self.fight.boxerA.boxerID.description]) {
+            pick.loser = self.fight.boxerB;
+        } else {
+            pick.loser = self.fight.boxerA;
+        }
+        
+        pick.byStoppage = ko;
+        
         [self postUserActivityDictionary:[self postDictionaryForPicking:pickedBoxer byKO:ko] toURLString:postURLString];
+        
+        [self showTweetSheet:pick];
     }
+}
+
+- (void)showTweetSheet:(Pick *)pick
+{
+    SLComposeViewController *tweetSheet = [SLComposeViewController
+                                           composeViewControllerForServiceType:
+                                           SLServiceTypeTwitter];
+    
+    tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
+        switch(result) {
+                //  This means the user cancelled without sending the Tweet
+            case SLComposeViewControllerResultCancelled:
+                break;
+                //  This means the user hit 'Send'
+            case SLComposeViewControllerResultDone:
+                break;
+        }
+    };
+    
+    [tweetSheet setInitialText:[NSString stringWithFormat:@"I'm picking %@ over %@ %@ #TBA",pick.winner.boxerFullName,pick.loser.boxerFullName, (pick.byStoppage) ? @"by KO" : @"by decision"]];
+    
+    [tweetSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://theboxingapp.com/fights/%@",self.fight.fightID.description]]];
+    
+    [self presentViewController:tweetSheet animated:YES completion:nil];
 }
 
 -(NSDictionary *)postDictionaryForPicking:(Boxer *)boxer byKO:(BOOL)ko

@@ -18,6 +18,7 @@
 #import "NoCommentsCell.h"
 
 
+
 @interface FightDisplayVC () {
     UIActivityIndicatorView *spinner;
 }

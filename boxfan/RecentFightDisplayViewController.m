@@ -12,6 +12,7 @@
 #import "DecisionInfoCell.h"
 #import "ScheduleFormattedDate.h"
 #import "boxfanAppDelegate.h"
+#import <Social/Social.h>
 
 @interface RecentFightDisplayViewController ()
 
@@ -28,6 +29,7 @@
     [self.manager POST:[URLS urlStringForUpdatingFOYtoFight:self.fight] parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
 
         [(boxfanAppDelegate *)[[UIApplication sharedApplication] delegate] setNetworkActivityIndicatorVisible:NO];
+        [self showFOYTweetSheet];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Sorry. Can't connect."
                                                         message:@"Your update could not be completed. Please check your data connection."
@@ -86,9 +88,69 @@
         
         Boxer *decidedBoxer = buttonIndex == 0 ? self.fight.boxerA : self.fight.boxerB;
         
+        Decision *decision = [[Decision alloc] init];
+        decision.fight = self.fight;
+        decision.winner = decidedBoxer;
+        
+        if ([decidedBoxer.boxerID.description isEqualToString:self.fight.boxerA.boxerID.description]) {
+            decision.loser = self.fight.boxerB;
+        } else {
+            decision.loser = self.fight.boxerA;
+        }
+        
         [self postUserActivityDictionary:[self postDictionaryForDeciding:decidedBoxer] toURLString:postURLString];
-        NSLog(@"Thought %@ won",decidedBoxer);
+        
+        [self showTweetSheet:decision];
     }
+}
+
+- (void)showFOYTweetSheet
+{
+    SLComposeViewController *tweetSheet = [SLComposeViewController
+                                           composeViewControllerForServiceType:
+                                           SLServiceTypeTwitter];
+    
+    tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
+        switch(result) {
+                //  This means the user cancelled without sending the Tweet
+            case SLComposeViewControllerResultCancelled:
+                break;
+                //  This means the user hit 'Send'
+            case SLComposeViewControllerResultDone:
+                break;
+        }
+    };
+    
+    [tweetSheet setInitialText:[NSString stringWithFormat:@"%@ is my new Fight of the Year! #TBA",self.fight.titleForScheduleView]];
+    
+    [tweetSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://theboxingapp.com/fights/%@",self.fight.fightID.description]]];
+    
+    [self presentViewController:tweetSheet animated:YES completion:nil];
+}
+
+- (void)showTweetSheet:(Decision *)decision
+{
+    SLComposeViewController *tweetSheet = [SLComposeViewController
+                                           composeViewControllerForServiceType:
+                                           SLServiceTypeTwitter];
+    
+    tweetSheet.completionHandler = ^(SLComposeViewControllerResult result) {
+        switch(result) {
+                //  This means the user cancelled without sending the Tweet
+            case SLComposeViewControllerResultCancelled:
+                break;
+                //  This means the user hit 'Send'
+            case SLComposeViewControllerResultDone:
+                break;
+        }
+    };
+    
+    [tweetSheet setInitialText:[NSString stringWithFormat:@"I thought %@ beat %@ #TBA",decision.winner.boxerFullName,decision.loser.boxerFullName]];
+    
+    
+    [tweetSheet addURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://theboxingapp.com/fights/%@",self.fight.fightID.description]]];
+    
+    [self presentViewController:tweetSheet animated:YES completion:nil];
 }
 
 -(NSDictionary *)postDictionaryForDeciding:(Boxer *)boxer

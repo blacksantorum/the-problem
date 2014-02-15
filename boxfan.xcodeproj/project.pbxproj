@@ -1913,8 +1913,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=*]" = "iPhone Developer: Christopher Tibbs (KCUUN2YM64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christopher Tibbs (M697LKN47A)";
+				"CODE_SIGN_IDENTITY[sdk=*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/christibbs/Documents/the\\ problem/boxfan",
@@ -1923,7 +1923,7 @@
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "Boxing App";
-				PROVISIONING_PROFILE = "CB3B060F-D507-4CBA-AB34-A8D093023771";
+				PROVISIONING_PROFILE = "E68B6AFE-6C69-492E-A8AF-A28D48E5AA79";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1944,7 +1944,7 @@
 				GCC_PREFIX_HEADER = "boxfan/boxfan-Prefix.pch";
 				INFOPLIST_FILE = "boxfan/boxfan-Info.plist";
 				PRODUCT_NAME = "Boxing App";
-				PROVISIONING_PROFILE = "CB3B060F-D507-4CBA-AB34-A8D093023771";
+				PROVISIONING_PROFILE = "E68B6AFE-6C69-492E-A8AF-A28D48E5AA79";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

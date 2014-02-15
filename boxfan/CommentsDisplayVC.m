@@ -13,6 +13,7 @@
 #import "BoxFanRevealController.h"
 #import "UserProfileController.h"
 #import "boxfanAppDelegate.h"
+#import <math.h>
 
 @interface CommentsDisplayVC () {
     NSMutableDictionary *textViews;
